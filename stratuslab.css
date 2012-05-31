@@ -52,7 +52,7 @@ padding: 0px 25px 0px 25px;
 #header {
 float: left;
 width: 908px;
-background-color: linen;
+background-color: aqua;
 }
 
 #header img {
@@ -66,7 +66,7 @@ position: relative;
 display: block;
 width: 908px;
 height: 43px;
-background-color: linen;
+background-color: aqua;
 }
 
 .menu ul,
@@ -96,7 +96,7 @@ text-decoration: none;
 color: black;
 font-weight: normal;
 font-style: normal;
-background-color: linen;
+background-color: aqua;
 }
 
 .menu ul li a:hover {
@@ -104,7 +104,7 @@ text-decoration: underline;
 color: black;
 font-weight: normal;
 font-style: normal;
-background-color: linen;
+background-color: aqua;
 }
 
 h1 + .date {
@@ -222,7 +222,7 @@ float: left;
 display: block;
 width: 908px;
 color: #9b9b9b;
-background-color: linen;
+background-color: aqua;
 }
 
 #footer span {
