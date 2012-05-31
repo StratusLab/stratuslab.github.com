@@ -1,0 +1,230 @@
+
+body {
+margin: 0px;
+padding: 0px;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 0.875em;/*14px*/
+color: black;
+background: #ffffff;
+}
+
+/* Main content */
+body *, body :focus, a {
+outline: none;
+}
+
+h1 {
+padding-bottom: 0px;
+margin-bottom: 0px;
+}
+
+img {
+border: none;
+}
+
+#wrapper {
+position: relative;
+width: 908px;
+margin: 0px auto;
+}
+
+#content {
+float: left;
+width: 902px;
+/* margin: 30px 0px 25px 0px; */
+margin: -5px 0px 25px 4px;
+padding-bottom: 12px;
+background: transparent;
+}
+
+.content_bg {
+float: left;
+width: 902px;
+background: transparent;
+}
+
+.main {
+float: left;
+width: 550px;
+padding: 0px 25px 0px 25px;
+}
+
+#header {
+float: left;
+width: 908px;
+background-color: linen;
+}
+
+#header img {
+padding-left: 20px;
+padding-top: 5px;
+}
+
+/* Main menu */
+.menu {
+position: relative;
+display: block;
+width: 908px;
+height: 43px;
+background-color: linen;
+}
+
+.menu ul,
+.menu ul li {
+margin: 0px;
+padding: 0px;
+list-style: none;
+list-style-image: none;
+}
+
+.menu ul li {
+float: left;
+height: 43px;
+line-height: 43px;
+}
+
+.menu ul li a {
+line-height: 43px;
+padding: 0px 20px;
+}
+
+.menu ul li a,
+.menu ul li a.link,
+.menu ul li a.visited,
+.menu ul li a.active {
+text-decoration: none;
+color: black;
+font-weight: normal;
+font-style: normal;
+background-color: linen;
+}
+
+.menu ul li a:hover {
+text-decoration: underline;
+color: black;
+font-weight: normal;
+font-style: normal;
+background-color: linen;
+}
+
+h1 + .date {
+display: block;
+color: gray;
+font-size: small;
+height: 20px;
+padding-bottom: 10px;
+}
+
+a + .date {
+display: inline;
+color: gray;
+padding-left: 2px;
+padding-right: 2px;
+}
+
+/* Style characteristics on front page. */
+.main dl dt {
+font-style: italic;
+font-weight: bold;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+display: block;
+padding-bottom: 10px;
+}
+
+.breadcrumb ul {
+display: block;
+}
+
+.breadcrumb ul,
+.breadcrumb ul li {
+margin: 0px;
+padding: 0px;
+list-style: none;
+list-style-image: none;
+}
+
+.breadcrumb ul li {
+display: inline;
+padding-left: 10px;
+}
+
+.breadcrumb ul li.first {
+padding-left: 0px;
+}
+
+.breadcrumb ul li.first:before {
+content: none;
+}
+
+.breadcrumb ul li:before {
+content: "\00BB";
+}
+
+.breadcrumb ul li a,
+.breadcrumb ul li a.link,
+.breadcrumb ul li a.visited,
+.breadcrumb ul li a.active {
+padding-left: 10px;
+text-decoration: none;
+color: black;
+font-weight: normal;
+font-style: italic;
+}
+
+.breadcrumb ul li a:hover {
+padding-left: 10px;
+text-decoration: underline;
+color: black;
+font-weight: normal;
+font-style: italic;
+}
+
+.breadcrumb ul li.first a,
+.breadcrumb ul li.first a.link,
+.breadcrumb ul li.first a.visited,
+.breadcrumb ul li.first a.active,
+.breadcrumb ul li.first a:hover {
+padding-left: 0px;
+}
+
+/* Sidebar */
+.sidebar {
+float: right;
+padding-top: 20px;
+width: 252px;
+background-color: transparent;
+}
+
+/* Turn off bullets for lists of posts. */
+.list_news ul {
+margin: 0px;
+padding: 0px;
+}
+
+.list_news ul,
+.list_news ul li {
+list-style: none;
+list-style-image: none;
+}
+
+.list_news ul li {
+margin: 0px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+/* Footer */
+#footer {
+float: left;
+display: block;
+width: 908px;
+color: #9b9b9b;
+background-color: linen;
+}
+
+#footer span {
+text-align: center;
+}
