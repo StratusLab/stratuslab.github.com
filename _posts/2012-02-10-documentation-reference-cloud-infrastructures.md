@@ -143,8 +143,8 @@ You can use StratusLab distribution v1.0 to deploy your own cloud services.
 The software is open source and available from the project repositories.
 Currently we support Fedora14 operating system and two modes of installation:
 
-  - [Manual Installation][manual-install], or
-  - [Quattor Installation][quattor-install].
+* [Manual Installation][manual-install], or
+* [Quattor Installation][quattor-install].
 
 How can I get more information and support?
 -------------------------------------------
