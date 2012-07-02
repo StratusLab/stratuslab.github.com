@@ -1,7 +1,7 @@
 ---
 layout: article
 title: StratusLab Reference Cloud Infrastructures
-category: news
+category: documentation
 ---
 
 StratusLab has deployed a reference infrastructure and offers access to
