@@ -10,10 +10,10 @@ developed by the project. This infrastructure builds upon the latest stable
 release 1.2 of the StratusLab distribution and provides two types of cloud
 services:
 
-  * A cloud computing site for instantiating and managing Virtual Machines, as
+* A cloud computing site for instantiating and managing Virtual Machines, as
     well as for creating persistent storage volumes to preserve and share your
     data and applications among multiple VM instances.
-  * A Marketplace providing access to pre-configured Virtual Machine and Disk
+* A Marketplace providing access to pre-configured Virtual Machine and Disk
     images
 
 The physical cloud-computing infrastructure is located in Athens, Greece, and
@@ -32,8 +32,8 @@ institute and the project in which you are involved (if applicable).
 
 For user authentication two different mecahnisms are supported:
 
-  * Username/password pair generated internally from StratusLab operations
-  * Digital certificate issued by an [IGTF][igtf] accredited Certification
+* Username/password pair generated internally from StratusLab operations
+* Digital certificate issued by an [IGTF][igtf] accredited Certification
     Authority. In this case authentication can be done directly using this
     certificate or by generating a VOMS proxy certificate signed from the
     above.
@@ -85,10 +85,10 @@ time being, no network management services are supported.
 The [Marketplace][marketplace] is publicly accessible and currently offers
 base OS images for various Linux distributions including:
 
-  * ttylinux 9.7
-  * CentOS 5.5
-  * Fedora 14
-  * Ubuntu 10.04 Server
+* ttylinux 9.7
+* CentOS 5.5
+* Fedora 14
+* Ubuntu 10.04 Server
 
 With time, more base images as well as virtual appliances will become
 available. External users also have the ability to upload their own base
