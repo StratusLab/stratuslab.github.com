@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Academic Agile
+author: Charles Loomis
 category: blog
 ---
 
