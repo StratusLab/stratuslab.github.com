@@ -88,7 +88,7 @@ to install the latest version of the client tools.
 
 All other installations should be performed via the standalone tarball. This
 can be found in the StratusLab maven repository. Look for the latest version
-of the [stratuslab-cli-user-*.tar.gz][download] file. Unpack the tarball in a
+of the [stratuslab-cli-user-\*.tar.gz][download] file. Unpack the tarball in a
 convenient location.
 
 For the tarball, you will additionally have to (re)define your PATH and PYTHONPATH variables:
