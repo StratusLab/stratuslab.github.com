@@ -31,8 +31,8 @@
 
             <div class="breadcrumb">
               <ul>
-                <li class="first"><a href="index.html" class="first">Home</a>
-                <li><a href="{{ page.category }}/index.html" class="current">{{ page.category | capitalize }}</a>
+	            <li class="first"><a href="/" class="first">Home</a></li>
+	            <li><a href="{{ page.url }}" class="current">{{ page.title }}</a></li>
               </ul>
             </div>
             
@@ -45,7 +45,7 @@
               <ul>
                 
                 {% for post in site.posts %}
-                {% if post.category == downcase_title %}
+                {% if post.category == page.category %}
                 <li>
                   <a href="{{ site.baseurl }}{{ post.url }}" class="title">{{ post.title }}</a>
                   {% if post.date %}
