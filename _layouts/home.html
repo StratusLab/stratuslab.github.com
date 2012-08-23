@@ -1,67 +1,62 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!DOCTYPE html>
+<html>
 
-<html 
-   xmlns="http://www.w3.org/1999/xhtml" 
-   xml:lang="en" 
-   version="XHTML+RDFa 1.0" 
-   dir="ltr"
-   xmlns:content="http://purl.org/rss/1.0/modules/content/"
-   xmlns:dc="http://purl.org/dc/terms/"
-   xmlns:foaf="http://xmlns.com/foaf/0.1/"
-   xmlns:og="http://ogp.me/ns#"
-   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-   xmlns:sioc="http://rdfs.org/sioc/ns#"
-   xmlns:sioct="http://rdfs.org/sioc/types#"
-   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+    {% include head.html %}
 
-  {% include head.html %}
+    <body id="home">
 
-  <body class="front_page">
-    
-    <div id="wrapper">
+        {% include top_page.html %}
 
-      {% include header.html %}
-      
-      <div id="content">
-        
-        <div id="content_background">
-          
-          <div class="main">
+        <div class="mainColumn">
+            <h1>Darn simple cloud</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna <a href="#">aliquam erat volutpat</a>. Ut wisi enim ad minim veniam, quis nostrud exercitation ulliam corper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem veleum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel willum lunombro dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p> 
 
-            <h1>darn simple cloud</h1>
-            
-             <p>StratusLab provides a <strong>complete IaaS cloud distribution</strong>
-            for scalable public or private clouds.  The distribution is
-            <strong>open-source</strong> and available under the business-friendly
-            Apache2 License.</p>
 
-             <p>The distribution has been designed so that both the cloud services
-             and cloud clients are easy to install and use.</p>
-
-             <div class="videos">
-               <span class="video">
-                 <iframe class="video" 
-                         src="http://www.youtube.com/embed/eR8OgKsuBoo" 
-                         allowfullscreen></iframe>
-               </span>
-               <span class="video">
-                 <iframe class="video" 
-                         src="http://www.youtube.com/embed/gDaWiuX93ss" 
-                         allowfullscreen></iframe>
-               </span>
-             </div>
-
-          </div>
-
-          {% include sidebar.html %}
+            <div class="leftColumn">
+                <div class="video-container">
+                    <iframe class="video" src="http://www.youtube.com/embed/eR8OgKsuBoo" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="rightColumn">
+                <div class="video-container">
+                    <iframe class="video" src="http://www.youtube.com/embed/gDaWiuX93ss" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
 
         </div>
-        
-      </div>
-      
-      {% include footer.html %}
-      
-    </div>
-  </body>
+        <div class="sidebarColumn">
+            {% include twitter.html %}
+        </div>                    
+        <div class="cf"></div>
+
+        <hr>
+        <p><u>I suppose</u> I should put in a line with <em>emphasis</em> and <strong>strong words</strong>, too.</p>
+        <hr>
+
+        <p>Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental: in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.</p>
+
+        <ul>
+            <li>First Item</li>
+            <li>Second Item
+            <ol>
+                <li>First Item</li>
+                <li>Second Item</li>
+                <li>Third Item</li>
+            </ol>
+            </li>
+            <li>Third Item</li>
+            <li>Fifth Item</li>
+        </ul>
+
+        <pre><code>$ yum install stratuslab-cli-user
+export PATH=$PATH:/bin
+export PYTHONPATH=/lib/stratuslab/python
+</code></pre>
+
+        <p>Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental: in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.</p>
+
+
+        {% include bottom_page.html %}
+
+    </body>
 </html>

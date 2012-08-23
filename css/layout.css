@@ -1,0 +1,461 @@
+/* ----------------------------------------------------------------------
+LAYOUT
+---------------------------------------------------------------------- */
+
+body {
+    background: url(../images/body.png);
+}
+
+html, body {
+	height: 100%;
+}
+
+#externalWrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+}
+
+#footer, #push {
+	height: 50px; /* .push must be the same height as .footer */
+}
+
+#footer {
+    background: red;
+    background: url("../images/footer.png");
+    line-height: 50px;
+    text-align: center;
+    color: #9ba5a8;
+}
+
+
+#wrapper {
+    padding: 0 7%;
+}
+
+.wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+#content {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 2em 0em 0em 0em;
+}
+
+#band {
+    background: #27a1cb;
+    height: 8px;
+}
+
+#navigationWrapper {
+    padding: 1.5em 7%;
+}
+
+#navigation  {
+    padding: 0px;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+#navigation li {
+    float: left;
+    list-style: none;
+    margin-right: 15px;
+}
+
+#navigation li a {
+    display: block;
+    width: 89px;
+    height: 89px;
+}
+
+#navigation li a {
+    color: #444;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    /*padding-left: 0.7em;*/
+    /*padding-right: 0.7em;*/
+    /*font-size: 0.9em;*/
+    /*font-family:"PTSansBold";*/
+}
+
+#homeNav    a { background: url(../images/navigationSprite.png) no-repeat; }
+#blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px 0px; }
+#docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px 0px; }
+#filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px 0px; }
+#contactNav a { background: url(../images/navigationSprite.png) no-repeat -400px 0px; }
+
+#home          li#homeNav    a { background: url(../images/navigationSprite.png) no-repeat 0px -89px;; }
+#blog          li#blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px -89px; }
+#documentation li#docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px -89px; }
+#download      li#filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px -89px; }
+/*#contactNav a { background: url(../images/navigationSprite.png) no-repeat -400px -89px; }*/
+
+#homeNav    a:hover { background: url(../images/navigationSprite.png) no-repeat 0px -178px; }
+#blogNav    a:hover { background: url(../images/navigationSprite.png) no-repeat -103px -178px; }
+#docNav     a:hover { background: url(../images/navigationSprite.png) no-repeat -202px -178px; }
+#filesNav   a:hover { background: url(../images/navigationSprite.png) no-repeat -301px -178px; }
+#contactNav a:hover { background: url(../images/navigationSprite.png) no-repeat -400px -178px; }
+
+/*#navigation li a.active { background-position-y: -89px; }*/
+/*#navigation li a:hover { background-position-y: -178px; }*/
+
+#title {
+    font-size: 48px;
+    font-family:"PTSansBold";
+    color: #7d7d7d;
+    border-bottom: 5px solid #d5dadd;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
+
+#tagline {
+    position:relative;
+    top: 25px;
+}
+
+#title span {
+    color: #279ec6;
+}
+
+#logo {
+    background: url(../images/logo.png) no-repeat;
+    width: 104px;
+    height: 58px;
+    float: left;
+    margin-right: 30px;
+}
+
+.mainColumn {
+    width: 65%;
+    float: left;
+    margin-right: 4%;
+}
+
+.sidebarColumn {
+    width: 31%;
+    margin-left:69%;
+}
+
+.leftColumn {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+}
+
+.rightColumn {
+    width: 48%;
+    margin-left: 52%;
+}
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+    *zoom:1;
+}
+
+/* ----------------------------------------------------------------------
+TWITTER
+---------------------------------------------------------------------- */
+
+#twitterLogo 
+{
+   height: 30px;
+   background: url(../images/twitterLogo.png) no-repeat;
+   margin-bottom: 18px;
+}
+
+.twtr-hd, .twtr-ft
+{
+    display: none;
+}
+
+.twtr-widget, .twtr-widget h3, .twtr-widget h4, .twtr-widget p {
+    font-family: "PTSansRegular" !important;
+    font-size: 1.3em !important;	
+    
+}
+
+#twtr-widget-1 .twtr-doc, #twtr-widget-1 .twtr-hd a, #twtr-widget-1 h3, #twtr-widget-1 h4 
+{
+    border: none !important;
+    background: none !important;
+}
+
+.twtr-timeline 
+{
+    border-radius: 0px !important;
+    background: none !important;
+}
+
+.twtr-tweet 
+{
+    border-bottom: none !important;
+}
+
+#twtr-widget-1 .twtr-tweet a 
+{
+    text-decoration: none !important;
+    color: #1899CB !important;
+}
+
+.twtr-widget .twtr-tweet-wrap {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-bottom: 1.3em;
+}
+
+.twtr-tweet-text {
+    border-left: solid 4px #51b0d4;
+    padding-left: 1em;
+}
+
+.twtr-user,
+.twtr-reply,
+.twtr-rt,
+.twtr-fav 
+{
+    display: none;
+}
+
+.twtr-widget em 
+{
+    padding-top: 5px;
+    color: transparent;
+}
+
+
+#twtr-widget-1 .twtr-tweet a.twtr-timestamp
+{
+
+    font-size: 1.6em !important;
+    color: #acacac !important;
+}
+
+.twtr-widget p 
+{
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    
+}
+
+
+/* ----------------------------------------------------------------------
+YOUTUBE
+---------------------------------------------------------------------- */
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+    /*margin: 1.5em 0;*/
+    margin-bottom: 1em;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ----------------------------------------------------------------------
+NEWS
+---------------------------------------------------------------------- */
+
+.news-snippet {
+    margin-top: 1.5em;
+}
+
+.abstract {
+    padding-left: 0.6em;
+    border-left: 4px solid #D4D6D7;
+    color: #999;
+    margin-top: 0.5em;
+}
+
+.news-snippet:hover > .abstract, .abstract:hover {
+    color: #444;
+}
+
+.date {
+    color: #637479;
+    white-space: nowrap;
+}
+
+.articleDate {
+    color: #ACACAC;
+}
+
+/* ----------------------------------------------------------------------
+TABLETS
+---------------------------------------------------------------------- */
+
+@media only screen 
+and (max-width : 768px) {
+    #navigationWrapper h1 {
+        float: none;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+    #navigationWrapper ul {
+        float: none;
+        margin: 0px auto;
+        width: 520px;
+    }
+
+
+    .mainColumn {
+        width: auto;
+        float: none;
+        margin-right: 0px;
+    }
+
+    .sidebarColumn {
+        width: auto;
+        margin-left: 0px;
+    }
+
+    #twitterLogo 
+    {
+       background: url(../images/twitterLogo.png) no-repeat center;
+       margin-top: 2em;
+    }
+    
+}
+
+/* ----------------------------------------------------------------------
+SMARTH PHONES
+---------------------------------------------------------------------- */
+
+
+@media only screen 
+and (max-width : 550px) {
+    body {
+        font-size: 1.0em;
+    }
+
+    h1 {
+        line-height: 1.2em;
+    }
+
+    h2, h3 {
+        font-size: 1.3em;
+    }
+
+    #navigationWrapper ul {
+        width: 312px;
+    }
+
+    #navigation li#filesNav {
+        margin-left: 55px;
+    }
+
+    #title {
+        text-align: center;
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #tagline {
+        top: -10px;
+    }
+
+    .leftColumn {
+        width: auto;
+        float: none;
+        margin: 0px;
+    }
+
+    .rightColumn {
+        width: auto;
+        margin: 0px;
+    }
+    
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+   
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

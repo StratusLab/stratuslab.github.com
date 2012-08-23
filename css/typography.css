@@ -1,0 +1,186 @@
+/* ----------------------------------------------------------------------
+TYPOGRAPHY
+---------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'PTSansRegular';
+    src: url('../fonts/PTS55F-webfont.eot');
+    src: url('../fonts/PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PTS55F-webfont.woff') format('woff'),
+         url('../fonts/PTS55F-webfont.ttf') format('truetype'),
+         url('../fonts/PTS55F-webfont.svg#PTSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansBold';
+    src: url('../fonts/PTS75F-webfont.eot');
+    src: url('../fonts/PTS75F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/PTS75F-webfont.woff') format('woff'),
+         url('../fonts/PTS75F-webfont.ttf') format('truetype'),
+         url('../fonts/PTS75F-webfont.svg#PTSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'InconsolataMedium';
+    src: url('Inconsolata-webfont.eot');
+    src: url('Inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Inconsolata-webfont.woff') format('woff'),
+         url('Inconsolata-webfont.ttf') format('truetype'),
+         url('Inconsolata-webfont.svg#InconsolataMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    font-family: "PTSansRegular";
+    font-size: 1.0em;	
+    line-height: 1.6em;
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+    color: #1899CB;
+}
+
+a:link {
+}
+
+a:visited {
+}
+
+a:active {
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 
+{
+    color: #111;
+}
+
+h1 {
+    font-size: 2.0em;
+    font-weight: normal;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+h2 {
+    font-size: 1.7em;
+    margin: 1.2em 0em 1.2em 0em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+    margin: 1.2em 0em 1.2em 0em;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin: 1.2em 0em 1.2em 0em;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 1.0em;
+    margin: 1.2em 0em 1.2em 0em;
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.8em;
+    margin: 1.2em 0em 1.2em 0em;
+    font-weight: bold;
+}
+
+img {
+    border: 0;
+}
+
+ol, ul, li {
+    font-size: 1.0em;
+    line-height: 1.6em;
+    margin-top: 0.2em;
+    margin-bottom: 0.1em; 
+}
+
+
+ul, ol {
+    padding-left: 1.3em;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+
+
+p {
+    font-size: 1.0em;
+    line-height: 1.6em;
+    margin: 1.2em 0em 1.2em 0em;
+}
+
+li > p {
+    margin-top: 0.2em;
+}
+
+pre {
+    margin: 1.2em 0em 1.2em 0em;    
+    padding: 0.5em;
+    font-family:  monospace;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    overflow: auto;
+}
+
+code {
+    font-family: monospace;
+}
+
+pre code {
+  display: block; 
+}
+
+pre {
+    margin: 1.2em 0em 1.2em 0em;    
+    padding: 1em;
+    font-family: "inconsolata", monospace;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    overflow: auto;
+    border: solid 1px #dadada;
+    background: white;
+}
+
+code {
+    font-family: "inconsolata", monospace;
+    color: #000000;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+hr {
+   border: 0;
+   height: 1px;
+   background:  #c4c4c4; 
+   margin: 1em 0;
+   width: 100%;
+}
