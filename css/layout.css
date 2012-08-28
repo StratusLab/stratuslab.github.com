@@ -77,35 +77,28 @@ html, body {
     text-transform: uppercase;
     text-decoration: none;
     display: block;
-    /*padding-left: 0.7em;*/
-    /*padding-right: 0.7em;*/
-    /*font-size: 0.9em;*/
-    /*font-family:"PTSansBold";*/
 }
 
 #homeNav    a { background: url(../images/navigationSprite.png) no-repeat; }
 #blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px 0px; }
 #docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px 0px; }
 #filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px 0px; }
-#contactNav a { background: url(../images/navigationSprite.png) no-repeat -400px 0px; }
+#aboutNav   a { background: url(../images/navigationSprite.png) no-repeat -400px 0px; }
 
-#home          li#homeNav    a { background: url(../images/navigationSprite.png) no-repeat 0px -89px;; }
+#home          li#homeNav    a { background: url(../images/navigationSprite.png) no-repeat 0px -89px; }
 #blog          li#blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px -89px; }
 #documentation li#docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px -89px; }
 #download      li#filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px -89px; }
-/*#contactNav a { background: url(../images/navigationSprite.png) no-repeat -400px -89px; }*/
+#about         li#aboutNav   a { background: url(../images/navigationSprite.png) no-repeat -400px -89px; }
 
 #homeNav    a:hover { background: url(../images/navigationSprite.png) no-repeat 0px -178px; }
 #blogNav    a:hover { background: url(../images/navigationSprite.png) no-repeat -103px -178px; }
 #docNav     a:hover { background: url(../images/navigationSprite.png) no-repeat -202px -178px; }
 #filesNav   a:hover { background: url(../images/navigationSprite.png) no-repeat -301px -178px; }
-#contactNav a:hover { background: url(../images/navigationSprite.png) no-repeat -400px -178px; }
-
-/*#navigation li a.active { background-position-y: -89px; }*/
-/*#navigation li a:hover { background-position-y: -178px; }*/
+#aboutNav   a:hover { background: url(../images/navigationSprite.png) no-repeat -400px -178px; }
 
 #title {
-    font-size: 48px;
+    font-size: 3em;
     font-family:"PTSansBold";
     color: #7d7d7d;
     border-bottom: 5px solid #d5dadd;
@@ -174,9 +167,12 @@ TWITTER
 
 #twitterLogo 
 {
-   height: 30px;
-   background: url(../images/twitterLogo.png) no-repeat;
-   margin-bottom: 18px;
+
+    display: block;
+    width: 50px;
+    height: 30px;
+    background: url(../images/twitterLogo.png) no-repeat;
+    margin-bottom: 18px;
 }
 
 .twtr-hd, .twtr-ft
@@ -307,6 +303,36 @@ NEWS
     color: #ACACAC;
 }
 
+
+/* ----------------------------------------------------------------------
+ABOUT
+---------------------------------------------------------------------- */
+
+#contactList {
+    padding-left: 0px;
+}
+#contactList li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.contactIcon {
+    width: 25px;
+    height: 25px;
+    float: left;
+    background: red;
+    margin-right: 10px;
+}
+
+
+#twitterAboutLink { background: url(../images/aboutSprite.png); }
+#supportAboutLink { background: url(../images/aboutSprite.png) 50px 0px; }
+#commercialAboutLink { background: url(../images/aboutSprite.png) 25px 0px; }
+
+#contactList li:hover #twitterAboutLink { background: url(../images/aboutSprite.png) 0px 25px; }
+#contactList li:hover #supportAboutLink { background: url(../images/aboutSprite.png) 50px 25px; }
+#contactList li:hover #commercialAboutLink { background: url(../images/aboutSprite.png) 25px 25px; }
+
 /* ----------------------------------------------------------------------
 TABLETS
 ---------------------------------------------------------------------- */
@@ -394,6 +420,9 @@ and (max-width : 550px) {
         margin: 0px;
     }
     
+    #twitterLogo, #twitter {
+        display: none;
+    }
 }
 
 
@@ -414,7 +443,18 @@ and (min-width : 321px) {
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-width : 320px) {
-/* Styles */
+    #tagline {
+        font-size: 0.8em;
+    }
+
+    #navigationWrapper ul {
+        width: 290px;
+    }
+    
+
+    #navigation li {
+        margin-right: 5px;
+    }
 }
 
 /* iPads (portrait and landscape) ----------- */

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    {% include head.html %}
+
+    <body id="about">
+
+        {% include top_page.html %}
+
+        <div class="mainColumn">
+            <h1>{{ page.title }}</h1>
+
+            {{ page.content | markdownify }}
+
+            <h2>Contact us:</h2>
+            <ul id="contactList">
+                <li><div class="contactIcon" id="twitterAboutLink"></div><a href="http://www.twitter.com/StratusLab">Twitter</a></li> 
+                <li><div class="contactIcon" id="supportAboutLink"></div><a href="http://www.twitter.com/StratusLab">Support</a></li> 
+                <li><div class="contactIcon" id="commercialAboutLink"></div><a href="http://www.twitter.com/StratusLab">Commercial support</a></li> 
+            </ul>
+
+
+        </div>
+        <div class="sidebarColumn">
+            {% include twitter.html %}
+        </div>                    
+        <div class="cf"></div>
+
+
+        {% include bottom_page.html %}
+
+    </body>
+</html>
