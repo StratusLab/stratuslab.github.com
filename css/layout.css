@@ -56,7 +56,7 @@ html, body {
 
 #navigation  {
     padding: 0px;
-    max-width: 520px;
+    max-width: 625px;
     margin: 0 auto;
 }
 
@@ -83,18 +83,21 @@ html, body {
 #blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px 0px; }
 #docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px 0px; }
 #filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px 0px; }
+#tryNav     a { background: url(../images/navigationSprite.png) no-repeat -501px 0px; }
 #aboutNav   a { background: url(../images/navigationSprite.png) no-repeat -400px 0px; }
 
 #home          li#homeNav    a { background: url(../images/navigationSprite.png) no-repeat 0px -89px; }
 #blog          li#blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px -89px; }
 #documentation li#docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px -89px; }
 #download      li#filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px -89px; }
+#try           li#tryNav     a { background: url(../images/navigationSprite.png) no-repeat -501px -89px; }
 #about         li#aboutNav   a { background: url(../images/navigationSprite.png) no-repeat -400px -89px; }
 
 #homeNav    a:hover { background: url(../images/navigationSprite.png) no-repeat 0px -178px; }
 #blogNav    a:hover { background: url(../images/navigationSprite.png) no-repeat -103px -178px; }
 #docNav     a:hover { background: url(../images/navigationSprite.png) no-repeat -202px -178px; }
 #filesNav   a:hover { background: url(../images/navigationSprite.png) no-repeat -301px -178px; }
+#tryNav     a:hover { background: url(../images/navigationSprite.png) no-repeat -501px -178px; }
 #aboutNav   a:hover { background: url(../images/navigationSprite.png) no-repeat -400px -178px; }
 
 #title {
@@ -347,7 +350,7 @@ and (max-width : 768px) {
     #navigationWrapper ul {
         float: none;
         margin: 0px auto;
-        width: 520px;
+        width: 312px;
     }
 
 
@@ -376,7 +379,7 @@ SMARTH PHONES
 
 
 @media only screen 
-and (max-width : 550px) {
+and (max-width : 650px) {
     body {
         font-size: 1.0em;
     }
@@ -387,14 +390,6 @@ and (max-width : 550px) {
 
     h2, h3 {
         font-size: 1.3em;
-    }
-
-    #navigationWrapper ul {
-        width: 312px;
-    }
-
-    #navigation li#filesNav {
-        margin-left: 55px;
     }
 
     #title {
