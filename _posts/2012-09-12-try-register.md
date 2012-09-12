@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Register for Reference Infrastructures
-category: try
+category: try it
 ---
 
 ...
