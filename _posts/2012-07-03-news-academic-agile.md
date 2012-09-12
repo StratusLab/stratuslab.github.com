@@ -2,7 +2,7 @@
 layout: article
 title: Academic Agile
 author: Charles Loomis
-category: blog
+category: news
 ---
 
 StratusLab used agile software development methodologies to produce a large

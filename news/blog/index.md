@@ -1,7 +1,7 @@
 ---
 layout: category_index
-category: blog
-title: Blog
+category: news
+title: News
 ---
 
 The developers occasionally write articles about issues related to

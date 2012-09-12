@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Automated Release Workflows
-category: blog
+category: news
 ---
 
 DRAFT! Abstract: Fully automating releases is hard.
