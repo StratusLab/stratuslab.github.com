@@ -15,11 +15,13 @@ Default deployment assumes two types of machines:
 By default the compute (OpenNebula) and disks management (Persistent Disk (PDisk)) 
 services will be deployed on the Front-End. A set of packages will be installed 
 on the Node(s) and then, the Node(s) will be configured and added to the manager
-of the compute resources on Front-End.
+of the compute resources on Front-End. By default [KVM][linux-kvm] is used the 
+Node(s).
 
 Prerequisites
 -------------
 
++ hardware virtualization extensions has to be enabled in the BIOS on Node
 + CentOS 6.x on Front-End and Node
 + Python **>= 2.6 and < 3.x** on Front-End and Node
 + password-less SSH for **root** from Front-End to Node 
@@ -118,3 +120,4 @@ then invoke installation by
 If errors occur, you can increase the verbosity level by adding -vv.
 
 [yum-config]: http://yum.stratuslab.eu/
+[linux-kvm]: http://www.linux-kvm.org/
