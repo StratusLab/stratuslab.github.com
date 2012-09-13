@@ -11,10 +11,10 @@ SixSq, TID, and TCD) in five countries.  The StratusLab project ran
 from June 2010 to May 2012 and produced the StratusLab cloud
 distribution.
 
-StratusLab is now an *open collaboration* of interested institutes and
+StratusLab is now an **open collaboration** of interested institutes and
 individuals that provide resources to continue the evolution and
-support of site running a StratusLab cloud.  If you want to *join the
-collaboration*, please contact us at
+support of site running a StratusLab cloud.  If you want to **join the
+collaboration**, please contact us at
 [contact@stratuslab.eu](mailto:contact@stratuslab.eu).
 
 ----------------

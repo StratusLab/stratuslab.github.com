@@ -11,5 +11,9 @@ cloud distribution.
 
 Try the software!  This section tells you how to register for the
 reference infrastructures, use the web interface, and install and use
-the command line client.
+the command line client.  You can also browse the source code in our
+[GitHub repositories](https://github.com/StratusLab).
+
+---------------
+
 
