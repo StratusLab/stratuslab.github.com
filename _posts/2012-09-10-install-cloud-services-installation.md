@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Cloud Services Installation
-category: documentation
+category: install
 ---
 
 StratusLab provides a simple command line client to perform installation, 
