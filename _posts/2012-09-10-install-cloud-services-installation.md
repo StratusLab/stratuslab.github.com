@@ -23,6 +23,7 @@ Prerequisites
 
 + hardware virtualization extensions has to be enabled in the BIOS on Node
 + CentOS 6.x on Front-End and Node
++ [EPEL][epel] 6 repository enabled on Front-End
 + Python **>= 2.6 and < 3.x** on Front-End and Node
 + password-less SSH for **root** from Front-End to Node 
 + a block device (can be a loop device) to host LVM for VM images backend
@@ -121,3 +122,4 @@ If errors occur, you can increase the verbosity level by adding -vv.
 
 [yum-config]: http://yum.stratuslab.eu/
 [linux-kvm]: http://www.linux-kvm.org/
+[epel]: http://fedoraproject.org/wiki/EPEL
