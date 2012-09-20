@@ -31,6 +31,11 @@ Prerequisites
 + a default DHCP server must be configured to assign statically IP addresses 
 corresponding to predictable MAC addresses. These IP addresses will require 
 to be publicly visible if the cloud instances are to be accessible from the WAN.
++ **hostname** properly set on Front-End and Nodes otherwise some critical services 
+cannot start properly
++ SELinux disabled in all nodes
++ finally it's recommended to do a **yum -y update** before starting in all nodes in order to install any 
+critical updates and latest version of RPMs in the system
 
 StratusLab Cloud Front-End Deployment
 -------------------------------------
@@ -92,7 +97,7 @@ defined by *persistent_disk_storage* and *persistent_disk_share* parameters.
 Provided the defaults are used (*lvm* for storage and *iscsi* for share), one 
 needs to specify the following
 
-    stratus-config persistent_disk_physical_device /dev/<BLOCK_DEVICE>
+    stratus-config persistent_disk_physical_devices /dev/<BLOCK_DEVICE>
     stratus-config persistent_disk_lvm_device /dev/pdisk
 
 For details on configurable disks storage types and/or sharing mechanisms 
