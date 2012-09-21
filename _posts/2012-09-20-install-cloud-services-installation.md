@@ -98,7 +98,6 @@ Provided the defaults are used (*lvm* for storage and *iscsi* for share), one
 needs to specify the following
 
     stratus-config persistent_disk_physical_devices /dev/<BLOCK_DEVICE>
-    stratus-config persistent_disk_lvm_device /dev/pdisk
 
 For details on configurable disks storage types and/or sharing mechanisms 
 please check *persistent-disks* section of the reference configuration file.
