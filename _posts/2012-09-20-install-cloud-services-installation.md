@@ -34,8 +34,8 @@ to be publicly visible if the cloud instances are to be accessible from the WAN.
 + **hostname** properly set on Front-End and Nodes otherwise some critical services 
 cannot start properly
 + SELinux disabled in all nodes
-+ finally it's recommended to do a **yum -y update** before starting in all nodes in order to install any 
-critical updates and latest version of RPMs in the system
++ StratusLab's release yum repository properly set in *all* nodes
++ finally it's recommended to do a **yum -y update** in all nodes before starting in order to install any critical updates and latest version of RPMs in the system
 
 StratusLab Cloud Front-End Deployment
 -------------------------------------
