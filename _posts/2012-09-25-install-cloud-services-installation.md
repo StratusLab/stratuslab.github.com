@@ -35,8 +35,6 @@ to be publicly visible if the cloud instances are to be accessible from the WAN.
 cannot start properly
 + SELinux disabled in all nodes
 + StratusLab's release yum repository properly set in *all* nodes
-+ **sendmail** service installed and started on Front-End. This is to enable sending
-notification emails to image authors when new images are created using the *--save* switch of *stratus-run-instance* 
 + finally it's recommended to do a **yum -y update** in all nodes before starting in order to install any critical updates and latest version of RPMs in the system
 
 StratusLab Cloud Front-End Deployment
@@ -129,3 +127,10 @@ If errors occur, you can increase the verbosity level by adding -vv.
 [yum-config]: http://yum.stratuslab.eu/
 [linux-kvm]: http://www.linux-kvm.org/
 [epel]: http://fedoraproject.org/wiki/EPEL
+
+<!---
+Describe in the extended version of the documentation:
+
++ **sendmail** service installed and started on Front-End. This is to enable sending
+notification emails to image authors when new images are created using the *--save* switch of *stratus-run-instance* 
+--->
