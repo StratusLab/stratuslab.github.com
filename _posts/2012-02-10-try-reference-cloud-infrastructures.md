@@ -25,7 +25,7 @@ VM images and appliances.
 Registration
 ------------
 
-To register on the StratusLab Reference infrastructure please got the 
+To register on the StratusLab Reference infrastructure please go to the 
 [registration page][ref-infra-reg].
 
 How I can request access to the StratusLab infrastructure?
