@@ -1,13 +1,13 @@
 ---
 layout: article
-title: StratusLab Reference Cloud Infrastructures
+title: StratusLab Reference Cloud Infrastructure
 category: try it
 ---
 
 StratusLab has deployed a reference infrastructure and offers access to
 external third parties in order to test and evaluate the cloud solutions
 developed by the project. This infrastructure builds upon the latest stable
-release 1.2 of the StratusLab distribution and provides two types of cloud
+releases of the StratusLab distribution and provides two types of cloud
 services:
 
 * A cloud computing site for instantiating and managing Virtual Machines, as
@@ -22,15 +22,16 @@ project. The project Marketplace instance is hosted by [Trinity College Dublin
 (TCD), Ireland][tcd], which is responsible for the curation and provision of
 VM images and appliances.
 
+Registration
+------------
+
+To register on the StratusLab Reference infrastructure please got the 
+[registration page][ref-infra-reg].
+
 How I can request access to the StratusLab infrastructure?
 ----------------------------------------------------------
 
-In order to gain access to the reference cloud service and be able to
-instantiate your own Virtual Machines you should send an email to
-support@stratuslab.eu providing your full name, contact details, your
-institute and the project in which you are involved (if applicable).
-
-For user authentication two different mecahnisms are supported:
+For user authentication two different mechanisms are supported:
 
 * Username/password pair generated internally from StratusLab operations
 * Digital certificate issued by an [IGTF][igtf] accredited Certification
@@ -164,3 +165,4 @@ on best effort basis.
 [tutorial]: http://stratuslab.eu/doku.php/tutorial:usertutorial 
 [manual-install]: http://stratuslab.eu/doku.php/tutorial:manualinstall
 [quattor-install]: http://stratuslab.eu/doku.php/quattorinstall
+[ref-infra-reg]: https://register.stratuslab.eu:8444/
