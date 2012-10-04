@@ -15,7 +15,7 @@ Prerequisites
 Launch
 ------
 
-[Configure][user-client-install] Cloud endpoint and credentials in the 
+[Configure][user-client-config] Cloud endpoint and credentials in the 
 configuration file (default: *HOME/.stratuslab/stratuslab-user.cfg*). 
 
 Go to StratusLab [Marketplace][marketplace], search for an image and copy 
@@ -64,4 +64,5 @@ Terminate
 
 [ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
 [user-client-install]: /try%20it/2012/01/19/try-user-cli-installation.html
+[user-client-config]: /try%20it/2012/01/19/try-user-cli-installation.html#config
 [marketplace]: https://marketplace.stratuslab.eu

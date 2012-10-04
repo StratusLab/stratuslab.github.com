@@ -73,8 +73,7 @@ You can test that the commands are properly installed by executing
 
     $ stratus-describe-instance --help
 
-Configuration
--------------
+##<a id="config">Configuration</a>
 
 One has to know at least one endpoint of the StratusLab cloud deployment and possess 
 valid credentials to access it. Refer to 
