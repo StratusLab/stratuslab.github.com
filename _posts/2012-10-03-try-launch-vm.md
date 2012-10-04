@@ -9,14 +9,14 @@ How to launch, connect to and terminate a Virtual Machine on StratusLab Cloud.
 Prerequisites
 -------------
 
-+ StratusLab cloud credentials 
++ StratusLab cloud credentials (e.g. on [StratusLab Reference infrastructure][ref-infra])
 + StratusLab [user client installed and configured][user-client-install]
 
 Launch
 ------
 
-Configure Cloud endpoint and credentials in the configuration file 
-(default: *HOME/.stratuslab/stratuslab-user.cfg*). 
+[Configure][user-client-install] Cloud endpoint and credentials in the 
+configuration file (default: *HOME/.stratuslab/stratuslab-user.cfg*). 
 
 Go to StratusLab [Marketplace][marketplace], search of an image and copy 
 its **identifier**. Say we searched for **ttylinux** and chose 
@@ -62,5 +62,6 @@ Terminate
     $
 
 
+[ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
 [user-client-install]: /try%20it/2012/01/19/try-user-cli-installation.html
 [marketplace]: https://marketplace.stratuslab.eu
