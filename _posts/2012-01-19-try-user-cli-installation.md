@@ -131,14 +131,11 @@ Appendix
 
 ###<a id="pythoncheck">Python</a>
 
-Ensure that you have a recent version of Python (**2.6+**, but < **3.0**) 
+Ensure that you have a recent version of Python **>= 2.6**, but < **3.0** 
 installed on your system. From the command line type
 
     $ python -V
-
-which should return the version which is installed
-
-    Python 2.6.1
+      Python 2.6.1
 
 See the [python site][python] for Python downloads and instructions.
 
