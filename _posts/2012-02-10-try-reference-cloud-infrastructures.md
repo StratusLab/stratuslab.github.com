@@ -172,7 +172,7 @@ on best effort basis.
 [tcd]: http://www.tcd.ie
 [ref-infra-reg]: https://register.stratuslab.eu:8444/
 [igtf]: http://www.igtf.net/
-[user-client-install]: /try%20it/2012/01/19/try-user-cli-installation.html
+[user-client-install]: /try%20it/2012/01/19/install-user-cli-installation.html
 [get-started]: http://stratuslab.eu/doku.php/release:users
 [one]: http://www.opennebula.org 
 [tutorial]: http://stratuslab.eu/doku.php/tutorial:usertutorial 
