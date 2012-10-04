@@ -142,8 +142,8 @@ See the [python site][python] for Python downloads and instructions.
 ### <a id="sshkeypair">SSH Setup</a>
 
 In most of the cases SSH will be used to log into virtual machines that have
-been started in the cloud. Ensure that you have a generated public and private
-key pair. 
+been started in the cloud. Ensure that you have SSH public and private
+key pair.
 
 ####Linux/UNIX
 
