@@ -91,8 +91,15 @@ credentials (requirement depends on use-case and utility used)
 
 ###Configuration file
 
-Configuration file should contain definitions of StratusLab services endpoints and 
-credentials required for the user client.
+Configuration file should contain definitions of StratusLab services endpoints 
+and credentials required for the user client. For example
+
+    endpoint = cloud.lal.stratuslab.eu
+    pdisk_endpoint = pdisk.lal.stratuslab.eu
+    username = clouduser
+    password = cloudpass
+    pem_certificate = /Users/localuser/.globus/usercert.pem
+    pem_key = /Users/localuser/.globus/userkey.pem
 
 ####Linux/UNIX
 
