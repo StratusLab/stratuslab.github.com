@@ -18,7 +18,7 @@ Launch
 [Configure][user-client-install] Cloud endpoint and credentials in the 
 configuration file (default: *HOME/.stratuslab/stratuslab-user.cfg*). 
 
-Go to StratusLab [Marketplace][marketplace], search of an image and copy 
+Go to StratusLab [Marketplace][marketplace], search for an image and copy 
 its **identifier**. Say we searched for **ttylinux** and chose 
 **BN1EEkPiBx87_uLj2-sdybSI-Xb**.
 
