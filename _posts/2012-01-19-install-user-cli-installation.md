@@ -19,8 +19,7 @@ Prerequisites
 + SSH client
 + [SSH user key-pair](#sshkeypair)
 
-Installation
-------------
+##<a id="install">Installation</a>
 
 The StratusLab client tools can be installed from from a standalone tarball 
 or an RPM package.
@@ -107,8 +106,8 @@ The client ships with a reference configuration file
 
 User has to copy the file to the default location 
 $HOME/.stratuslab/stratuslab-user.cfg and modify it following explanations to 
-the variables. The variables that are commented out (eg p12_certificate) take 
-their default values from the code.
+the variables in the file. The variables that are commented out 
+(eg p12_certificate) take their default values from the code.
 
 ####Windows
 
@@ -123,7 +122,7 @@ The reference configuration file
 
 User has to copy the file to the default location 
 %HOMEDRIVE%%HOMEPATH%\.stratuslab\stratuslab-user.cfg and modify it following 
-explanations to the variables. The variables that are commented out 
+explanations to the variables in the file. The variables that are commented out 
 (eg p12_certificate) take their default values from the code.
 
 Appendix
