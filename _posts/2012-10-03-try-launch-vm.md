@@ -61,8 +61,14 @@ Terminate
     $ stratus-kill-instance 5507
     $
 
+Next ...
+--------
+
+[Documentation and tutorials][doku] on how to use all aspects of the StratusLab 
+Cloud.
 
 [ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
 [user-client-install]: /try%20it/2012/01/19/install-user-cli-installation.html
 [user-client-config]: /try%20it/2012/01/19/install-user-cli-installation.html#config
 [marketplace]: https://marketplace.stratuslab.eu
+[doku]: /documentation

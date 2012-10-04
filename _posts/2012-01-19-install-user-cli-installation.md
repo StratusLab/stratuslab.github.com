@@ -8,8 +8,9 @@ StratusLab provides a simple command line client that is easy to install on
 all platforms. This client provides access to all of the StratusLab services
 and complements access via a web browser.
 
-After installation of the client proceed to [documentation][doku] on how to use 
-the StratusLab cloud.
+After installation and configuration of the client [Launch VM on Cloud][launch-vm] 
+and then, proceed to in-depth [documentation][doku] on the use of the 
+StratusLab cloud.
 
 Prerequisites
 -------------
@@ -175,3 +176,4 @@ machines.
 [amazon-ssh]: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/putty.html
 [doku]: /documentation/
 [sl-ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
+[launch-vm]: /try%20it/2012/10/03/try-launch-vm.html
