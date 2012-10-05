@@ -68,7 +68,7 @@ Next ...
 Cloud.
 
 [ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
-[user-client-install]: /try%20it/2012/01/19/install-user-cli-installation.html
-[user-client-config]: /try%20it/2012/01/19/install-user-cli-installation.html#config
+[user-client-install]: /install/2012/01/19/install-user-cli-installation.html
+[user-client-config]: /install/2012/01/19/install-user-cli-installation.html#config
 [marketplace]: https://marketplace.stratuslab.eu
 [doku]: /documentation
