@@ -89,6 +89,8 @@ credentials (requirement depends on use-case and utility used)
     Globus/VOMS proxy
     PKCS12 certificate
 
+For more see [documentation on user credentials][user-creds-docu].
+
 ###Configuration file
 
 Configuration file should contain definitions of StratusLab services endpoints 
@@ -183,3 +185,4 @@ machines.
 [doku]: /documentation/
 [sl-ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
 [launch-vm]: /try%20it/2012/10/03/try-launch-vm.html
+[user-creds-docu]: /documentation/2012/10/05/docs-tutor-user-credentials.html
