@@ -20,7 +20,7 @@ configuration file (default: *HOME/.stratuslab/stratuslab-user.cfg*).
 
 Search for an image in [StratusLab Marketplace][marketplace] and copy 
 the image **identifier**. Say we searched for **ttylinux** and chose 
-**BN1EEkPiBx87_uLj2-sdybSI-Xb**.
+**[BN1EEkPiBx87_uLj2-sdybSI-Xb][ttylinux-img]**.
 
 Launch an instance of the image
 
@@ -63,11 +63,11 @@ Terminate
 Next ...
 --------
 
-[Documentation and tutorials][doku] on how to use all aspects of the StratusLab 
-Cloud.
+More [documentation and tutorials][doku] here.
 
 [ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
 [user-client-install]: /install/2012/01/19/install-user-cli-installation.html
 [user-client-config]: /install/2012/01/19/install-user-cli-installation.html#config
 [marketplace]: https://marketplace.stratuslab.eu
 [doku]: /documentation
+[ttylinux-img]: https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb
