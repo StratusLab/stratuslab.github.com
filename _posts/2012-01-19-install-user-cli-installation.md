@@ -116,7 +116,7 @@ The client ships with a reference configuration file
 User has to copy the file to the default location 
 $HOME/.stratuslab/stratuslab-user.cfg and modify it following explanations to 
 the variables in the file. The variables that are commented out 
-(eg p12_certificate) take their default values from the code.
+(e.g. p12_certificate) take their default values from the code.
 
 ####Windows
 
@@ -132,7 +132,7 @@ The reference configuration file
 User has to copy the file to the default location 
 %HOMEDRIVE%%HOMEPATH%\.stratuslab\stratuslab-user.cfg and modify it following 
 explanations to the variables in the file. The variables that are commented out 
-(eg p12_certificate) take their default values from the code.
+(e.g. p12_certificate) take their default values from the code.
 
 Appendix
 --------
