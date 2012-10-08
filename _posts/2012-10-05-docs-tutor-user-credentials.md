@@ -6,13 +6,7 @@ category: documentation
 
 How to configure cloud services endpoints and user credentials in the user 
 configuration file and/or via environment variables, or provide them
-as parameters to the user command line interface.
-
-Prerequisites
--------------
-
-+ StratusLab cloud credentials (e.g. on [StratusLab Reference infrastructure][ref-infra])
-+ StratusLab [user client installed and configured][user-client-install]
+as parameters to the user command-line interface.
 
 Providing user parameters
 -------------------------
@@ -74,10 +68,10 @@ Environment variables
 Configuration file
 
     pdisk_endpoint
-    pdiskPort
+    pdisk_port
 
-If 'pdisk-username' and/or 'pdisk-password' are not provided the ones defined 
-for 'endpoint' will be used.
+NB! If 'pdisk-username' and/or 'pdisk-password' are not provided by any of the 
+means the ones defined for 'endpoint' will be used.
 
 Marketplace
 -----------
