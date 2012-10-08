@@ -8,7 +8,7 @@ StratusLab supports the deployment of private, community, and public
 cloud infrastructures.  The software is designed to be easy to install
 and to support commodity hardware, but remains flexible to meet the
 constraints of existing sites.  A StratusLab cloud can be deployed on
-as few as two physical machines.  (Or even one with some VM trickery!)
+as few as one physical machine.
 
 See the documents below for installing the software from binary
 packages.  Source code and manual installation instructions are

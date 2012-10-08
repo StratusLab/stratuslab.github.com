@@ -4,4 +4,4 @@ category: documentation
 title: Documentation
 ---
 
-This page contains high-level documentation of the StratusLab services.
+Find here StratusLab documentation.
