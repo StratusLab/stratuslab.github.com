@@ -142,7 +142,7 @@ The software is open source and available from the project repositories.
 Currently we support CentOS 6 Linux distribution and two modes of installation
 
 * [Manual Installation][manual-install], or
-* [Quattor Installation][quattor-install].
+* [Quattor][quattor].
 
 How can I get more information and support?
 -------------------------------------------
@@ -164,4 +164,4 @@ on best effort basis.
 [one]: http://www.opennebula.org 
 [documentation]: /documentation/
 [manual-install]: /install/2012/09/25/install-cloud-services-installation.html
-[quattor-install]: http://stratuslab.eu/doku.php/quattorinstall
+[quattor]: http://quattor.org/
