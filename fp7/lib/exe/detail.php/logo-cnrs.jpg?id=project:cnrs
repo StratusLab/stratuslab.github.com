@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Centre National de la Recherche Scientifique  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Centre National de la Recherche Scientifique"/>
+  <meta name="Description" content="StratusLabCentre National de la Recherche Scientifique"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<link rel="search" type="application/opensearchdescription+xml" href="../opensearch.php" title="StratusLab" />
+<link rel="start" href="../../../index.html" />
+<link rel="contents" href="../../../doku.php/project:cnrs?do=index" title="Sitemap" />
+<link rel="stylesheet" media="screen" type="text/css" href="../css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='project';var JSINFO = null;
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../../../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../../tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../../tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../../tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+<body>
+
+		<div class="Page">
+		<div class="Content">
+  		  					<div class="content" style="width: 150px; padding-top: 15px;">
+	      <center>
+				  <img src="../fetch.php/logo-cnrs.jpg" width="140" height="87">
+			  	<br><br>Back to <span class="curid"><a href="../../../doku.php/project:cnrs" class="wikilink1" title="project:cnrs">Centre National de la Recherche Scientifique</a></span>1<br><br>
+	      </center>
+      </div>
+    </div>
+  		</div>
+	</body>
+</html>
+

@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: CentOS Base Image  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,CentOS Base Image"/>
+  <meta name="Description" content="StratusLabCentOS Base Image"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="tutorial,createcentosbaseimage" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:createcentosbaseimage?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:createcentosbaseimage" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:createcentosbaseimage","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#centos_base_image" class="toc">CentOS Base Image</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#prerequisites" class="toc">Prerequisites</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#mirror_centos_distribution" class="toc">Mirror CentOS Distribution</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#create_kickstart_file" class="toc">Create Kickstart File</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#dhcp_configuration" class="toc">DHCP Configuration</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#create_the_base_image" class="toc">Create the Base Image</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createcentosbaseimage#finish_the_image" class="toc">Finish the Image</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="centos_base_image" id="centos_base_image">CentOS Base Image</a></h1>
+<div class="level1">
+
+<p>
+
+An appealing feature of RedHat Enterprise Linux (RHEL) systems and its derivatives is the ability to automate the installation of machines with kickstart.  This page describes how to create a CentOS base image in an automated fashion. 
+
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="prerequisites" id="prerequisites">Prerequisites</a></h2>
+<div class="level2">
+
+<p>
+
+To do an automated installation of a base image via kickstart, you must have the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> Root access to a machine running libvirt,</div>
+</li>
+<li class="level1"><div class="li"> A DHCP server setup to serve network information to the image,</div>
+</li>
+<li class="level1"><div class="li"> Web server where the CentOS distribution can be mirrored, and</div>
+</li>
+<li class="level1"><div class="li"> Web server from which the installation kickstart file can be downloaded.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3"><a name="mirror_centos_distribution" id="mirror_centos_distribution">Mirror CentOS Distribution</a></h2>
+<div class="level2">
+
+<p>
+
+<a href="http://www.centos.org/modules/tinycontent/index.php?id=15" class="urlextern" title="http://www.centos.org/modules/tinycontent/index.php?id=15"  rel="nofollow">Download the distribution of CentOS</a> from which you would like to create a base virtual machine. 
+</p>
+
+<p>
+Mount the DVD (or CDs) on a loopback device, and copy its (their) contents to a directory visible on your server.  This will then be a local installation mirror of the CentOS distribution. 
+</p>
+
+<p>
+Note the URL where this local mirror can be found.  This URL will be used in the kickstart file to direct the installation to this mirror.
+
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="create_kickstart_file" id="create_kickstart_file">Create Kickstart File</a></h2>
+<div class="level2">
+
+<p>
+
+Copy the <a href="./tutoral:examplekickstart" class="wikilink1" title="tutoral:examplekickstart">example kickstart file</a> to your web server.  You will need to edit several values within the kickstart file for your installation:
+</p>
+<ul>
+<li class="level1"><div class="li"> URL of the mirrored CentOS distribution.</div>
+</li>
+<li class="level1"><div class="li"> Hashed value of the root password (rootpw option).</div>
+</li>
+</ul>
+
+<p>
+The second is only necessary if you need to test the image while you are creating it. 
+
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="dhcp_configuration" id="dhcp_configuration">DHCP Configuration</a></h2>
+<div class="level2">
+
+<p>
+
+Ensure that you have setup a DHCP server which will provide network information for a particular mac address.  You will use that mac address to feed the network information to the virtual machine being installed.
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6"><a name="create_the_base_image" id="create_the_base_image">Create the Base Image</a></h2>
+<div class="level2">
+
+<p>
+
+The easiest method for creating the base image is to use <code>virt-install</code> directly.  
+</p>
+
+<p>
+Create an empty file that will hold the configured image:
+
+</p>
+<pre class="code">dd if=/dev/zero of=centos-5.5-i386-1.0.img bs=1024 count=3000000</pre>
+
+<p>
+
+This command creates a file of 3 GB. 
+</p>
+
+<p>
+Launch the build with <code>virt-install</code>:
+
+</p>
+<pre class="code">virt-install \
+  --ram=1000 \
+  --hvm \
+  --accelerate \
+  --name=vm03 \
+  --file-size=3 \
+  -f centos-5.5-i386-1.0.img \
+  --location=http://web.example.com/packages/os/centos550-x86_64/base/ \
+  -x &quot;ks=http://web.example.com/ks/centos-5.5-minimal-ks.cfg&quot; \
+  --mac=&quot;0a:0a:86:9e:49:e6&quot; \
+  --noreboot</pre>
+
+<p>
+
+Note that you must change the <strong>location</strong> and <strong>x</strong> options to point to your CentOS mirror and kickstart file, respectively.  The <strong>mac</strong> option must contain a mac address that your DHCP server recognizes.
+</p>
+
+</div>
+
+<h2 class="sectionedit7"><a name="finish_the_image" id="finish_the_image">Finish the Image</a></h2>
+<div class="level2">
+
+<p>
+
+Much of the created image is empty space, so you should compress the image before making it available via a server.  Simply do:
+
+</p>
+<pre class="code">gzip -9 centos-5.5-i386-1.0.img</pre>
+
+<p>
+
+The <code>-9</code> option will take more time but compress the image as much as possible. 
+</p>
+
+<p>
+The last thing to do is to find the md5 and sha1 checksums of the image with the <strong>md5sum</strong> and <strong>sha1sum</strong> commands and create the manifest.  The the manifest of images in the appliance repository for the necessary format and information.
+
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/createcentosbaseimage.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

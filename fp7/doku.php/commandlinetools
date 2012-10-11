@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Command-Line Tools  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Command-Line Tools"/>
+  <meta name="Description" content="StratusLabCommand-Line Tools"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-02-12T23:18:02+0100" />
+<meta name="keywords" content="commandlinetools" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="commandlinetools?do=index" title="Sitemap" />
+<link rel="canonical" href="commandlinetools" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"commandlinetools","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="commandlinetools#command-line_tools" class="toc">Command-Line Tools</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="commandlinetools#end-user" class="toc">End-User</a></span></div>
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="commandlinetools#credentials" class="toc">Credentials</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="commandlinetools#configuration_file_for_user_commands" class="toc">Configuration file for user commands</a></span></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="commandlinetools#system_administrator" class="toc">System Administrator</a></span></div></li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="command-line_tools" id="command-line_tools">Command-Line Tools</a></h1>
+<div class="level1">
+
+<p>
+
+Here are the command-line tools StratusLab provides.
+
+</p>
+
+</div>
+
+<h1 class="sectionedit2"><a name="end-user" id="end-user">End-User</a></h1>
+<div class="level1">
+
+<p>
+
+Instance management
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-run-instance" class="wikilink1" title="ref-doc:user-cli">stratus-run-instance</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-describe-instance" class="wikilink1" title="ref-doc:user-cli">stratus-describe-instance</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-kill-instance" class="wikilink1" title="ref-doc:user-cli">stratus-kill-instance</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-shutdown-instance" class="wikilink1" title="ref-doc:user-cli">stratus-shutdown-instance</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-run-cluster" class="wikilink1" title="ref-doc:user-cli">stratus-run-cluster</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-connect-instance" class="wikilink1" title="ref-doc:user-cli">stratus-connect-instance</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-create-image" class="wikilink1" title="ref-doc:user-cli">stratus-create-image</a></code></div>
+</li>
+</ul>
+
+<p>
+
+Volume management
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-describe-volumes" class="wikilink1" title="ref-doc:user-cli">stratus-describe-volumes</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-create-volume" class="wikilink1" title="ref-doc:user-cli">stratus-create-volume</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-attach-volume" class="wikilink1" title="ref-doc:user-cli">stratus-attach-volume</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-detach-volume" class="wikilink1" title="ref-doc:user-cli">stratus-detach-volume</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-delete-volume" class="wikilink1" title="ref-doc:user-cli">stratus-delete-volume</a></code></div>
+</li>
+</ul>
+
+<p>
+
+Metadata management
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-build-metadata" class="wikilink1" title="ref-doc:user-cli">stratus-build-metadata</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-upload-image" class="wikilink1" title="ref-doc:user-cli">stratus-upload-image</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-sign-metadata" class="wikilink1" title="ref-doc:user-cli">stratus-sign-metadata</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-validate-metadata" class="wikilink1" title="ref-doc:user-cli">stratus-validate-metadata</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-upload-metadata" class="wikilink1" title="ref-doc:user-cli">stratus-upload-metadata</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-deprecate-metadata" class="wikilink1" title="ref-doc:user-cli">stratus-deprecate-metadata</a></code></div>
+</li>
+</ul>
+
+<p>
+
+Other
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-run-benchmark" class="wikilink1" title="ref-doc:user-cli">stratus-run-benchmark</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:user-cli#stratus-hash-password" class="wikilink1" title="ref-doc:user-cli">stratus-hash-password</a></code></div>
+</li>
+</ul>
+
+<p>
+
+These commands are available in the <em>package</em><em>/tarball</em> <strong>stratuslab-cli-user</strong>. The above links provide descriptions of the utilities highlighting the main use-cases and describing main parameters. Please run the commands with <strong>-h/–help</strong> to get list of all supported parameters and their respective descriptions.
+</p>
+
+</div>
+
+<h3 class="sectionedit3"><a name="credentials" id="credentials">Credentials</a></h3>
+<div class="level3">
+
+<p>
+
+For working with user command-line tools one would need to posses the following credentials (requirement depends on use-case and utility used):
+</p>
+<ul>
+<li class="level1"><div class="li"> X509 key/pair</div>
+</li>
+<li class="level1"><div class="li"> Globus/VOMS proxy</div>
+</li>
+<li class="level1"><div class="li"> PKCS12 certificate  </div>
+</li>
+<li class="level1"><div class="li"> username/password of the account in StratusLab, Cloud frontend(s)</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4"><a name="configuration_file_for_user_commands" id="configuration_file_for_user_commands">Configuration file for user commands</a></h3>
+<div class="level3">
+
+<p>
+
+The configuration file contains definitions of different endpoints and credentials required for the user client. By default, user CLI utilities will search for the following file: <strong>$HOME/.stratuslab/stratuslab-user.cfg</strong>. This can be overwritten with -c/–config parameter. If the file is not found, a warning will be issued and required parameters will be searched in the following order: defaults, environment variables, command line options. 
+</p>
+
+<p>
+The <em class="u">configuration reference template file</em> for RPM distribution is <strong>/etc/stratuslab/stratuslab-user.cfg.ref</strong> and for tar-ball is <strong>conf/stratuslab-user.cfg.ref</strong>. 
+</p>
+
+<p>
+User has to copy the file e.g. to the default location <code>$HOME/.stratuslab/stratuslab-user.cfg</code> and modify it accordingly. See <code>stratuslab-user.cfg.ref</code> for explanations of the variables. The variables that are commented out (eg p12_certificate) take their default values from the code.
+</p>
+
+<p>
+The order of processing
+
+</p>
+<pre class="code">1. defaults defined in the code 
+2. configuration file
+3. environment variable
+4. command line parameter </pre>
+
+<p>
+
+On example of MarketPlace Endpoint 
+
+</p>
+<pre class="code">1. http://appliances.stratuslab.eu/marketplace/metadata
+2. marketplace_endpoint = http://appliances.stratuslab.eu/marketplace/metadata
+3. STRATUSLAB_MARKETPLACE_ENDPOINT
+4. --marketplace-endpoint</pre>
+
+<p>
+
+The variables in the configuration file correspond to the respective environment variables applying the following transformation STRATUSLAB_upper(&lt;var in conf file&gt;). I.e. apprepo_username → STRATUSLAB_APPREPO_USERNAME. 
+</p>
+
+</div>
+
+<h1 class="sectionedit5"><a name="system_administrator" id="system_administrator">System Administrator</a></h1>
+<div class="level1">
+
+<p>
+
+Installation, configuration and system test
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-config" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-config</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-install" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-install</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-remote-install" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-remote-install</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-test" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-test</a></code></div>
+</li>
+</ul>
+
+<p>
+
+Utilities used in StratusLab transfer management scripts
+</p>
+
+<p>
+– Image and image metadata
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-policy-image" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-policy-image</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-manifest" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-manifest</a></code></div>
+</li>
+</ul>
+
+<p>
+
+– Persistent Disk Storage access
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-storage" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-storage</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-storage-search" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-storage-search</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-storage-update" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-storage-update</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-storage-quarantine" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-storage-quarantine</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-storage-delete" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-storage-delete</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-download-image" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-download-image</a></code></div>
+</li>
+</ul>
+
+<p>
+
+– Other
+</p>
+<ul>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-msg-publisher" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-msg-publisher</a></code></div>
+</li>
+<li class="level1"><div class="li"> <code><a href="ref-doc:sysadmin-cli#stratus-generate-p12" class="wikilink1" title="ref-doc:sysadmin-cli">stratus-generate-p12</a></code></div>
+</li>
+</ul>
+
+<p>
+
+These commands are available in the <em>package</em><em>/tarball</em> <strong>stratuslab-cli-sysadmin</strong>. For more details on manual installation/configuration see <code><a href="manualinstall" class="wikilink1" title="manualinstall">Manual Cloud Services Installation</a></code>.
+
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          commandlinetools.txt &middot; Last modified: 2012/02/12 23:18 by konstan	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

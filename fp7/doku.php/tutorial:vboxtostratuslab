@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Introduction  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Introduction"/>
+  <meta name="Description" content="StratusLabIntroduction"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="tutorial,vboxtostratuslab" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:vboxtostratuslab?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:vboxtostratuslab" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:vboxtostratuslab","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				
+<h5><a name="introduction" id="introduction">Introduction</a></h5>
+<div class="level5">
+
+<p>
+
+This page describe how create a VM to run on stratuslab. 
+</p>
+
+</div>
+
+<h5><a name="customize_virtual_image_for_stratuslab" id="customize_virtual_image_for_stratuslab">Customize Virtual Image for StratusLab</a></h5>
+<div class="level5">
+
+<p>
+
+To use your image on StratusLab with all options available, you must tweak your image with
+</p>
+<ul>
+<li class="level1"><div class="li"> Contextualization script </div>
+</li>
+<li class="level1"><div class="li"> <acronym title="Secure Shell">SSH</acronym> key based authentification </div>
+</li>
+<li class="level1"><div class="li"> Randomize the root passwd </div>
+</li>
+<li class="level1"><div class="li"> Disable fsck check</div>
+</li>
+</ul>
+
+</div>
+
+<h4><a name="rpm_based_customization" id="rpm_based_customization">RPM based customization</a></h4>
+<div class="level4">
+
+<p>
+
+All this stuff is done by a RPM <a href="http://yum.stratuslab.eu/snapshots/fedora14/stratuslab-one-context-0.0.1-0.20110804.135844.noarch.rpm" class="urlextern" title="http://yum.stratuslab.eu/snapshots/fedora14/stratuslab-one-context-0.0.1-0.20110804.135844.noarch.rpm"  rel="nofollow">stratuslab-one-context</a> or on <a href="http://yum.stratuslab.eu" class="urlextern" title="http://yum.stratuslab.eu"  rel="nofollow">YUM repository</a>. You can install it on RPM based distribution with the command
+
+</p>
+<pre class="file">  user@vm$ rpm -i http://yum.stratuslab.eu/snapshots/fedora14/stratuslab-one-context-0.0.1-0.20110804.135844.noarch.rpm</pre>
+
+<p>
+
+or if you have configure <a href="http://www.stratuslab.eu/doku.php/manualinstall" class="urlextern" title="http://www.stratuslab.eu/doku.php/manualinstall"  rel="nofollow">StratusLab yum repository</a>
+
+</p>
+<pre class="file">  user@vm$ yum install stratuslab-one-context</pre>
+
+</div>
+
+<h4><a name="contextualization_script" id="contextualization_script">Contextualization Script</a></h4>
+<div class="level4">
+
+<p>
+
+StratusLab allow users to submit some parameters when they start a VM. This parameters (–context or –context-file) can be use do specific post-boot action on the VM.
+The typical example is to put a public ssh key of the user on /root/.ssh/authorized_keys but you can add your own script.
+</p>
+
+<p>
+Contextualization script need to have a specific directory /mnt/stratuslab
+
+</p>
+<pre class="file">  user@vm$ mkdir -p /mnt/stratuslab</pre>
+
+<p>
+If you don&#039;t want to use RPM, you can create a contextualization script (/usr/bin/stratuslab-one-context) like the following one and put it on /etc/init.d/rc.local
+
+</p>
+<pre class="file">#!/bin/sh -e
+
+############################
+# Some variable definition #
+############################
+configuration_file=/etc/stratuslab/stratuslab-one-context.cfg
+configuration_dir=/etc/stratuslab/conf.d
+external_context_run=/tmp/external_context_run
+
+echo &quot;#!/bin/sh&quot; &gt; $external_context_run
+
+#################################################
+# Check if configuration file exist AND load it #
+#################################################
+if [ -f $configuration_file ]
+then
+ source $configuration_file
+fi
+
+###################################################
+# Check if contextualization device is accessible #
+###################################################
+if [ -n $context_device ]
+then
+  if [ -e /dev/$context_device ]
+  then
+   DEVICE=$context_device
+  else
+   echo &quot;Device $context_device does not exist&quot;
+   exit -1
+  fi
+else
+  echo &quot;No device defined for contextualization&quot;
+  exit -2
+fi
+
+
+###############################################################################
+# Load all *.context file on configuration directory (/etc/stratuslab/conf.d) #
+###############################################################################
+if [ -d $configuration_dir ]
+then
+ context_files=`ls $configuration_dir/*.context`
+ for context_file in $context_files
+ do
+  source $context_file
+  if [ &quot;x$enable&quot; == &quot;xyes&quot; ]
+  then
+   if [ &quot;x$run_exec&quot; != &quot;x&quot; ]
+   then
+     echo &quot;. &quot;$run_exec &gt;&gt; $external_context_run
+   fi
+  fi
+  run_exec=&quot;&quot;
+  enable=&quot;&quot;
+ done
+fi
+
+############################################################
+# Mount contextualization device and do the standard stuff #
+# from opennebula (mainly put the ssh keys on /root/.ssh)  #
+############################################################
+mount -t iso9660 /dev/$DEVICE /mnt/stratuslab
+
+if [ -f /mnt/stratuslab/context.sh ]; then
+  . /mnt/stratuslab/init.sh
+fi
+
+################################################################
+# Run all contextualization script from /etc/stratuslab/conf.d #
+################################################################
+
+echo &quot;Start all external context&quot;
+chmod +x $external_context_run
+. $external_context_run
+rm -f $external_context_run
+
+umount /mnt/stratuslab
+
+exit 0</pre>
+
+</div>
+
+<h3 class="sectionedit1"><a name="how_to_use_contextualization_script" id="how_to_use_contextualization_script">How to use contextualization script</a></h3>
+<div class="level3">
+
+<p>
+
+The are 2 files type for contextualization, both are available on /etc/stratuslab
+</p>
+<ul>
+<li class="level1"><div class="li"> stratuslab-one-context.cfg : Currently only used to define the contextualization device.</div>
+</li>
+<li class="level1"><div class="li"> /etc/stratuslab/conf.d/*.context : This define all script that user want start on contextualization step. </div>
+</li>
+</ul>
+
+<p>
+
+The *.context format is very simple.
+
+</p>
+<pre class="file">enable=yes               # If enable is not defined or defined as no, the script is not launch
+FOO=bar                  # I can define some usefull variable for my script
+run_exec=/path/to/script # The executable i want run</pre>
+
+<p>
+Every time i will start my VM, the /path/to/script will be run. If no special contextualization variable is defined by the user when he start the machine, &#039;foo&#039; variable will have &#039;bar&#039; value. But if a user run the instance a command like: 
+
+</p>
+<pre class="file">  user@box$ stratus-run-instance --context=&quot;FOO=shi&quot; http://url/mydisk.img.gz</pre>
+
+<p>
+The variable FOO will have value &#039;shi&#039;
+</p>
+
+</div>
+
+<h4><a name="ssh_key_based_authentification" id="ssh_key_based_authentification">SSH Key based authentification</a></h4>
+<div class="level4">
+
+<p>
+
+Like we use ssh key to log into Virtual Image, you can restrict the ssh authentification to ssh key authentification. This can be done on OpenSSH with the following option on /etc/ssh/sshd_config
+</p>
+<pre class="file">PasswordAuthentication no</pre>
+
+</div>
+
+<h4><a name="randomize_password" id="randomize_password">Randomize password</a></h4>
+<div class="level4">
+
+<p>
+
+As your Virtual Image will be used by a lot of user and the image is available online, it s a good thing to randomize the root password @boot time. This can be done by the following script (/usr/bin/stratus-random-password)
+
+</p>
+<pre class="file">#!/bin/sh
+
+newpswd=`cat /dev/urandom | tr -dc &quot;a-zA-Z0-9-_\$\?&quot; | head -c 8`
+passwd root &lt;&lt;EOF
+$newpswd
+$newpswd
+EOF</pre>
+
+</div>
+
+<h4><a name="disable_fsck" id="disable_fsck">Disable FSCK</a></h4>
+<div class="level4">
+
+<p>
+
+By default, a filesystem check is done every 180 days. This is useless with a Virtual Image and this delay the boot time when your Virtual Images are 180 days old.
+</p>
+
+<p>
+To disable it, you must run the following command for every fs on your VM.
+
+</p>
+<pre class="file">  user@vm$ tune2fs -c 0 -i 0 /dev/hda1
+  ...</pre>
+
+</div>
+
+<h5><a name="convert_image_from_virtualbox_to_stratuslab" id="convert_image_from_virtualbox_to_stratuslab">Convert Image from VirtualBox to StratusLab</a></h5>
+<div class="level5">
+
+<p>
+
+If you used VirtualBox to create a VM, you can convert it to a raw images to run on StratusLab.
+The easiest way to make your VM compatible with StratusLab is to convert your vdi disk into raw disk. This can be done with standard VirtualBox tools with the following command
+</p>
+<pre class="file">  user@box$VBoxManage internalcommands converttoraw mydisk.vdi mydisk.img
+  user@box$gzip mydisk.img</pre>
+
+<p>
+Now, you ve got a img.gz, you can put it on a appliance repository and use it with command
+</p>
+<pre class="file">  user@box$stratus-run-instance http://url/mydisk.img.gz</pre>
+
+<p>
+or use a marketplace
+</p>
+<pre class="file">  user@box$ stratus-run-instance marketplace-id</pre>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/vboxtostratuslab.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

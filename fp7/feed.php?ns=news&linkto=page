@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://stratuslab.eu/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>StratusLab news</title>
+        <description></description>
+        <link>http://stratuslab.eu/</link>
+        <lastBuildDate>Thu, 11 Oct 2012 14:50:57 +0200</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://stratuslab.eu/lib/images/favicon.ico</url>
+            <title>StratusLab</title>
+            <link>http://stratuslab.eu/</link>
+        </image>
+        <item>
+            <title>StratusLab version 2.0 released</title>
+            <link>http://stratuslab.eu/doku.php/news:release2.0?rev=1342712544</link>
+            <description>The StratusLab project is proud to announce the release of StratusLab 2.0, the complete, open-source solution for deploying an “Infrastructure as a Service” (Iaas) cloud.
+
+The StratusLab distribution consists of a set of integrated tools for your IaaS cloud infrastructures, including the Registration Web Application, Marketplace, Persistent Storage Service, Web Monitor, OpenNebula, OpenNebula Proxy, StratusLab OpenNebula extensions and drivers, Claudia and a suite of end-user and System Administ…</description>
+            <author>cassidy</author>
+        <category>news</category>
+            <pubDate>Thu, 19 Jul 2012 17:42:24 +0200</pubDate>
+        </item>
+    </channel>
+</rss>

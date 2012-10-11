@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Universidad Complutense de Madrid  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Universidad Complutense de Madrid"/>
+  <meta name="Description" content="StratusLabUniversidad Complutense de Madrid"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="project,ucm" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./project:ucm?do=index" title="Sitemap" />
+<link rel="canonical" href="./project:ucm" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='project';var JSINFO = {"id":"project:ucm","namespace":"project"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				
+<h1 class="sectionedit1"><a name="universidad_complutense_de_madrid" id="universidad_complutense_de_madrid">Universidad Complutense de Madrid</a></h1>
+<div class="level1">
+
+<p>
+
+<a href="../lib/exe/detail.php/ucm.gif?id=project:ucm" class="media" title="ucm.gif"><img src="../lib/exe/fetch.php/ucm.gif" class="media" alt="" /></a> <a href="../lib/exe/detail.php/fetch.jpg?id=project:ucm" class="media" title="fetch.jpg"><img src="../lib/exe/fetch.php/fetch.jpg?w=350" class="media" alt="" width="350" /></a>
+</p>
+
+<p>
+The <a href="http://dsa-research.org" class="urlextern" title="http://dsa-research.org"  rel="nofollow"> Distributed Systems Architecture Research Group</a> at <a href="http://www.ucm.es" class="urlextern" title="http://www.ucm.es"  rel="nofollow">Universidad Complutense de Madrid</a> is leading several research activities related to dynamic placement and scheduling of jobs (<a href="http://www.GridWay.org" class="urlextern" title="http://www.GridWay.org"  rel="nofollow">Globus GridWay Metascheduler</a>), dynamic managment of virtual machines and on-demand access to Cloud providers (<a href="http://www.OpenNebula.org" class="urlextern" title="http://www.OpenNebula.org"  rel="nofollow">OpenNebula Virtual Infrastructure Engine</a>), and federation of grid infrastructures (<a href="http://www.Grid4Utility.org" class="urlextern" title="http://www.Grid4Utility.org"  rel="nofollow">Grid4Utility</a>). The results of the research have been published in more than 85 papers in the leading journals and proceedings in the last five years and incorporated in several technology products that have been transferred to the industry and the research community.  The members of the group actively participate in several <a href="http://www.ogf.org" class="urlextern" title="http://www.ogf.org"  rel="nofollow">Open Grid Forum</a> groups and in the Program Committee of the most important workshops and conference related to grid computing. The group is currently coordinating the Spanish Initiative in Grid Middleware and the Working Group on SOI and Grids of <a href="http://www.ines.org.es" class="urlextern" title="http://www.ines.org.es"  rel="nofollow">INES</a> - Spanish Technology Platform on Software and Services; and is involved in <a href="http://www.nessi-europe.com/Nessi/" class="urlextern" title="http://www.nessi-europe.com/Nessi/"  rel="nofollow">NESSI</a>. The group participates in the <a href="http://dev.globus.org" class="urlextern" title="http://dev.globus.org"  rel="nofollow"> Globus Alliance</a>, <a href="http://www.reservoir-fp7.eu/" class="urlextern" title="http://www.reservoir-fp7.eu/"  rel="nofollow"> RESERVOIR</a>, <a href="http://www.eu-egee.org" class="urlextern" title="http://www.eu-egee.org"  rel="nofollow">EGEE</a> and <a href="http://www.beingrid.eu/" class="urlextern" title="http://www.beingrid.eu/"  rel="nofollow"> BEinGRID</a> projects.
+</p>
+
+<p>
+<strong>Contact</strong>: <a href="./mailto:&#x6c;&#x6c;&#x6f;&#x72;&#x65;&#x6e;&#x74;&#x65;&#x40;&#x64;&#x61;&#x63;&#x79;&#x61;&#x2e;&#x75;&#x63;&#x6d;&#x2e;&#x65;&#x73;" class="mail JSnocheck" title="&#x6c;&#x6c;&#x6f;&#x72;&#x65;&#x6e;&#x74;&#x65;&#x40;&#x64;&#x61;&#x63;&#x79;&#x61;&#x2e;&#x75;&#x63;&#x6d;&#x2e;&#x65;&#x73;">Ignacio M. Llorente</a>
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          project/ucm.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

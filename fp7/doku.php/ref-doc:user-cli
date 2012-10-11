@@ -1,0 +1,2213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: stratus-run-instance  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,stratus-run-instance"/>
+  <meta name="Description" content="StratusLabstratus-run-instance"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-05-22T18:44:07+0200" />
+<meta name="keywords" content="ref-doc,user-cli" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="ref-doc:user-cli?do=index" title="Sitemap" />
+<link rel="canonical" href="ref-doc:user-cli" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='ref-doc';var JSINFO = {"id":"ref-doc:user-cli","namespace":"ref-doc"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-run-instance" class="toc">stratus-run-instance</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options" class="toc">Options</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="ref-doc:user-cli#providing_contextualization_to_vm" class="toc">Providing contextualization to VM</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="ref-doc:user-cli#providing_a_script_to_be_launched_at_initialization" class="toc">Providing a script to be launched at initialization</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-describe-instance" class="toc">stratus-describe-instance</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description1" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax1" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options1" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output1" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example1" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-kill-instance" class="toc">stratus-kill-instance</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description2" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax2" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output2" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example2" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-shutdown-instance" class="toc">stratus-shutdown-instance</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description3" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax3" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output3" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example3" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-run-cluster" class="toc">stratus-run-cluster</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-connect-instance" class="toc">stratus-connect-instance</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description4" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax4" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options2" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output4" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example4" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-run-benchmark" class="toc">stratus-run-benchmark</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-build-metadata" class="toc">stratus-build-metadata</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description5" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax5" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options3" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output5" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example_1" class="toc">Example 1</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example_2" class="toc">Example 2</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-upload-image" class="toc">stratus-upload-image</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description6" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax6" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options4" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output6" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example5" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-sign-metadata" class="toc">stratus-sign-metadata</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description7" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax7" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options5" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output7" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example6" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-validate-metadata" class="toc">stratus-validate-metadata</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description8" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax8" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options6" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output8" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example7" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-upload-metadata" class="toc">stratus-upload-metadata</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description9" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax9" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options7" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output9" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example8" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-deprecate-metadata" class="toc">stratus-deprecate-metadata</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description10" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax10" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options8" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output10" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example9" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-create-image" class="toc">stratus-create-image</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description11" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax11" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options9" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output11" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example10" class="toc">Example</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#alternative_manual_image_increment_creation" class="toc">Alternative manual image increment creation</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-create-volume" class="toc">stratus-create-volume</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description12" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax12" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options10" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output12" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example11" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-delete-volume" class="toc">stratus-delete-volume</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description13" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax13" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options11" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output13" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example12" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-describe-volumes" class="toc">stratus-describe-volumes</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description14" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax14" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options12" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output14" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example13" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-attach-volume" class="toc">stratus-attach-volume</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description15" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax15" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options13" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output15" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example14" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-detach-volume" class="toc">stratus-detach-volume</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description16" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax16" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options14" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output16" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example15" class="toc">Example</a></span></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:user-cli#stratus-hash-password" class="toc">stratus-hash-password</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#description17" class="toc">Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#syntax17" class="toc">Syntax</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#options15" class="toc">Options</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#output17" class="toc">Output</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ref-doc:user-cli#example16" class="toc">Example</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="stratus-run-instance" id="stratus-run-instance">stratus-run-instance</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2"><a name="description" id="description">Description</a></h2>
+<div class="level2">
+
+<p>
+Allows to launch image instances on StratusLab cloud frontend. The image to be instantiated can be either Marketplace image ID or PDISK volume UUID.
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="syntax" id="syntax">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-run-instance [defaultOptions] image
+
+image - Marketplace image ID or PDISK volume UUID</pre>
+
+</div>
+
+<h2 class="sectionedit4"><a name="options" id="options">Options</a></h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit5"><a name="providing_contextualization_to_vm" id="providing_contextualization_to_vm">Providing contextualization to VM</a></h3>
+<div class="level3">
+
+<p>
+
+As a way of delivering context information to VM one can provide a set of <strong>key=value</strong> pairs via <strong>stratus-run-instance</strong> using the following parameters.
+</p>
+<pre class="file">  --context-file=FILE   extra context file with one key=value per line
+  --context=CONTEXT     extra context string (separate by #)</pre>
+
+<p>
+Example.
+</p>
+<pre class="file">$ cat context.file 
+var3=VAL3
+VAR4=val4
+$ stratus-run-instance --context=&quot;var1=VAL1&quot;#&quot;VAR2=val2&quot; --context-file=context.file ... -vv | awk &#039;/CONTEXT/,/]/&#039;
+CONTEXT = [
+public_key = &quot;...&quot;,
+VAR4 = &quot;val4&quot;,
+var1 = &quot;VAL1&quot;,
+var3 = &quot;VAL3&quot;,
+VAR2 = &quot;val2&quot;,
+target = &quot;hdd&quot;
+]
+$ </pre>
+
+<p>
+The variables will be provided to the cloud layer and will become available on VM under <strong>/mnt/stratuslab/context.sh</strong>. 
+</p>
+<pre class="file">my-VM-instance # cat /mnt/stratuslab/context.sh
+...
+VAR4=&quot;val4&quot;
+VAR1=&quot;VAL1&quot;
+VAR3=&quot;VAL3&quot;
+VAR2=&quot;val2&quot;
+...</pre>
+<pre class="code"> NB! Currently on VM all the variable names will be transformed into upper-case.</pre>
+
+<p>
+
+To get the variables available, one have to source the file 
+</p>
+<pre class="code">  
+  source /mnt/stratuslab/context.sh
+     or
+  . /mnt/stratuslab/context.sh
+  </pre>
+
+<p>
+As one can see <strong>/mnt/stratuslab/context.sh</strong> defines the variables following Bourne shell family shells specification. 
+
+</p>
+<pre class="code"> NB! Sourcing the file under C shell family shells will fail.</pre>
+
+<p>
+
+And the variables are shell variables (i.e. available locally for the current shell instance only) - not environment variables which can be inherited by forked subprocesses (i.e., not “export”-ed).
+</p>
+
+<p>
+To workaround the problem on VM one can do the following.
+</p>
+<pre class="file">CONTEXT_FILE=/mnt/stratuslab/context.sh
+VARS=`cat $CONTEXT_FILE | egrep -e &#039;^[a-zA-Z\-\_0-9]*=&#039; | sed &#039;s/=.*$//&#039;`
+for v in $VARS; do
+  export $v
+done</pre>
+
+<p>
+When providing <em>SCRIPT_EXEC</em> context variable (see <code><span class="curid"><a href="ref-doc:user-cli?&amp;#providing_a_script_to_be_launched_at_initialization" class="wikilink1" title="ref-doc:user-cli">Providing script to be launched at intialization</a></span></code>) the above export is done automatically and the variables can be directly used from the script specified by <em>SCRIPT_EXEC</em>.
+</p>
+
+</div>
+
+<h3 class="sectionedit6"><a name="providing_a_script_to_be_launched_at_initialization" id="providing_a_script_to_be_launched_at_initialization">Providing a script to be launched at initialization</a></h3>
+<div class="level3">
+
+<p>
+
+One can provide a simple script to be launched on VM during initialization process via <strong>SCRIPT_EXEC=“your script”</strong> variable. 
+</p>
+<pre class="file">stratus-run-instance \
+  --context=&quot;abc=ABC&quot;#&quot;script_exec=wget -O /tmp/myprog.bootstrap http://&lt;hostname&gt;/myprog.bootstrap &amp;&amp; chmod +x /tmp/myprog.bootstrap &amp;&amp; /tmp/myprog.bootstrap&quot; ...</pre>
+
+</div>
+
+<h2 class="sectionedit7"><a name="output" id="output">Output</a></h2>
+<div class="level2">
+
+<p>
+In ”–quiet” mode prints out instance ID and assigned IP. In highest level of verbosity (-vvv) prints out all the operations  the command performs: what endpoints are contacted to perform image meta-information lookup, the instance deployment template, etc.
+</p>
+
+</div>
+
+<h2 class="sectionedit8"><a name="example" id="example">Example</a></h2>
+<div class="level2">
+<pre class="file">stratus-run-instance --endpoint grnet.cloud.stratuslab.eu \
+    -t m1.xlarge \
+    --save --author-email john@example.com \
+    --volatile-disk 2 \
+    --notify &quot;dev.rabbitmq.com,/,guest,guest,random_queue&quot; \
+    PvitUfM-uW2yWakWUNmd-TSPOiy</pre>
+
+<p>
+Launch one instance of type m1.xlarge (2 CPU, 1024 <acronym title="Megabyte">MB</acronym>, 1024 <acronym title="Megabyte">MB</acronym>) of an image identified by the image ID PvitUfM-uW2yWakWUNmd-TSPOiy (found in default Marketplace). Attach volatile disk of size 2GB. Save the instance as a new image when shutdown operation is called. (The volatile disk will not be saved.) On successful new image creation send email to john@example.com. Notify on each instance state change on the provided (AMQP) messaging endpoint.
+
+</p>
+
+</div>
+
+<h1 class="sectionedit9"><a name="stratus-describe-instance" id="stratus-describe-instance">stratus-describe-instance</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit10"><a name="description1" id="description1">Description</a></h2>
+<div class="level2">
+
+<p>
+Prints out details of active or failed instances belonging to the user. When run with -v more verbose information is printed, including failure details if present. 
+</p>
+
+</div>
+
+<h2 class="sectionedit11"><a name="syntax1" id="syntax1">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-describe-instance [options] [vm-id]
+
+[vm-id] - space separated list of VM IDs. Without the parameter [vm-id] the
+command lists the available VMs belonging to the user (-u/--username).</pre>
+
+</div>
+
+<h2 class="sectionedit12"><a name="options1" id="options1">Options</a></h2>
+<div class="level2">
+
+<p>
+If the Cloud site provides port address translation (PAT) and instances were started with request to perform PAT, the following options will display the assigned translation.
+
+</p>
+<pre class="file">  --pat-enable          show port address translations
+  --pat-service-host=HOST/IP
+                        set the hostname/ip of port translation service
+  --pat-gateway-host=HOST/IP
+                        set the hostname/ip of port translation gateway</pre>
+
+<p>
+If you happen to have multiple accounts on different cloud endpoints by providing -m option (and preliminary setting “endpoints” parameter in user configuration file (see reference configuration file)) will display VMs running on the defined endpoints.
+
+</p>
+<pre class="file">  -m                    Print state of virtual machines on multiple sites.
+                        &quot;endpoints&quot; parameter should be set in user
+                        configuration file.</pre>
+
+</div>
+
+<h2 class="sectionedit13"><a name="output1" id="output1">Output</a></h2>
+<div class="level2">
+
+<p>
+Details of active or failed instances belonging to the user.
+</p>
+
+<p>
++
+
+</p>
+
+</div>
+
+<h2 class="sectionedit14"><a name="example1" id="example1">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-describe-instance -m -vvv
+::: cloud.grnet.stratuslab.eu : konstan :::
+id  state     vcpu memory    cpu% ip              name
+::: cloud.lal.stratuslab.eu : konstan :::
+&lt;ProtocolError for xxxxx:*****@cloud.lal.stratuslab.eu:2634/pswd/xmlrpc: 401 Unauthorized&gt;
+::: onehost-5.lal.in2p3.fr : oneadmin :::
+id  state     vcpu memory    cpu% ip              name
+::: 213.157.30.133 : oneadmin :::
+WARNIG: Could not get results in 5 sec
+::: 62.217.120.135 : oneadmin :::
+id  state     vcpu memory    cpu% ip              name
+13  Failed    1    0         0    62.217.120.179  one-13
+    Error executing image transfer script: Image sha1 checksum check failed.
+::: 62.217.120.145 : test :::
+id  state     vcpu memory    cpu% ip              name
+4   Running   1    131072    1    62.217.120.172  one-4
+5   Running   1    131072    1    62.217.120.173  one-5
+~ $ </pre>
+
+</div>
+
+<h1 class="sectionedit15"><a name="stratus-kill-instance" id="stratus-kill-instance">stratus-kill-instance</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit16"><a name="description2" id="description2">Description</a></h2>
+<div class="level2">
+
+<p>
+Sends kill signal to user&#039;s active instances specified by IDs.
+</p>
+
+</div>
+
+<h2 class="sectionedit17"><a name="syntax2" id="syntax2">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-kill-instance [options] vm-id ...</pre>
+
+</div>
+
+<h2 class="sectionedit18"><a name="output2" id="output2">Output</a></h2>
+<div class="level2">
+
+<p>
+No output.
+</p>
+
+</div>
+
+<h2 class="sectionedit19"><a name="example2" id="example2">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-kill-instance {34..40}
+~ $</pre>
+
+<p>
+Kills instances in the range {34..40} if they belong to the user.
+</p>
+
+</div>
+
+<h1 class="sectionedit20"><a name="stratus-shutdown-instance" id="stratus-shutdown-instance">stratus-shutdown-instance</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit21"><a name="description3" id="description3">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Sends shutdown signal to active instances specified by IDs. Instances should support ACPI. By default, if instance doesn&#039;t shutdown in 10 min it will be killed.
+</p>
+
+</div>
+
+<h2 class="sectionedit22"><a name="syntax3" id="syntax3">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-shutdown-instance [options] vm-id ...</pre>
+
+</div>
+
+<h2 class="sectionedit23"><a name="output3" id="output3">Output</a></h2>
+<div class="level2">
+
+<p>
+No output.
+</p>
+
+</div>
+
+<h2 class="sectionedit24"><a name="example3" id="example3">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-shutdown-instance 101
+~ $</pre>
+
+<p>
+Attempts a graceful shutdown of the specified instance (if it belongs to the user). 
+</p>
+
+<p>
+
+This command is useful with “stratus-run-instance –save”.
+</p>
+
+<p>
+1. launch an instance of the base image via
+</p>
+<pre class="file">  stratus-run-instance --save --author-email &lt;email&gt; &lt;base-image ID&gt;</pre>
+
+<p>
+2. ssh to the instance and apply required modifications
+</p>
+
+<p>
+3. run 
+</p>
+<pre class="file">  stratus-shutdown-instance &lt;instance ID&gt;</pre>
+
+<p>
+4. user receives email with details on how to proceed with the newly created image
+</p>
+
+</div>
+
+<h1 class="sectionedit25"><a name="stratus-run-cluster" id="stratus-run-cluster">stratus-run-cluster</a></h1>
+<div class="level1">
+
+<p>
+
+<em>stratus-run-cluster</em> is an extension of <em>stratus-run-instance</em>. It provides the ability to instantiate a group of VMs and configure them as a virtual private cluster with shared storage or/and passwordless access between the nodes. The tool will work with RedHat or Debian based VMs (e.g. CentOS, Ubuntu etc). Typically the VM images should have NFS pre-installed and properly configured in order to allow folder sharing (e.g iptables allowing communication of nfs daemon). If this is not the case the user may install the required packages during VM instantiation using the –add-packages switch. The tool will create a typical master-worker setup with one node acting as the frontend (master) of the cluster and the rest of the nodes as workers. In the typical case all nodes are instantiated from the same image with the same physical profile. The tool provides also the ability to setup non-homogenous clusters in which the master node exhibits different characteristics than the workers. 
+</p>
+
+<p>
+Apart from the cli parameters accepted by stratus-run-instance, stratus-run-cluster accepts also the following:
+</p>
+<pre class="file">--shared-folder=SHARED_FOLDER 
+    Folder to share from the master node over NFS
+
+--ssh-hostbased       
+    Enable cluster integration through host-based ssh authentication. 
+                In this case sshd is setup for passwordless authentication 
+                among the cluster nodes. 
+
+--cluster-admin=CLUSTER_ADMIN
+                Username for cluster administrator (default root)
+
+
+--cluster-user=CLUSTER_USER
+                Additional user to be created in the cluster. This user account 
+                will be created in all the nodes of the cluster.
+
+--mpi-machine-file    
+    Defines that a machinefile should be prepared for MPI listing
+                available workers and their respective number of cores (slot value).
+                The file is saved /tmp/machinefile and can be used directly as a
+                parameter for mpirun or mpiexec.
+
+--include-master      
+    Defines that the master node should be considered as part of the
+                worker nodes. For example this way the name of the master is 
+                included in the mpimachine file
+
+--add-packages=ADD_PACKAGES
+                Provide comma separated list of additional packages that you wish
+                to install
+
+--master-vmid=MASTER_VMID
+                VMID of master node if this has been instantiated separately
+
+--tolerate-failures   
+    If set true the tool will try to configure the cluster with as many
+                nodes as it can, in case some of them fail during instantiation. 
+                Default value us FALSE
+
+--clean-after-failure
+    In case the tool fails to instantiate all VMs it will try to kill 
+                all those that were instantiated thus releasing all resources from
+                the cloud. Default value is TRUE
+
+-n INT, --number=INT  
+    Number of machines to start for the cluster
+</pre>
+
+<p>
+<strong>Examples</strong>
+</p>
+
+<p>
+1. Start 4 instances of CentOS OpenMPI appliance using the c1.xlarge profile. Create a user named bobalice and share the home folder. Generate an mpi file and include the master node as part of the workers.
+</p>
+<pre class="file">$ stratus-run-cluster --cluster-user=bobalice --shared-folder=/home \
+         --mpi-machine-file --include-master --qcow-disk-format -n 4 \
+         -t c1.xlarge JAm9q9vBzGJL1klVTe-9xBByfxj
+
+ ::::::::::::::::::::::
+ :: Starting cluster ::
+ ::::::::::::::::::::::
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 4 machines
+ :: Machine 1 (vm ID: 2748)
+  Public ip: 62.217.122.172
+ :: Machine 2 (vm ID: 2749)
+  Public ip: 62.217.122.173
+ :: Machine 3 (vm ID: 2750)
+  Public ip: 62.217.122.174
+ :: Machine 4 (vm ID: 2751)
+  Public ip: 62.217.122.179
+ :: Done!
+Waiting for all cluster VMs to be instantiated
+............
+Waiting for all instances to become accessible
+...
+
+Master is vm043.one.ypepth.grnet.gr
+Worker:vm044.one.ypepth.grnet.gr
+Worker:vm045.one.ypepth.grnet.gr
+Worker:vm050.one.ypepth.grnet.gr
+
+ :::::::::::::::::::::::
+ :: Configuring nodes ::
+ :::::::::::::::::::::::
+ :: Preparing MPI machine file
+ :: Preparing NFS shared folder
+ :: Creating additional user
+ :: Updating environment variables
+ :: Updating hosts file
+ :: Done!</pre>
+
+<p>
+2. Start a single node using stratus-run-instance and then start the rest of the cluster using the node from the previous step as the master. Use different instance profile for the master and the workers and a different base appliance. Notice the usage of <em>–context</em> and <em>–add-packages</em> parameters in order to properly configure the master node whose base image is not configured with nfs.
+</p>
+<pre class="file">
+$ stratus-run-instance \
+     --context=&quot;script_exec=service iptables stop &amp;&amp; service portmap start&quot; \
+     -t m1.xlarge GQgEmeu7aV2NRaGyAr6FEL3qRET
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 2752)
+  Public ip: 62.217.122.180
+ :: Done!
+
+$ stratus-run-cluster -n 3 --qcow-disk-format \
+     --add-packages=nfs-utils,openmpi,openmpi-devel \
+     --master-vmid 2752 --cluster-user=bobalice \
+     --shared-folder=/home --mpi-machine-file \
+     --add-packages=nfs-utils,openmpi,openmpi-devel \
+     -t c1.xlarge JAm9q9vBzGJL1klVTe-9xBByfxj
+
+ ::::::::::::::::::::::
+ :: Starting cluster ::
+ ::::::::::::::::::::::
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 3 machines
+ :: Machine 1 (vm ID: 2758)
+  Public ip: 62.217.122.191
+ :: Machine 2 (vm ID: 2759)
+  Public ip: 62.217.122.192
+ :: Machine 3 (vm ID: 2760)
+  Public ip: 62.217.122.193
+ :: Done!
+Waiting for all cluster VMs to be instantiated
+Waiting for master
+.......
+Waiting for all instances to become accessible
+...
+
+Master is vm051.one.ypepth.grnet.gr
+Worker:vm062.one.ypepth.grnet.gr
+Worker:vm063.one.ypepth.grnet.gr
+Worker:vm064.one.ypepth.grnet.gr
+
+ :::::::::::::::::::::::
+ :: Configuring nodes ::
+ :::::::::::::::::::::::
+ :: Installing additional software packages
+ :: Preparing MPI machine file
+ :: Preparing NFS shared folder
+ :: Creating additional user
+ :: Updating environment variables
+ :: Updating hosts file
+ :: Done!
+</pre>
+
+</div>
+
+<h1 class="sectionedit26"><a name="stratus-connect-instance" id="stratus-connect-instance">stratus-connect-instance</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit27"><a name="description4" id="description4">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Connect to the running instance identified by VM ID via <acronym title="Secure Shell">SSH</acronym>. If requested, uses port address translation information associated with the instance.
+</p>
+
+</div>
+
+<h2 class="sectionedit28"><a name="syntax4" id="syntax4">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-connect-instance [options] [vm-id]
+
+[vm-id] - virtual machine identifier</pre>
+
+</div>
+
+<h2 class="sectionedit29"><a name="options2" id="options2">Options</a></h2>
+<div class="level2">
+
+<p>
+Run command with -h to the list of self explanatory options.
+</p>
+
+</div>
+
+<h2 class="sectionedit30"><a name="output4" id="output4">Output</a></h2>
+<div class="level2">
+
+<p>
+
+As a result of running the command user is loged into the specified instance.
+</p>
+
+</div>
+
+<h2 class="sectionedit31"><a name="example4" id="example4">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-describe-instance 
+id  state     vcpu memory    cpu% ip              name
+16  Running   2    2097152   7    62.217.120.188  SlipStream PROD StratusLab
+17  Running   2    2097152   7    62.217.120.189  SlipStream PROD Amazon
+~ $ stratus-connect-instance 16
+Last login: Wed Feb  8 22:49:52 2012 from xxx.aaa.bb
+[root@ss-stratuslab ~]# </pre>
+
+</div>
+
+<h1 class="sectionedit32"><a name="stratus-run-benchmark" id="stratus-run-benchmark">stratus-run-benchmark</a></h1>
+<div class="level1">
+
+<p>
+stratus-run-benchmark command  tests a range of common scientific application patterns: CPU-Intensive, Simulation,
+Analysis, Filtering, Shared Memory, Parallel, and Workflow.
+</p>
+
+<p>
+It  covers a large  types of applications: sequential, multi-threaded, OpenMP, MPI, i/o parallel, kepler/workflow, master/worker, cpu stress.
+</p>
+
+<p>
+The application benchmarks are, by default,  parameterized to allow a wide range of input sizes, output sizes, and running times to be evaluated.
+</p>
+
+<p>
+The stratus-run-benchmark command allows selecting one specific type of application to test, as it also allows a complete test of all the above types of applications.  
+</p>
+
+<p>
+The performance of these tests are measured and stored in XML format.
+</p>
+
+<p>
+For each type of application we are using specific option.
+</p>
+<pre class="file">  --openmp              OpenMP benchmark
+  --io                  IO/Parallel, Large input data but relatively small
+                        output data, Large input data but relatively small
+                        output data and mall input, but significant output
+                        data with high-CPU requirements benchmark
+  --mpi                 MPI benchmark
+  --cpu-intensive       High-CPU requirements but little or no input and
+                        output data
+  --workflows           Multiple interdependent tasks, Kepler Workflow
+                        benchmark
+  --all                 Run all benchmarks
+  --output-folder=OUTPUT_FOLDER
+                        folder for xml output files</pre>
+
+<p>
+stratus-run-benchmark inherits from stratus-run-instance, so the standard stratus-run-instance options can also be used.
+</p>
+
+<p>
+The algorithms implemented for each type of application :
+</p>
+
+<p>
+1)  OpenMP Benchmarks
+</p>
+<ul>
+<li class="level1"><div class="li"> Conjugate Gradient Method : Solves linear system Ax=b</div>
+</li>
+<li class="level1"><div class="li"> Jacobian type iteration : Solves linear sysrem Ax=b</div>
+</li>
+<li class="level1"><div class="li"> Matrix multiplication C=AB</div>
+</li>
+</ul>
+
+<p>
+
+2)  MPI Benchmarks
+</p>
+<ul>
+<li class="level1"><div class="li"> MPI asynchronous non blocking communication</div>
+</li>
+<li class="level1"><div class="li"> MPI synchronous blocking communication</div>
+</li>
+<li class="level1"><div class="li"> MPI persistent communication</div>
+</li>
+<li class="level1"><div class="li"> MPI standard communication.</div>
+</li>
+</ul>
+
+<p>
+
+3) I/O Benchmarks
+</p>
+<ul>
+<li class="level1"><div class="li"> Implements the important features of Parallel I/O</div>
+<ul>
+<li class="level2"><div class="li"> Writing to a file: MPI_FILE_write_at</div>
+</li>
+<li class="level2"><div class="li"> Reading from  file: MPI_FILE_read_at</div>
+</li>
+<li class="level2"><div class="li"> Both: Reading from a file and writing to another</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+
+4) CPU Benchmarks
+</p>
+<ul>
+<li class="level1"><div class="li"> Fork Stress </div>
+</li>
+<li class="level1"><div class="li"> CPU Stress </div>
+</li>
+</ul>
+
+<p>
+
+5) Workflow Benchmarks
+</p>
+<ul>
+<li class="level1"><div class="li"> We are using Kepler Platform for workflows design and management</div>
+<ul>
+<li class="level2"><div class="li"> The workflow is built using the customizable components available in Kepler namely:  directors, actors, parameters, relations and the ports</div>
+</li>
+<li class="level2"><div class="li"> It executes an OpenMP Application</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+
+For testing purposes, we are fixing the parameters (matrix sizes, tolerance, …) for each algorithm.
+</p>
+
+<p>
+
+These algorithms are installed by default in a specific appliance, which could be found in the <a href="http://appliances.stratuslab.eu/marketplace/metadata/GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr/2011-06-08T12:41:02Z" class="urlextern" title="http://appliances.stratuslab.eu/marketplace/metadata/GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr/2011-06-08T12:41:02Z"  rel="nofollow">StratusLab Marketplace</a>.
+</p>
+
+</div>
+
+<h1 class="sectionedit33"><a name="stratus-build-metadata" id="stratus-build-metadata">stratus-build-metadata</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit34"><a name="description5" id="description5">Description</a></h2>
+<div class="level2">
+
+<p>
+Produces metadata file (<acronym title="Extensible Markup Language">XML</acronym> format) describing an image provided as an input. 
+This utility is meant to be used to ease the creation of such metadata file 
+and as one of the steps of a new image creation.
+</p>
+
+</div>
+
+<h2 class="sectionedit35"><a name="syntax5" id="syntax5">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-build-metadata [options] image
+
+image - image to build the metadata for</pre>
+
+</div>
+
+<h2 class="sectionedit36"><a name="options3" id="options3">Options</a></h2>
+<div class="level2">
+
+<p>
+Supports the following list of self explanatory options.
+</p>
+<pre class="file">  --author=NAME         Author of the new image
+  --type=NAME           Image type (e.g. base, grid). Default: base
+  --kind=NAME           Image kind (e.g. machine, disk). Default: machine
+  --os=NAME             Operation system
+  --os-version=VERSION  Operation system version
+  --os-arch=ARCH        Operation system architecture
+  --image-version=VERSION
+                        Image version
+  --format=FORMAT       Image format (e.g. raw, qcow2). Default: raw
+  --hypervisor=NAME     Hypervisor (e.g. kvm, xen). Default: kvm
+  --location=URI        Physical location of the image.
+  --compression=EXT     Image compression format. One of: gz, bz2
+  --comment=TEXT        Comment to append to the manifest file
+  --md5=HEX             md5 checksum
+  --sha1=HEX            sha1 checksum
+  --sha256=HEX          sha256 checksum
+  --sha512=HEX          sha512 checksum
+  --no-md5              do not calculate md5 checksum
+  --no-sha256           do not calculate sha256 checksum
+  --no-sha512           do not calculate sha512 checksum</pre>
+
+</div>
+
+<h2 class="sectionedit37"><a name="output5" id="output5">Output</a></h2>
+<div class="level2">
+
+<p>
+Produces image manifest ready to be signed and uploaded to Marketplace.
+</p>
+
+</div>
+
+<h2 class="sectionedit38"><a name="example_1" id="example_1">Example 1</a></h2>
+<div class="level2">
+<pre class="file">stratus-build-metadata \
+       --author &quot;Konstantin Skaburskas&quot; \
+       --comment &quot;CentOS image.&quot; \
+       --os centos \
+       --os-version 5.5 \
+       --os-arch x86_64 \
+       --version 1.0 \
+       --type base \
+       centos-5.5-x86_64.img</pre>
+
+<p>
+You might want to provide –type parameter. 
+</p>
+
+<p>
+This command will checksum the image as well. Depending on the size of your image this may take minutes.
+</p>
+
+<p>
+If checksums are known in advance, they can be provided with
+</p>
+<pre class="file"> --md5=HEX             md5 checksum
+ --sha1=HEX            sha1 checksum
+ --sha256=HEX          sha256 checksum
+ --sha512=HEX          sha512 checksum</pre>
+
+<p>
+Required checksum is sha1. To save time one can provide:
+</p>
+<pre class="file"> --no-md5              do not calculate md5 checksum
+ --no-sha256           do not calculate sha256 checksum
+ --no-sha512           do not calculate sha512 checksum</pre>
+
+<p>
+If the future physical location of the image is known it can be provided with ”–location” command line option. If the compression format is known it can be provided with ”–compression” command line option.
+</p>
+
+<p>
+As a <em>result</em>, the command produces <strong>centos-5.5-x86_64-base-1.0.xml</strong>
+</p>
+
+<p>
+Next step would be to compress the image, sign metadata file and upload them to Appliance Repository and MarketPlace respectively.
+</p>
+
+<p>
+This can be accomplished in two ways.
+</p>
+
+<p>
+When the image is located on the machine which happened to hold your secret keys (X509, PKCS12) use <code><span class="curid"><a href="ref-doc:user-cli#stratus-upload-image" class="wikilink1" title="ref-doc:user-cli">stratus-upload-image</a></span></code>
+</p>
+
+<p>
+For the case when your image is located on remote machine and for obvious reasons you
+don&#039;t want to move your private secrets to that machine you can use a sequence 
+of the following commands:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> stratus-sign-metadata</div>
+</li>
+<li class="level1"><div class="li"> [stratus-validate-metada] optional</div>
+</li>
+<li class="level1"><div class="li"> stratus-upload-metadata</div>
+</li>
+</ul>
+
+<p>
+
+The commands will require PKCS12 (P12) certificate.
+</p>
+
+</div>
+
+<h2 class="sectionedit39"><a name="example_2" id="example_2">Example 2</a></h2>
+<div class="level2">
+
+<p>
+
+<strong>A</strong> If you happen know sha1 checksum as well as
+the size of the image, and don&#039;t want to move the .img file to your
+local machine, the *.img file to stratus-build-metadata, in fact, can
+be any file. In such case only file size will be taken from the
+image. So, one can do
+</p>
+<pre class="file">$ touch centos.img
+$ stratus-build-metadata  ... centos.img
+$ $EDITOR centos-5.5-x86_64-base-1.0.xml # change &lt;size&gt; element from 0 to the actual one</pre>
+
+<p>
+<strong>B</strong> The next step would be to sign the metadata file with
+</p>
+<pre class="file">$ stratus-sign-metadata centos-5.5-x86_64-base-1.0.xml</pre>
+
+<p>
+NB! Steps <strong>A</strong> and <strong>B</strong> are usually done internally by <code><span class="curid"><a href="ref-doc:user-cli#stratus-upload-image" class="wikilink1" title="ref-doc:user-cli">stratus-upload-image</a></span></code>. Those two simple steps let you save time on the movement of the images to the machine that holds your secret keys.
+</p>
+
+</div>
+
+<h1 class="sectionedit40"><a name="stratus-upload-image" id="stratus-upload-image">stratus-upload-image</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit41"><a name="description6" id="description6">Description</a></h2>
+<div class="level2">
+
+<p>
+Compresses and uploads the compressed image to Appliance Repository; updates metadata
+file and uploads it to Marketplace. The following naming convention for the input 
+files is used: filename.xml → filename.img
+</p>
+
+<p>
+Requires PKCS12 (P12) certificate and Appliance Repository username/password.
+</p>
+
+</div>
+
+<h2 class="sectionedit42"><a name="syntax6" id="syntax6">Syntax</a></h2>
+<div class="level2">
+<pre class="file">$ stratus-upload-image &lt;metadata-file&gt;</pre>
+
+</div>
+
+<h2 class="sectionedit43"><a name="options4" id="options4">Options</a></h2>
+<div class="level2">
+
+<p>
+Notable options.
+
+</p>
+<pre class="file">  -C FORMAT, --compress=FORMAT
+                        compression format
+  -f, --force           force upload of the appliance even if already exists
+  --list-compression    list available compression formats
+  --with-marketplace    Also upload the metadata file to the marketplace
+  --marketplace-only    Only upload the metadata file to the marketplace,
+                        don&#039;t upload the image to the appliances repository
+</pre>
+
+</div>
+
+<h2 class="sectionedit44"><a name="output6" id="output6">Output</a></h2>
+<div class="level2">
+
+<p>
+Prints out locations of uploaded image and/or metadata file.
+</p>
+
+</div>
+
+<h2 class="sectionedit45"><a name="example5" id="example5">Example</a></h2>
+<div class="level2">
+
+<p>
+.
+</p>
+
+</div>
+
+<h1 class="sectionedit46"><a name="stratus-sign-metadata" id="stratus-sign-metadata">stratus-sign-metadata</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit47"><a name="description7" id="description7">Description</a></h2>
+<div class="level2">
+
+<p>
+Validates and signs metadata file. Requires PKCS12 (P12) certificate.
+</p>
+
+</div>
+
+<h2 class="sectionedit48"><a name="syntax7" id="syntax7">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-sign-metadata [options] &lt;metadata-file&gt;</pre>
+
+</div>
+
+<h2 class="sectionedit49"><a name="options5" id="options5">Options</a></h2>
+<div class="level2">
+
+<p>
+If your PKCS12 certificate doesn&#039;t contain email address in its DN you have to
+provide it with –email parameter.
+</p>
+<pre class="file">  --email=EMAIL         email address if not in certificate</pre>
+
+</div>
+
+<h2 class="sectionedit50"><a name="output7" id="output7">Output</a></h2>
+<div class="level2">
+
+<p>
+Resulting signed metadata file will be stored under the name as the input file and original file will be moved to *.orig
+</p>
+
+</div>
+
+<h2 class="sectionedit51"><a name="example6" id="example6">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-sign-metadata -vvv CentOS-5.5-x86_64-base-1.0.xml 
+    Loading signature jar file: /var/lib/stratuslab/java/marketplace-metadata-0.0.7-jar-with-dependencies.jar
+    Calling: java -cp /var/lib/stratuslab/java/marketplace-metadata-0.0.7-jar-with-dependencies.jar eu.stratuslab.marketplace.metadata.SignMetadata CentOS-5.5-x86_64-base-1.0.xml CentOS-5.5-x86_64-base-1.0.xml.new /home/konstan/.globus/usercert.p12 xxxxxxx
+    Renaming input file from CentOS-5.5-x86_64-base-1.0.xml to CentOS-5.5-x86_64-base-1.0.xml.orig
+    Renaming output file from CentOS-5.5-x86_64-base-1.0.xml.new to CentOS-5.5-x86_64-base-1.0.xml
+    Metadata file successfully signed: CentOS-5.5-x86_64-base-1.0.xml
+~ $ 
+</pre>
+
+</div>
+
+<h1 class="sectionedit52"><a name="stratus-validate-metadata" id="stratus-validate-metadata">stratus-validate-metadata</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit53"><a name="description8" id="description8">Description</a></h2>
+<div class="level2">
+
+<p>
+Validates metadata file: all elements and signature. Will report on any missing
+required elements.
+</p>
+
+</div>
+
+<h2 class="sectionedit54"><a name="syntax8" id="syntax8">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-validate-metadata [options] [manifest-file]</pre>
+
+</div>
+
+<h2 class="sectionedit55"><a name="options6" id="options6">Options</a></h2>
+<div class="level2">
+
+<p>
+Expects manifest file as an input.
+</p>
+
+</div>
+
+<h2 class="sectionedit56"><a name="output8" id="output8">Output</a></h2>
+<div class="level2">
+
+<p>
+In case the provided manifest is valid prints:
+
+</p>
+<pre class="file">Valid: CentOS-5.5-x86_64-base-1.0.xml</pre>
+
+<p>
+In case the provided manifest is invalid the utility will print the reason as well:
+
+</p>
+<pre class="file">Invalid: dummy-base.xml.orig
+no signature</pre>
+
+</div>
+
+<h2 class="sectionedit57"><a name="example7" id="example7">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-validate-metadata -vvv CentOS-5.5-x86_64-base-1.0.xml
+    Loading signature jar file: /var/lib/stratuslab/java/marketplace-metadata-0.0.7-jar-with-dependencies.jar
+    Calling: java -cp /var/lib/stratuslab/java/marketplace-metadata-0.0.7-jar-with-dependencies.jar eu.stratuslab.marketplace.metadata.CheckMetadata CentOS-5.5-x86_64-base-1.0.xml
+Valid: CentOS-5.5-x86_64-base-1.0.xml
+~ $</pre>
+
+</div>
+
+<h1 class="sectionedit58"><a name="stratus-upload-metadata" id="stratus-upload-metadata">stratus-upload-metadata</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit59"><a name="description9" id="description9">Description</a></h2>
+<div class="level2">
+
+<p>
+Uploads metadata file to Marketplace.
+</p>
+
+</div>
+
+<h2 class="sectionedit60"><a name="syntax9" id="syntax9">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: usage: stratus-upload-metadata [options] &lt;metadata-file&gt;</pre>
+
+</div>
+
+<h2 class="sectionedit61"><a name="options7" id="options7">Options</a></h2>
+<div class="level2">
+
+<p>
+Requires metadata file.
+</p>
+
+</div>
+
+<h2 class="sectionedit62"><a name="output9" id="output9">Output</a></h2>
+<div class="level2">
+
+<p>
+<acronym title="Uniform Resource Locator">URL</acronym> of the uploaded to the Marketplace metadata file.
+</p>
+
+</div>
+
+<h2 class="sectionedit63"><a name="example8" id="example8">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-upload-metadata --marketplace-endpoint http://62.217.120.176:8081 CentOS-5.5-x86_64-base-1.0.xml
+http://62.217.120.176:8081/metadata/No5o-5ea0sNMlW_75VgGJCv2AcJ/Konstantin.Skaburskas@cern.ch/2011-07-01T14:56:06Z
+~ $</pre>
+
+</div>
+
+<h1 class="sectionedit64"><a name="stratus-deprecate-metadata" id="stratus-deprecate-metadata">stratus-deprecate-metadata</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit65"><a name="description10" id="description10">Description</a></h2>
+<div class="level2">
+
+<p>
+Deprecates metadata entry describing an image in the Marketplace.
+</p>
+
+</div>
+
+<h2 class="sectionedit66"><a name="syntax10" id="syntax10">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: usage: stratus-deprecate-metadata [options] &lt;image id&gt;</pre>
+
+</div>
+
+<h2 class="sectionedit67"><a name="options8" id="options8">Options</a></h2>
+<div class="level2">
+
+<p>
+Requires an image ID.
+</p>
+
+<p>
+Notable options.
+</p>
+<pre class="file">  --email=EMAIL         email address of endorser of metadata entry
+  --created=CREATED     date of metadata entry to be deprecated, latest entry
+                        will be deprecated if not provided
+  --reason=TEXT         Comment to append to deprecation</pre>
+
+</div>
+
+<h2 class="sectionedit68"><a name="output10" id="output10">Output</a></h2>
+<div class="level2">
+
+<p>
+Full <acronym title="Uniform Resource Locator">URL</acronym> of the deprecated image metadata.
+</p>
+
+</div>
+
+<h2 class="sectionedit69"><a name="example9" id="example9">Example</a></h2>
+<div class="level2">
+<pre class="file">stratus-deprecate-metadata --marketplace-endpoint http://62.217.120.176:8081 --email Konstantin.Skaburskas@cern.ch PvitUfM-uW2yWakWUNmd-TSPOiy
+http://62.217.120.176:8081/metadata/PvitUfM-uW2yWakWUNmd-TSPOiy/Konstantin.Skaburskas@cern.ch/2012-02-12T20:42:12Z</pre>
+
+</div>
+
+<h1 class="sectionedit70"><a name="stratus-create-image" id="stratus-create-image">stratus-create-image</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit71"><a name="description11" id="description11">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Using <code>stratus-create-image</code> one can create a new appliance based on a given one (base image/appliance) with certain packages installed, scripts run, files/directories cleaned up.
+</p>
+
+</div>
+
+<h2 class="sectionedit72"><a name="syntax11" id="syntax11">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-create-image [options] base-image
+
+image - Marketplace image ID</pre>
+
+</div>
+
+<h2 class="sectionedit73"><a name="options9" id="options9">Options</a></h2>
+<div class="level2">
+
+<p>
+
+It is mandatory to provide the following parameters:
+</p>
+<pre class="file">  --author=NAME         author of the new image
+  --author-email=EMAIL  Email address of the author of the new image
+  --comment=TEXT        description of the new image</pre>
+
+<p>
+Email address will be used to notify the image creator about the new image availability. The received email will contain all the required details on how to proceed with the usage of the new image.
+</p>
+
+<p>
+To install additional packages (rpm or deb) one can provide a list of packages along with a list of repository endpoints for the packages to be installed from
+</p>
+<pre class="file">  -a PACKAGE, --packages=PACKAGE
+                        packages to install on the machine (comma separated)
+  --extra-os-repos=URL  extra repositories to install [--packages] from (comma
+                        separated). For apt &quot;base_uri distribution
+                        [component1] ...&quot;</pre>
+
+<p>
+Example of installing of httpd (from <acronym title="Operating System">OS</acronym> repository) and python-dirq from EPEL (assumes that the base image uses RPM):
+</p>
+<pre class="file">  --packages httpd,python-dirq --extra-os-repos http://download.fedora.redhat.com/pub/epel/5/i386/</pre>
+
+<p>
+Installer will be recovered from the name of <acronym title="Operating System">OS</acronym> as defined in the manifest of the base image.
+</p>
+
+<p>
+It&#039;s possible to run scripts on the base image.
+</p>
+<pre class="file">  -s FILE, --scripts=FILE
+                        scripts to execute on the VM (comma separated)  </pre>
+
+<p>
+The ”-s/–scripts” option accepts comma separated list of scripts located on the user machine that will be run on the image. User can provide options to the scripts as well. In this case, the whole command should be wrapped into double quotes.
+
+</p>
+<pre class="file">  --scripts &quot;/path/script-one -a A -b B&quot;,&quot;/path/script-two -c C&quot;</pre>
+
+<p>
+As a process of the image cleanup one can request deletion of files/directories. This is the last step in the process of the new image creation.
+</p>
+<pre class="file">  --exclude=FILE        exclude file/dir from new image (comma separated).
+                        Removed by default: /tmp/*, /etc/ssh/ssh_host_*,
+                        /root/.ssh/{authorized_keys,known_hosts}</pre>
+
+<p>
+Images have to be versioned. The versioning can be automatic or manual.
+
+</p>
+<pre class="file">  --image-version=VERSION
+                        version for the new image. By default a minor version
+                        of the base image is incremented.</pre>
+
+</div>
+
+<h2 class="sectionedit74"><a name="output11" id="output11">Output</a></h2>
+<div class="level2">
+
+<p>
+
+The newly created image stored in PDISK server of the Cloud instance the request was made to. User will receive the following email:
+</p>
+<pre class="file">Subject: New image created Di65iu2MkDHgGJyVGOq0niPLkqj
+Attachment: manifest-not-signed.xml
+Content:
+
+Image creation was successful.
+New image was stored in local PDISK service https://onehost-5.lal.in2p3.fr:8445/disks/6f6cb722-3055-4eb9-b550-4cafcfd17b7e
+Image manifest with ID Di65iu2MkDHgGJyVGOq0niPLkqj was signed with dummy certificate and uploaded to http://marketplace.stratuslab.eu.
+Alternatively, you can sign attached manifest and upload to Marketplace with:
+stratus-sign-metadata &lt;manifest file&gt;
+stratus-upload-metadata &lt;manifest file&gt;
+
+NB! The validity of the manifest is 48 hours. Please change it!
+
+The validity of the signing certificate is 2 days.
+
+Cheers.</pre>
+
+</div>
+
+<h2 class="sectionedit75"><a name="example10" id="example10">Example</a></h2>
+<div class="level2">
+
+<p>
+
+Example of creation of bioinformatics compute image.
+</p>
+<pre class="file">$ stratus-create-image --author-email konstan@sixsq.com --author &quot;John Doe&quot; \
+  --comment &quot;Bioinformats compute image.&quot; \
+  --packages wget,gcc-c++,make \
+  --scripts &quot;/home/user/bioapps_installer.sh -s clustalw2&quot; \ 
+  --exclude /etc/resolve.conf \ 
+  --version 1.21 \
+  --image-group bio.compute \
+  OMd8M7ixG3toGqm8C1MhUphMJWF
+
+...
+ ::::::::::::::::::::::::::::::::::::::::
+ :: Finished building image increment. ::
+ ::::::::::::::::::::::::::::::::::::::::
+
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ :: Please check konstan@sixsq.com for new image ID and instruction. ::
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ :: Shutting down machine</pre>
+
+<p>
+OMd8M7ixG3toGqm8C1MhUphMJWF - MarketPlace image ID of CentOS v5.5 x86_64.
+</p>
+
+<p>
+Steps performed on the base image:
+</p>
+<ol>
+<li class="level1"><div class="li"> wget, gcc-c++ and make packages will be installed</div>
+</li>
+<li class="level1"><div class="li"> “bioapps_installer.sh -s clustalw2” script will be run </div>
+</li>
+<li class="level1"><div class="li"> /etc/resolve.conf file will be deleted along with the default files/dirs (see ”–exclude” parameter description). </div>
+</li>
+</ol>
+
+<p>
+
+Packages installer will be inferred from <acronym title="Operating System">OS</acronym> name obtained from the base image. As ”–image-version” was not provided, the version number got automatically incremented. 
+</p>
+
+<p>
+The new image will be stored in the PDISK service of the Cloud instance the request was made to and the manifest describing the newly created image will be signed with short-lived self-signed certificate and uploaded to Marketplace. User will have to check its mailbox for new email (subject: “New image created &lt;image ID&gt;”) with the instruction on how to proceed.
+</p>
+
+<p>
+Check <code>stratus-create-image -h</code> for more options.
+</p>
+
+</div>
+
+<h2 class="sectionedit76"><a name="alternative_manual_image_increment_creation" id="alternative_manual_image_increment_creation">Alternative manual image increment creation</a></h2>
+<div class="level2">
+
+<p>
+
+Alternative manual way to create a new image would be to
+</p>
+
+<p>
+0. NB! the base image has to support ACPI shutdown call
+</p>
+
+<p>
+1. launch an instance of the base image via
+</p>
+<pre class="file">  stratus-run-instance --save --author-email &lt;email&gt; &lt;base-image ID&gt;</pre>
+
+<p>
+2. ssh to the instance and apply required modifications
+</p>
+
+<p>
+3. run 
+</p>
+<pre class="file">  stratus-shutdown-instance &lt;instance ID&gt;</pre>
+
+<p>
+4. user receives email with details on how to proceed with the newly created image
+</p>
+
+</div>
+
+<h1 class="sectionedit77"><a name="stratus-create-volume" id="stratus-create-volume">stratus-create-volume</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit78"><a name="description12" id="description12">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Create a new persistent disk in the persistent disk storage service defined in the user configuration file (<code>pdisk_endpoint</code>) or in the command parameters (<code>–pdisk-endpoint</code>).
+</p>
+
+</div>
+
+<h2 class="sectionedit79"><a name="syntax12" id="syntax12">Syntax</a></h2>
+<div class="level2">
+<pre class="code">stratus-create-volume --size SIZE [--tag NAME]</pre>
+
+</div>
+
+<h2 class="sectionedit80"><a name="options10" id="options10">Options</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>-s, –size SIZE</code>: The size of the volume, in GiBs.</div>
+</li>
+</ul>
+<div class="table sectionedit81"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>Integer</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>1-1024</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Required</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>-s 80</em> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <code>-t, –tag NAME</code>: Tag used by the user to identify his disk.</div>
+</li>
+</ul>
+<div class="table sectionedit82"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>String</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>Any character. Max length 40</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Optional</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>-t “Grid test disk”</em> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <code>–private</code>: Disk is private, you are the only one who can see it, use it and delete it. This is the default option.</div>
+</li>
+<li class="level1"><div class="li"> <code>–public</code>: Disk is public. Everyone can see it and use it but you are the only one that can delete it.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit83"><a name="output12" id="output12">Output</a></h2>
+<div class="level2">
+
+<p>
+
+The newly created disk UUID on the service
+</p>
+
+</div>
+
+<h2 class="sectionedit84"><a name="example11" id="example11">Example</a></h2>
+<div class="level2">
+
+<p>
+
+This example create a disk of 2GiBs with the tag “grid-test:ce”
+
+</p>
+<pre class="code">PROMPT&gt; stratus-create-volume -s 2 -t &quot;grid-test:ce&quot;
+DISK acfcda7d-d929-4fd0-87b0-1523a720368c</pre>
+
+</div>
+
+<h1 class="sectionedit85"><a name="stratus-delete-volume" id="stratus-delete-volume">stratus-delete-volume</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit86"><a name="description13" id="description13">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Delete a persistent disk in the persistent disk storage service defined in the user configuration file (<code>pdisk_endpoint</code>) or in the command parameters (<code>–pdisk-endpoint</code>).
+</p>
+
+</div>
+
+<h2 class="sectionedit87"><a name="syntax13" id="syntax13">Syntax</a></h2>
+<div class="level2">
+<pre class="code">stratus-delete-volume VolumeUUID ...</pre>
+
+</div>
+
+<h2 class="sectionedit88"><a name="options11" id="options11">Options</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>VolumeUUID</code>: The ID of the volume to delete.</div>
+</li>
+</ul>
+<div class="table sectionedit89"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>String</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>uuid formated string</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Required</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>acfcda7d-d929-4fd0-87b0-1523a720368c</em> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit90"><a name="output13" id="output13">Output</a></h2>
+<div class="level2">
+
+<p>
+
+The deleted disk UUID on the service
+</p>
+
+</div>
+
+<h2 class="sectionedit91"><a name="example12" id="example12">Example</a></h2>
+<div class="level2">
+
+<p>
+
+This example delete two persistent disks.
+
+</p>
+<pre class="code">PROMPT&gt; stratus-delete-volume acfcda7d-d929-4fd0-87b0-1523a720368c 7fee5536-9db2-4bdc-a4cc-3a3ee50a23d1
+DELETED acfcda7d-d929-4fd0-87b0-1523a720368c
+DELETED 7fee5536-9db2-4bdc-a4cc-3a3ee50a23d1</pre>
+
+</div>
+
+<h1 class="sectionedit92"><a name="stratus-describe-volumes" id="stratus-describe-volumes">stratus-describe-volumes</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit93"><a name="description14" id="description14">Description</a></h2>
+<div class="level2">
+
+<p>
+
+List available disk for the current user in the persistent disk storage service defined in the user configuration file (<code>pdisk_endpoint</code>) or in the command parameters (<code>–pdisk-endpoint</code>).
+</p>
+
+<p>
+You can filter the results to return information only about persistent disks that match criteria you specify. For example, you could get information about disks whose are not in use. 
+</p>
+
+<p>
+You can specify multiple filters (e.g., the persistent disks is in use, and it is tagged with a particular value). The result includes information for a particular disk only if it matches all your filters. If there&#039;s no match, no special message is returned; the response is simply empty.
+</p>
+
+<p>
+You can use standard regular expression to match the required persistent disks. Filters can be build with all the properties of the disk.
+</p>
+
+</div>
+
+<h2 class="sectionedit94"><a name="syntax14" id="syntax14">Syntax</a></h2>
+<div class="level2">
+<pre class="code">stratus-describe-volumes [VolumeUUID ...] [[--filter name=value] ...]</pre>
+
+</div>
+
+<h2 class="sectionedit95"><a name="options12" id="options12">Options</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>–filter name=value</code>: A filter limiting the results</div>
+</li>
+</ul>
+<div class="table sectionedit96"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>String</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>name:value formated sting with any valid regex for value</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Optional</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>-f owner:myuser</em> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <code>VolumeUUID</code>: Restrict search to those disks UUIDs</div>
+</li>
+</ul>
+<div class="table sectionedit97"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>String</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>uuid formated string</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Optional</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>acfcda7d-d929-4fd0-87b0-1523a720368c</em> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit98"><a name="output14" id="output14">Output</a></h2>
+<div class="level2">
+
+<p>
+
+Return a list of the matching persistent disks with there properties.
+</p>
+
+</div>
+
+<h2 class="sectionedit99"><a name="example13" id="example13">Example</a></h2>
+<div class="level2">
+
+<p>
+
+This example show only disks with a tag starting with <code>grid</code>.
+
+</p>
+<pre class="code">PROMPT&gt; stratus-describe-volumes -f &quot;tag:^grid.*&quot;
+:: DISK ba965fd0-6a27-4bcb-9cb3-dca74a2a5171
+created: 2011/07/25 14:18:38
+visibility: public
+tag: grid-software-public
+owner: test2
+size: 3
+users: 0
+:: DISK 5822c376-9ce1-434e-95d1-cdaa240cd47c
+created: 2011/07/25 14:17:37
+visibility: private
+tag: grid-ce - LAL tests
+owner: test
+size: 5
+users: 0</pre>
+
+</div>
+
+<h1 class="sectionedit100"><a name="stratus-attach-volume" id="stratus-attach-volume">stratus-attach-volume</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit101"><a name="description15" id="description15">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Attach a persistent disk to a running instance and expose it to the VM.
+</p>
+
+<p>
+<strong>Running instance needed to have <code>acpiphp</code> kernel module loaded.</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit102"><a name="syntax15" id="syntax15">Syntax</a></h2>
+<div class="level2">
+<pre class="code">stratus-attach-volume --instance VM_ID VolumeUUID ...</pre>
+
+</div>
+
+<h2 class="sectionedit103"><a name="options13" id="options13">Options</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>VolumeUUID</code>: The IDs of the volume to attach.</div>
+</li>
+</ul>
+<div class="table sectionedit104"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>String</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>uuid formated string</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Required</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>acfcda7d-d929-4fd0-87b0-1523a720368c</em> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <code>VM_ID</code>: The ID of the instance to which the volume attaches.</div>
+</li>
+</ul>
+<div class="table sectionedit105"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>Integer</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>Positive integer</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Required</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>42</em> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit106"><a name="output15" id="output15">Output</a></h2>
+<div class="level2">
+
+<p>
+
+The disk UUID and the device on which it have been attached.
+</p>
+
+</div>
+
+<h2 class="sectionedit107"><a name="example14" id="example14">Example</a></h2>
+<div class="level2">
+
+<p>
+
+This example attach two persistent disks.
+
+</p>
+<pre class="code">PROMPT&gt; stratus-attach-volume -i 24 1e8e9104-681c-4269-8aae-e513c6723ac6 5822c376-9ce1-434e-95d1-cdaa240cd47c
+ATTACHED 1e8e9104-681c-4269-8aae-e513c6723ac6 in VM 24 on /dev/vda
+ATTACHED 5822c376-9ce1-434e-95d1-cdaa240cd47c in VM 24 on /dev/vdb</pre>
+
+</div>
+
+<h1 class="sectionedit108"><a name="stratus-detach-volume" id="stratus-detach-volume">stratus-detach-volume</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit109"><a name="description16" id="description16">Description</a></h2>
+<div class="level2">
+
+<p>
+
+Detach a persistent disk from a running instance. 
+</p>
+
+<p>
+<strong>Important:</strong> Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to unmount file systems, or otherwise properly release the device from use, can result in lost data and will corrupt the file system.
+</p>
+
+<p>
+<strong>Note:</strong> If you have attached the volume at instance start-up, it cannot be detached while the instance is in the ‘running’ state. To detach the volume, stop the instance first.
+</p>
+
+</div>
+
+<h2 class="sectionedit110"><a name="syntax16" id="syntax16">Syntax</a></h2>
+<div class="level2">
+<pre class="code">stratus-detach-volume --instance VM_ID VolumeUUID ...</pre>
+
+</div>
+
+<h2 class="sectionedit111"><a name="options14" id="options14">Options</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <code>VolumeUUID</code>: The IDs of the volume to detach.</div>
+</li>
+</ul>
+<div class="table sectionedit112"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>String</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>uuid formated string</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Required</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>acfcda7d-d929-4fd0-87b0-1523a720368c</em> </td>
+	</tr>
+</table></div>
+<ul>
+<li class="level1"><div class="li"> <code>VM_ID</code>: The ID of the instance.</div>
+</li>
+</ul>
+<div class="table sectionedit113"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> Type </td><td class="col1"> <em>Integer</em> </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> Valid values </td><td class="col1"> <em>Positive integer</em> </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Condition </td><td class="col1"> <em>Required</em> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Default </td><td class="col1"> <em>None</em> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Example </td><td class="col1"> <em>42</em> </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 class="sectionedit114"><a name="output16" id="output16">Output</a></h2>
+<div class="level2">
+
+<p>
+
+The disk UUID and the device from which it have been detached.
+</p>
+
+</div>
+
+<h2 class="sectionedit115"><a name="example15" id="example15">Example</a></h2>
+<div class="level2">
+
+<p>
+
+This example detach two persistent disks.
+
+</p>
+<pre class="code">PROMPT&gt; stratus-attach-volume -i 24 1e8e9104-681c-4269-8aae-e513c6723ac6 5822c376-9ce1-434e-95d1-cdaa240cd47c
+DETACHED 1e8e9104-681c-4269-8aae-e513c6723ac6 from VM 24 on /dev/vda
+DETACHED 5822c376-9ce1-434e-95d1-cdaa240cd47c from VM 24 on /dev/vdb</pre>
+
+</div>
+
+<h1 class="sectionedit116"><a name="stratus-hash-password" id="stratus-hash-password">stratus-hash-password</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit117"><a name="description17" id="description17">Description</a></h2>
+<div class="level2">
+
+<p>
+Produces MD5 and CRYPT hashes of the provided password.
+</p>
+
+</div>
+
+<h2 class="sectionedit118"><a name="syntax17" id="syntax17">Syntax</a></h2>
+<div class="level2">
+<pre class="file">Usage: stratus-hash-password [options]</pre>
+
+</div>
+
+<h2 class="sectionedit119"><a name="options15" id="options15">Options</a></h2>
+<div class="level2">
+
+<p>
+.
+
+</p>
+
+</div>
+
+<h2 class="sectionedit120"><a name="output17" id="output17">Output</a></h2>
+<div class="level2">
+
+<p>
+.
+
+</p>
+
+</div>
+
+<h2 class="sectionedit121"><a name="example16" id="example16">Example</a></h2>
+<div class="level2">
+<pre class="file">~ $ stratus-hash-password 
+username:
+password:
+retype password:
+MD5:054e239ea51513f828c2f82d724579c5
+CRYPT:..yLg4lweV.hY
+~ $ </pre>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          ref-doc/user-cli.txt &middot; Last modified: 2012/05/22 18:44 by stkenny	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

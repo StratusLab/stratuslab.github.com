@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Claudia Platform  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Claudia Platform"/>
+  <meta name="Description" content="StratusLabClaudia Platform"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-27T11:07:09+0100" />
+<meta name="keywords" content="claudia" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="claudia?do=index" title="Sitemap" />
+<link rel="canonical" href="claudia" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"claudia","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="claudia#claudia_stratuslab_configuration_file" class="toc">Claudia Stratuslab configuration file</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="claudia#claudia_stratuslab_installation_command" class="toc">Claudia Stratuslab installation command</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="claudia#claudia_stratuslab_test" class="toc">Claudia StratusLab test</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="claudia#claudia_stratuslab_user_commands" class="toc">Claudia StratusLab user commands</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h5><a name="claudia_platform" id="claudia_platform">Claudia Platform</a></h5>
+<div class="level5">
+
+<p>
+The Claudia platform is an advanced service management toolkit that allows service providers to dynamically control the service provisioning and scalability in an IaaS Cloud. Claudia manages services as a whole, controlling the configuration of multiple VM components, virtual networks and storage support by optimizing the use of them and by dynamically scaling up/down services applying elasticity rules, SLAs and business rules.
+</p>
+
+<p>
+Claudia can deploy services in a public cloud (Amazon, Flexiscale, GoGrid, etc.) or in a private cloud using a Virtual Infrastructure Manager (such as Open- Nebula, Eucalyptus, etc.) through a plug-in driver mechanism that will orchestrate the virtual resource allocation.
+</p>
+
+<p>
+Claudia provides a more flexible and easier to use platform to deploy grid-oriented services with all the benefits of the IaaS cloud model. Now grid service providers can define the configuration and dynamic behavior of their services in an easy and standard way. The Service Manager which is a Claudia component hides platform
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://claudia.morfeo-project.org/wiki/index.php/Claudia_Architecture" class="urlextern" title="http://claudia.morfeo-project.org/wiki/index.php/Claudia_Architecture"  rel="nofollow">Information about Claudia Architecture</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../doku.php?id=claudiapackages" class="urlextern" title="http://stratuslab.eu/doku.php?id=claudiapackages"  rel="nofollow">Install Claudia from deb and rpm packages</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://claudia.morfeo-project.org/wiki/index.php/Claudia_User_Manual" class="urlextern" title="http://claudia.morfeo-project.org/wiki/index.php/Claudia_User_Manual"  rel="nofollow">Claudia User Manual</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit1"><a name="claudia_stratuslab_configuration_file" id="claudia_stratuslab_configuration_file">Claudia Stratuslab configuration file</a></h2>
+<div class="level2">
+
+<p>
+
+Claudia needs to have specified in its configuration file the following parameteres:
+</p>
+<ul>
+<li class="level1"><div class="li"> Installation directory.</div>
+</li>
+<li class="level1"><div class="li"> Domain name: this is the organization name.</div>
+</li>
+<li class="level1"><div class="li"> Public network details: Network settings including a list of free available IPs.</div>
+</li>
+</ul>
+
+<p>
+
+The following example describes an example of the Claudia configuration section in the Stratuslab configuration file:
+</p>
+
+<p>
+<code>/etc/stratuslab/stratuslab.cfg</code>
+domain_name is the organization name for FQNs.
+claudia_home is the destination directory.
+
+</p>
+<pre class="file">[claudia]
+domain_name = grnet
+claudia_home = /opt/claudia/</pre>
+
+<p>
+
+For the network configuration, the claudia_public_ip property is a list of available IPs for the deployed virtual machines.
+
+</p>
+<pre class="file">claudia_public_network = 192.168.100.128
+claudia_public_ip = 192.168.100.182/192.168.100.183/192.168.100.184/192.168.100.185/192.168.100.186
+claudia_public_netmask = 255.255.255.192
+claudia_public_gateway = 192.168.100.129
+claudia_public_dns = 194.177.210.210</pre>
+
+<p>
+
+If the network needs the usage of mac address, set to true claudia_mac_enabled and specify the list of Mac addresses in the claudia_mac_list property, this property must contain the same number of mac adresses as IPs specified in claudia_public_ip section.
+
+</p>
+<pre class="file">claudia_mac_enabled=true
+claudia_mac_list=00:16:3e:d9:78:b6/00:16:3e:d9:78:b7/00:16:3e:d9:78:b8/00:16:3e:d9:78:b9/00:16:3e:d9:78:a4</pre>
+
+<p>
+
+If any machine needs a static fixed IP, it must be declared here, this IPs must be part of the previous declared IPs in claudia_public_ip section.
+
+</p>
+<pre class="file">claudia_static_ip_list=192.168.100.184</pre>
+
+<p>
+
+The monitorization claudia component can be filtered by monitor name and virtualmachine, in case you want to read all available information, set both parameteres to all;
+
+</p>
+<pre class="file">claudia_monitor_vm_name=all
+claudia_monitor_name=all</pre>
+
+<p>
+
+or
+
+</p>
+<pre class="file">claudia_monitor_vm_name=workernode.replicas.1
+claudia_monitor_name=cpus.1</pre>
+
+<p>
+
+For opennebula interaction, claudia needs the following configuration from one sections:
+
+</p>
+<pre class="file">one_username = oneadmin
+one_password = oneadmin
+frontend_ip = 127.0.0.1
+node_bridge_name = br0</pre>
+
+<p>
+
+Also this parameters can be configured with the <code>stratus-config</code> command:
+
+</p>
+<pre class="file">$ stratus-config domain_name grnet
+$ stratus-config claudia_home /opt/claudia/
+$ stratus-config claudia_public_ip 192.168.100.182/192.168.100.183/192.168.100.184/192.168.100.185/192.168.100.186
+$ stratus-config claudia_public_gateway   192.168.100.129
+$ stratus-config claudia_public_network  192.168.100.128
+$ stratus-config claudia_public_netmask 255.255.255.192
+$ stratus-config claudia_public_dns  194.177.210.210
+$ stratus-config claudia_mac_enabled true
+$ stratus-config claudia_mac_list 00:16:3e:d9:78:b6/00:16:3e:d9:78:b7/00:16:3e:d9:78:b8/00:16:3e:d9:78:b9/00:16:3e:d9:78:a4/00:16:3e:d9:78:a5/00:16:3e:d9:78:a6/00:16:3e:d9:78:a7
+$ stratus-config claudia_static_ip_list 192.168.100.166
+$ stratus-config claudia_monitor_vm_name workernode.replicas.1
+$ stratus-config claudia_monitor_name cpus.1</pre>
+
+<p>
+And, from StratusLab 1.3, there&#039;s a new parameter to configure the Opennebula interaction with Claudia. This is the Opennebula version. Its value can be “2.2” or “3.0”. By default, it is “2.2”:
+
+</p>
+<pre class="file">claudia_oneversion=2.2</pre>
+
+<p>
+
+Its value can also be configured from <code>stratus-config</code> tool:
+
+</p>
+<pre class="file">$ stratus-config claudia_oneversion 3.0</pre>
+
+</div>
+
+<h2 class="sectionedit2"><a name="claudia_stratuslab_installation_command" id="claudia_stratuslab_installation_command">Claudia Stratuslab installation command</a></h2>
+<div class="level2">
+
+<p>
+
+Once the configuration Claudia details are set in the configuration file <code>/etc/stratuslab/stratuslab.cfg</code>, the command to install all package components and set their configuration is:
+</p>
+<pre class="file">$ python2.6 /usr/bin/stratus-install --claudia</pre>
+
+<p>
+
+After the configuration is done all dameons should be running, anytime you want to restart claudia you can use the script claudia-start.sh
+
+</p>
+<pre class="file">/opt/claudia/bin/claudia-startup.sh</pre>
+
+<p>
+
+this command will restart clotho, tcloud-server, reportclient and also will remove the old database file.
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="claudia_stratuslab_test" id="claudia_stratuslab_test">Claudia StratusLab test</a></h2>
+<div class="level2">
+
+<p>
+
+To test the deployment from Claudia using a OVF file is done with the command <code>stratus-test ClaudiaTest</code>
+</p>
+
+<p>
+For a list of available options use:
+
+</p>
+<pre class="file">$ python2.6 /usr/bin/stratus-test claudiaTest --help</pre>
+
+<p>
+
+If no arguments are given, it will take the default values
+
+</p>
+<pre class="file">$ python2.6 /usr/bin/stratus-test claudiaTest</pre>
+
+<p>
+
+The available arguments are:
+</p>
+<ul>
+<li class="level1"><div class="li"> –claudia-customer: Customer who is using the service</div>
+</li>
+<li class="level1"><div class="li"> –claudia-service: Service name</div>
+</li>
+<li class="level1"><div class="li"> –claudia-ovf-endpoint: OVF file to deploy (remote or local)</div>
+</li>
+</ul>
+<pre class="file">$ python2.6 /usr/bin/stratus-test claudiaTest  --claudia-customer=demo --claudia-service=ds1 --claudia-ovf-endpoint=file:///root/ovf/telefonica.xml </pre>
+
+</div>
+
+<h2 class="sectionedit4"><a name="claudia_stratuslab_user_commands" id="claudia_stratuslab_user_commands">Claudia StratusLab user commands</a></h2>
+<div class="level2">
+
+<p>
+
+OVF deploy, undeploy and event simulation operations can executed with the command <code>stratus-ovf</code> followed by this arguments:
+</p>
+
+<p>
+<strong>Deploy:</strong>
+
+</p>
+<pre class="file">$ /usr/bin/stratus-ovf deploy</pre>
+
+<p>
+
+The available arguments are:
+</p>
+<ul>
+<li class="level1"><div class="li"> –customer: Customer who is using the service</div>
+</li>
+<li class="level1"><div class="li"> –service=ds1: Service name</div>
+</li>
+<li class="level1"><div class="li"> –ovf-endpoint: OVF file to deploy (remote or local)</div>
+</li>
+</ul>
+<pre class="file">$ /usr/bin/stratus-ovf deploy  --customer=demo --service=ds1 --ovf-endpoint=file:///root/ovf/telefonica.xml </pre>
+
+<p>
+<strong>Undeploy:</strong>
+
+</p>
+<pre class="file">$ /usr/bin/stratus-ovf undeploy</pre>
+
+<p>
+
+The available arguments are:
+</p>
+<ul>
+<li class="level1"><div class="li"> –customer: Customer who is using the service</div>
+</li>
+<li class="level1"><div class="li"> –service=ds1: Service name</div>
+</li>
+</ul>
+<pre class="file">$ /usr/bin/stratus-ovf undeploy --customer=tid --service=s1 </pre>
+
+<p>
+<strong>Event simulation:</strong>
+
+</p>
+<pre class="file">$ /usr/bin/stratus-ovf event</pre>
+
+<p>
+
+The available arguments are:
+</p>
+<ul>
+<li class="level1"><div class="li"> –event-type=agent: type of event (agent or hw).</div>
+</li>
+<li class="level1"><div class="li"> –fqn: Fqn of the KPI we want to send.</div>
+</li>
+<li class="level1"><div class="li"> –value: KPI value.</div>
+</li>
+</ul>
+<pre class="file">$ /usr/bin/stratus-ovf event  --event-type=agent --fqn=grnet.customers.tid.services.s1.kpis.jobqueue --value=500</pre>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          claudia.txt &middot; Last modified: 2012/01/27 11:07 by jicarretero	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

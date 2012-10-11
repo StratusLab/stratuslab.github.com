@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Manual Cloud Services Installation  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Manual Cloud Services Installation"/>
+  <meta name="Description" content="StratusLabManual Cloud Services Installation"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-06-13T16:46:00+0200" />
+<meta name="keywords" content="manualinstall" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="manualinstall?do=index" title="Sitemap" />
+<link rel="canonical" href="manualinstall" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"manualinstall","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="manualinstall#manual_cloud_services_installation" class="toc">Manual Cloud Services Installation</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="manualinstall#prerequisites" class="toc">Prerequisites</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="manualinstall#front-end_installation" class="toc">Front-end installation</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="manualinstall#install_admin_tools" class="toc">Install admin tools</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="manualinstall#customize_configuration_file" class="toc">Customize configuration file</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="manualinstall#setup_front-end" class="toc">Setup front-end</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="manualinstall#additional_configuration" class="toc">Additional configuration</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="manualinstall#node_s_installation" class="toc">Node(s) installation</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="manualinstall#web_monitor_installation" class="toc">Web Monitor installation</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="manualinstall#appliance_repository_installation" class="toc">Appliance Repository installation</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="manualinstall#claudia_installation" class="toc">Claudia installation</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="manual_cloud_services_installation" id="manual_cloud_services_installation">Manual Cloud Services Installation</a></h1>
+<div class="level1">
+
+<p>
+
+This page covers the tasks required to install the StratusLab cloud system.  This includes setting-up:
+</p>
+<ol>
+<li class="level1"><div class="li"> Front-End (cloud management server - OpenNebula)</div>
+</li>
+<li class="level1"><div class="li"> Node on which the virtual machines will be instantiated.</div>
+</li>
+<li class="level1"><div class="li"> Web-Monitor application to monitor the infrastructure</div>
+</li>
+<li class="level1"><div class="li"> Appliance Repository (containing virtual images)</div>
+</li>
+</ol>
+
+<p>
+
+<strong>Note1</strong>: this installation guide was created from a minimal installation of CentOS release.
+</p>
+
+<p>
+<strong>Note2</strong>: this installation guide is based on pdisk, if you want to perform the installation for NFS as the storage filesystem, you need to fix the installation for your site, by altering the pdisk* files in the frontend and nodes. Example configuration scripts here –&gt; <a href="../lib/exe/fetch.php/pdisk-host-nfs-correct.tar.gz" class="media mediafile mf_gz" title="pdisk-host-nfs-correct.tar.gz">pdisk-host-nfs-correct.tar.gz</a>.
+
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="prerequisites" id="prerequisites">Prerequisites</a></h2>
+<div class="level2">
+
+<p>
+
+The following prerequisites are required for the installation to be successful:
+</p>
+<ol>
+<li class="level1"><div class="li"> Frontend machine must run CentOS or a compatible Red-Hat distribution</div>
+</li>
+<li class="level1"><div class="li"> The node machines must run CentOS or a compatible Red-Hat distribution</div>
+</li>
+<li class="level1"><div class="li"> The root account must be able to SSH into the node machines without password</div>
+</li>
+<li class="level1"><div class="li"> The default DHCP server must be configured to assign statically IP addresses corresponding to predictable MAC addresses.  These IP addresses will require to be publicly visible if the cloud instance are to be accessible from the WAN.</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit3"><a name="front-end_installation" id="front-end_installation">Front-end installation</a></h2>
+<div class="level2">
+
+<p>
+
+The front-end includes the OpenNebula system (ONE), which manages the virtualisation layer and the virtual machines.
+</p>
+
+</div>
+
+<h3 class="sectionedit4"><a name="install_admin_tools" id="install_admin_tools">Install admin tools</a></h3>
+<div class="level3">
+
+<p>
+
+To install the StratusLab command-line client for installation, you must install the <code>stratuslab-cli-sysadmin</code> package.  StratusLab runs its own YUM repository, so you must add it to your YUM configuration. Drop a file (named say <code>stratuslab-certification.repo</code>) in the <code>/etc/yum.repos.d/</code> with the following content:
+</p>
+<pre class="file">[StratusLab-Certification]
+name=StratusLab-Snapshots
+baseurl=http://hudson.stratuslab.eu/yum/snapshots-certification/centos-6.2/
+gpgcheck=0
+enable=0</pre>
+
+<p>
+With this in place, you can now install the package:
+</p>
+<pre class="file">yum install stratuslab-cli-sysadmin</pre>
+
+<p>
+This package will also install OpenNebula, from a package built by StratusLab, including required patches.
+</p>
+
+<p>
+
+NB: We highly recommend using of CentOs 6 in the frontend.
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5"><a name="customize_configuration_file" id="customize_configuration_file">Customize configuration file</a></h3>
+<div class="level3">
+
+<p>
+
+The StratusLab toolkit (or distribution) is largely composed of third party software. The configuration strategy of StratusLab aims at streamlining the details of the parts composing the distribution proposing a single configuration file from which the entire cloud can be configured.
+</p>
+
+<p>
+For this purpose, StratusLab ships with a reference configuration file by default located in <code>/etc/stratuslab/stratuslab.cfg.ref</code>. This file includes all configuration parameters required to configure the underlying software. It also includes comments and description to help understanding the meaning of each parameter.  We are trying our best in providing as many reasonable default parameters such that StratusLab installs with minimum fuss. The configuration file is also structured in sections such that finding information is simpler.
+</p>
+
+<p>
+The installation command <code>stratus-install</code> uses a configuration file, <code>stratuslab.cfg</code>. To help creating this file from the reference configuration file and manipulating its parameter values, you can use the command <code>stratus-config</code>.  To list the content of the configuration, and show the differences between the <code>stratuslab.cfg</code> file and the reference configuration, you can use the <code>-k/-keys</code>
+option:
+
+</p>
+<pre class="file">stratus-config -k</pre>
+
+<p>
+To change a value, specify the key and the new value. To view a single value, simply specify the key.
+</p>
+
+<p>
+The following parameters are required:
+</p>
+<pre class="file"># Linux machine distribution
+stratus-config frontend_system centos
+stratus-config node_system centos
+
+# The bridge for the VM networks
+stratus-config node_bridge_name br*
+stratus-config node_bridge_configure False
+
+# Share type ssh is default for pdisk installations
+stratus-config share_type ssh
+
+# Frontend IP and gateway
+stratus-config frontend_ip 111.222.111.100
+stratus-config one_public_network_addr &quot;111.222.111.110 111.222.111.111 111.222.111.112 111.222.111.113&quot;
+stratus-config one_public_network_mac &quot;00:11:22:33:44:55 00:11:22:33:44:56 00:11:22:33:44:57 00:11:22:33:44:58&quot;
+stratus-config network_addr 111.222.111.0</pre>
+
+<p>
+In this example, the front-end is configured on IP address 111.222.111.100. The operating system of both the front-end and nodes are left to the default <code>fedora</code>. They communicate using the default <acronym title="Secure Shell">SSH</acronym> share strategy. We also define four IP and MAC addresses, which must match the <acronym title="Dynamic Host Configuration Protocol">DHCP</acronym> configuration.
+</p>
+
+<p>
+The value parameter in <code>stratus-config</code> doesn&#039;t need to be between quotes when containing spaces. This allows using curly brace expansion in Bash shell. For example, you can set a range of IPs with the same result as the above example by using:
+</p>
+<pre class="file">stratus-config one_public_network_addr 111.222.111.{110..113}</pre>
+
+<p>
+
+Persistent disk configuration:
+</p>
+
+<p>
+To configure Persistent disk service, define the IP address where it will be installed (for example: the same IP address as the frontend).
+</p>
+<pre class="file">stratus-config persistent_disk True
+stratus-config persistent_disk_ip ${FRONTEND_IP}
+stratus-config persistent_disk_zookeeper_addr &lt;Usually same as frontend IP&gt;:2181
+
+# Only for NFS installations, otherwise leave defaults
+stratus-config persistent_disk_share nfs
+stratus-config persistent_disk_storage nfs
+stratus-config persistent_disk_merge_auth_with_proxy True
+stratus-config persistent_disk_nfs_mount_point /nfs
+
+# If you have an existing NFS mount you would like to add to /etc/fstab for each node:
+stratus-config persistent_disk_existing_nfs &lt;my_server&gt;:/&lt;my_share&gt;
+
+# Some bugfixes for iscsi fallback
+stratus-config persistent_disk_physical_device /dev/loop0
+stratus-config persistent_disk_lvm_device /dev/pdisk</pre>
+
+<p>
+The Persistent disk service and the nodes communicate using a <strong>share strategy</strong> defined by <code>persistent_disk_share</code> and <code>persistent_disk_storage</code> parameters. Please check <code>persistent-disks</code> section of the configuration file for possible options and explanations.
+</p>
+
+</div>
+
+<h4><a name="network_parameters" id="network_parameters">Network parameters</a></h4>
+<div class="level4">
+
+<p>
+Three network levels are supported for virtual machines: <code>public</code>, <code>local</code> and <code>private</code>. <code>public</code> and <code>local</code> should be configured using <acronym title="Dynamic Host Configuration Protocol">DHCP</acronym> static IP/MAC assignments. The <code>local</code> network should contain IPs that are local to the site (i.e. not publicly reachable) and NATed if the machines need to communicate with the outside world. <code>private</code> IPs are intended for machines that will be unreachable and will initiate the communication.
+</p>
+
+<p>
+Network parameters are described under the <code>one-network</code> configuration section.
+</p>
+
+<p>
+<strong>Note:</strong> we currently only support <acronym title="Dynamic Host Configuration Protocol">DHCP</acronym> configuration for IP and MAC address assignment. We also provide a possibility to install and configure <acronym title="Dynamic Host Configuration Protocol">DHCP</acronym> service on the front-end for the declared <code>public</code> and <code>local</code> ranges. For the latter see <code>dhcp</code> section in the configuration file.
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6"><a name="setup_front-end" id="setup_front-end">Setup front-end</a></h3>
+<div class="level3">
+
+<p>
+
+You can now set-up your cloud by simply issuing the following command:
+
+</p>
+<pre class="file">stratus-install</pre>
+
+<p>
+If errors occur, you can increase the verbosity level by adding <code>-vv</code>.
+</p>
+
+</div>
+
+<h3 class="sectionedit7"><a name="additional_configuration" id="additional_configuration">Additional configuration</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="authentication_and_authorizations" id="authentication_and_authorizations">Authentication and authorizations</a></h4>
+<div class="level4">
+
+<p>
+
+View the <a href="authentication" class="wikilink1" title="authentication">dedicated webpage</a>.
+</p>
+
+</div>
+
+<h4><a name="firewall" id="firewall">Firewall</a></h4>
+<div class="level4">
+
+<p>
+
+StratusLab uses its own port (<code>tcp/2634</code>) to provide its remote services. So, the default ONE port (<code>tcp/2633</code>) mustn&#039;t be available from outside. The <code>stratus-install</code> command only takes care of the restriction on ONE port by appending appropriated iptables rules. Unfortunately, it can conflict with you current firewall configuration, so don&#039;t forget to check it at each run.
+</p>
+
+</div>
+
+<h4><a name="persistent_services" id="persistent_services">Persistent services</a></h4>
+<div class="level4">
+
+<p>
+
+Most StratusLab services are not enable at startup by default. If you want to keep them persistent across reboot, you need to do additional configuration:
+</p>
+<pre class="file">chkconfig add oned
+chkconfig add one-proxy
+chkconfig mysqld on</pre>
+
+</div>
+
+<h2 class="sectionedit8"><a name="node_s_installation" id="node_s_installation">Node(s) installation</a></h2>
+<div class="level2">
+
+<p>
+
+To install a node, the front-end root account must be able to <em>ssh</em> to the node without password. You can use the following commands on the front-end to generate ssh keys and copy the public key to the node:
+</p>
+<pre class="file">ssh-keygen
+ssh-copy-id &lt;node-ip&gt;</pre>
+
+<p>
+Next you run the <code>stratus-install</code> command on the front-end to add each node to the cloud:
+</p>
+<pre class="file">stratus-install -n &lt;node-ip&gt; -vvvv</pre>
+
+<p>
+This will install the virtualisation software defined in your configuration file (by default KVM), install and configure Persistent disk service client software and register the node with the OpenNebula server, running on the front-end.
+</p>
+
+<p>
+If a node has already been configured, and you only want to register (or unregister) that node with ONE, you can use the <code>stratus-register-node</code> command.
+</p>
+
+<p>
+Now, check if everything went ok:
+</p>
+<pre class="file">onehost list</pre>
+
+</div>
+
+<h2 class="sectionedit9"><a name="web_monitor_installation" id="web_monitor_installation">Web Monitor installation</a></h2>
+<div class="level2">
+
+<p>
+
+The Web Monitor application can easily be installed with the <code>stratus-install</code> command:
+</p>
+<pre class="file">stratus-install --web-monitor</pre>
+
+<p>
+You should customize the configuration file for the Web Monitor, by default located in <code>/var/www/cgi-bin/conf/stratuslab.cfg</code>. The following parameters are required to access to the front-end information system:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>one_username</code> (default: oneadmin)</div>
+</li>
+<li class="level1"><div class="li"> <code>frontend_ip</code> (default: 127.0.0.1)</div>
+</li>
+<li class="level1"><div class="li"> <code>proxy_port</code> (default: 2634)</div>
+</li>
+<li class="level1"><div class="li"> <code>proxy_oneadmin_password</code> (default: oneadmin)</div>
+</li>
+</ul>
+
+<p>
+
+If you used the main default values during front-end installation, you should only change the <code>proxy_oneadmin_password</code>. In addition, the Web Monitor assumes that the front-end it monitors is installed on the same machine. If this is not the case, update the <code>frontend_ip</code> parameter value to the hostname or the IP address where your front-end is installed.
+</p>
+
+<p>
+A web server should be automatically configured and started during reboot. You can achieve this by running the following command:
+</p>
+<pre class="file">chkconfig httpd on </pre>
+
+<p>
+You should now be able to browse the Web Monitor application from the <acronym title="Uniform Resource Locator">URL</acronym> <a href="http://%3Cwebmonitor-hostname%3E/cgi-bin/nodelist.py" class="urlextern" title="http://&lt;webmonitor-hostname&gt;/cgi-bin/nodelist.py"  rel="nofollow">http://&lt;webmonitor-hostname&gt;/cgi-bin/nodelist.py</a>.
+</p>
+
+<p>
+If you get an error <code><acronym title="Hyper Text Transfer Protocol">HTTP</acronym> Error 500: Error getting data [Errno 13] Permission denied</code> on Monitor web pages, make sure that the SELinux mode is set to <code>Permissive</code> on the Web Monitor machine.
+</p>
+<pre class="file">setenforce Permissive</pre>
+
+</div>
+
+<h2 class="sectionedit10"><a name="appliance_repository_installation" id="appliance_repository_installation">Appliance Repository installation</a></h2>
+<div class="level2">
+
+<p>
+
+<a href="./tutorial:manualinstall:appliancerepository" class="wikilink1" title="tutorial:manualinstall:appliancerepository">Appliance Repository Manual Installation Tutorial</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit11"><a name="claudia_installation" id="claudia_installation">Claudia installation</a></h2>
+<div class="level2">
+
+<p>
+
+<a href="claudia" class="urlextern" title="http://stratuslab.eu/doku.php/claudia"  rel="nofollow">Claudia Manual Configuration and Installation Tutorial</a>
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          manualinstall.txt &middot; Last modified: 2012/06/13 16:46 by sgerag	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

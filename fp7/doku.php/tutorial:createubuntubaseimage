@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Ubuntu Base Image  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Ubuntu Base Image"/>
+  <meta name="Description" content="StratusLabUbuntu Base Image"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="tutorial,createubuntubaseimage" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:createubuntubaseimage?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:createubuntubaseimage" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:createubuntubaseimage","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#ubuntu_base_image" class="toc">Ubuntu Base Image</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#prerequisites" class="toc">Prerequisites</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#download_ubuntu_netboot_images" class="toc">Download Ubuntu Netboot Images</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#create_the_preseed_file" class="toc">Create the Preseed File</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#create_the_base_image" class="toc">Create the Base Image</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#finish_configuration" class="toc">Finish Configuration</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:createubuntubaseimage#finish_the_image" class="toc">Finish the Image</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="ubuntu_base_image" id="ubuntu_base_image">Ubuntu Base Image</a></h1>
+<div class="level1">
+
+<p>
+
+Like the creation of a CentOS image, the creation of an ubuntu base image can also be largely automated.  The procedure is slightly more complicated than for CentOS. 
+
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="prerequisites" id="prerequisites">Prerequisites</a></h2>
+<div class="level2">
+
+<p>
+
+To do an automated installation of a base image via PXE, you must have the following:
+</p>
+<ul>
+<li class="level1"><div class="li"> Root access to a machine running libvirt,</div>
+</li>
+<li class="level1"><div class="li"> A DHCP server setup to serve network information to the image,</div>
+</li>
+<li class="level1"><div class="li"> A tftp server for providing the initial boot and installation kernels, and</div>
+</li>
+<li class="level1"><div class="li"> Web server from which the installation preseed file can be downloaded.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3"><a name="download_ubuntu_netboot_images" id="download_ubuntu_netboot_images">Download Ubuntu Netboot Images</a></h2>
+<div class="level2">
+
+<p>
+
+Download the netboot images for the architecture  you would like to install.  <a href="http://mirror.leaseweb.com/ubuntu-cdimage/netboot/lucid/" class="urlextern" title="http://mirror.leaseweb.com/ubuntu-cdimage/netboot/lucid/"  rel="nofollow">This web site</a> has a convenient list of links for the Ubuntu 10.04 netboot images.  
+</p>
+
+<p>
+Unroll the tarball you have downloaded and move the hierarchy onto your tftp server. The important files are the <code>pxelinux.*</code> files (initial network boot kernel) and the <code>linux</code> and <code>initrd.gz</code> files (ubuntu net installation kernel).  
+</p>
+
+<p>
+You must configure your DHCP server to provide the location of the correct <code>pxelinux.0</code> file on the tftp server.  You must also provide a pxelinux configuration file for the IP address assigned via DHCP.  For example, for an address like <code>134.158.73.230</code>, create a file named <code>869E48E6</code> in the pxelinux.cfg area. 
+</p>
+
+<p>
+This file should contain something like:
+
+</p>
+<pre class="file">default ubuntu_lucid_auto
+
+label ubuntu_lucid_auto
+        kernel ubuntu_lucid_amd64/linux
+        append initrd=ubuntu_lucid_amd64/initrd.gz \
+            auto \
+            url=http://web.example.org/preseed/stratuslab-cli.seed \
+            locale=en_US.UTF-8 \
+            debian-installer/keymap=us \
+            netcfg/get_hostname= --</pre>
+
+<p>
+
+where the <code>stratuslab-cli.seed</code> file contains the preseed information for the installation.  You must provide the URL at which this preseed file is available.
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="create_the_preseed_file" id="create_the_preseed_file">Create the Preseed File</a></h2>
+<div class="level2">
+
+<p>
+
+Copy the <a href="./tutoral:examplepreseed" class="wikilink1" title="tutoral:examplepreseed">example preseed file</a> to your web server.  You will want to change the mirror values in this file to choose a mirror close to you in network space. 
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="create_the_base_image" id="create_the_base_image">Create the Base Image</a></h2>
+<div class="level2">
+
+<p>
+
+The easiest method for creating the base image is to use <code>virt-install</code> directly.  
+</p>
+
+<p>
+Create an empty file that will hold the configured image:
+
+</p>
+<pre class="code">dd if=/dev/zero of=ubuntu-10.04-amd64-1.0.img bs=1024 count=3000000</pre>
+
+<p>
+
+This command creates a file of 3 GB. 
+</p>
+
+<p>
+Launch the build with <code>virt-install</code>:
+
+</p>
+<pre class="code">virt-install
+  --ram=1000 \
+  --hvm \
+  --accelerate \
+  --name=vm05 \
+  --file-size=3 \
+  -f ubuntu-10.04-amd64-1.0.img \
+  --pxe \
+  --mac=&quot;0a:0a:86:9e:49:dc&quot;</pre>
+
+<p>
+
+Note that you must change the <strong>mac</strong> option; it must correspond to the mac address configured for the PXE boot on the DHCP and tftp servers.
+</p>
+
+<p>
+The initial installation will occur mostly automatically, except for a question about the partitioning of the disk.
+
+</p>
+
+</div>
+
+<h2 class="sectionedit6"><a name="finish_configuration" id="finish_configuration">Finish Configuration</a></h2>
+<div class="level2">
+
+<p>
+
+When the machine reboots, you will need to finish the configuration by hand.  Download the <a href="./tutorial:ubuntuconfigscript" class="wikilink1" title="tutorial:ubuntuconfigscript">configuration script</a> into the image and run it.  This script modifies the SSH configuration and sets up the image for the standard StratusLab contextualization.
+</p>
+
+</div>
+
+<h2 class="sectionedit7"><a name="finish_the_image" id="finish_the_image">Finish the Image</a></h2>
+<div class="level2">
+
+<p>
+
+Much of the created image is empty space, so you should compress the image before making it available via a server.  Simply do:
+
+</p>
+<pre class="code">gzip -9 ubuntu-10.04-amd64-1.0.img</pre>
+
+<p>
+
+The <code>-9</code> option will take more time but compress the image as much as possible. 
+</p>
+
+<p>
+The last thing to do is to find the md5 and sha1 checksums of the image with the <strong>md5sum</strong> and <strong>sha1sum</strong> commands and create the manifest.  The the manifest of images in the appliance repository for the necessary format and information.
+
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/createubuntubaseimage.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: StratusLab dependencies  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,StratusLab dependencies"/>
+  <meta name="Description" content="StratusLabStratusLab dependencies"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="stratuslabdependencies" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="stratuslabdependencies?do=index" title="Sitemap" />
+<link rel="canonical" href="stratuslabdependencies" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"stratuslabdependencies","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="stratuslabdependencies#stratuslab_dependencies" class="toc">StratusLab dependencies</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="stratuslabdependencies#ubuntu" class="toc">Ubuntu</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="stratuslabdependencies#front-end" class="toc">Front-end</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="stratuslabdependencies#nodes" class="toc">Nodes</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="stratuslabdependencies#centos" class="toc">CentOS</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="stratuslabdependencies#front-end1" class="toc">Front-end</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="stratuslabdependencies#nodes1" class="toc">Nodes</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="stratuslabdependencies#scientific_linux" class="toc">Scientific Linux</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="stratuslabdependencies#front-end2" class="toc">Front-end</a></span></div></li></ul>
+</li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="stratuslab_dependencies" id="stratuslab_dependencies">StratusLab dependencies</a></h1>
+<div class="level1">
+
+<p>
+
+StratusLab require the following dependencies depending of the operation system.
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="ubuntu" id="ubuntu">Ubuntu</a></h2>
+<div class="level2">
+
+<p>
+
+Tested version: Ubuntu server 10.04
+</p>
+
+</div>
+
+<h3 class="sectionedit3"><a name="front-end" id="front-end">Front-end</a></h3>
+<div class="level3">
+
+<p>
+
+Package installed from the standard repositories:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> ruby</div>
+</li>
+<li class="level1"><div class="li"> libsqlite3-dev </div>
+</li>
+<li class="level1"><div class="li"> libxmlrpc-c3-dev</div>
+</li>
+<li class="level1"><div class="li"> libssl-dev</div>
+</li>
+<li class="level1"><div class="li"> scons</div>
+</li>
+<li class="level1"><div class="li"> g++</div>
+</li>
+<li class="level1"><div class="li"> git-core</div>
+</li>
+<li class="level1"><div class="li"> ssh</div>
+</li>
+<li class="level1"><div class="li"> genisoimage</div>
+</li>
+<li class="level1"><div class="li"> curl</div>
+</li>
+<li class="level1"><div class="li"> libxml2-dev (one 2.0 only)</div>
+</li>
+<li class="level1"><div class="li"> xen-hypervisor-3.3 (optional)</div>
+</li>
+<li class="level1"><div class="li"> qemu-kvm (optional)</div>
+</li>
+<li class="level1"><div class="li"> nfs-kernel-server (optional)</div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit4"><a name="nodes" id="nodes">Nodes</a></h3>
+<div class="level3">
+
+<p>
+
+Package installed from the standard repositories:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> ruby</div>
+</li>
+<li class="level1"><div class="li"> libvirt-bin</div>
+</li>
+<li class="level1"><div class="li"> nfs-common (optional)</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5"><a name="centos" id="centos">CentOS</a></h2>
+<div class="level2">
+
+<p>
+
+Tested version: CentOS 5.5
+</p>
+
+</div>
+
+<h3 class="sectionedit6"><a name="front-end1" id="front-end1">Front-end</a></h3>
+<div class="level3">
+
+<p>
+
+Package installed from the standard repositories:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> gcc</div>
+</li>
+<li class="level2"><div class="li"> gcc-c++</div>
+</li>
+<li class="level2"><div class="li"> zlib-devel</div>
+</li>
+<li class="level2"><div class="li"> ruby</div>
+</li>
+<li class="level2"><div class="li"> mkisofs</div>
+</li>
+<li class="level2"><div class="li"> curl</div>
+</li>
+<li class="level2"><div class="li"> xen (optional)</div>
+</li>
+<li class="level2"><div class="li"> kernel-xen (optional)</div>
+</li>
+<li class="level2"><div class="li"> kvm (optional)</div>
+</li>
+</ul>
+
+<p>
+
+RPM package downloaded and installed locally:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://prdownloads.sourceforge.net/scons/scons-1.2.0-1.noarch.rpm" class="urlextern" title="http://prdownloads.sourceforge.net/scons/scons-1.2.0-1.noarch.rpm"  rel="nofollow">scons</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://centos.karan.org/el5/extras/testing/i386/RPMS/xmlrpc-c-1.06.18-1.el5.kb.i386.rpm" class="urlextern" title="http://centos.karan.org/el5/extras/testing/i386/RPMS/xmlrpc-c-1.06.18-1.el5.kb.i386.rpm"  rel="nofollow">xml-rpc-c</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://centos.karan.org/el5/extras/testing/i386/RPMS/xmlrpc-c-devel-1.06.18-1.el5.kb.i386.rpm" class="urlextern" title="http://centos.karan.org/el5/extras/testing/i386/RPMS/xmlrpc-c-devel-1.06.18-1.el5.kb.i386.rpm"  rel="nofollow">xml-rpc-c-devel</a></div>
+</li>
+</ul>
+
+<p>
+
+Software installed from source:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://kernel.org/pub/software/scm/git/git-1.7.1.1.tar.gz" class="urlextern" title="http://kernel.org/pub/software/scm/git/git-1.7.1.1.tar.gz"  rel="nofollow">Git 1.7.1.1</a></div>
+</li>
+<li class="level2"><div class="li"> <a href="http://www.sqlite.org/sqlite-amalgamation-3.6.17.tar.gz" class="urlextern" title="http://www.sqlite.org/sqlite-amalgamation-3.6.17.tar.gz"  rel="nofollow">SQLite 3.6.17</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit7"><a name="nodes1" id="nodes1">Nodes</a></h3>
+<div class="level3">
+
+<p>
+Package installed from the standard repositories:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> ruby</div>
+</li>
+<li class="level2"><div class="li"> libvirtd</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit8"><a name="scientific_linux" id="scientific_linux">Scientific Linux</a></h2>
+<div class="level2">
+
+<p>
+
+Tested version: Scientific Linux 5.5
+</p>
+
+</div>
+
+<h3 class="sectionedit9"><a name="front-end2" id="front-end2">Front-end</a></h3>
+<div class="level3">
+
+<p>
+
+Package installed from the standard repositories:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> glibc</div>
+</li>
+<li class="level1"><div class="li"> mkisofs</div>
+</li>
+<li class="level1"><div class="li"> openssl</div>
+</li>
+<li class="level1"><div class="li"> ruby</div>
+</li>
+<li class="level1"><div class="li"> kvm (optional)</div>
+</li>
+</ul>
+
+<p>
+
+Package installed from non standard repositories:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://quattor.web.lal.in2p3.fr/packages/os/sl5/addons/sqlite-3.7.0-1.x86_64.rpm" class="urlextern" title="http://quattor.web.lal.in2p3.fr/packages/os/sl5/addons/sqlite-3.7.0-1.x86_64.rpm"  rel="nofollow">SQLite</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://quattor.web.lal.in2p3.fr/packages/os/sl5/addons/xmlrpc-c-1.06.18-1.el5.kb.x86_64.rpm" class="urlextern" title="http://quattor.web.lal.in2p3.fr/packages/os/sl5/addons/xmlrpc-c-1.06.18-1.el5.kb.x86_64.rpm"  rel="nofollow">xmlrpc-c</a></div>
+</li>
+</ul>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          stratuslabdependencies.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

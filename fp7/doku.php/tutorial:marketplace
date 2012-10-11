@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Marketplace Tutorial  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Marketplace Tutorial"/>
+  <meta name="Description" content="StratusLabMarketplace Tutorial"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-03-20T13:50:05+0100" />
+<meta name="keywords" content="tutorial,marketplace" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:marketplace?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:marketplace" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:marketplace","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="./tutorial:marketplace#marketplace_tutorial" class="toc">Marketplace Tutorial</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#prerequisites" class="toc">Prerequisites</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#documentation" class="toc">Documentation</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#create_and_upload_image" class="toc">Create and Upload Image</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#create_metadata_description" class="toc">Create Metadata Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#signing_and_validating_the_metadata" class="toc">Signing and Validating the Metadata</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#uploading_metadata_description" class="toc">Uploading Metadata Description</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#query_the_marketplace" class="toc">Query the Marketplace</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:marketplace#using_an_image_in_the_marketplace" class="toc">Using an Image in the Marketplace</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="marketplace_tutorial" id="marketplace_tutorial">Marketplace Tutorial</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2"><a name="prerequisites" id="prerequisites">Prerequisites</a></h2>
+<div class="level2">
+
+<p>
+
+To use the command line interface, it must be installed on your machine.  Please use the referenced package stratuslab-cli-user-1.21* or later for working with the Marketplace. <strong>Note: The StratusLab command line interface requires Python 2.6 or later.</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="documentation" id="documentation">Documentation</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../lib/exe/fetch.php/documents:marketplace-v3.0.pdf" class="media mediafile mf_pdf" title="documents:marketplace-v3.0.pdf">Marketplace Technical Note</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="https://www.egi.eu/indico/contributionDisplay.py?sessionId=6&amp;contribId=8&amp;confId=207" class="urlextern" title="https://www.egi.eu/indico/contributionDisplay.py?sessionId=6&amp;contribId=8&amp;confId=207"  rel="nofollow">Tutorial at EGI UF</a> (see the Marketplace presentation in the “slides” link)</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4"><a name="create_and_upload_image" id="create_and_upload_image">Create and Upload Image</a></h2>
+<div class="level2">
+
+<p>
+
+Creating an image is a time-consuming process so for this tutorial we will cheat.  
+</p>
+
+<p>
+Create a fake machine image file with random contents:
+
+</p>
+<pre class="code">$ dd of=dummy.img if=/dev/random bs=1024 count=10
+10+0 records in
+10+0 records out
+10240 bytes transferred in 0.001461 secs (7008759 bytes/sec)</pre>
+
+<p>
+
+The file would also need to be uploaded to a server that will allow access to it via http or https.  The location URL would normally be included as part of the metadata uploaded to the MarketPlace.
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="create_metadata_description" id="create_metadata_description">Create Metadata Description</a></h2>
+<div class="level2">
+
+<p>
+
+The metadata description contains information about the machine or disk image in an RDF-XML format.  This is not particularly friendly for human editing, so StratusLab provides a command to help create the necessary file. 
+</p>
+
+<p>
+Use the following command:
+
+</p>
+<pre class="code">$ stratus-build-metadata \
+  --author=&#039;Charles Loomis&#039; \
+  --os=ttylinux \
+  --os-version=10.0 \
+  --os-arch=i486 \
+  --version=1.0 \
+  dummy.img </pre>
+
+<p>
+
+This will create a file called “ttylinux-10.0-i486-base-1.0.xml” with a skeleton of the image metadata. 
+</p>
+
+<p>
+The skeleton already contains the image identifier (27 character base-64 string) based on the image&#039;s SHA-1 checksum.  It also contains the size of the image in bytes and several other checksums.  These are used to verify the correspondance between the metadata description and the actual machine or disk image file. 
+</p>
+
+<p>
+Any additions or modifications to the file must be done <strong>before</strong> the metadata entry is signed. The following is a fairly complete metadata description and should give you an idea of what you can add. 
+
+</p>
+<pre class="file">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+        xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:slreq=&quot;http://mp.stratuslab.eu/slreq#&quot;
+        xmlns:slterms=&quot;http://mp.stratuslab.eu/slterms#&quot; xml:base=&quot;http://mp.stratuslab.eu/&quot;
+        xmlns:ex=&quot;http://example.org/&quot;&gt;
+
+        &lt;rdf:Description rdf:about=&quot;#MMZu9WvwKIro-rtBQfDk4PsKO7_&quot;&gt;
+
+                &lt;dcterms:identifier&gt;MMZu9WvwKIro-rtBQfDk4PsKO7_&lt;/dcterms:identifier&gt;
+
+                &lt;slreq:bytes&gt;100&lt;/slreq:bytes&gt;
+
+                &lt;slreq:checksum rdf:parseType=&quot;Resource&quot;&gt;
+                        &lt;slreq:algorithm&gt;SHA-1&lt;/slreq:algorithm&gt;
+                        &lt;slreq:value&gt;c319bbd5afc0a22ba3eaed0507c39383ec28eeff&lt;/slreq:value&gt;
+                &lt;/slreq:checksum&gt;
+
+                &lt;slreq:endorsement rdf:parseType=&quot;Resource&quot; /&gt;
+
+                &lt;dcterms:type&gt;machine&lt;/dcterms:type&gt;
+
+                &lt;dcterms:valid&gt;2011-07-23T10:59:42Z&lt;/dcterms:valid&gt;
+
+                &lt;dcterms:publisher&gt;StratusLab&lt;/dcterms:publisher&gt;
+                &lt;dcterms:title&gt;linux-with-my-apps&lt;/dcterms:title&gt;
+                &lt;dcterms:description&gt;A 32-bit ttylinux...&lt;/dcterms:description&gt;
+
+                &lt;slterms:serial-number&gt;0&lt;/slterms:serial-number&gt;
+                &lt;slterms:version&gt;1.0&lt;/slterms:version&gt;
+
+                &lt;slterms:hypervisor&gt;kvm&lt;/slterms:hypervisor&gt;
+
+                &lt;slterms:inbound-port&gt;443&lt;/slterms:inbound-port&gt;
+                &lt;slterms:outbound-port&gt;25&lt;/slterms:outbound-port&gt;
+                &lt;slterms:icmp&gt;8&lt;/slterms:icmp&gt;
+
+                &lt;slterms:os&gt;ttylinux&lt;/slterms:os&gt;
+                &lt;slterms:os-version&gt;10.0&lt;/slterms:os-version&gt;
+                &lt;slterms:os-arch&gt;i486&lt;/slterms:os-arch&gt;
+                
+                &lt;slterms:location&gt;http://example.org/my-image&lt;/slterms:location&gt;
+
+                &lt;slterms:deprecated&gt;security issue with app&lt;/slterms:deprecated&gt;
+
+                &lt;ex:other-info&gt;additional metadata&lt;/ex:other-info&gt;
+                &lt;ex:yet-more&gt;still more info&lt;/ex:yet-more&gt;
+
+                &lt;ex:relatedImages rdf:parseType=&quot;Resource&quot;&gt;
+                        &lt;dcterms:identifier&gt;MMZu9WvwKIro-rtBQfDk4PsKO7_&lt;/dcterms:identifier&gt;
+                        &lt;dcterms:identifier&gt;NMZu9WvwKIro-rtBQfDk4PsKO7_&lt;/dcterms:identifier&gt;
+                        &lt;dcterms:identifier&gt;OMZu9WvwKIro-rtBQfDk4PsKO7_&lt;/dcterms:identifier&gt;
+                        &lt;dcterms:identifier&gt;PMZu9WvwKIro-rtBQfDk4PsKO7_&lt;/dcterms:identifier&gt;
+                &lt;/ex:relatedImages&gt;
+
+        &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;</pre>
+
+<p>
+
+In particular, you will probably want to add one or more location elements containing the URL(s) where the image can be found.  The MarketPlace technical note contains the standard elements.  You may also add elements from other namespaces (“ex” in this document) before the end of the description.  Note, however, that the file must remain a valid RDF description so you may have to use “rdf:parseType” attributes on elements with children. 
+</p>
+
+</div>
+
+<h2 class="sectionedit6"><a name="signing_and_validating_the_metadata" id="signing_and_validating_the_metadata">Signing and Validating the Metadata</a></h2>
+<div class="level2">
+
+<p>
+
+Try to validate the unsigned file.
+
+</p>
+<pre class="code">$ stratus-validate-metadata ttylinux-10.0-i486-base-1.0.xml 
+Invalid: ttylinux-10.0-i486-base-1.0.xml
+no signature</pre>
+
+<p>
+
+As you can see, this fails (as it should) indicating that there is no signature in this file. 
+</p>
+
+<p>
+To sign the file, you will need a PKSC12-formatted certificate.  Any certificate will do, although if you want a system administrator down the like to accept the signature, you should use a valid grid certificate. 
+</p>
+
+<p>
+To sign the file, use the stratus-sign-metadata command:
+
+</p>
+<pre class="code">$ stratus-sign-metadata \
+    --p12-cert grid.p12 \
+    --p12-password xxxxxx \
+    --output ttylinux-10.0-i486-base-1.0.xml.sign.xml \
+    ttylinux-10.0-i486-base-1.0.xml
+    Metadata file successfully signed: ttylinux-10.0-i486-base-1.0.xml.sign.xml</pre>
+
+<p>
+
+If you don&#039;t provide a password on the command line (or in the STRATUSLAB_P12_PASSWORD variable), you will be prompted for it.  If the command was successful, it will write the result to the same file name as the input.  Use the –output option (as here) to write the output to a different file. 
+</p>
+
+<p>
+Now try to validate the signed file:
+
+</p>
+<pre class="code">$ stratus-validate-metadata ttylinux-10.0-i486-base-1.0.xml.sign.xml
+Valid: ttylinux-10.0-i486-base-1.0.xml.sign.xml</pre>
+
+<p>
+
+If everything has worked correctly, the command should indicate that the file is valid.
+</p>
+
+</div>
+
+<h2 class="sectionedit7"><a name="uploading_metadata_description" id="uploading_metadata_description">Uploading Metadata Description</a></h2>
+<div class="level2">
+
+<p>
+
+Now you will want to upload the metadata description.  Only valid, signed descriptions will be accepted by the MarketPlace server.  Use the following command:
+
+</p>
+<pre class="code">$ stratus-upload-metadata \
+    --marketplace-endpoint=http://marketplace.stratuslab.eu
+    ttylinux-10.0-i486-base-1.0.xml.sign.xml
+ http://marketplace.stratuslab.eu/metadata/MMZu9WvwKIro-rtBQfDk4PsKO7_/email address/2011-06-29T10:14:41Z</pre>
+
+<p>
+
+This should return the <acronym title="Uniform Resource Locator">URL</acronym> of the metadata entry.   You should be able to navigate to the metadata listings and see your metadata entry. 
+</p>
+
+<p>
+<strong>Note: Depending on the configuration of the server, it may validate the email address in the metadata description before it is made visible.  Check with the system administrator for the service to see if email validation is turned on.</strong>
+</p>
+
+<p>
+You can also upload the signed metadata from the web interface.  Just click on the “upload” link, search for the metadata description to upload, and click the upload button.  
+</p>
+
+</div>
+
+<h2 class="sectionedit8"><a name="query_the_marketplace" id="query_the_marketplace">Query the Marketplace</a></h2>
+<div class="level2">
+
+<p>
+
+On the query page, you can use SPARQL queries to search for metadata entries. For example the following will list the identifiers and operating systems for all of the metadata descriptions:
+
+</p>
+<pre class="code">PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX slterms: &lt;http://mp.stratuslab.eu/slterms#&gt;
+
+select
+
+  distinct ?os ?identifier 
+
+  where { 
+    ?x dcterms:identifier ?identifier . 
+    ?x slterms:os ?os
+  }</pre>
+
+<p>
+
+Similarly the following will search for entries signed by an endorser with the email address “me@example.com”.
+
+</p>
+<pre class="code">PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX slreq: &lt;http://mp.stratuslab.eu/slreq#&gt;
+
+select
+  distinct ?identifier ?email ?created 
+  where 
+  {
+    ?x dcterms:identifier ?identifier;
+
+    slreq:endorsement ?endorsement . 
+    ?endorsement slreq:endorser ?endorser;
+
+    dcterms:created ?created .
+    ?endorser slreq:email ?email .
+    FILTER (?email = &quot;me@example.com&quot;)
+  }</pre>
+
+<p>
+
+Generally, the search boxes on the metadata listing page would be more convenient for humans.  The above queries are better for automated queries from scripts.  
+</p>
+
+</div>
+
+<h2 class="sectionedit9"><a name="using_an_image_in_the_marketplace" id="using_an_image_in_the_marketplace">Using an Image in the Marketplace</a></h2>
+<div class="level2">
+
+<p>
+
+To use an image described in the Marketplace, simply give the image identifier to the usual stratus-run-instance command.  The reference can be used for machine images or for static disk images. 
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/marketplace.txt &middot; Last modified: 2012/03/20 13:50 by airaj	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

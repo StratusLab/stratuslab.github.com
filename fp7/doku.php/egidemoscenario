@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: StratusLab Demonstration for the EGI Technical Conference  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,StratusLab Demonstration for the EGI Technical Conference"/>
+  <meta name="Description" content="StratusLabStratusLab Demonstration for the EGI Technical Conference"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="egidemoscenario" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="egidemoscenario?do=index" title="Sitemap" />
+<link rel="canonical" href="egidemoscenario" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"egidemoscenario","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="egidemoscenario#benchmarks_tests" class="toc">Benchmarks Tests</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="egidemoscenario#cloud_basics" class="toc">Cloud Basics</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="egidemoscenario#grid_on_top_of_cloud" class="toc">Grid on top of Cloud</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="egidemoscenario#what_functionality_components_need_to_be_there" class="toc">What functionality/components need to be there</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="egidemoscenario#user_stories_from_sprint_3_related_to_the_demo" class="toc">User stories from Sprint 3 related to the demo</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="egidemoscenario#sample_demonstration_scenario" class="toc">Sample Demonstration scenario</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h5><a name="stratuslab_demonstration_for_the_egi_technical_conference" id="stratuslab_demonstration_for_the_egi_technical_conference">StratusLab Demonstration for the EGI Technical Conference</a></h5>
+<div class="level5">
+
+</div>
+
+<h3 class="sectionedit1"><a name="benchmarks_tests" id="benchmarks_tests">Benchmarks Tests</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Goal : Run application-oriented benchmarks to measure the performance of StratusLab cloud implementation. Benchmarks tests will be deployed on StratusLab cloud, results will be stored in xml format.</div>
+<ul>
+<li class="level2"><div class="li"> Run cpu_benchmarks.sh for High-CPU requirements but little or no input and output data.</div>
+</li>
+<li class="level2"><div class="li"> Run mpi-io_benchmarks.sh for Simulation, Analysis and Filtering tests</div>
+</li>
+<li class="level2"><div class="li"> Run openmpi_benchmarks.sh for shared Memory Programs</div>
+</li>
+<li class="level2"><div class="li"> Run mpi_benchmarks.sh for MPI-like programs.</div>
+</li>
+<li class="level2"><div class="li"> Run kepler_benchmarks.sh for workflow multiple interdependents tasks. We are using kepler as test platform for workflow orchestration.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit2"><a name="cloud_basics" id="cloud_basics">Cloud Basics</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Install a cloud from scratch, using manual tools (<code>/usr/sbin/stratus-</code>*) or automated tools (Quattor)</div>
+</li>
+<li class="level1"><div class="li"> Remotely monitoring the status of the cloud (web and <code>/usr/bin/stratus-*</code>)</div>
+<ul>
+<li class="level2"><div class="li"> <code>stratus-describe-node</code> to list nodes and show their status</div>
+</li>
+<li class="level2"><div class="li"> <code>stratus-describe-instance</code> to list running vms and show their status</div>
+</li>
+<li class="level2"><div class="li"> Same thing with the web</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Run instances with <code>stratus-run-instance</code></div>
+<ul>
+<li class="level2"><div class="li"> demo contextualization</div>
+</li>
+<li class="level2"><div class="li"> ssh into instance with user private key, over public ip</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Create image with <code>stratus-create-image</code></div>
+<ul>
+<li class="level2"><div class="li"> demo contextualization (works with stratus-run-instance)</div>
+</li>
+<li class="level2"><div class="li"> show result in appliance repository</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Appliance Repository</div>
+<ul>
+<li class="level2"><div class="li"> show manifest file and image</div>
+</li>
+<li class="level2"><div class="li"> show squid feature (if available)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h3 class="sectionedit3"><a name="grid_on_top_of_cloud" id="grid_on_top_of_cloud">Grid on top of Cloud</a></h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Capability to deploy Grid sites on top of Cloud infrastructures running OpenNebula, using pre-configured virtual appliances with grid middleware (gLite) already installed.</div>
+</li>
+<li class="level1"><div class="li"> The virtual appliances repository that provide the pre-configured images. </div>
+</li>
+<li class="level1"><div class="li"> Capability to manage virtualized grid sites by adding and removing Worker Nodes on the fly.</div>
+</li>
+<li class="level1"><div class="li"> Capability to run various applications and benchmarks </div>
+</li>
+<li class="level1"><div class="li"> Capability to monitor the cloud infrastructure using the OpenNebula <acronym title="Extensible Markup Language">XML</acronym>-<acronym title="Remote Procedure Call">RPC</acronym> <acronym title="Application Programming Interface">API</acronym>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4"><a name="what_functionality_components_need_to_be_there" id="what_functionality_components_need_to_be_there">What functionality/components need to be there</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> A Cloud site with OpenNebula having enough physical hosts in order to be able to support multiple grid sites with enough WNs.</div>
+</li>
+<li class="level1"><div class="li"> A gLite UI that support the StratusLab VO</div>
+</li>
+<li class="level1"><div class="li"> Graphical monitoring of ONe sites</div>
+</li>
+<li class="level1"><div class="li"> The appliances repository with Web front-end that enables browsing and search of appliances and metadata.</div>
+</li>
+<li class="level1"><div class="li"> A set if Appliances with pre-configured gLite middleware for CE, SE and WNs. Choice of OpenMPI support should be available. </div>
+</li>
+<li class="level1"><div class="li"> A set of command line tools that enable the parametric setup and configuration of grid sites based on templates.</div>
+</li>
+<li class="level1"><div class="li"> A set of 2-3 applications/benchmarks that can be used to showcase the efficiency of the virtualized site. One of these applications should be parallel/MPI. The applications should come pre-installed with the WN images.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit5"><a name="user_stories_from_sprint_3_related_to_the_demo" id="user_stories_from_sprint_3_related_to_the_demo">User stories from Sprint 3 related to the demo</a></h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-65" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-65"  rel="nofollow">STRATUSLAB-65</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-67" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-67"  rel="nofollow">STRATUSLAB-67</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-68" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-68"  rel="nofollow">STRATUSLAB-68</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-79" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-79"  rel="nofollow">STRATUSLAB-79</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-144" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-144"  rel="nofollow">STRATUSLAB-144</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-145" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-145"  rel="nofollow">STRATUSLAB-145</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-151" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-151"  rel="nofollow">STRATUSLAB-151</a> (if we want to use the bioinformatics application)</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-154" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-154"  rel="nofollow">STRATUSLAB-154</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-155" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-155"  rel="nofollow">STRATUSLAB-155</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-156" class="urlextern" title="http://jira.stratuslab.eu:8080/browse/STRATUSLAB-156"  rel="nofollow">STRATUSLAB-156</a></div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit6"><a name="sample_demonstration_scenario" id="sample_demonstration_scenario">Sample Demonstration scenario</a></h2>
+<div class="level2">
+
+<p>
+
+The presenter logs into the OpenNebula frontend and runs a few commands to show that status of the site. He also has a browser which shows the current state of the cloud infrastructure next to the shell window. The presenter runs a command that prepares a complete grid site on-the-fly using a set of site configuration templates. The site is prepared based on the appliances available from the repository. The presenter shows the web site of the repository and explains how it works, what type of appliances are available at the moment and how someone can search for specific appliances based on a set of metadata that are currently being kept. The site offers plenty of storage space in the SE and shared space in WNs for VO applications and as a scratch space for MPI applications.
+</p>
+
+<p>
+The presenter runs a sample job to demonstrate the validity of the site. Then he/she registers and uploads sample data file on the SE using the LFC. Next the presenter runs an MPI application and demonstrates how the current solution can be used for scientific applications from various domains.
+</p>
+
+<p>
+The presenter alters the configuration of the site by removing and adding WNs by hand. The action has as a result the update of site configuration in the CE. The presenter shows on the graphical monitoring tool the new configuration of the site. He/she runs again the parallel job with the new set of WNs to show that the application can now take advantage of the additional WNs (and potentially finish faster).
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          egidemoscenario.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>
