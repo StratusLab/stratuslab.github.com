@@ -87,9 +87,9 @@ html, body {
 #aboutNav   a { background: url(../images/navigationSprite.png) no-repeat -400px 0px; }
 
 #home          li#homeNav    a { background: url(../images/navigationSprite.png) no-repeat 0px -89px; }
-#blog          li#blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px -89px; }
+#news          li#blogNav    a { background: url(../images/navigationSprite.png) no-repeat -103px -89px; }
 #documentation li#docNav     a { background: url(../images/navigationSprite.png) no-repeat -202px -89px; }
-#download      li#filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px -89px; }
+#install      li#filesNav   a { background: url(../images/navigationSprite.png) no-repeat -301px -89px; }
 #try           li#tryNav     a { background: url(../images/navigationSprite.png) no-repeat -501px -89px; }
 #about         li#aboutNav   a { background: url(../images/navigationSprite.png) no-repeat -400px -89px; }
 
