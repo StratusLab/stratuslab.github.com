@@ -1,4 +1,5 @@
 stratuslab.github.com
 =====================
 
-public web site for StratusLab organization
+Source files for the [public StratusLab
+website](http://stratuslab.eu).
