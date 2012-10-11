@@ -1,7 +1,7 @@
 ---
 layout: article
 title: StratusLab Web Site Design and Branding
-category: documentation
+category: about
 ---
 
 StratusLab Background

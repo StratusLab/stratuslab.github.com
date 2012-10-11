@@ -23,6 +23,7 @@ Prerequisites
 
 + hardware virtualization extensions has to be enabled in the BIOS on Node
 + CentOS 6.x on Front-End and Node
++ [EPEL][epel] 6 repository enabled on Front-End
 + Python **>= 2.6 and < 3.x** on Front-End and Node
 + password-less SSH for **root** from Front-End to Node 
 + a block device (can be a loop device) to host LVM for VM images backend
@@ -30,6 +31,11 @@ Prerequisites
 + a default DHCP server must be configured to assign statically IP addresses 
 corresponding to predictable MAC addresses. These IP addresses will require 
 to be publicly visible if the cloud instances are to be accessible from the WAN.
++ **hostname** properly set on Front-End and Nodes otherwise some critical services 
+cannot start properly
++ SELinux disabled in all nodes
++ StratusLab's release yum repository properly set in *all* nodes
++ finally it's recommended to do a **yum -y update** in all nodes before starting in order to install any critical updates and latest version of RPMs in the system
 
 StratusLab Cloud Front-End Deployment
 -------------------------------------
@@ -91,8 +97,7 @@ defined by *persistent_disk_storage* and *persistent_disk_share* parameters.
 Provided the defaults are used (*lvm* for storage and *iscsi* for share), one 
 needs to specify the following
 
-    stratus-config persistent_disk_physical_device /dev/<BLOCK_DEVICE>
-    stratus-config persistent_disk_lvm_device /dev/pdisk
+    stratus-config persistent_disk_physical_devices /dev/<BLOCK_DEVICE>
 
 For details on configurable disks storage types and/or sharing mechanisms 
 please check *persistent-disks* section of the reference configuration file.
@@ -121,3 +126,11 @@ If errors occur, you can increase the verbosity level by adding -vv.
 
 [yum-config]: http://yum.stratuslab.eu/
 [linux-kvm]: http://www.linux-kvm.org/
+[epel]: http://fedoraproject.org/wiki/EPEL
+
+<!---
+Describe in the extended version of the documentation:
+
++ **sendmail** service installed and started on Front-End. This is to enable sending
+notification emails to image authors when new images are created using the *--save* switch of *stratus-run-instance* 
+--->
