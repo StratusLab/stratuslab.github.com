@@ -20,7 +20,7 @@
                 {% if post.category == downcase_title %}
             
                     <div class="news-snippet">
-                        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="date">{{ post.date | date: "%d %B %Y" }}</span>
                         <br>
                         <!--<p>-->
                         <div class="abstract">{{ post.content | strip_html | truncatewords: 25 }}</div>
@@ -28,6 +28,8 @@
                     </div>
                 {% endif %}
             {% endfor %}
+            
+
 
         </div>
         <div class="sidebarColumn">

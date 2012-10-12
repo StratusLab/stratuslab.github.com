@@ -4,4 +4,6 @@ category: documentation
 title: Documentation
 ---
 
-Find here StratusLab documentation.
+This section contains more detailed StratusLab documentation and
+tutorials on the cloud services.  Suggest ideas for new guides via the
+[support mailing list](/about).

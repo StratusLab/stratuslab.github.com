@@ -74,10 +74,15 @@ h1 {
     margin-top: 0em;
     margin-bottom: 0em;
 }
+
 h2 {
     font-size: 1.7em;
     margin: 1.2em 0em 1.2em 0em;
     font-weight: normal;
+}
+
+h2.column {
+    margin: 0em 0em 1.2em 0em !important;
 }
 
 h3 {

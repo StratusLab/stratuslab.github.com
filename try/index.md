@@ -4,15 +4,20 @@ category: try
 title: Try it
 ---
 
-Two partners of the StratusLab collaboration maintain production cloud
-infrastructures using our software.  Test accounts can be obtained to
-access these services and try out the functionality of the StratusLab
-cloud distribution.
+The StratusLab collaboration maintains a **production cloud
+infrastructure** using our software.  **Test accounts** can be
+obtained to access this service and try out the functionality of the
+StratusLab cloud distribution.
 
-Try the software!  This section tells you how to register for the
-reference infrastructures, use the web interface, and install and use
-the command line client.  You can also browse the source code in our
-[GitHub repositories](https://github.com/StratusLab).
+Try the software!
+   1. [Register](https://register.stratuslab.eu:8444/) for the [reference
+      infrastructures](/try%20it/2012/02/10/try-reference-cloud-infrastructures.html),
+   2. [Install](/try%20it/2012/01/19/install-user-cli-installation.html)
+      the command line client, 
+   3. [Launch](/try%20it/2012/10/03/try-launch-vm.html) a Virtual Machine on
+      the cloud.
+You can also browse the source code in our [GitHub
+repositories](https://github.com/StratusLab).
 
 ---------------
 
