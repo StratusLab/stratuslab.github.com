@@ -11,10 +11,10 @@ StratusLab cloud distribution.
 
 Try the software!
    1. [Register](https://register.stratuslab.eu:8444/) for the [reference
-      infrastructures](/try%20it/2012/01/01/try-reference-cloud-infrastructures.html),
+      infrastructures](/try%20it/2012/01/29/try-reference-cloud-infrastructures.html),
    2. [Install](/try%20it/2012/01/19/install-user-cli-installation.html)
       the command line client, 
-   3. [Launch](/try%20it/2012/01/29/try-launch-vm.html) a Virtual Machine on
+   3. [Launch](/try%20it/2012/01/01/try-launch-vm.html) a Virtual Machine on
       the cloud.
 You can also browse the source code in our [GitHub
 repositories](https://github.com/StratusLab).
