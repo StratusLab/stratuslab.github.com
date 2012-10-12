@@ -15,7 +15,7 @@ The following are they means of providing user parameters and presented in the
 order of precedence
 
 + via command line parameters
-+ via environment variables (STRATUSLAB_****)
++ via environment variables (STRATUSLAB_\*)
 + in configuration file (by default: HOME/.stratuslab/stratuslab-user.cfg)
 + default in the code
 
