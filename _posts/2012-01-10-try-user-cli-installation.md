@@ -10,13 +10,13 @@ StratusLab services; it provides a scriptable alternative to access
 via a web browser.
 
 After installation and configuration of the client follow the
-instructions to [Launch VM on Cloud][launch-vm] and then, read the
-in-depth [documentation][docs] on the use of the StratusLab cloud.
+instructions to [launch a Virtual Machine][launch-vm] and then, read
+the in-depth [documentation][docs] on the use of the StratusLab cloud.
 
 Prerequisites
 -------------
 
-* Python **>= 2.6 and < 3.x**
+* Python >= 2.6 and < 3.x
 * Java 1.6+
 * SSH client
 * SSH user key-pair
@@ -39,10 +39,10 @@ platforms**.)  Unpack the tarball in a convenient location.
 
 Update your `PATH` and `PYTHONPATH` variables:
 
-~~~bash
+```sh
 export PATH=$PATH:<install location>/bin
 export PYTHONPATH=$PYTHONPATH:<install location>/lib/stratuslab/python
-~~~
+```
 
 The above are appropriate for Bourne-type shells. Modify the commands
 as necessary if you are using a different shell.
@@ -66,10 +66,10 @@ Unpack the package in a convenient location.
 
 Update your **PATH** and **PYTHONPATH**
 
-~~~bash
+```sh
 setx PATH "%PATH%;<install location>\windows"
 setx PYTHONPATH "%PYTHONPATH%;<install location>\lib\stratuslab\python"
-~~~
+```
 
 or via GUI
 
