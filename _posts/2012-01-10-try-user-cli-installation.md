@@ -33,16 +33,14 @@ tarball or an RPM package.
 
 Look for the latest version of the command-line client tarball
 `stratuslab-cli-user-*.tar.gz` in the [yum
-repositories][yum-repo-centos]. (Eventhough this is a CentOS
+repositories][yum-repo-centos]. (Even though this is a CentOS
 repository, **all of the tarballs and zip files work on all
 platforms**.)  Unpack the tarball in a convenient location.
 
 Update your `PATH` and `PYTHONPATH` variables:
 
-```sh
-export PATH=$PATH:<install location>/bin
-export PYTHONPATH=$PYTHONPATH:<install location>/lib/stratuslab/python
-```
+    export PATH=$PATH:<install location>/bin
+    export PYTHONPATH=$PYTHONPATH:<install location>/lib/stratuslab/python
 
 The above are appropriate for Bourne-type shells. Modify the commands
 as necessary if you are using a different shell.
@@ -66,10 +64,8 @@ Unpack the package in a convenient location.
 
 Update your **PATH** and **PYTHONPATH**
 
-```sh
-setx PATH "%PATH%;<install location>\windows"
-setx PYTHONPATH "%PYTHONPATH%;<install location>\lib\stratuslab\python"
-```
+    setx PATH "%PATH%;<install location>\windows"
+    setx PYTHONPATH "%PYTHONPATH%;<install location>\lib\stratuslab\python"
 
 or via GUI
 
