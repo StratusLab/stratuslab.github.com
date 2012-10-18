@@ -58,8 +58,8 @@ to install the latest version of the client tools.
 
 ###Windows
 
-Look for the latest version of the command-line client packge 
-**stratuslab-cli-user-\*.zip** in [this repository][cli-user-repo]. 
+Look for the latest version of the command-line client package
+`stratuslab-cli-user-*.zip` in [this repository][yum-repo-centos].
 Unpack the package in a convenient location.
 
 Update your **PATH** and **PYTHONPATH**
@@ -69,14 +69,19 @@ Update your **PATH** and **PYTHONPATH**
 
 or via GUI
 
-    Control Panel -> System -> 
-          Advanced System Settings -> Advanced -> Environment Variables
+    Control Panel 
+      -> System 
+        -> Advanced System Settings
+          -> Advanced 
+            -> Environment Variables
 
 ###Test the Installation
 
 You can test that the commands are properly installed by executing
 
     $ stratus-describe-instance --help
+
+This should return a list of the options without any errors.
 
 Configuration
 -------------
@@ -113,7 +118,7 @@ endpoints and credentials required for the user client. For example
 ####Linux/UNIX
 
 By default the user client expects the configuration file at
-$HOME/.stratuslab/stratuslab-user.cfg
+`$HOME/.stratuslab/stratuslab-user.cfg`.
 
 The client ships with a reference configuration file
 
@@ -121,7 +126,7 @@ The client ships with a reference configuration file
 * in RPM /etc/stratuslab/stratuslab-user.cfg.ref 
 
 User has to copy the file to the default location
-$HOME/.stratuslab/stratuslab-user.cfg and modify it following
+`$HOME/.stratuslab/stratuslab-user.cfg` and modify it following
 explanations to the variables in the file. The variables that are
 commented out (e.g. p12_certificate) take their default values from
 the code.
@@ -129,26 +134,27 @@ the code.
 ####Windows
 
 By default the user client expects the configuration file at
-%HOMEDRIVE%%HOMEPATH%\.stratuslab\stratuslab-user.cfg
+`%HOMEDRIVE%%HOMEPATH%\.stratuslab\stratuslab-user.cfg`.
 
     mkdir %HOMEDRIVE%%HOMEPATH%\.stratuslab
 
 The reference configuration file 
 
-* in zip package &lt;install location&gt;\conf\stratuslab-user.cfg.ref
+* in zip package `<install location>\conf\stratuslab-user.cfg.ref`
 
-User has to copy the file to the default location 
-%HOMEDRIVE%%HOMEPATH%\.stratuslab\stratuslab-user.cfg and modify it following 
-explanations to the variables in the file. The variables that are commented out 
-(e.g. p12_certificate) take their default values from the code.
+User has to copy the file to the default location
+`%HOMEDRIVE%%HOMEPATH%\.stratuslab\stratuslab-user.cfg` and modify it
+following explanations to the variables in the file. The variables
+that are commented out (e.g. p12_certificate) take their default
+values from the code.
 
 Appendix
 --------
 
 ###Python
 
-Ensure that you have a recent version of Python **>= 2.6**, but < **3.0** 
-installed on your system. From the command line type
+Ensure that you have a recent version of Python **>= 2.6**, but <
+**3.0** installed on your system. From the command line type
 
     $ python -V
       Python 2.6.1
