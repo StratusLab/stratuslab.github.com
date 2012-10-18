@@ -16,10 +16,10 @@ in-depth [documentation][docs] on the use of the StratusLab cloud.
 Prerequisites
 -------------
 
-  * Python **>= 2.6 and < 3.x**
-  * Java 1.6+
-  * SSH client
-  * SSH user key-pair
+* Python **>= 2.6 and < 3.x**
+* Java 1.6+
+* SSH client
+* SSH user key-pair
 
 Installation
 ------------
@@ -32,15 +32,17 @@ tarball or an RPM package.
 ####Tarball
 
 Look for the latest version of the command-line client tarball
-`stratuslab-cli-user-\*.tar.gz` in the [yum repositories][yum-repo].
-Unpack the tarball in a convenient location.
+`stratuslab-cli-user-*.tar.gz` in the [yum
+repositories][yum-repo-centos]. (Eventhough this is a CentOS
+repository, **all of the tarballs and zip files work on all
+platforms**.)  Unpack the tarball in a convenient location.
 
-Update your PATH and PYTHONPATH variables:
+Update your `PATH` and `PYTHONPATH` variables:
 
-```bash
+~~~bash
 export PATH=$PATH:<install location>/bin
 export PYTHONPATH=$PYTHONPATH:<install location>/lib/stratuslab/python
-```
+~~~
 
 The above are appropriate for Bourne-type shells. Modify the commands
 as necessary if you are using a different shell.
@@ -64,10 +66,10 @@ Unpack the package in a convenient location.
 
 Update your **PATH** and **PYTHONPATH**
 
-```bash
+~~~bash
 setx PATH "%PATH%;<install location>\windows"
 setx PYTHONPATH "%PYTHONPATH%;<install location>\lib\stratuslab\python"
-```
+~~~
 
 or via GUI
 
@@ -191,9 +193,9 @@ connect to Linux/UNIX machines.
 [python]: http://python.org/
 [yum]: http://yum.baseurl.org/
 [yum-config]: http://yum.stratuslab.eu/
-[yum-repo]: 
+[yum-repo-centos]: http://yum.stratuslab.eu/releases/centos-6.2/
 [amazon-ssh]: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/putty.html
 [docs]: /documentation/
 [sl-ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
-[launch-vm]: /try%20it/2012/10/03/try-launch-vm.html
+[launch-vm]: /try%20it/2012/01/01/try-launch-vm.html
 [user-creds-docu]: /documentation/2012/10/05/docs-tutor-user-credentials.html
