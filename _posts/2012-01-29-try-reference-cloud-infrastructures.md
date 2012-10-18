@@ -120,15 +120,19 @@ NFSv3.
 
 ###LAL
 
-TODO: Add info about LAL.
+The cloud at LAL consists of 10 DELL servers each with 24 CPU cores
+and 32 GB of RAM.  There is a total of 20 TB of disk space available
+via a RAID6 system.
 
 What is the firewall policy?
 ----------------------------
 
 No firewall restrictions are applied externally to the VMs. All ports
-are open for end-user applications. Users are responsible to configure
-their own port restrictions inside the VM images and for the overall
-security of the image in general.
+are open for end-user applications at GRNET.  Commonly-used ports are
+open at LAL for the virtual machines.
+
+Users are responsible to configure their own port restrictions inside
+the VM images and for the overall security of the image in general.
 
 What Quality of Service is provided?
 ------------------------------------
