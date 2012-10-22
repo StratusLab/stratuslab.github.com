@@ -47,15 +47,20 @@ as necessary if you are using a different shell.
 
 ####RPM
 
-These packages only work on RedHat Enterprise Linux systems and
-derivative systems like CentOS and ScientificLinux.  You must have
-root access to your machine to install them. It is recommended to do
-the installation with [yum][yum]. The configuration for yum can be
-found [here][yum-config]. Execute:
+These packages only work on RedHat Enterprise Linux systems (and its
+derivatives like CentOS and ScientificLinux) and OpenSuSE.  You must
+have root access to your machine to install them.
+
+For RHEL and RHEL-like systems, it is recommended to do the
+installation with [yum][yum]. The configuration for yum can be found
+[here][yum-config], choosing the "centos-6.2" repository.  Execute:
 
     $ yum install stratuslab-cli-user
 
 to install the latest version of the client tools.
+
+For OpenSuSE, configure zypper for the StratusLab OpenSuSE repository
+("opensuse-12.1") and use it to install the package.
 
 ###Windows
 
