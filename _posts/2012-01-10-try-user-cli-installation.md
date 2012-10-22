@@ -47,10 +47,11 @@ as necessary if you are using a different shell.
 
 ####RPM
 
-These only work on RedHat-like systems and you must have root access
-to your machine to install them. It is recommended to do the
-installation with [yum][yum]. The configuration for yum can be found
-[here][yum-config]. Execute:
+These packages only work on RedHat Enterprise Linux systems and
+derivative systems like CentOS and ScientificLinux.  You must have
+root access to your machine to install them. It is recommended to do
+the installation with [yum][yum]. The configuration for yum can be
+found [here][yum-config]. Execute:
 
     $ yum install stratuslab-cli-user
 
