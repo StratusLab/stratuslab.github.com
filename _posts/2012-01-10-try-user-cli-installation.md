@@ -191,11 +191,16 @@ permissions 0600 (read/write access for owner only) and the
 
 **Be sure to remember the passphrase that you have used!**
 
+Be careful if an ssh agent is configured by default for your operating
+system.  Ensure that it is setup to use the correct key and that it
+provides the correct password for that key.
+
 ####Windows
 
 Please follow instruction on this [page][amazon-ssh] on how to
 generate and use user SSH keys on Windows with PuTTY to be able to
-connect to Linux/UNIX machines.
+connect to Linux/UNIX machines.  Be sure to keep your generated SSH
+key on a single line to avoid connection problems.
 
 
 [python]: http://python.org/
