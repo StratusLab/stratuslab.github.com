@@ -14,7 +14,7 @@
               {{ page.content | markdownify }}
             </div>
 
-            {% capture downcase_title %}{{page.title | downcase}}{% endcapture %} 
+            {% capture downcase_title %}{{page.category | downcase}}{% endcapture %} 
 
             {% for post in site.posts %}
                 {% if post.category == downcase_title %}

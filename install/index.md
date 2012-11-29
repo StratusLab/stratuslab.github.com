@@ -16,7 +16,6 @@ available from our [GitHub
 repositories](https://github.com/StratusLab).
 
 Information on the installation and use of the client software is
-available in the [Try It](/try%20it) section.
+available in the [Try It](/try) section.
 
 ---------------
-
