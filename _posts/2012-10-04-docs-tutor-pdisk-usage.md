@@ -263,5 +263,5 @@ Now try to delete 'mypublic-disk' of 'testor2' user persistent disk
 
 [^1]: "disk" and "volume" are used interchangeably.  
 
-[ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
-[user-client-install]: /try%20it/2012/01/19/install-user-cli-installation.html
+[ref-infra]: /try/2012/02/10/try-reference-cloud-infrastructures.html
+[user-client-install]: /try/2012/01/19/install-user-cli-installation.html

@@ -169,7 +169,7 @@ services are currently provided on best effort basis.
 [tcd]: http://www.tcd.ie
 [ref-infra-reg]: https://register.stratuslab.eu:8444/
 [igtf]: http://www.igtf.net/
-[client-install]: /try%20it/2012/01/10/try-user-cli-installation.html
+[client-install]: /try/2012/01/10/try-user-cli-installation.html
 [get-started]: http://stratuslab.eu/doku.php/release:users
 [one]: http://www.opennebula.org 
 [documentation]: /documentation/

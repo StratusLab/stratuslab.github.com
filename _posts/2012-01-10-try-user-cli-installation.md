@@ -209,6 +209,6 @@ key on a single line to avoid connection problems.
 [yum-repo-centos]: http://yum.stratuslab.eu/releases/centos-6.2/
 [amazon-ssh]: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/putty.html
 [docs]: /documentation/
-[sl-ref-infra]: /try%20it/2012/02/10/try-reference-cloud-infrastructures.html
-[launch-vm]: /try%20it/2012/01/01/try-launch-vm.html
+[sl-ref-infra]: /try/2012/02/10/try-reference-cloud-infrastructures.html
+[launch-vm]: /try/2012/01/01/try-launch-vm.html
 [user-creds-docu]: /documentation/2012/10/05/docs-tutor-user-credentials.html
