@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Launch a Virtual Machine
-category: try it
+category: try
 ---
 
 How to launch, connect to and terminate a Virtual Machine on

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Command-Line Client Installation
-category: try it
+category: try
 ---
 
 StratusLab provides a simple command line client that is easy to
