@@ -65,8 +65,6 @@ will also need to run a script that modifies the server's home page.
 First, create a script `setup-ubuntu.sh` that contains the following
 commands: 
 
-```
-
     #!/bin/bash 
     
     #
@@ -82,26 +80,20 @@ commands:
     <html><body><p>Cloudy Weather Expected</p></body></html>
     EOF
 
-```
-
 This will modify the server's home page.  When we eventually start the
 modified image, we can use this to ensure that the modifications have
 been correctly made.
 
 Now use the `stratus-create-image` command to create the new image:
 
-```
-
-$ stratus-create-image \
-  -s setup-ubuntu.sh \
-  -a apache2,chkconfig \
-  --type m1.xlarge \
-  --comment "ubuntu create image test" \
-  --author "Joe Builder" \
-  --author-email builder@example.org \
-  HZTKYZgX7XzSokCHMB60lS0wsiv
-
-```
+    $ stratus-create-image \
+      -s setup-ubuntu.sh \
+      -a apache2,chkconfig \
+      --type m1.xlarge \
+      --comment "ubuntu create image test" \
+      --author "Joe Builder" \
+      --author-email builder@example.org \
+      HZTKYZgX7XzSokCHMB60lS0wsiv
 
 Note that the necessary packages are included and the configuration
 script has been referenced.  In addition, information about the author
@@ -114,55 +106,47 @@ of the process will be sent to that address!
 
 Running this command will produce output like the following:
 
-```
+     :::::::::::::::::::::::::::::
+     :: Starting image creation ::
+     :::::::::::::::::::::::::::::
+     :: Checking that base image exists
+     :: Retrieving image manifest
+     :: Starting base image
+      [WARNING] Image availability check is disabled.
 
- :::::::::::::::::::::::::::::
- :: Starting image creation ::
- :::::::::::::::::::::::::::::
- :: Checking that base image exists
- :: Retrieving image manifest
- :: Starting base image
-  [WARNING] Image availability check is disabled.
+     :::::::::::::::::::::::::
+     :: Starting machine(s) ::
+     :::::::::::::::::::::::::
+     :: Starting 1 machine
+     :: Machine 1 (vm ID: 1655)
+     Public ip: 134.158.75.239
+     :: Done!
+     :: Waiting for machine to boot
+    .............
+     :: Waiting for machine network to start
+    ....
+     :: Check if we can connect to the machine
+     :: Executing user prerecipe
+     :: Installing user packages
+     :: Executing user recipe
+     :: Executing user scripts
+    Connection to 134.158.75.239 closed.
 
- :::::::::::::::::::::::::
- :: Starting machine(s) ::
- :::::::::::::::::::::::::
- :: Starting 1 machine
- :: Machine 1 (vm ID: 1655)
- Public ip: 134.158.75.239
- :: Done!
- :: Waiting for machine to boot
-.............
- :: Waiting for machine network to start
-....
- :: Check if we can connect to the machine
- :: Executing user prerecipe
- :: Installing user packages
- :: Executing user recipe
- :: Executing user scripts
-Connection to 134.158.75.239 closed.
+     ::::::::::::::::::::::::::::::::::::::::
+     :: Finished building image increment. ::
+     ::::::::::::::::::::::::::::::::::::::::
 
- ::::::::::::::::::::::::::::::::::::::::
- :: Finished building image increment. ::
- ::::::::::::::::::::::::::::::::::::::::
-
- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
- :: Please check builder@example.org for new image ID and instruction. ::
- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
- :: Shutting down machine
-
-```
+     ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     :: Please check builder@example.org for new image ID and instruction. ::
+     ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     :: Shutting down machine
 
 At this point if you check the running machines, you'll see something
 like this: 
 
-```
-
-$ stratus-describe-instance 
-id   state     vcpu memory    cpu% host/ip                  name
-1655 Epilog    4    0         0    vm-239.lal.stratuslab.eu creator: 2012-12-04T07:58:25Z
-
-```
+    $ stratus-describe-instance 
+    id   state     vcpu memory    cpu% host/ip                  name
+    1655 Epilog    4    0         0    vm-239.lal.stratuslab.eu creator: 2012-12-04T07:58:25Z
 
 For a normal machine, the "Epilog" state flashes by very quickly
 because it just deletes the virtual machine's resources.  In this case
@@ -186,41 +170,33 @@ the image identifier to find the metadata entry.
 You can also find the created disk by searching the persistent disk
 service: 
 
-```
-
-$ stratus-describe-volumes 
-:: DISK 410b7fb4-973b-4b6d-82a7-e637a5103f4d
-   count: 0
-   tag: 
-   owner: builder
-   identifier: IOeo3R5qEdCas5j_r1HxVne3JMk
-   size: 6
-
-```
+    $ stratus-describe-volumes 
+    :: DISK 410b7fb4-973b-4b6d-82a7-e637a5103f4d
+       count: 0
+       tag: 
+       owner: builder
+       identifier: IOeo3R5qEdCas5j_r1HxVne3JMk
+       size: 6
 
 Now we will try to deploy the new machine and verify that the web
 service responds.  Ubuntu takes several minutes to go through the full
 boot process and to start the web service, so a little patience is
 required. 
 
-```
+    $ stratus-run-instance --type c1.medium IOeo3R5qEdCas5j_r1HxVne3JMk 
 
-$ stratus-run-instance --type c1.medium IOeo3R5qEdCas5j_r1HxVne3JMk 
+     :::::::::::::::::::::::::
+     :: Starting machine(s) ::
+     :::::::::::::::::::::::::
+     :: Starting 1 machine
+     :: Machine 1 (vm ID: 1657)
+     Public ip: 134.158.75.58
+     :: Done!
 
- :::::::::::::::::::::::::
- :: Starting machine(s) ::
- :::::::::::::::::::::::::
- :: Starting 1 machine
- :: Machine 1 (vm ID: 1657)
- Public ip: 134.158.75.58
- :: Done!
+    $ # after waiting a few minutes...
 
-$ # after waiting a few minutes...
-
-$ curl http://vm-58.lal.stratuslab.eu/ 
-<html><body><p>Cloudy Weather Expected</p></body></html>
-
-```
+    $ curl http://vm-58.lal.stratuslab.eu/ 
+    <html><body><p>Cloudy Weather Expected</p></body></html>
 
 After testing the image, you'll need to take a few more steps to make
 the image accessible for more than 2 days or to make it public.
