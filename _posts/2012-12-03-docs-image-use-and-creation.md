@@ -93,7 +93,7 @@ $ stratus-create-image \
   -s setup-ubuntu.sh \
   -a apache2,chkconfig \
   --type m1.xlarge \
-  --comment "ubuntu create image test" 
+  --comment "ubuntu create image test" \
   --author "Joe Builder" \
   --author-email builder@example.org \
   HZTKYZgX7XzSokCHMB60lS0wsiv
@@ -111,7 +111,28 @@ of the process will be sent to that address!
 Running this command will produce output like the following:
 
 ```
-bash
+
+ :::::::::::::::::::::::::::::
+ :: Starting image creation ::
+ :::::::::::::::::::::::::::::
+ :: Checking that base image exists
+ :: Retrieving image manifest
+ :: Starting base image
+  [WARNING] Image availability check is disabled.
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 1655)
+ Public ip: 134.158.75.239
+ :: Done!
+ :: Waiting for machine to boot
+.............
+ :: Waiting for machine network to start
+....
+ :: Check if we can connect to the machine
+
 ```
 
 
