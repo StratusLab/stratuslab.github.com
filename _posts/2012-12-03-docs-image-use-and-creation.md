@@ -111,7 +111,6 @@ of the process will be sent to that address!
 Running this command will produce output like the following:
 
 ```
-
  :::::::::::::::::::::::::::::
  :: Starting image creation ::
  :::::::::::::::::::::::::::::
@@ -132,10 +131,119 @@ Running this command will produce output like the following:
  :: Waiting for machine network to start
 ....
  :: Check if we can connect to the machine
+ :: Executing user prerecipe
+ :: Installing user packages
+ :: Executing user recipe
+ :: Executing user scripts
+Connection to 134.158.75.239 closed.
 
+ ::::::::::::::::::::::::::::::::::::::::
+ :: Finished building image increment. ::
+ ::::::::::::::::::::::::::::::::::::::::
+
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ :: Please check builder@example.org for new image ID and instruction. ::
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ :: Shutting down machine
 ```
 
+At this point if you check the running machines, you'll see something
+like this: 
 
-Building Images from Zero
--------------------------
+```
+temp> stratus-describe-instance 
+id   state     vcpu memory    cpu% host/ip                  name
+1655 Epilog    4    0         0    vm-239.lal.stratuslab.eu creator: 2012-12-04T07:58:25Z
+```
 
+For a normal machine, the "Epilog" state flashes by very quickly
+because it just deletes the virtual machine's resources.  In this case
+however, the "Epilog" process actually saves the modified image to a
+new volume in the persistent disk service.  Because these are
+generally multi-gigabyte files, this process can take several
+minutes.
+
+At the end of the "Epilog" process, an email will be sent to the user
+with a subject like "New image created IOeo3R5qEdCas5j_r1HxVne3JMk".
+The body of the email contains:
+
+* The location of the created image,
+* The identifier of the created image, and 
+* A draft metadata entry for the new image.
+
+There will also be a temporary entry created in the Marketplace to
+allow private testing of the image after creation.  You can search for
+the image identifier to find the metadata entry. 
+
+You can also find the created disk by searching the persistent disk
+service: 
+
+```bash
+$ stratus-describe-volumes 
+:: DISK 410b7fb4-973b-4b6d-82a7-e637a5103f4d
+   count: 0
+   tag: 
+   owner: builder
+   identifier: IOeo3R5qEdCas5j_r1HxVne3JMk
+   size: 6
+```
+
+Now we will try to deploy the new machine and verify that the web
+service responds.  Ubuntu takes several minutes to go through the full
+boot process and to start the web service, so a little patience is
+required. 
+
+```bash
+$ stratus-run-instance --type c1.medium IOeo3R5qEdCas5j_r1HxVne3JMk 
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 1657)
+ Public ip: 134.158.75.58
+ :: Done!
+
+$ # after waiting a few minutes...
+
+$ curl http://vm-58.lal.stratuslab.eu/ 
+<html><body><p>Cloudy Weather Expected</p></body></html>
+```
+
+After testing the image, you'll need to take a few more steps to make
+the image accessible for more than 2 days or to make it public.
+
+To make the image public, the contents will need to be copied to a
+public server.  Mount the define on a VM and copy the contents to a
+suitable location.  (A future version will allow you to expose the
+disk contents directly without copying them.)  For a private disk, you
+do not need to make any copies.
+
+In both cases, modify the draft image metadata, especially providing a
+longer validity period for the image.  A resonable value is 6 months.
+Sign the metadata with `stratus-sign-metadata` and upload it to the
+Marketplace with `stratus-upload-metadata` or via the web interface. 
+
+
+Building Images from Scratch
+----------------------------
+
+Sometimes a suitable starting image cannot be found and building an
+image from scratch is required.  Usually it is easiest to build new
+images with desktop virtualization solutions.  The results must be
+converted to a format suitable for KVM.
+
+Generating an image from scratch can be tedious and there are lots of
+pitfalls along the way.  Keep in mind the following points:
+
+* Images must support the StratusLab contextualization scheme
+* Unsure DHCP network configuration (and turn off udev persistent
+  net rules)
+* All private information (keys, passwords, etc.) must be removed
+* Remote access must only be via SSH, not password
+* Activate firewall blocking all unused ports
+* Minimize installed software and services
+
+As there are many places to run into problems, you're advised to
+contact the [StratusLab support](mailto:support@stratuslab.eu) before
+starting.
