@@ -12,7 +12,7 @@ StratusLab cloud distribution.
 Try the software!
 
 1. [Register](https://register.stratuslab.eu:8444/) for the [reference
-      infrastructures](/try/2012/01/29/try-reference-cloud-infrastructures.html),
+      infrastructures](/try/2012/12/04/try-reference-cloud-infrastructures.html),
 
 2. [Install](try/2012/01/10/try-user-cli-installation.html)
       the command line client, 
