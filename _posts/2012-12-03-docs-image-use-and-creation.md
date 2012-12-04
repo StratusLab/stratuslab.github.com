@@ -65,7 +65,7 @@ will also need to run a script that modifies the server's home page.
 First, create a script `setup-ubuntu.sh` that contains the following
 commands: 
 
-```bash
+```
 
     #!/bin/bash 
     
@@ -90,7 +90,7 @@ been correctly made.
 
 Now use the `stratus-create-image` command to create the new image:
 
-```bash
+```
 
 $ stratus-create-image \
   -s setup-ubuntu.sh \
@@ -186,7 +186,8 @@ the image identifier to find the metadata entry.
 You can also find the created disk by searching the persistent disk
 service: 
 
-```bash
+```
+
 $ stratus-describe-volumes 
 :: DISK 410b7fb4-973b-4b6d-82a7-e637a5103f4d
    count: 0
@@ -194,6 +195,7 @@ $ stratus-describe-volumes
    owner: builder
    identifier: IOeo3R5qEdCas5j_r1HxVne3JMk
    size: 6
+
 ```
 
 Now we will try to deploy the new machine and verify that the web
@@ -201,7 +203,8 @@ service responds.  Ubuntu takes several minutes to go through the full
 boot process and to start the web service, so a little patience is
 required. 
 
-```bash
+```
+
 $ stratus-run-instance --type c1.medium IOeo3R5qEdCas5j_r1HxVne3JMk 
 
  :::::::::::::::::::::::::
@@ -216,6 +219,7 @@ $ # after waiting a few minutes...
 
 $ curl http://vm-58.lal.stratuslab.eu/ 
 <html><body><p>Cloudy Weather Expected</p></body></html>
+
 ```
 
 After testing the image, you'll need to take a few more steps to make
