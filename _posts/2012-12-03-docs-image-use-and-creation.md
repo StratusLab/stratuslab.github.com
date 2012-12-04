@@ -45,9 +45,12 @@ suitable image cannot be found.  In this case, try to find a suitable
 appliance as a starting point and create a new appliance by
 customizing the initial one.
 
+### Automated Process
+
 StratusLab provides the `stratus-create-image` command to automate the
-production of a new image based on an existing one.  This takes three
-inputs: 
+production of a new image based on an existing one.  (NOTE: This
+command does not work on Windows.  See manual process section.) This
+takes three inputs:
 
 * The Marketplace identifier of the starting image,
 * A list of additional packages to install, and 
@@ -76,8 +79,8 @@ commands:
     #
     # Modify the web server's home page.
     #
-    cat > /var/www/index.html <<EOF
-    <html><body><p>Cloudy Weather Expected</p></body></html>
+    cat > /var/www/cloud.txt <<EOF
+    Cloudy Weather Expected
     EOF
 
 This will modify the server's home page.  When we eventually start the
@@ -195,8 +198,8 @@ required.
 
     $ # after waiting a few minutes...
 
-    $ curl http://vm-58.lal.stratuslab.eu/ 
-    <html><body><p>Cloudy Weather Expected</p></body></html>
+    $ curl http://vm-58.lal.stratuslab.eu/cloud.txt 
+    Cloudy Weather Expected
 
 After testing the image, you'll need to take a few more steps to make
 the image accessible for more than 2 days or to make it public.
@@ -211,6 +214,88 @@ In both cases, modify the draft image metadata, especially providing a
 longer validity period for the image.  A resonable value is 6 months.
 Sign the metadata with `stratus-sign-metadata` and upload it to the
 Marketplace with `stratus-upload-metadata` or via the web interface. 
+
+### Manual Process
+
+The `stratus-create-image` automates the interactions with the new
+machine, but you may want to make modifications by hand (or be
+working on Windows).
+
+To repeat the above exercise with the manual process, start with the
+command `stratus-run-instance`:
+
+    $ stratus-run-instance \
+      --save \
+      --type m1.xlarge \
+      --comment "manual ubuntu test image" \
+      --author "Joe Builder" \
+      --author-email builder@example.org \
+      --image-version=2.0 \
+      HZTKYZgX7XzSokCHMB60lS0wsiv
+
+      [WARNING] Image availability check is disabled.
+
+     :::::::::::::::::::::::::
+     :: Starting machine(s) ::
+     :::::::::::::::::::::::::
+     :: Starting 1 machine
+     :: Machine 1 (vm ID: 1659)
+     Public ip: 134.158.75.62
+     :: Done!
+
+The important option is the **--save** option.  This will trigger the
+copy of the image to a persistent disk at when the machine is
+shutdown. 
+
+Once the machine is accessible via SSH, log into the machine and
+execute the following commands:
+
+    $ rm -f /lib/udev/rules.d/*net-gen*
+    $ rm -f /etc/udev/rules.d/*net.rules 
+    $ apt-get install -y apache2 chkconfig
+    $ cat > /var/www/cloud.txt
+    Cloudy Weather Expected
+
+See the previous section for information about what these commands
+do. 
+
+After all of the modifications have been made, log out of the
+machine.  **Use the command `stratus-shutdown-instance` to stop the
+machine.**  If you use `stratus-kill-instance` the changes you've made
+will be lost.
+
+    $ stratus-shutdown-instance 1659 
+    $ stratus-describe-instance 
+    id   state     vcpu memory    cpu% host/ip                 name
+    1659 Shutdown  4    8388608   7    vm-62.lal.stratuslab.eu creator: 2012-12-04T09:16:35Z
+
+    $ stratus-describe-instance 
+    id   state     vcpu memory    cpu% host/ip                 name
+    1659 Epilog    4    8388608   7    vm-62.lal.stratuslab.eu creator: 2012-12-04T09:16:35Z
+
+The machine will entry the "Shutdown" then the "Epilog" states.  The
+image is copied during the "Epilog" state.  When completed, you will
+receive an email with the image metadata.
+
+You can check that the image functions correctly:
+
+    $ stratus-run-instance --type c1.medium J-zVxEV5vfFscoKPLOHjtubmrJF 
+
+     :::::::::::::::::::::::::
+     :: Starting machine(s) ::
+     :::::::::::::::::::::::::
+     :: Starting 1 machine
+     :: Machine 1 (vm ID: 1664)
+     Public ip: 134.158.75.70
+     :: Done!
+
+    $ # after waiting a few minutes...
+
+    $ curl http://vm-70.lal.stratuslab.eu/cloud.txt 
+    Cloudy Weather Expected
+
+Follow the instructions in the previous section to make this a public
+image.
 
 
 Building Images from Scratch
