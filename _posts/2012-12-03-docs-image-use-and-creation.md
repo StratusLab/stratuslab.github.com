@@ -65,7 +65,7 @@ will also need to run a script that modifies the server's home page.
 First, create a script `setup-ubuntu.sh` that contains the following
 commands: 
 
-~~~ {bash}
+```bash
 #!/bin/bash 
 
 #
@@ -80,7 +80,7 @@ rm -f /etc/udev/rules.d/*net.rules
 cat > /var/www/index.html <<EOF
 <html><body><p>Cloudy Weather Expected</p></body></html>
 EOF
-~~~
+```
 
 This will modify the server's home page.  When we eventually start the
 modified image, we can use this to ensure that the modifications have
@@ -88,7 +88,7 @@ been correctly made.
 
 Now use the `stratus-create-image` command to create the new image:
 
-~~~ {bash}
+```bash
 $ stratus-create-image \
   -s setup-ubuntu.sh \
   -a apache2,chkconfig \
@@ -97,7 +97,7 @@ $ stratus-create-image \
   --author "Joe Builder" \
   --author-email builder@example.org \
   HZTKYZgX7XzSokCHMB60lS0wsiv
-~~~
+```
 
 Note that the necessary packages are included and the configuration
 script has been referenced.  In addition, information about the author
@@ -110,8 +110,9 @@ of the process will be sent to that address!
 
 Running this command will produce output like the following:
 
-~~~
-~~~
+```
+bash
+```
 
 
 Building Images from Zero
