@@ -310,7 +310,7 @@ Generating an image from scratch can be tedious and there are lots of
 pitfalls along the way.  Keep in mind the following points:
 
 * Images must support the StratusLab contextualization scheme
-* Unsure DHCP network configuration (and turn off udev persistent
+* Ensure DHCP network configuration (and turn off udev persistent
   net rules)
 * All private information (keys, passwords, etc.) must be removed
 * Remote access must only be via SSH, not password
