@@ -66,9 +66,9 @@ Next ...
 More [documentation and tutorials][docs] here.
 
 
-[ref-infra]: /try/2012/02/10/try-reference-cloud-infrastructures.html
-[user-client-install]: /install/2012/01/19/install-user-cli-installation.html
-[user-client-config]: /install/2012/01/19/install-user-cli-installation.html#config
+[ref-infra]: /try/2012/12/04/try-reference-cloud-infrastructures.html
+[user-client-install]: /try/2012/01/10/try-user-cli-installation.html
+[user-client-config]: /try/2012/01/10/try-user-cli-installation.html
 [marketplace]: https://marketplace.stratuslab.eu
 [docs]: /documentation
 [ttylinux-img]: https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb
