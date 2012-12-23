@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Cloud-Init Contextualization
+title: CloudInit Contextualization
 category: review
 ---
 
@@ -137,7 +137,8 @@ The context information must be prepared before starting the machine
 instance.  To do this use the command `stratus-prepare-context`.  This
 takes a list of arguments where each argument is a mime-type and file
 name separated by commas.  For ssh keys, use the pseudo-mime-type of
-'ssh'. For example, 
+'ssh'.  A single file can be included literally with a
+pseudo-mime-type of 'none'.  For example,
 
     $ stratus-prepare-context \
          ssh,$HOME/.ssh/id_rsa.pub \
@@ -147,9 +148,22 @@ Multiple public ssh keys can be provided.  Multiple scripts or other
 types of contextualization files can be provided.  See the [CloudInit
 documentation][ci-docs] for what is permitted for 'user data'.
 
-*Warning*: Be sure that the contextualization information you are
+**Warning**: Be sure that the contextualization information you are
 passing can be used by the CloudInit version within the appliance
-itself.
+itself.  **Be particularly careful because multipart inputs do not
+work if the python version in the virtual machine is less than
+2.7.3.**
+
+This is the case with the CentOS image used here.  So we'll include
+the script literally in the user data with the command:
+
+    $ stratus-prepare-context \
+         ssh,$HOME/.ssh/id_rsa.pub \
+         none,run-http.sh
+
+Note the use of the 'none' pseudo-mime-type.  If 'none' is used, only
+the last file marked as 'none' will be included in the user data; it
+will be included literally.
 
 This command creates a context file `cloud-init.txt` with the
 requested information that can be used with the `stratus-run-instance`
