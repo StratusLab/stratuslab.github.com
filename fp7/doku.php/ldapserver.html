@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: LDAP Server  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,LDAP Server"/>
+  <meta name="Description" content="StratusLabLDAP Server"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="ldapserver" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="ldapserver.html?do=index" title="Sitemap" />
+<link rel="canonical" href="ldapserver.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"ldapserver","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="ldapserver.html#ldap_server" class="toc">LDAP Server</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="ldapserver.html#ldap_directory_client" class="toc">LDAP Directory Client</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ldapserver.html#ldap_command_line_tools.html" class="toc">LDAP Command Line Tools</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="ldapserver.html#server_parameters" class="toc">Server Parameters</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="ldap_server" id="ldap_server">LDAP Server</a></h1>
+<div class="level1">
+
+<p>
+
+The <acronym title="Lightweight Directory Access Protocol">LDAP</acronym> server contains username and password information for all StratusLab participants and daemons.  All users can connect to the server to find contact information for other members of the project.  In addition, members can modify their own information except for the cn, sn, givenName, uid fields.
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="ldap_directory_client" id="ldap_directory_client">LDAP Directory Client</a></h2>
+<div class="level2">
+
+<p>
+
+The recommended way of browsing the information is with the <a href="http://directory.apache.org/studio/" class="urlextern" title="http://directory.apache.org/studio/"  rel="nofollow">Apache Directory Studio</a>.  Use the parameters below to configuration the connection.  The server uses a self-signed certificate, which will produce a warning when connecting.  Verify the fingerprints of the presented certificate.
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="ldap_command_line_tools" id="ldap_command_line_tools">LDAP Command Line Tools</a></h2>
+<div class="level2">
+
+<p>
+
+The server can also be accessed with the standard <acronym title="Lightweight Directory Access Protocol">LDAP</acronym> command line tools, specifically the command <code>ldapsearch</code>.  However, this requires that the client be configured to accept the server&#039;s certificate; consult the <a href="http://gagravarr.org/writing/openssl-certs/others.shtml#selfsigned-openssl" class="urlextern" title="http://gagravarr.org/writing/openssl-certs/others.shtml#selfsigned-openssl"  rel="nofollow">guide for installing self-signed certificates</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="server_parameters" id="server_parameters">Server Parameters</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Host: <code>ldap.stratuslab.eu</code></div>
+</li>
+<li class="level1"><div class="li"> Port: <code>10636</code></div>
+</li>
+<li class="level1"><div class="li"> <acronym title="Secure Sockets Layer">SSL</acronym>: <code>on</code></div>
+</li>
+<li class="level1"><div class="li"> DN: <code>cn=«your cn»,ou=people,o=stratuslab</code></div>
+</li>
+</ul>
+
+<p>
+
+Server certificate:
+
+</p>
+<pre class="file">-----BEGIN CERTIFICATE-----
+MIIC4DCCAcigAwIBAgIETBskujANBgkqhkiG9w0BAQUFADAyMRMwEQYDVQQKEwpz
+dHJhdHVzbGFiMRswGQYDVQQDExJsZGFwLnN0cmF0dXNsYWIuZXUwHhcNMTAwNjE4
+MDc0ODEwWhcNMTIwNjE3MDc0ODEwWjAyMRMwEQYDVQQKEwpzdHJhdHVzbGFiMRsw
+GQYDVQQDExJsZGFwLnN0cmF0dXNsYWIuZXUwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQCWwJI098cI4GuwFf0Ls1qfMudh7375fKDIWpRo8EDBH5QHQLGs
+myprsWWB7k0eFA5po59+vuKQdRyUalon6NHXM8ghf76/It1+z7jOVV771TO2PEub
+9YeLEMjWLPt6cPuGeCX8lUylwDQUmBdC7laGC2pkMvkAmCiCQx7Wb+zKHe8lmjHI
++ar0aWdE0tut9brG37++mHxlRa6leYsQHcf+3fjWpiBKQxsMhkJ/Wn6AScrB7rQH
+luiA/3MTQi4O3JvtONmvVEgVslEOe5GQPnab0gbp0o7lBlT9yhS98ELUVR6oEd/5
+Vy6+d4TdneDTAIoV2/3fQ1DD/ym8jZdhERFPAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAG6G2wgZ3YH4HfwUiPcASsc6pzO3jshDuF6leyR03ByilbfCdJ+pQyB6IG7B
+EtamAEpeWi6/klmZW8IDY2DALNSOMqaUJcTgxX+dMy0skhMttcxG5JsHewFLHe4K
+ktv89718h2nACAgycr5ZZhNfO9GU+lcTj4Dj523G2F6LlAtUM1KH0q3pD0kfwlvc
+B0D9wboFDlOh1wi9vaU4iyt0WabGgJVQrWofJ5a2TdFXT/VrL+prML9M2ZwH3Bdj
+X8FhwcpmTHq7+NpCr4pEriGcTBcy6RL0zf0q9r9iM26U2vwn7V7qM91L44DMkMw7
+OUU+yfYBWRY8+SvMuufTkBZerDM=
+-----END CERTIFICATE-----</pre>
+
+<p>
+Fingerprints:
+</p>
+<ul>
+<li class="level1"><div class="li"> MD5: <code>31:7B:3C:1F:4F:58:7B:C4:E2:06:EC:3C:9E:C3:32:4F</code></div>
+</li>
+<li class="level1"><div class="li"> SHA1: <code>A4:A4:4A:4A:7C:F5:FF:70:F0:56:2A:31:58:49:0B:3D:EF:51:1A:C4</code></div>
+</li>
+</ul>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          ldapserver.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

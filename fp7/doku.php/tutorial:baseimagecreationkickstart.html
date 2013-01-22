@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Example of Kickstart File  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Example of Kickstart File"/>
+  <meta name="Description" content="StratusLabExample of Kickstart File"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-03-01T19:36:42+0100" />
+<meta name="keywords" content="tutorial,baseimagecreationkickstart" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:baseimagecreation.htmlkickstart?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:baseimagecreation.htmlkickstart" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:baseimagecreationkickstart","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				
+<h1 class="sectionedit1"><a name="example_of_kickstart_file" id="example_of_kickstart_file">Example of Kickstart File</a></h1>
+<div class="level1">
+
+<p>
+
+The following kickstarts file create minimal Fedora 14/16 contextualized installation. You can use it with virt-install for example:
+
+</p>
+<pre class="code">virt-install \
+  --nographics \
+  --accelerate \
+  --hvm \
+  --name fc14 \
+  --ram=1000 \
+  --noautoconsole \
+  --disk /var/kickstarts/images/fc14_x86-64.img,bus=scsi,size=3 \
+  --location=http://download.fedora.redhat.com/pub/fedora/linux/releases/14/Fedora/x86_64/os/ \
+  -x &quot;ks=nfs:$HOSTNAME:/var/kickstarts/export/fedora14-x86_64-stratuslab.ks&quot; \
+  --network bridge=br0 \
+  --mac=0a:0a:86:9e:49:60  \
+  --noreboot&#039;</pre>
+<pre class="file"># This kickstart allows to do base installation of Fedora 14 x86_64 with
+# contextualisation scripts for StratusLab.
+
+install
+text
+#url --url http://download.fedoraproject.org/pub/fedora/linux/releases/14/Everything/x86_64/os/
+#url --url http://mirrors.ircam.fr/pub/fedora/linux/releases/14/Everything/x86_64/os/
+url  --url http://quattorsrv.lal.in2p3.fr/packages/os/fedora14-x86_64/base/
+#repo --name=Quattor    --baseurl=http://quattorsrv.lal.in2p3.fr/packages/os/fedora14-x86_64/updates/
+#repo --name=StratusLab --baseurl=http://quattorsrv.lal.in2p3.fr/packages/stratuslab/
+repo  --name=StratusLab --baseurl=http://yum.stratuslab.eu/snapshots/fedora14/
+lang en_US.UTF-8
+keyboard us
+network --onboot yes --device eth0 --bootproto dhcp
+timezone --utc Etc/UTC
+firstboot --disabled
+
+selinux --disabled
+firewall --disabled 
+
+rootpw --iscrypted $1$eCTgMV06$qUhgnyawari7MKalTAxZj1
+#authconfig --enableshadow --passalgo=sha512 --enablefingerprint
+auth --enableshadow --enablemd5
+
+
+# Deleting the old partitions
+clearpart --all --drives=sda
+zerombr
+
+# Creating the new partitions
+part /boot --fstype=ext3        --ondisk=sda --asprimary
+part /     --fstype=ext4 --grow --ondisk=sda --asprimary
+bootloader --location=mbr --driveorder=sda --append=&quot;norhgb quiet vga=792&quot;
+#ignoredisk --drives=sdb
+
+
+# Installing packages
+%packages
+#@admin-tools
+@base
+@core
+#@editors
+#@fonts
+#@gnome-desktop
+#@games
+#@graphical-internet
+#@graphics
+@hardware-support
+#@input-methods
+#@java
+#@office
+#@online-docs
+#@printing
+#@sound-and-video
+@text-internet
+#@base-x
+xfsprogs
+#mtools
+#gpgme
+#openoffice.org-opensymbol-fonts
+#gvfs-obexftp
+#hdparm
+#gok
+#iok
+#vorbis-tools
+#jack-audio-connection-kit
+#ncftp
+#gdm
+openssh
+openssh-server
+openssh-clients
+stratuslab-one-context
+%end
+
+# Post installation scripts
+%post
+# Set the cdrom block device to use for contextualisation
+sed -i &#039;s/context_device.*$/context_device=sr0/&#039; /etc/stratuslab/stratuslab-one-context.cfg
+# Remove any occurences of the mac address
+rm /etc/udev/rules.d/70-persistent-*.rules
+sed -i &#039;s/HWADDR.*$//&#039; /etc/sysconfig/network-scripts/ifcfg-eth0
+# Add sdb swap disk in the fstab
+echo &quot;/dev/sdb swap swap defaults 0 0&quot; &gt;&gt; /etc/fstab
+%end
+
+# Reboot after installation
+reboot</pre>
+<pre class="file"># This kickstart allows to do base installation of Fedora 16 x86_64 with
+# contextualisation scripts for StratusLab.
+
+install
+text
+#url --url http://download.fedoraproject.org/pub/fedora/linux/releases/14/Everything/x86_64/os/
+url  --url http://mirrors.ircam.fr/pub/fedora/linux/releases/16/Everything/x86_64/os/
+#url  --url http://quattorsrv.lal.in2p3.fr/packages/os/fedora14-x86_64/base/
+#repo --name=Quattor    --baseurl=http://quattorsrv.lal.in2p3.fr/packages/os/fedora14-x86_64/updates/
+#repo --name=StratusLab --baseurl=http://quattorsrv.lal.in2p3.fr/packages/stratuslab/
+repo  --name=StratusLab --baseurl=http://yum.stratuslab.eu/snapshots/fedora14/
+lang en_US.UTF-8
+keyboard us
+network --onboot yes --device p2p1 --bootproto dhcp
+timezone --utc Etc/UTC
+firstboot --disabled
+
+selinux --disabled
+firewall --disabled 
+
+rootpw --iscrypted $1$eCTgMV06$qUhgnyawari7MKalTAxZj1
+#authconfig --enableshadow --passalgo=sha512 --enablefingerprint
+auth --enableshadow --enablemd5
+
+
+# Deleting the old partitions
+clearpart --all --drives=sda
+zerombr
+
+# Creating the new partitions
+part /boot --fstype=ext3        --ondisk=sda --asprimary
+part /     --fstype=ext4 --grow --ondisk=sda --asprimary
+bootloader --location=mbr --driveorder=sda --append=&quot;norhgb quiet vga=792&quot;
+#ignoredisk --drives=sdb
+
+
+# Installing packages
+%packages
+#@admin-tools
+@base
+@core
+#@editors
+#@fonts
+#@gnome-desktop
+#@games
+#@graphical-internet
+#@graphics
+@hardware-support
+#@input-methods
+#@java
+#@office
+#@online-docs
+#@printing
+#@sound-and-video
+@text-internet
+#@base-x
+xfsprogs
+#mtools
+#gpgme
+#openoffice.org-opensymbol-fonts
+#gvfs-obexftp
+#hdparm
+#gok
+#iok
+#vorbis-tools
+#jack-audio-connection-kit
+#ncftp
+#gdm
+openssh
+openssh-server
+openssh-clients
+stratuslab-one-context
+%end
+
+# Post installation scripts
+%post
+# Set the cdrom block device to use for contextualisation
+sed -i &#039;s/context_device.*$/context_device=sr0/&#039; /etc/stratuslab/stratuslab-one-context.cfg
+# Remove any occurences of the mac address
+rm /etc/udev/rules.d/70-persistent-*.rules
+sed -i &#039;s/HWADDR.*$//&#039; /etc/sysconfig/network-scripts/ifcfg-p2p1
+# Add sdb swap disk in the fstab
+echo &quot;/dev/sdb swap swap defaults 0 0&quot; &gt;&gt; /etc/fstab
+%end
+
+# Reboot after installation
+reboot</pre>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/baseimagecreationkickstart.txt &middot; Last modified: 2012/03/01 19:36 by loomis	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

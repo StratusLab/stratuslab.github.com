@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Authentication and Authorization  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Authentication and Authorization"/>
+  <meta name="Description" content="StratusLabAuthentication and Authorization"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-05-09T09:37:07+0200" />
+<meta name="keywords" content="authentication" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="authentication.html?do=index" title="Sitemap" />
+<link rel="canonical" href="authentication.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"authentication","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="authentication#authentication.html_and_authorization" class="toc">Authentication and Authorization</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="authentication.html#username_password_file" class="toc">Username/Password File</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="authentication.html#username_password_from_ldap" class="toc">Username/Password from LDAP</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="authentication.html#grid_certificate" class="toc">Grid Certificate</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="authentication.html#voms_proxy_from_grid_certificate" class="toc">VOMS Proxy from Grid Certificate</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="authentication.html#certificate_authorities" class="toc">Certificate authorities</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="authentication_and_authorization" id="authentication_and_authorization">Authentication and Authorization</a></h1>
+<div class="level1">
+
+<p>
+
+For StratusLab, the authentication and authorization are separated into two services.  An authentication proxy identifies users and passes the user information to OpenNebula.  The virtual machine manager, OpenNebula, will then make authorization decisions based on the specific request.  OpenNebula will create new users dynamically, assigning them the default rights and quotas.
+</p>
+
+<p>
+The authentication uses the Jetty application server and the JAAS system to provide a wide variety of mechanisms for authenticating users.  System administrators can choose to use:
+</p>
+<ul>
+<li class="level1"><div class="li"> Username/password pairs maintained in a configuration file</div>
+</li>
+<li class="level1"><div class="li"> Username/password pairs from an LDAP server</div>
+</li>
+<li class="level1"><div class="li"> Grid certificates</div>
+</li>
+<li class="level1"><div class="li"> VOMS proxies created from grid certificates</div>
+</li>
+</ul>
+
+<p>
+Multiple mechanisms can be used simultaneously; the default configuration allows all of them to be used (with the local password file taking precedence over the LDAP entries). 
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="username_password_file" id="username_password_file">Username/Password File</a></h2>
+<div class="level2">
+
+<p>
+
+To allow someone access with a username/password, edit the file <code>/etc/stratuslab/one-proxy/login-pswd.properties</code>, adding entries like the following:
+
+</p>
+<pre class="file">me=mypswd,cloud-access</pre>
+
+<p>
+
+In this case <code>me</code> is the username and <code>mypswd</code> is the password.  The <code>cloud-access</code> is a group which <strong>must</strong> be specified.
+</p>
+
+<p>
+The file will accept clear text passwords, MD5 hashed passwords (unsalted), and crypted passwords.  It is <strong>strongly</strong> recommended that plain text passwords be avoided.  Users can generate MD5 and crypted versions of their passwords with the StratusLab client tools:
+
+</p>
+<pre class="code">$ stratus-hash-password 
+username:me
+password:
+retype password:
+MD5:16e4112d526df4757d3c8b87983b4e56
+CRYPT:mepY6iEy6MJ4g</pre>
+
+<p>
+
+This can be added to the password file like so:
+
+</p>
+<pre class="file">me=CRYPT:mepY6iEy6MJ4g,cloud-access</pre>
+
+<p>
+
+Note that the MD5: or CRYPT: are mandatory to distinguish them from plain text passwords.
+</p>
+
+<p>
+<strong>When adding new users, the jetty server (i.e. one-proxy service) must be restarted for changes to be taken into account by the server.</strong>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="username_password_from_ldap" id="username_password_from_ldap">Username/Password from LDAP</a></h2>
+<div class="level2">
+
+<p>
+
+To tie the authentication to your LDAP server, edit the section of the <code>/etc/stratuslab/authn/login.conf</code> file containing the LDAP configuration.  You must currently provide a group called “cloud-access” containing users who can access your cloud installation.
+</p>
+
+<p>
+It is recommended that you leave the debug flag set until the connections between the authentication proxy and your LDAP server have been verified. 
+
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="grid_certificate" id="grid_certificate">Grid Certificate</a></h2>
+<div class="level2">
+
+<p>
+
+Certificates signed by any IGTF certificate authority can be used to access the cloud; however, each authorized person must be listed in the file <code>/etc/stratuslab/authn/login-cert.properties</code>.  For each user, add an entry like the following:
+
+</p>
+<pre class="file">&quot;CN=John Smith, O=Widget Inc.&quot; cloud-access</pre>
+
+<p>
+
+The DN of the user&#039;s certificate <strong>must</strong> be specified in quotes with a white space after each comma, and as above, the <code>cloud-access</code> group <strong>must</strong> be specified.  Changes to this file are picked up automatically; the server does not need to be restarted. 
+</p>
+
+<p>
+Additional certificate authorities can be trusted by adding their certificates to the <code>/etc/grid-security/certificates</code> directory. 
+
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="voms_proxy_from_grid_certificate" id="voms_proxy_from_grid_certificate">VOMS Proxy from Grid Certificate</a></h2>
+<div class="level2">
+
+<p>
+
+Users can create VOMS proxies from their grid certificate.  These proxies are essentially just short-lived certificates signed by the user&#039;s standard grid certificate.  They are convenient because they do not require a password to be entered each time it is used. 
+</p>
+
+<p>
+Using VOMS proxies requires the same configuration as for grid certificates, using the DN of the user&#039;s grid certificate.  No additional configuration is required. 
+</p>
+
+<p>
+Users on machines without the standard grid software installed, may want to use <a href="http://code.google.com/p/jlite/" class="urlextern" title="http://code.google.com/p/jlite/"  rel="nofollow">jLite</a> utility (java-based) to generate VOMS proxies. 
+</p>
+
+</div>
+
+<h2 class="sectionedit6"><a name="certificate_authorities" id="certificate_authorities">Certificate authorities</a></h2>
+<div class="level2">
+
+<p>
+
+A configuration section is available in <code>stratuslab.cfg</code> file to manage certificate authorities. By default, IGTF CA will be installed on the front-end during a <code>stratus-install</code> run. In addition, a <code>fetch-crl</code> cron is enable to update CA CRL periodically.
+
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          authentication.txt &middot; Last modified: 2012/05/09 09:37 by konstan	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

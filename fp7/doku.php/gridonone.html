@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Installation of gLite Services  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Installation of gLite Services"/>
+  <meta name="Description" content="StratusLabInstallation of gLite Services"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="gridonone" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="gridonone.html?do=index" title="Sitemap" />
+<link rel="canonical" href="gridonone.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"gridonone","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="gridonone.html#installation.html_of_glite_services" class="toc">Installation of gLite Services</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="gridonone.html#installing_the_operating_system_and_required_packages.html" class="toc">Installing the Operating System and required packages</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="gridonone.html#installing_the_middleware" class="toc">Installing the Middleware</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="gridonone.html#configuring_the_middleware" class="toc">Configuring the Middleware</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="installation_of_glite_services" id="installation_of_glite_services">Installation of gLite Services</a></h1>
+<div class="level1">
+
+<p>
+
+This guide focuses on the procedure of middleware installation and configuration for three main type of grid nodes, namely cream computing element (creamCE), storage element (SE) and worker node (WN). The required steps to install and to configure the gLite middleware version 3.2 are described. 
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="installing_the_operating_system_and_required_packages" id="installing_the_operating_system_and_required_packages">Installing the Operating System and required packages</a></h2>
+<div class="level2">
+
+<p>
+The required <acronym title="Operating System">OS</acronym> for gLite middleware is Scientific Linux 5. A general requirement for the gLite nodes is that they are synchronised. The yum package manager is considered to be the default installation tool and is used to install some packages that are needed during the installation of the described node types. Therefore the following actions need to be performed:
+</p>
+<pre class="file"> 
+#  yum update 
+#  yum install chkconfig
+
+//Node synchronisation
+# yum install ntpdate
+# service ntpd start
+# chkconfig ntpd on
+# ntpq -p 
+
+// Network setup
+# vi /etc/resolv.conf and replace the last line with  search one.ypepth.grnet.gr localdomain 
+</pre>
+
+<p>
+
+*It is important* for the installation and configuration of the various services to verify that hostname -f returns the correct hostname of the node.
+</p>
+<pre class="file">// SELinux deactivation
+# vi /etc/sysconfig/selinux 
+   setenforce 0
+
+# sestatus 
+
+
+// Shut down of iptables
+# /etc/init.d/iptables stop
+# iptables -L -v
+# chkconfig iptables off</pre>
+
+</div>
+
+<h2 class="sectionedit3"><a name="installing_the_middleware" id="installing_the_middleware">Installing the Middleware</a></h2>
+<div class="level2">
+
+<p>
+For a successful installation, the package manager needs to be configured so as to reference a number of repositories (in addition to your <acronym title="Operating System">OS</acronym>), namely:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> the middleware repositories </div>
+</li>
+<li class="level1"><div class="li"> the CA repository</div>
+</li>
+<li class="level1"><div class="li"> DAG</div>
+</li>
+<li class="level1"><div class="li"> SL </div>
+</li>
+</ul>
+
+<p>
+
+During this step, the ce and se nodes need to have the IPs defined in the issued certificates. Moreover, some more packages depending on the node type are needed. Therefore, the following command need to be executed according to each node type:
+</p>
+
+<p>
+<strong>CE Node</strong>
+</p>
+<pre class="file"># yum install xml-commons-apis
+
+# cd /etc/yum.repos.d/
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-CREAM.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-TORQUE_server.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-TORQUE_utils.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-BDII.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/lcg-CA.repo
+
+For MPI support:
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-MPI_utils.repo
+
+# cd
+# yum --enablerepo=&#039;glite-*&#039; install lcg-CA glite-BDII glite-CREAM  glite-TORQUE_server  glite-TORQUE_utils glite-MPI_utils
+
+# mkdir /home/seeops</pre>
+
+<p>
+It is recommended to disable automatic updates by changing the corresponding parameter to enabled = 0 in the files * glite-CREAM.repo, glite-TORQUE_server.repo, glite-TORQUE_utils.repo, glite-BDII.repo,  glite-MPI_utils.repo*, before installing the gLite packages.
+</p>
+
+<p>
+<strong>SE node</strong>
+
+</p>
+<pre class="file"># yum install mysql-server 
+
+# cd /etc/yum.repos.d/
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/lcg-CA.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-SE_dpm_mysql.repo
+
+# cd
+#  yum --enablerepo=&#039;glite-*&#039; --enablerepo=dag install lcg-CA glite-SE_dpm_mysql
+
+# mkdir /home/seeops</pre>
+
+<p>
+It is recommended to disable automatic updates by changing the corresponding parameter to enabled = 0 in the files *glite-SE_dpm_mysql.repo*, before installing the gLite packages.
+</p>
+
+<p>
+
+<strong>WN node</strong>
+</p>
+<pre class="file"># cd /etc/yum.repos.d/
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/lcg-CA.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-WN.repo
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-TORQUE_client.repo
+
+For MPI support:
+
+# wget http://grid-deployment.web.cern.ch/grid-deployment/glite/repos/3.2/glite-MPI_utils.repo
+
+# yum --enablerepo=&#039;glite-*&#039; install lcg-CA
+
+# yum --enablerepo=&#039;glite-*&#039; groupinstall glite-WN
+
+# yum --enablerepo=&#039;glite-*&#039; install glite-TORQUE_client
+
+For MPI support:
+
+# yum --enablerepo=&#039;glite-*&#039; install glite-MPI_utils
+
+#  mkdir /home/seeops</pre>
+
+<p>
+It is also recommended to disable automatic updates by changing the corresponding parameter to enabled = 0 in the files * glite-WN.repo, glite-TORQUE_client.repo *, before installing the gLite packages.
+</p>
+
+</div>
+
+<h2 class="sectionedit4"><a name="configuring_the_middleware" id="configuring_the_middleware">Configuring the Middleware</a></h2>
+<div class="level2">
+
+<p>
+The configuration of the middleware is executed with YAIM tool. The necessary YAIM modules needed to configure a certain node type are automatically installed with the middleware. Before configuring each service, the certificates of the ce and se needs to be placed in the directory /etc/grid-security/ and the appropriate files to change depending on the specific setup. The files to adapt are:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> /etc/hosts</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/siteinfo/site-info.def</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/siteinfo/vo.d/ops.vo.egee-see.org</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/siteinfo/services/glite-bdii_site</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/siteinfo/services/glite-creamce</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/siteinfo/services/glite-se_dpm_mysql</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/siteinfo/services/glite-se_dpm_disk</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/groups.conf</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/users.conf</div>
+</li>
+<li class="level1"><div class="li"> /opt/glite/yaim/etc/wn-list.conf</div>
+</li>
+</ul>
+
+<p>
+
+For each node type, the configuration is achieved by following the next steps:
+</p>
+
+<p>
+<strong>CE Node</strong>
+</p>
+<pre class="file"># /opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/siteinfo/site-info.def -n creamCE -n TORQUE_server -n TORQUE_utils -n BDII_site
+
+# /etc/init.d/pbs_server restart
+
+# mv /opt/glite/var/info/ops.vo.egee-see.org /opt/edg/var/info/
+</pre>
+
+<p>
+<strong>SE Node</strong>
+</p>
+<pre class="file"># /opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/siteinfo/site-info.def -n SE_dpm_mysql
+</pre>
+
+<p>
+<strong>WN Node</strong>
+</p>
+<pre class="file"># /opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/siteinfo/site-info.def -n WN -n TORQUE_client
+</pre>
+
+<p>
+And now, the Grid site with CE, SE and WNs is ready!!!
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          gridonone.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

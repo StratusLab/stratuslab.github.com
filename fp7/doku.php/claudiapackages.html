@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Claudia installation from packages  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Claudia installation from packages"/>
+  <meta name="Description" content="StratusLabClaudia installation from packages"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-02-10T08:38:46+0100" />
+<meta name="keywords" content="claudiapackages" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="claudia.htmlpackages.html?do=index" title="Sitemap" />
+<link rel="canonical" href="claudia.htmlpackages.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"claudiapackages","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="clear">
+
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="claudiapackages.html.html#claudia.html_properties_files" class="toc">Claudia properties files</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="claudia.htmlpackages.html#smproperties_clotho_configuration" class="toc">sm.properties (clotho configuration)</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="claudia.htmlpackages.html#tcloudproperties_tcloud-server_configuration" class="toc">tcloud.properties (tcloud-server configuration)</a></span></div></li>
+<li class="level3"><div class="li"><span class="li"><a href="claudia.htmlpackages.html#reportclientproperties_reportclient_configuration" class="toc">reportClient.properties (reportclient configuration)</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="claudiapackages.html.html#claudia.html_monitorization" class="toc">Claudia monitorization</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="claudiapackages.html.html#claudia.html_scalability" class="toc">Claudia scalability</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="claudiapackages.html.html#claudia.html_scalability_control" class="toc">Claudia scalability control</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h5><a name="claudia_installation_from_packages" id="claudia_installation_from_packages">Claudia installation from packages</a></h5>
+<div class="level5">
+
+</div>
+
+<h4><a name="debian_packages" id="debian_packages">Debian Packages</a></h4>
+<div class="level4">
+
+<p>
+Claudia components are distributed in 5 debian packages:
+</p>
+<ul>
+<li class="level1"><div class="li"> stratuslab-claudia-client – Command line Claudia client.</div>
+</li>
+<li class="level1"><div class="li"> stratuslab-claudia-lib - Claudia common libraries.</div>
+</li>
+<li class="level1"><div class="li"> clotho – Clotho component (the main component in the Claudia distribution)</div>
+</li>
+<li class="level1"><div class="li"> stratuslab-tcloud-server - TCloud Server (the <acronym title="Application Programming Interface">API</acronym> for both Service Manager Interface and Virtual Manager Interface)</div>
+</li>
+<li class="level1"><div class="li"> stratuslab-claudia: a metapackage for installing claudia</div>
+</li>
+</ul>
+
+<p>
+All of then are dependent of the metapackage claudia.
+In order to install the packages the following repositories must be added to the /etc/apt/sources.list file:
+</p>
+<pre class="code">deb http://hudson.stratuslab.eu/apt/ubuntu/</pre>
+
+<p>
+
+Then update the repository database:
+</p>
+<pre class="code">apt-get update</pre>
+
+<p>
+And finally install Claudia metapackage, which will install all the required packages.
+</p>
+<pre class="code">apt-get install stratuslab-claudia</pre>
+
+<p>
+During the installation it will ask for some details of the configuration like network config.
+</p>
+
+</div>
+
+<h4><a name="rpm_packages" id="rpm_packages">RPM packages</a></h4>
+<div class="level4">
+
+<p>
+To install the Claudia, you must install the following rpm packages:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> clotho-0.1.1-1.noarch.rpm: the main component in Claudia</div>
+</li>
+<li class="level1"><div class="li"> tcloud-server-0.1.1-1.noarch.rpm: the APIs for Claudia (both SMI and VMI)</div>
+</li>
+<li class="level1"><div class="li"> claudia-client-0.1.1-1.noarch.rpm: the command line to access to Claudia</div>
+</li>
+</ul>
+
+<p>
+Claudia runs its own YUM repository, so you must add it to your YUM configuration. Drop a file (named say stratuslab-releases.repo) in the /etc/yum.repos.d/ with the following content:
+</p>
+<pre class="file">[StratusLab-Releases]
+name=StratusLab-Releases-v1.2
+baseurl=http://yum.stratuslab.eu/releases/fedora14-v1.2
+gpgcheck=0
+enabled=1</pre>
+
+<p>
+With this in place, you can now install the packages:
+
+</p>
+<pre class="code">$ yum install clotho-rpm
+$ yum install tcloud-server-rpm
+$ yum install claudia-client-rpm</pre>
+
+</div>
+
+<h4><a name="activemq" id="activemq">ActiveMQ</a></h4>
+<div class="level4">
+
+<p>
+
+ActiveMQ must be running in background for claudia comunication purposes, activemq tested version is 5.3.2
+It can be obtained from <a href="http://www.apache.org/dyn/" class="urlextern" title="http://www.apache.org/dyn/"  rel="nofollow">http://www.apache.org/dyn/</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit1"><a name="claudia_properties_files" id="claudia_properties_files">Claudia properties files</a></h2>
+<div class="level2">
+
+<p>
+
+In case that further claudia configuration is needed, here you can find the most important configuration properties.
+</p>
+
+</div>
+
+<h3 class="sectionedit2"><a name="smproperties_clotho_configuration" id="smproperties_clotho_configuration">sm.properties (clotho configuration)</a></h3>
+<div class="level3">
+<pre class="file">/opt/claudia/conf/sm.properties</pre>
+
+<p>
+
+Site root is the organization name for FQNs.
+
+</p>
+<pre class="file"># Site root (used as FQN prefix)
+SiteRoot=grnet</pre>
+
+<p>
+
+In the Network ranged section, the only configuration section that needs customization is the public (Public:yes), Network base (Network), List of Ips (IP), Netmask, Gateway and <acronym title="Domain Name System">DNS</acronym> servers.
+
+</p>
+<pre class="file"># Network ranges available for Service Manager use
+NetworkRanges=[ Network:62.217.120.128; IP:62.217.120.182/62.217.120.183/62.217.120.184/62.217.120.185/62.217.120.164/62.217.120.165/62.217.120.166/62.217.120.167/; Netmask:255.255.255.192; Gateway:62.217.120.129; DNS:194.177.210.210; Public:yes; ], [ IP:192.168.2.0; Netmask:255.255.240.0; Gateway:194.177.210.210; DNS:192.168.1.1; Public:no; ]</pre>
+
+<p>
+
+If the network needs the usage of mac address, set to true MacEnabled and specify the list of Mac addresses in the NetworkMacList property, this property must contain the same number of mac adresses as IPs specified in public network section.
+
+</p>
+<pre class="file">MacEnabled=true
+NetworkMacList=00:16:3e:d9:78:b6/00:16:3e:d9:78:b7/00:16:3e:d9:78:b8/00:16:3e:d9:78:b9/00:16:3e:d9:78:a4/00:16:3e:d9:78:a5/00:16:3e:d9:78:a6/00:16:3e:d9:78:a7</pre>
+
+<p>
+
+If any machine needs a static fixed ip, it must be declared here, this IPs must be part of the previous declared IPs on the public network section.
+
+</p>
+<pre class="file">StaticIpList=62.217.120.184/62.217.120.185</pre>
+
+<p>
+
+If you specified a static ip on the sm.properties, you would want to use it in the ovf file in the properties section of the vm virtualsystem. The property must have the key “STATIC_IP”:
+
+</p>
+<pre class="file">#WARNING: this is not the sm.properties file, is the ovf file.
+&lt;Property ovf:key=&quot;STATIC_IP&quot; ovf:type=&quot;string&quot; rsrvr:cloudConfigurable=&quot;true&quot; ovf:value=&quot;62.217.120.166&quot;/&gt;</pre>
+
+</div>
+
+<h3 class="sectionedit3"><a name="tcloudproperties_tcloud-server_configuration" id="tcloudproperties_tcloud-server_configuration">tcloud.properties (tcloud-server configuration)</a></h3>
+<div class="level3">
+<pre class="file">/opt/claudia/conf/tcloud.properties</pre>
+
+<p>
+
+Tcloud uses drivers to manage different services, for stratuslab theres drivers for provisioning (one), for deployment (clotho) and monitoring.
+
+</p>
+<pre class="file"># Drivers
+com.telefonica.claudia.smi.drivers.deployment=com.telefonica.claudia.smi.deployment.SMDeploymentDriver
+com.telefonica.claudia.smi.drivers.provisioning=com.telefonica.claudia.smi.provisioning.ONEProvisioningDriver
+com.telefonica.claudia.smi.drivers.monitoring=com.telefonica.claudia.smi.monitoring.OneMonitoringDriver</pre>
+
+<p>
+
+Tcloud is in charge of the claudia comunication with opennebula through the tcloud one driver, here you can set the one configuration: url of the one frontend, user, encripted password and image repository.
+
+</p>
+<pre class="file"># ONE Driver Configuration Section
+oneUrl= http://localhost:2633/RPC2
+oneUser=oneadmin
+onePassword=7bc8559a8fe509e680562b85c337f170956fcb06
+oneEnvironmentPath=/opt/claudia/repository/</pre>
+
+<p>
+
+Also you can configure the bridge used by one to create the virtual networks, it must be the same as the bridge of the hypervisor.
+
+</p>
+<pre class="file">oneNetworkBridge=br0</pre>
+
+<p>
+
+In the oneSshKey property you can set the public ssh key that the images will have inside the authorized keys so we can log in without password.
+
+</p>
+<pre class="file">oneSshKey=&quot;ssh-rsa AAAAB3NzaC1yc2EAAAAedrAAAQEAsqnlWWWXssptEupZZrNJlheOjysx/wweLiEVcikb9GSLacXWT89MCd8VcsNXR9dObSNmPrJcCbbEF0bGzZcyy0SCJ9NiaBaIri8Em59cI7XncpKUjuqbbql6D7VZwfYU3w4gqAljNoqqX        A9EhL3uf36p0gcKG8LyRIumQomP5Ymoe+wLo05FkXPQAp4+Jiz9VD1WeUCkfbhy3vwKiZI95yMA/Jfge7x4KaOIJHGuSNu7UgDE6TNvETYtz7yR1ND4B5y79KjvfmfOHvk3MoXjhEdosYfowiqdB8Hqv3Aea5hINSOyZc/Javhn+OjXbyNQf3meEMDMnb+        86MVGGXIQ== root@telefonica-1&quot;</pre>
+
+</div>
+
+<h3 class="sectionedit4"><a name="reportclientproperties_reportclient_configuration" id="reportclientproperties_reportclient_configuration">reportClient.properties (reportclient configuration)</a></h3>
+<div class="level3">
+<pre class="file">/opt/claudia/conf/reportClient.properties</pre>
+
+<p>
+
+This is the configuration file for the monitorization client.
+TServer.url specifies the host and port where tcloud is running.
+
+</p>
+<pre class="file">TServer.url=http://127.0.01:8182</pre>
+
+<p>
+
+With vmDiscoverDelay and monitoringDelay we set up the time interval (in seconds) for new virtal machines and monitors discovering.
+
+</p>
+<pre class="file">vmDiscoverDelay=180
+monitoringDelay=30</pre>
+
+<p>
+
+Also is possible to specify filters so not all the monitoring information is sent. 
+vmMonName is the virtual machine name and replica to monitor.
+vmMonName is the name of the monitor measure that will be sent.
+Both configuration properties can be set to “all” to ignore the filter setting.
+
+</p>
+<pre class="file">#vmMonitor=all
+vmMonName=workernode.replicas.1
+#Monitor=all
+monitorName=cpus.1</pre>
+
+<p>
+
+The comunication with Claudia Clotho component its made through rest, thos are the common parameters.
+
+</p>
+<pre class="file">restServerPort=1114
+restServerHost=localhost</pre>
+
+<p>
+
+Also we need to specify the same root name (oranization name) that is used in the sm.properties so we can discover the virtualmachines and monitors using claudia fqns.
+
+</p>
+<pre class="file"># Site root (used as FQN prefix)
+SiteRoot=grnet</pre>
+
+</div>
+
+<h2 class="sectionedit5"><a name="claudia_monitorization" id="claudia_monitorization">Claudia monitorization</a></h2>
+<div class="level2">
+
+<p>
+Claudia can monitorize two types of events, angents(event queues) and hardware.
+For the hardware monitorization the data is obtained from opennebula through the one monitorization driver for tcloud, then the reportclient component sends it to clotho.
+</p>
+
+<p>
+vm –&gt; one –&gt; driver-one-mon –&gt; tcloud-server –&gt; reportclient –&gt; clotho
+</p>
+
+<p>
+Reportclient and driver-one-mon configuration is done automatically in the stratuslab claudia install process but additional help is found in the claudia properties files section.
+</p>
+
+</div>
+
+<h2 class="sectionedit6"><a name="claudia_scalability" id="claudia_scalability">Claudia scalability</a></h2>
+<div class="level2">
+
+<p>
+Once the monitor system is running the scalability should work, the rules are specified in the ovf files as KPI rules.
+</p>
+
+<p>
+There must be at least two sections:
+KPI declaration in the main part of the ovf:
+
+</p>
+<pre class="file">&lt;rsrvr:KPISection&gt;
+   &lt;Info&gt;For starting, it can be the CPU in the worker node&lt;/Info&gt;
+       &lt;rsrvr:KPI KPIname=&quot;cpus.1&quot; KPItype=&quot;VEEHW&quot; KPIVmname=&quot;workernode.replicas.1&quot;/&gt;
+&lt;/rsrvr:KPISection&gt;</pre>
+
+<p>
+
+KPI rule inside the VirtualSystem section:
+
+</p>
+<pre class="file"> &lt;rsrvr:ElasticArraySection&gt;
+    &lt;Info&gt;Rule to scale up and down workernode component&lt;/Info&gt;
+     &lt;rsrvr:Rule&gt;
+         &lt;rsrvr:KPIName&gt;cpus.1&lt;/rsrvr:KPIName&gt;
+         &lt;rsrvr:Window unit=&quot;minute&quot;&gt;5&lt;/rsrvr:Window&gt;
+         &lt;rsrvr:Frequency&gt;20&lt;/rsrvr:Frequency&gt;
+         &lt;rsrvr:Quota&gt;15&lt;/rsrvr:Quota&gt;
+         &lt;rsrvr:Tolerance&gt;55.55&lt;/rsrvr:Tolerance&gt;
+         &lt;rsrvr:KPIType&gt;VEEHW&lt;/rsrvr:KPIType&gt;
+      &lt;/rsrvr:Rule&gt;
+&lt;/rsrvr:ElasticArraySection&gt;</pre>
+
+<p>
+
+In this case this rule will scale up the workernode when cpu reaches 26% and will scale down when is below 6%.
+</p>
+
+</div>
+
+<h2 class="sectionedit7"><a name="claudia_scalability_control" id="claudia_scalability_control">Claudia scalability control</a></h2>
+<div class="level2">
+
+<p>
+
+It&#039;s possible to control the number of replicas deployed based on the number of current deployed number:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> SCALE_UP_PERCENTAGE: Percentage of replicas to expand based on the current number.</div>
+</li>
+<li class="level1"><div class="li"> SCALE_DOWN_PERCENTAGE: Percentage of replicas to contract based on the current number.</div>
+</li>
+<li class="level1"><div class="li"> SCALE_DOWN_LAZY_TIME: Time to wait after each replica undeploy.</div>
+</li>
+</ul>
+<pre class="file">&lt;Property ovf:key=&quot;SCALE_UP_PERCENTAGE&quot; ovf:type=&quot;string&quot; rsrvr:cloudConfigurable=&quot;true&quot; ovf:value=&quot;70&quot;/&gt;
+&lt;Property ovf:key=&quot;SCALE_DOWN_PERCENTAGE&quot; ovf:type=&quot;string&quot; rsrvr:cloudConfigurable=&quot;true&quot; ovf:value=&quot;70&quot;/&gt;
+&lt;Property ovf:key=&quot;SCALE_DOWN_LAZY_TIME&quot; ovf:type=&quot;string&quot; rsrvr:cloudConfigurable=&quot;true&quot; ovf:value=&quot;10&quot;/&gt;</pre>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          claudiapackages.txt &middot; Last modified: 2012/02/10 08:38 by munoz	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

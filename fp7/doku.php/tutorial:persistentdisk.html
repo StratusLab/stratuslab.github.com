@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Persistent Disk Storage Tutorial  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Persistent Disk Storage Tutorial"/>
+  <meta name="Description" content="StratusLabPersistent Disk Storage Tutorial"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="tutorial,persistentdisk" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:persistentdisk.html?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:persistentdisk.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:persistentdisk","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#persistent_disk_storage_tutorial" class="toc">Persistent Disk Storage Tutorial</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#prerequisites" class="toc">Prerequisites</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#create_persistent_disk" class="toc">Create persistent disk</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#list_persistent_disks" class="toc">List persistent disks</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#using_persistent_disks" class="toc">Using Persistent Disks</a></span></div>
+<ul class="toc">
+<li class="level3"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#hot-plug_persistent_disks" class="toc">Hot-plug Persistent Disks</a></span></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:persistentdisk.html#delete_persistent_disks" class="toc">Delete Persistent Disks</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="persistent_disk_storage_tutorial" id="persistent_disk_storage_tutorial">Persistent Disk Storage Tutorial</a></h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2"><a name="prerequisites" id="prerequisites">Prerequisites</a></h2>
+<div class="level2">
+
+<p>
+
+To use the command line interface, it must be installed on your machine.  Please use the referenced package stratuslab-cli-user-1.9* or later for working with the Persistent Disk Storage. <strong>Note: The StratusLab command line interface requires Python 2.6 or later.</strong>
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="create_persistent_disk" id="create_persistent_disk">Create persistent disk</a></h2>
+<div class="level2">
+
+<p>
+Before creating persistent disks, you should provide the persistent disk storage endpoint in your $HOME/.stratuslab/stratuslab-user.cfg,
+</p>
+
+<p>
+or set the environment variable STRATUSLAB_PDISK_ENDPOINT with the persistent disk storage endpoint you want to use,
+</p>
+
+<p>
+or pass it as argument to stratus-create-volume command when creating one. 
+</p>
+
+<p>
+
+Create a persistent disk with the following properties :
+</p>
+<ul>
+<li class="level1"><div class="li"> size = 5GB</div>
+</li>
+<li class="level2"><div class="li"> tag = myprivate-disk </div>
+</li>
+</ul>
+<pre class="code">PROMPT&gt; stratus-create-volume --size=5 --tag=myprivate-disk
+DISK 9c5a2c03-8243-4a1b-a248-0f0d22d948c2</pre>
+
+<p>
+
+stratus-create-volume return the UUID (in the above command: 9c5a2c03-8243-4a1b-a248-0f0d22d948c2) of the created persistent disk.
+By default all the persistent disks are private, which means they could be read, written and deleted only by their owner.
+</p>
+
+<p>
+If you want other users have access (read and write only ) to your persistent disks, set it to be public.
+</p>
+
+<p>
+To create public persistent disk, pass –public argument to stratus-create-volume.
+
+</p>
+<pre class="code">PROMPT&gt; stratus-create-volume --public --size=10 --tag=mypublic-disk
+DISK d955fda6-bf9c-4aa8-abc4-5bbcdb83021b</pre>
+
+</div>
+
+<h2 class="sectionedit4"><a name="list_persistent_disks" id="list_persistent_disks">List persistent disks</a></h2>
+<div class="level2">
+
+<p>
+stratus-describe-volumes allow you to query the list of all your public and private persistent disks, and also all the public peristent disks created by other users.
+</p>
+
+<p>
+here is an example
+</p>
+<pre class="code">PROMPT&gt; stratus-describe-volumes 
+:: DISK a4324f26-39e0-4965-8c8f-3287cd0936e5
+        created: 2011/07/20 16:37:10
+        visibility: public
+        tag: mypublic-disk
+        owner: testor2
+        size: 5
+        users: 0
+:: DISK 9c5a2c03-8243-4a1b-a248-0f0d22d948c2
+        created: 2011/07/20 16:10:37
+        visibility: private
+        tag: myprivate-disk
+        owner: testor1
+        size: 5
+        users: 0
+:: DISK d955fda6-bf9c-4aa8-abc4-5bbcdb83021b
+        created: 2011/07/20 16:26:31
+        visibility: public
+        tag: mypublic-disk
+        owner: testor1
+        size: 5
+        users: 0</pre>
+
+<p>
+The above command list &#039;testor1&#039; public and private persistent disks, and also <em>testor2</em> public ones.
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="using_persistent_disks" id="using_persistent_disks">Using Persistent Disks</a></h2>
+<div class="level2">
+
+<p>
+
+Workflow:
+</p>
+<ul>
+<li class="level1"><div class="li"> Launch a virtual machine instance referencing a persistent disk.</div>
+</li>
+<li class="level1"><div class="li"> Format (mkfs) the disk via the running VM</div>
+</li>
+<li class="level1"><div class="li"> Store data to the disk as usual</div>
+</li>
+<li class="level1"><div class="li"> Dismount the disk or halt the machine instance</div>
+</li>
+<li class="level1"><div class="li"> Disk with persistent data is available for use by another VM</div>
+</li>
+</ul>
+
+<p>
+To Launch a VM we will be using  the ttylinux-9.7 image identifier GOaxJFdoEXvqAm9ArJgnZ0_ky6F from StratusLab <a href="http://appliances.stratuslab.eu:8081/metadata/" class="urlextern" title="http://appliances.stratuslab.eu:8081/metadata/"  rel="nofollow">Marketplace</a> (default one).
+</p>
+
+<p>
+<code>–persistent-disk=UUID</code> option when used with stratus-run-instance, tell StratusLab to attach the referenced persistent disk(UUID) to the VM.
+</p>
+
+<p>
+Instantiate ttylinux-9.7 image with reference to your private persistent disk 9c5a2c03-8243-4a1b-a248-0f0d22d948c2.
+</p>
+<pre class="code">stratus-run-instance --persistent-disk=9c5a2c03-8243-4a1b-a248-0f0d22d948c2 GOaxJFdoEXvqAm9ArJgnZ0_ky6F
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 3)
+        Public ip: 134.158.75.35</pre>
+
+<p>
+Log into your VM using ssh, depending in the linux kernel and distribution version of your VM, your persistent disk will be referenced as <code>/dev/hdc</code> or <code>/dev/sdc</code>.
+</p>
+
+<p>
+In ttylinux9-7, it will be <code>/dev/hdc</code>.
+</p>
+
+<p>
+Make sure that your disk was attached to your VM
+
+</p>
+<pre class="code">ssh root@134.158.75.35
+# fdisk -l 
+.........
+Disk /dev/hdc: 5368 MB, 5368709120 bytes
+255 heads, 63 sectors/track, 652 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+.........</pre>
+
+<p>
+
+Format your disk
+
+</p>
+<pre class="code"># mkfs.ext3 /dev/hdc</pre>
+
+<p>
+Mount your disk and store data, store data into and dismount it 
+
+</p>
+<pre class="code"># mount /dev/hdc /mnt
+# echo &quot;Testing Persistent Disk&quot; &gt; /mnt/test_pdisk
+# umount /mnt </pre>
+
+<p>
+Your persistent disk is ready to use by another VM.
+</p>
+
+<p>
+Instantiate new VM ttylinux-9.7 with the same reference to your private persistent disk 9c5a2c03-8243-4a1b-a248-0f0d22d948c2.
+</p>
+<pre class="code">stratus-run-instance --persistent-disk=9c5a2c03-8243-4a1b-a248-0f0d22d948c2 GOaxJFdoEXvqAm9ArJgnZ0_ky6F
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 4)
+        Public ip: 134.158.75.36</pre>
+
+<p>
+Log into your VM using ssh, verify existence of your persistent disk
+
+</p>
+<pre class="code">ssh root@134.158.75.35
+# fdisk -l
+...........
+Disk /dev/hdc: 5368 MB, 5368709120 bytes
+255 heads, 63 sectors/track, 652 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+...........</pre>
+
+<p>
+Mount your persistent disk 
+
+</p>
+<pre class="code"># mount /dev/hdc /mnt
+# ls /mnt
+lost+found  test_pdisk
+# cat /mnt/test_pdisk 
+Testing Persistent Disk</pre>
+
+</div>
+
+<h3 class="sectionedit6"><a name="hot-plug_persistent_disks" id="hot-plug_persistent_disks">Hot-plug Persistent Disks</a></h3>
+<div class="level3">
+
+<p>
+
+StratusLab storage also provides hot-plug feature for persistent disk. With <code>stratus-attach-instance</code> you can attach a volume to a running machine and with <code>stratus-detach-instance</code> you can release it.
+</p>
+
+<p>
+To use the hot-plug feature, the running instance needs to have <code>acpiphp</code> kernel module loaded. Image like <code>ttylinux</code> doesn&#039;t have this feature, you have to use base image like Ubuntu, CentOS or Fedora.
+</p>
+
+<p>
+Before hot-plugin a disk, make sure <code>acpiphp</code> is loaded. In your VM execute:
+
+</p>
+<pre class="code"> modprobe acpiphp</pre>
+
+<p>
+
+This will launch the module if it was not running.
+</p>
+
+<p>
+To attach two volumes to the VM ID <em>24</em>, the first with the UUID <em>1e8e9104-681c-4269-8aae-e513c6723ac6</em> and the second with the <em>UUID 5822c376-9ce1-434e-95d1-cdaa240cd47c</em>:
+
+</p>
+<pre class="code"> PROMPT&gt; stratus-attach-volume -i 24 1e8e9104-681c-4269-8aae-e513c6723ac6 5822c376-9ce1-434e-95d1-cdaa240cd47c
+ ATTACHED 1e8e9104-681c-4269-8aae-e513c6723ac6 in VM 24 on /dev/vda
+ ATTACHED 5822c376-9ce1-434e-95d1-cdaa240cd47c in VM 24 on /dev/vdb  </pre>
+
+<p>
+
+You can use the <code>fdisk -l</code> command as above to see the newly attached disks.
+</p>
+
+<p>
+Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to unmount file systems, or otherwise properly release the device from use, can result in lost data and will corrupt the file system.
+
+</p>
+<pre class="code"> umount /dev/vda
+ umount /dev/vdb</pre>
+
+<p>
+
+When you finish using your disks, you can detach them from the running VM:
+
+</p>
+<pre class="code"> PROMPT&gt; stratus-detach-volume -i 24 1e8e9104-681c-4269-8aae-e513c6723ac6 5822c376-9ce1-434e-95d1-cdaa240cd47c
+ DETACHED 1e8e9104-681c-4269-8aae-e513c6723ac6 from VM 24 on /dev/vda
+ DETACHED 5822c376-9ce1-434e-95d1-cdaa240cd47c from VM 24 on /dev/vdb</pre>
+
+<p>
+
+Perhaps you have already try to detach a disk that you have attach at start-up. The detach command throws you an error message if you do so:
+
+</p>
+<pre class="code"> PROMPT&gt; stratus-detach-volume -i 41 2a17226f-b006-45d8-930e-13fbef3c6cdc
+ DISK 2a17226f-b006-45d8-930e-13fbef3c6cdc: Disk have not been hot-plugged</pre>
+
+<p>
+
+If you have attached the volume at instance start-up, it cannot be detached while the instance is in the ‘running’ state. To detach the volume, stop the instance first.
+</p>
+
+</div>
+
+<h2 class="sectionedit7"><a name="delete_persistent_disks" id="delete_persistent_disks">Delete Persistent Disks</a></h2>
+<div class="level2">
+
+<p>
+To delete a persistent disk you can use the stratus-delete-volume command, note that you can delete only yours.
+</p>
+
+<p>
+To delete myprivate-disk (UUID=9c5a2c03-8243-4a1b-a248-0f0d22d948c2)
+
+</p>
+<pre class="code">PROMPT&gt; stratus-delete-volume 9c5a2c03-8243-4a1b-a248-0f0d22d948c2
+DELETED 9c5a2c03-8243-4a1b-a248-0f0d22d948c2</pre>
+
+<p>
+List the existing persitent disks
+
+</p>
+<pre class="code">PROMPT&gt; stratus-describe-volumes 
+:: DISK a4324f26-39e0-4965-8c8f-3287cd0936e5
+        created: 2011/07/20 16:37:10
+        visibility: public
+        tag: mypublic-disk
+        owner: testor2
+        users: 0
+        size: 5
+:: DISK d955fda6-bf9c-4aa8-abc4-5bbcdb83021b
+        created: 2011/07/20 16:26:31
+        visibility: public
+        tag: mypublic-disk
+        owner: testor1
+        users: 1
+        size: 5</pre>
+
+<p>
+Now try to delete mypublic-disk testor2 persitent disk
+
+</p>
+<pre class="code">PROMPT&gt; stratus-delete-volume a4324f26-39e0-4965-8c8f-3287cd0936e5
+  [ERROR] Service error: Not enough rights to delete disk</pre>
+
+<p>
+You aren&#039;t the owner, so you don&#039;t have rights to do.
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/persistentdisk.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

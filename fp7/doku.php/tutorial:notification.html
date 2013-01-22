@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: Tutorial: Using Asynchronous Notification  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,Tutorial: Using Asynchronous Notification"/>
+  <meta name="Description" content="StratusLabTutorial: Using Asynchronous Notification"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-23T13:09:56+0100" />
+<meta name="keywords" content="tutorial,notification" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./tutorial:notification.html?do=index" title="Sitemap" />
+<link rel="canonical" href="./tutorial:notification.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='tutorial';var JSINFO = {"id":"tutorial:notification","namespace":"tutorial"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="./tutorial:notification.html#tutorialusing_asynchronous_notification" class="toc">Tutorial: Using Asynchronous Notification</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:notification.html#notifications_via_amqp_messaging" class="toc">Notifications via AMQP Messaging</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="./tutorial:notification.html#notifications_via_email" class="toc">Notifications via Email</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="tutorialusing_asynchronous_notification" id="tutorialusing_asynchronous_notification">Tutorial: Using Asynchronous Notification</a></h1>
+<div class="level1">
+
+<p>
+
+From Release 1.2 there are now two mechanisms for asynchronous notification of events in a virtual machine&#039;s lifecycle.  These features are experimental and will change significantly in future release, based on the feedback from users.  Please provide your feedback via the <a href="./mailto:&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x73;&#x74;&#x72;&#x61;&#x74;&#x75;&#x73;&#x6c;&#x61;&#x62;&#x2e;&#x65;&#x75;" class="mail JSnocheck" title="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x73;&#x74;&#x72;&#x61;&#x74;&#x75;&#x73;&#x6c;&#x61;&#x62;&#x2e;&#x65;&#x75;">support mailing list</a>. 
+</p>
+
+</div>
+
+<h2 class="sectionedit2"><a name="notifications_via_amqp_messaging" id="notifications_via_amqp_messaging">Notifications via AMQP Messaging</a></h2>
+<div class="level2">
+
+<p>
+
+If you provides messaging coordinates and credentials when starting a virtual machine, the StratusLab cloud will send a notification using that information each time the machine enters a new state (CREATE, RUNNING, DONE).  Note that StratusLab does not provide a messaging service itself, so an existing, external AMQP server must be used. 
+</p>
+
+<p>
+You can provide the necessary information via the command line by using the –notify option.  The value of the option, is a comma-separation list consisting of the AMQP server, the exchange, username, password, and queue.  An example using the RabbitMQ test server is:
+
+</p>
+<pre class="code">--notify=&quot;dev.rabbitmq.com,/,guest,guest,random_queue&quot;</pre>
+
+<p>
+
+The option may be used multiple times to provide messages to more than one destination. Malformed coordinates will be silently ignored.
+</p>
+
+<p>
+An example using the pika python library can be found in the standard StratusLab use cases: testVmStateNotification.py.  You can check out the code via git:
+
+</p>
+<pre class="code">git clone http://code.stratuslab.eu/public/git/stratuslab-use-cases.git</pre>
+
+<p>
+
+The code is constructed as a unit test and will have to be reworked into a standalone example. 
+</p>
+
+<p>
+The messages will contain the VM identifier and the state.  They look like:
+
+</p>
+<pre class="code">VM_ID=22; STATE=DONE</pre>
+
+<p>
+
+If you would like more information, please provide feedback to the support mailing list on what information you would like to see.
+</p>
+
+</div>
+
+<h2 class="sectionedit3"><a name="notifications_via_email" id="notifications_via_email">Notifications via Email</a></h2>
+<div class="level2">
+
+<p>
+
+You can request that an image be saved (including its full state) after it has been shutdown.  This can be done by using the –save option when starting the machine.  You can be sent via email, the location of the saved image along with other information when the save is finished.  Provide your email address using the –author-email option. 
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          tutorial/notification.txt &middot; Last modified: 2012/01/23 13:09 by loomis	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

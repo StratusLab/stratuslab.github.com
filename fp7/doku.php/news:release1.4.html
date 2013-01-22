@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: StratusLab version 1.4 released  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,StratusLab version 1.4 released"/>
+  <meta name="Description" content="StratusLabStratusLab version 1.4 released"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-06-13T13:06:38+0200" />
+<meta name="keywords" content="news,release1.4" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="./news.html:release1.4?do=index" title="Sitemap" />
+<link rel="canonical" href="./news.html:release1.4" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='news';var JSINFO = {"id":"news:release1.4","namespace":"news"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				
+<h1 class="sectionedit1"><a name="stratuslab_version_14_released" id="stratuslab_version_14_released">StratusLab version 1.4 released</a></h1>
+<div class="level1">
+
+<p>
+
+The StratusLab project is proud to announce the StratusLab 1.4 release. This is an incremental release of the StratusLab distribution, the cloud computing distribution designed for grid and cluster computing.
+</p>
+
+<p>
+<strong>Key features of StratusLab v1.4</strong>
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Bug-fixes and enhancements to persistent disk support</div>
+</li>
+<li class="level1"><div class="li"> Introduction of support for the Telefónica TCloud <acronym title="Application Programming Interface">API</acronym> which extends some of the main standards in cloud management, such as the OVF and vCloud specifications</div>
+</li>
+<li class="level1"><div class="li"> Support for new Operating Systems: OpenSuSE 12.1 and CentOS 6.2</div>
+</li>
+</ul>
+
+<p>
+<strong>Important notes for Upgrading from v1.3</strong>
+</p>
+
+<p>
+Release 1.4 must be used with the StratusLab client version 1.21 distributed with the release.  Please upgrade your clients when you move to 1.4.
+</p>
+
+<p>
+Before upgrading the pdisk service, you should back up the disk information in /tmp/zookeeper.  If you upgrade the service without rebooting the machine, then the information will be moved from /tmp/zookeeper to /var/lib/zookeeper-pdisk automatically.  If you reboot the machine, you&#039;ll need to copy the backup information into /var/lib/zookeeper-pdisk manually.
+</p>
+
+<p>
+In addition to Fedora 14 packages, packages for OpenSuSE 12.1 and CentOS 6.2 are now also provided, please note however, that they have received less testing than the standard Fedora 14 packages.
+</p>
+
+<p>
+You can find more information on upgrading <a href="upgrade" class="wikilink1" title="upgrade.html">here</a>.
+</p>
+
+<p>
+
+<strong>Get Started with StratusLab v1.4</strong>
+</p>
+
+<p>
+Check out the StratusLab Reference Infrastructure to try out a StratusLab cloud, download the StratusLab Client interface tools <a href="./release:users" class="wikilink1" title="release:users.html">here</a>.
+</p>
+
+<p>
+
+<strong>Install your own StratusLab cloud</strong>
+</p>
+
+<p>
+Resource providers install your own public or private cloud with StratusLab 1.4. Find all the documentation and instructions for downloading the software <a href="./release:providers" class="wikilink1" title="release:providers.html">here</a>.
+</p>
+
+<p>
+
+<strong>Explore the StratusLab Marketplace</strong>
+</p>
+
+<p>
+The StratusLab Marketplace provides ready-to-run virtual images and appliances, which can be endorsed by various user communities, and allow you to get up and running quickly on the Cloud.  The Marketplace contains base images for Fedora, Scientific Linux, OpenSuSE, Ubuntu, and ttylinux, as well as a range of appliance images, such as the new UMD 1 images, Globus Toolkit 5.0.4 images, and a range of bioinformatics appliances.  Virtual disks are also available,  containing the datasets for a particular user community.
+</p>
+
+<p>
+To explore the available images visit <a href="http://marketplace.stratuslab.eu/" class="urlextern" title="http://marketplace.stratuslab.eu/"  rel="nofollow">http://marketplace.stratuslab.eu/</a>.
+</p>
+
+<p>
+
+<strong>Documentation and user support</strong>
+</p>
+
+<p>
+Full documentation for the StratusLab distribution is available <a href="documentation" class="wikilink1" title="documentation.html">here</a>.
+</p>
+
+<p>
+Please visit the <a href="https://groups.google.com/a/stratuslab.eu/group/user-forum/topics" class="urlextern" title="https://groups.google.com/a/stratuslab.eu/group/user-forum/topics"  rel="nofollow">StratusLab User Forums</a> where you can report problems, give feedback and discuss StratusLab and Cloud-related issues with StratusLab project members and users.
+</p>
+
+<p>
+Alternatively, see our <a href="support" class="wikilink1" title="support">support.html page</a>, or contact <a href="./mailto:&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x73;&#x74;&#x72;&#x61;&#x74;&#x75;&#x73;&#x6c;&#x61;&#x62;&#x2e;&#x65;&#x75;" class="mail JSnocheck" title="&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x73;&#x74;&#x72;&#x61;&#x74;&#x75;&#x73;&#x6c;&#x61;&#x62;&#x2e;&#x65;&#x75;">&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x73;&#x74;&#x72;&#x61;&#x74;&#x75;&#x73;&#x6c;&#x61;&#x62;&#x2e;&#x65;&#x75;</a> if you have questions or feedback on the StratusLab distribution, or to get access to the StratusLab reference installation.
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          news/release1.4.txt &middot; Last modified: 2012/06/13 13:06 by cassidy	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

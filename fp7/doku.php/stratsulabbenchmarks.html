@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: StratusLab Benchmarks  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,StratusLab Benchmarks"/>
+  <meta name="Description" content="StratusLabStratusLab Benchmarks"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-01-19T11:59:38+0100" />
+<meta name="keywords" content="stratsulabbenchmarks" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="stratsulabbenchmarks.html?do=index" title="Sitemap" />
+<link rel="canonical" href="stratsulabbenchmarks.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='';var JSINFO = {"id":"stratsulabbenchmarks","namespace":""};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#stratuslab_benchmarks" class="toc">StratusLab Benchmarks</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#package_installation.html" class="toc">Package installation</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#benchmarks_deployment" class="toc">Benchmarks Deployment</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#openmp_benchmarks" class="toc">OpenMP Benchmarks</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#mpi_benchmarks" class="toc">MPI Benchmarks</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#i_o_benchmarks" class="toc">I/O Benchmarks</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#cpu_benchmarks" class="toc">CPU Benchmarks</a></span></div></li>
+<li class="level2"><div class="li"><span class="li"><a href="stratsulabbenchmarks.html#workflow_benchmarks" class="toc">Workflow Benchmarks</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="stratuslab_benchmarks" id="stratuslab_benchmarks">StratusLab Benchmarks</a></h1>
+<div class="level1">
+
+<p>
+To measure performance of StratusLab cloud implementation, we developed application-oriented benchmarks.
+</p>
+
+<p>
+These benchmarks covers :
+</p>
+<ul>
+<li class="level1"><div class="li"> CPU-intensive </div>
+</li>
+<li class="level1"><div class="li"> Simulation</div>
+</li>
+<li class="level1"><div class="li"> Analysis</div>
+</li>
+<li class="level1"><div class="li"> Filtering</div>
+</li>
+<li class="level1"><div class="li"> Shared Memory</div>
+</li>
+<li class="level1"><div class="li"> Parallel</div>
+</li>
+<li class="level1"><div class="li"> Workflow</div>
+</li>
+</ul>
+
+</div>
+
+<h1 class="sectionedit2"><a name="package_installation" id="package_installation">Package installation</a></h1>
+<div class="level1">
+
+<p>
+
+Actually we support RPM/YUM packages.
+Benchmarks binary can be downloaded from :
+</p>
+<ul>
+<li class="level1"><div class="li"> stratusLab YUM repositories</div>
+</li>
+</ul>
+
+<p>
+do
+
+</p>
+<pre class="file">yum install stratuslab-benchmarks</pre>
+
+<p>
+Benchmarks source code can be downloaded from :
+</p>
+<ul>
+<li class="level1"><div class="li"> stratusLab Git repository</div>
+</li>
+</ul>
+
+<p>
+do
+
+</p>
+<pre class="file">git clone https://user@code.stratuslab.eu/git/benchmarks.git</pre>
+
+</div>
+
+<h1 class="sectionedit3"><a name="benchmarks_deployment" id="benchmarks_deployment">Benchmarks Deployment</a></h1>
+<div class="level1">
+
+<p>
+<code>cd</code> to benchmarks/deploy directory
+
+</p>
+<ul>
+<li class="level1"><div class="li">   deploy directory contains :</div>
+<ul>
+<li class="level2"><div class="li"> benchmarks scripts : cpu_benchmarks.sh, io_benchmarks.sh, kepler_benchmarks.sh, mpi_benchmarks.sh,  openmp_benchmarks.sh.</div>
+</li>
+<li class="level2"><div class="li"> contextualization files :  stratuslab.repo, init.sh  </div>
+</li>
+<li class="level2"><div class="li"> generic  vm-template   </div>
+</li>
+<li class="level2"><div class="li"> generic  hostfile for MPI benchmarks  </div>
+</li>
+<li class="level2"><div class="li"> directory workflows_bench, which contains kepler workflows</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit4"><a name="openmp_benchmarks" id="openmp_benchmarks">OpenMP Benchmarks</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Executables : openmp-cg, openmp-jacobi, openmp-matrix.</div>
+<ul>
+<li class="level2"><div class="li"> openmp-cg implements conjugate gradient method, solving linear system Ax=b</div>
+</li>
+<li class="level2"><div class="li"> openmp-jacobi implements Jacobian type iteration solving linear system Ax=b</div>
+</li>
+<li class="level2"><div class="li"> openmp-matrix implements matrix multiplication C=AB</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+ For each executable, OpenMP Bemchmark run in both sequential and parallel mode.
+</p>
+
+<p>
+To deploy OpenMP benchmarks, run openmp_benchmarks command :
+
+</p>
+<pre class="file">Usage :
+openmp_benchmarks -e Executable -c CPUNb -m MemorySize(Mbytes) -n ThreadNb
+where :
+Executable : openmp-cg, openmp-jacobi or openmp-matrix
+CPUNb : Number of CPU to use
+MemorySize : Amount of Memory to use (Mbytes)
+ThreadNb : Number of thread to be used for OpenMP application
+Example : openmp_benchmarks -e openmp-cg  -c 3 -m 3000 -n 6</pre>
+
+<p>
+This command generate Excecutable.xml  output file, in xml format, copied in the current directory. 
+This file contains informations :
+Benchmark, Application, Thread Number, CPU time and Elapsed for both parallel and sequential executables.
+</p>
+
+</div>
+
+<h2 class="sectionedit5"><a name="mpi_benchmarks" id="mpi_benchmarks">MPI Benchmarks</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Executables : mpi-async, mpi-sync, mpi-persistent, mpi-standard.</div>
+<ul>
+<li class="level2"><div class="li"> mpi-async implements MPI asynchronous non blocking communication</div>
+</li>
+<li class="level2"><div class="li"> mpi-sync implements MPI synchronous blocking communication</div>
+</li>
+<li class="level2"><div class="li"> mpi-persistent implements MPI persistent communication</div>
+</li>
+<li class="level2"><div class="li"> mpi-standard implemenst MPI standard communication.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+
+These executables links with lapack library for LU factorization.
+</p>
+
+<p>
+To deploy MPI benchmarks, run mpi_benchmarks command :
+
+</p>
+<pre class="file">Usage :
+mpi_benchmarks -e Executable -c CPUNb -m MemorySize(Mbytes) 
+where :
+Executable : mpi-async, mpi-sync, mpi-persistent or mpi-standard.
+CPUNb : Number of CPU to use
+MemorySize : Amount of Memory to use (Mbytes)
+Example : mpi_benchmarks -e mpi-sync  -c 3 -m 3000 </pre>
+
+<p>
+This command generate Excecutable.xml  output file, in xml format, copied in the current directory. 
+This file contains informations :
+Benchmark, Application, CPU time and Elapsed time.
+</p>
+
+</div>
+
+<h2 class="sectionedit6"><a name="i_o_benchmarks" id="i_o_benchmarks">I/O Benchmarks</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Executables : io-mpi-io.</div>
+<ul>
+<li class="level2"><div class="li"> io-mpi-io, read from a file and write to another file. It immplements MPI I/O methods. It could be used with small input data/large output data, small input data/ small output data, large input data/small output data or large input data/ large output data. </div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+
+To deploy I/O benchmarks, run io_benchmarks command :
+
+</p>
+<pre class="file">Usage :
+io_benchmarks -e Executable -c CPUNb -m MemorySize(Mbytes) -i Inputfile_size(Mbytes) -o Outputfile_size(Mbytes) 
+where :
+Executable : io-mpi-io
+CPUNb : Number of CPU to use
+MemorySize : Amount of Memory to use in Mbytes
+Inputfile_size : size of the input file in Mbytes
+Outputfile_size : size of the output file in Mbytes
+Example : io_benchmarks -e io-mpi-io  -c 3 -m 3000  -i 100 -o 1000 </pre>
+
+<p>
+This command generate Excecutable.xml  output file, in xml format, copied in the current directory. 
+This file contains informations :
+Benchmark, Application, inputfile, size of the inputfile, outputfile, size of the outputfile,  CPU time and Elapsed time.
+</p>
+
+</div>
+
+<h2 class="sectionedit7"><a name="cpu_benchmarks" id="cpu_benchmarks">CPU Benchmarks</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Executables : cpu_intensive</div>
+<ul>
+<li class="level2"><div class="li"> High-CPU requirements with no input and no output data. It imposes an amount of CPU stress on the system.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+   To deploy cpu benchmarks, run cpu_benchmarks command :
+
+</p>
+<pre class="file">Usage :
+cpu_benchmarks -e Executable -c CPUNb -m MemorySize(Mbytes) -t timeout(sec) 
+where :
+Executable : cpu_intensive
+CPUNb : Number of CPU to use
+MemorySize : Amount of Memory to use in Mbytes
+timeout : time out after N seconds
+Example : cpu_benchmarks  -e cpu_intensive -c 3 -m 3000  -t 60 </pre>
+
+</div>
+
+<h2 class="sectionedit8"><a name="workflow_benchmarks" id="workflow_benchmarks">Workflow Benchmarks</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Executable :  kepler_install.sh  kepler-nogui.sh</div>
+<ul>
+<li class="level2"><div class="li"> kepler_install.sh : download, configure and install Kepler platform</div>
+</li>
+<li class="level2"><div class="li"> kepler-nogui.sh run kepler workflows</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+
+To deploy kepler benchmarks, run kepler_benchmarks command :
+
+</p>
+<pre class="file">Usage :
+kepler_benchmarks -e Executable -c CPUNb -m MemorySize(Mbytes) -w kepler_workflow 
+where :
+Executable : kepler-nogui
+CPUNb : Number of CPU to use
+MemorySize : Amount of Memory to use in Mbytes
+kepler_workflow : Kepler workflow in xml format
+Example : kepler_benchmarks -e kepler-nogui -c 3 -m 3000  -w openmp.xml </pre>
+
+<p>
+This command generate Executable.xml  output file, in xml format, copied in the current directory. 
+This file depends in the executables defined in the kepler_workflow.
+</p>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          stratsulabbenchmarks.txt &middot; Last modified: 2012/01/19 11:59 (external edit)	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>

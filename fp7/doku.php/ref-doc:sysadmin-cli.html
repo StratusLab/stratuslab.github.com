@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>  StratusLab :: stratus-config  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Author" content="Marcin Mierzejewski @ Zenzire"/>
+  <meta name="Keywords" content="StratusLab,stratus-config"/>
+  <meta name="Description" content="StratusLabstratus-config"/>
+  <meta name="generator" content="DokuWiki" />
+<meta name="robots" content="index,follow" />
+<meta name="date" content="2012-02-12T23:17:44+0100" />
+<meta name="keywords" content="ref-doc,sysadmin-cli" />
+<link rel="search" type="application/opensearchdescription+xml" href="../lib/exe/opensearch.php" title="StratusLab" />
+<link rel="start" href="../index.html" />
+<link rel="contents" href="ref-doc:sysadmin-cli.html?do=index" title="Sitemap" />
+<link rel="canonical" href="ref-doc:sysadmin-cli.html" />
+<link rel="stylesheet" media="screen" type="text/css" href="../lib/exe/css.php?t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="all" type="text/css" href="../lib/exe/css.php?s=all&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<link rel="stylesheet" media="print" type="text/css" href="../lib/exe/css.php?s=print&amp;t=stratuslab-theme&amp;tseed=1349958590" />
+<script type="text/javascript" ><!--//--><![CDATA[//><!--
+var NS='ref-doc';var JSINFO = {"id":"ref-doc:sysadmin-cli","namespace":"ref-doc"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="../lib/exe/js.php?tseed=1349958590" ></script>
+  <link rel="alternate" type="application/rss+xml" title="News"
+     href="../feed.php?ns=news.html&amp;linkto=page" />
+
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/design.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="../lib/tpl/stratuslab-theme/css/gallery.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/tpl/stratuslab-theme/css/960.css" media="screen" />
+
+  <script type="text/javascript">
+
+   var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18570821-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</head>
+
+<body>
+  <div class="Page">
+		<div class="Header">
+
+			<div class="Banner">
+			      </div>
+
+			<div class="MenuContainer"><div class="Menu" id="level1">
+<p>
+
+<!-- main menu under the banner -->
+<div class="mainmenu">
+<span class="menuitem">
+<a class="menulink" href="../index.php">Home</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./release:install.html">Install</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="support.html">Support</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="documentation.html">Documentation</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./roadmap:project_roadmap.html">Roadmap</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="news.html">News</a>
+</span>
+<span class="menuitem">
+<a class="menulink" href="./project:info.html">About</a>
+</span>
+</div>
+
+
+</p>
+</div><div class="Menu" id="level2"></div>
+		</div> 
+
+
+    	
+		<div class="Content">
+				<!-- TOC START -->
+<div class="toc">
+<div class="tocheader toctoggle" id="toc__header">Table of Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-config" class="toc">stratus-config</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-install" class="toc">stratus-install</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-test" class="toc">stratus-test</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-manifest" class="toc">stratus-manifest</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-policy-image" class="toc">stratus-policy-image</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-remote-install" class="toc">stratus-remote-install</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-storage" class="toc">stratus-storage</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-storage-search" class="toc">stratus-storage-search</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-storage-update" class="toc">stratus-storage-update</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-storage-quarantine" class="toc">stratus-storage-quarantine</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-storage-delete" class="toc">stratus-storage-delete</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-download-image" class="toc">stratus-download-image</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-msg-publisher" class="toc">stratus-msg-publisher</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="ref-doc:sysadmin-cli.html#stratus-generate-p12" class="toc">stratus-generate-p12</a></span></div></li></ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1"><a name="stratus-config" id="stratus-config">stratus-config</a></h1>
+<div class="level1">
+
+<p>
+
+This utility serves for update and listing of configuration parameters defined in <code>/etc/stratuslab/stratuslab.cfg</code> configuration file. The configuration file defines parameters for configuring different components of the StratusLab distribution. For more details please see <code><a href="manualinstall#configuration" class="wikilink1" title="manualinstall.html">Manual installation. Configuration.</a></code>
+</p>
+
+</div>
+
+<h1 class="sectionedit2"><a name="stratus-install" id="stratus-install">stratus-install</a></h1>
+<div class="level1">
+
+<p>
+
+This utility is used for actual configuration and optional installation of different components constituting the StratusLab distribution as well as third party services the distribution depends on. After setting up all required parameters in <code>/etc/stratuslab/stratuslab.cfg</code> configuration file, to configure Cloud frontend one would usually run
+</p>
+<pre class="file">$ stratus-install -vv</pre>
+
+<p>
+The same utility is used for installation and configuration of other StratusLab components like Web Monitor (<code>–web-monitor</code>), Cloudia (<code>–claudia</code>). To know what components are possible to install/configure please run the utility with <code>-h/–help</code> and check reference configuration file (<code>/etc/stratuslab/stratuslab.cfg.ref</code>) for additional parameters and explanations.
+</p>
+
+<p>
+To install and configure a node <code>-n ADDRESS</code> parameter should be used. The main gole is to install and configure virtualization software.
+</p>
+
+<p>
+For more details pelase see <code><a href="manualinstall#configuration" class="wikilink1" title="manualinstall.html">Manual installation. Configuration.</a></code>
+</p>
+
+</div>
+
+<h1 class="sectionedit3"><a name="stratus-test" id="stratus-test">stratus-test</a></h1>
+<div class="level1">
+
+<p>
+
+Runs a set of test against deployed Cloud instance as well as other StratusLab 
+services. Use -l to list available tests. Currently available tests:
+</p>
+<pre class="file">$ stratus-test -l
+Available tests:
+    - webMonitorTest: Web Monitor test
+    - createImageTest: Create a machine image based on a given one.
+    - marketPlaceTest: Place holder for marketplace test
+    - runInstanceLocalNetworkTest: Start new instance, ping it via local network and ssh into it, then stop it.
+    - exceedCpuQuotaTest: Start x instances, where x is the cpu quota +1, then stop them.
+    - oneReportsErrorViaXmlRpcTest: Test if ONE reports error messages via XML RPC
+    - runInstanceRequestedNetworkTest: Start new instance, ping it via requested IP address and ssh into it, then stop it.
+    - clusterTest: Cluster test
+    - errorMessageInWebMonitorTest: Check if VM creation error message is on Web Monitor&#039;s VM details page
+    - registrarTest: Register a new node with ONE server, check that it is properly registered and remove it
+    - registrationTest: Registration test
+    - ldapAuthenticationTest: LDAP authentication test
+    - claudiaTest: Cloudia test
+    - runInstancePublicNetworkTest: Start new instance, ping it via public network and ssh into it, then stop it.
+    - applianceRepositoryTest: Authenticate, then upload a dummy image to the appliance repository, and remove after
+$</pre>
+
+<p>
+To run only desired tests provide them as comma separated list. To exclude 
+tests use –exclude parameter.
+</p>
+
+<p>
+To run certain test one might need to provide credentials to handshake to endpoints under the test.
+</p>
+
+</div>
+
+<h1 class="sectionedit4"><a name="stratus-manifest" id="stratus-manifest">stratus-manifest</a></h1>
+<div class="level1">
+
+<p>
+
+Utility to query image metadata from MarketPlace. 
+</p>
+
+<p>
+<strong>Example</strong>
+</p>
+<pre class="file">$ stratus-manifest \
+  --get-element location \  
+  http://appliances.stratuslab.eu:8081/metadata/MVtdRuENlChXp8Gm-LQy5imrDa4
+
+http://appliances.stratuslab.eu/images/base/centos-5.5-x86_64-OpenMPI_1_4/1.0/centos-5.5-x86_64-OpenMPI.qcow
+$</pre>
+
+<p>
+If the requested element is not found in the metadata for the image the utility 
+prints error message to <em>stderr</em> and returns with 1. 
+</p>
+
+<p>
+List of elements that can be queried:
+</p>
+
+<p>
+<em>identifier, bytes, md5, sha-1, sha-256, sha-512, type, kind, os, os-version, 
+arch, compression, location, format, creator, created, hypervisor, publisher</em>
+</p>
+
+<p>
+Currently this utility is used internally on Cloud frontend to facilitate retrieval of appliances.
+</p>
+
+</div>
+
+<h1 class="sectionedit5"><a name="stratus-policy-image" id="stratus-policy-image">stratus-policy-image</a></h1>
+<div class="level1">
+
+<p>
+System administrators can define a policy that determines
+whether a given machine image is trustworthy enough to run on their
+clouds. The system uses the metadata associated with the entry in the MarketPlace.
+This test creates metadata entries and evaluates them against a range of policies to
+ensure that the system accepts or rejects the associated images correctly.
+</p>
+
+<p>
+The system is easily extensible to allow arbitrary
+policies to be implemented.
+</p>
+
+<p>
+By default, we are using 7 policies :
+</p>
+<ul>
+<li class="level1"><div class="li"> whitelistendorser: list of authorized endorsers</div>
+</li>
+<li class="level1"><div class="li"> blacklistendorser: list of unauthorized endorsers</div>
+</li>
+<li class="level1"><div class="li"> whitelistechecksum: list of authorized sha-1 checksums</div>
+</li>
+<li class="level1"><div class="li"> blacklistchecksum: list of unauthorized sha-1 checksums</div>
+</li>
+<li class="level1"><div class="li"> whitelisteimage: list of authorized images id</div>
+</li>
+<li class="level1"><div class="li"> blacklistimage: list of unauthorized images id</div>
+</li>
+<li class="level1"><div class="li"> validatematadata: policy for validate metada, this is activated by default.  The configuration file allow it to be deactivated for tests. </div>
+</li>
+</ul>
+
+<p>
+Sysadmin should defines which list will be used for the site policy.
+</p>
+
+<p>
+
+The policies should be defined in /etc/stratuslab/policy.cfg  configuration file.
+</p>
+
+<p>
+By default, all the images are accepted to be run in the site.
+</p>
+
+<p>
+<strong>Example of policy.cfg file</strong>
+</p>
+<pre class="file">[whitelistendorsers]
+email=endorser@example.org
+email1=endorser1@example.org
+
+[blacklistendorsers]
+email2=hackers@example.org
+
+[whitelistimages]
+image1=GOaxJFdoEXvqAm9ArJgnZ0_ky6F
+
+[blacklistimages]
+image2=GOaxJFdoEXvqAm9ArJgnZ0_GGG
+
+[whitelistchecksums]
+checksum_sha1=639ac4915da045efa809bd02b2609d9d3f932e86
+
+[blacklistchecksums]
+checksum2_sha1=
+
+[validatemetadatafile]
+activate=False</pre>
+
+<p>
+<strong> stratus-policy-image usage and options </strong>
+
+</p>
+<pre class="file">$ stratus-policy-image -h   
+Usage: stratus-policy-image [options] &lt;identifier-endpoint&gt; &lt;policy-config&gt;
+        
+&lt;identifier-endpoint&gt;   Marketplace endpoint + Image identifier(example: http://appliances.stratuslab.eu/marketplace/metadata/GOaxJFdoEXvqAm9ArJgnZ0_ky6F)
+&lt;policy-config&gt;    Policy configuration file
+
+Options:
+  -h, --help            show this help message and exit
+  -v, --verbose         verbose level. Add more to get more details
+  -c FILE, --config=FILE
+                        configuration file. Default
+                        /etc/stratuslab/stratuslab.cfg
+</pre>
+
+</div>
+
+<h1 class="sectionedit6"><a name="stratus-remote-install" id="stratus-remote-install">stratus-remote-install</a></h1>
+<div class="level1">
+
+<p>
+Allows remote installation and configuration of the Cloud frontend and Nodes.
+</p>
+
+</div>
+
+<h1 class="sectionedit7"><a name="stratus-storage" id="stratus-storage">stratus-storage</a></h1>
+<div class="level1">
+
+<p>
+
+Command to create new persistent disk in Persistent Disk Service.
+</p>
+<pre class="file">Usage: stratus-storage [options]
+
+Create a new persistent disk</pre>
+
+<p>
+Also allows to:
+</p>
+<pre class="file">  --cow=UUID            Create a copy on write volume based on this uuid
+  --rebase=UUID         Rebase the CoW volume
+  --private             Set the disk as private (default). Only you can see,
+                        use  and delete the disk.
+  --public              Set the disk visibility as public. Any one can see it
+                        and use it but can&#039;t delete it.</pre>
+
+</div>
+
+<h1 class="sectionedit8"><a name="stratus-storage-search" id="stratus-storage-search">stratus-storage-search</a></h1>
+<div class="level1">
+
+<p>
+Allows to search persistent disks by key/value.
+</p>
+<pre class="file">Usage: stratus-storage-search &lt;key&gt; &lt;value&gt;
+
+Search persistent disks by key/value</pre>
+
+</div>
+
+<h1 class="sectionedit9"><a name="stratus-storage-update" id="stratus-storage-update">stratus-storage-update</a></h1>
+<div class="level1">
+
+<p>
+
+Updates information (key/value) on persistent disk identified by UUID.
+</p>
+<pre class="file">Usage: stratus-storage-update &lt;uuid&gt; &lt;key&gt; &lt;value&gt;
+
+Update an existing storage disk</pre>
+
+</div>
+
+<h1 class="sectionedit10"><a name="stratus-storage-quarantine" id="stratus-storage-quarantine">stratus-storage-quarantine</a></h1>
+<div class="level1">
+
+<p>
+Sends request to Persistent Disk Service to clean up disk(s) identified as being in quarantine.
+</p>
+<pre class="file">Usage: stratus-storage-quarantine [uuid]
+
+Perform quarantine actions</pre>
+
+<p>
+Operate on the full quarantine store.
+
+</p>
+<pre class="file">  --clean               Clean quarantine store. No uuid parameter should be
+                        provided.</pre>
+
+</div>
+
+<h1 class="sectionedit11"><a name="stratus-storage-delete" id="stratus-storage-delete">stratus-storage-delete</a></h1>
+<div class="level1">
+
+<p>
+
+Deletes an existing persistent disk identified by UUID.
+</p>
+<pre class="file">Usage: stratus-storage-delete &lt;uuid&gt;
+
+Delete an existing persistent disk</pre>
+
+</div>
+
+<h1 class="sectionedit12"><a name="stratus-download-image" id="stratus-download-image">stratus-download-image</a></h1>
+<div class="level1">
+
+<p>
+Given image ID in Marketplace - download the physical image.
+</p>
+<pre class="file">Usage: stratus-download-image [options] &lt;uri&gt;
+
+&lt;uri&gt;    URI of the metadata entry corresponding to the image to download</pre>
+
+</div>
+
+<h1 class="sectionedit13"><a name="stratus-msg-publisher" id="stratus-msg-publisher">stratus-msg-publisher</a></h1>
+<div class="level1">
+
+<p>
+Send a message to messaging system identified by ”–msg-type”. (At the moment Amazon SQS is only supported.) The utility is used in transfer management layer to notify other external services about new image creation if ”–imageid” option is provided.
+</p>
+<pre class="file">Usage: stratus-msg-publisher [options] message</pre>
+
+<p>
+Notable options.
+
+</p>
+<pre class="file">  --msg-type=NAME       Type of messaging queue: amazonsqs. Mandatory.
+  --msg-endpoint=ENDPOINT
+                        Messaging service endpoint. Mandatory.
+  --msg-queue=NAME      Message queue name. Mandatory.
+  --imageid=ID          Image ID. Assumes message is JSON representation of a
+                        dictionary on which the ID will be set. JSON can be
+                        base64 encoded.</pre>
+
+</div>
+
+<h1 class="sectionedit14"><a name="stratus-generate-p12" id="stratus-generate-p12">stratus-generate-p12</a></h1>
+<div class="level1">
+
+<p>
+Generate p12 self-signed certificate.
+</p>
+<pre class="file">Usage: stratus-generate-p12 [options]</pre>
+
+<p>
+Notable options.
+</p>
+<pre class="file">  -n NAME, --common-name=NAME
+                        Common Name for the certificate. (Default: Jane
+                        Tester)
+  -o FILE, --output=FILE
+                        file to store the generated certificate (Default:
+                        cert.p12)
+  -p PASS, --password=PASS
+                        password for the certificate. (Default: XYZXYZ)
+  --validity=DAYS       validity of the certificate. (Default: 365)
+  -e EMAIL, --email=EMAIL
+                        subject email. (Default: jane.tester@example.org)</pre>
+
+</div>
+
+		</div>
+  
+    
+        <div class="stylefoot">
+      <div class="meta">
+        <div class="doc">
+	  <!--
+          ref-doc/sysadmin-cli.txt &middot; Last modified: 2012/02/12 23:17 by konstan	  -->
+        </div>
+        <div class="user">
+                  </div>
+      </div>
+          </div>
+    
+<div class="container_12" id="footer">
+
+<div class="clear">&nbsp;</div>
+<div class="footspacer">&nbsp;</div>
+
+
+<div class="grid_2 push_10 omega">
+<a class="footerlink" href="./mailto:info@stratuslab.eu">General queries</a><br>
+<a class="footerlink" href="./mailto:support@stratuslab.eu">Support queries</a>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+<a class="footerlink" href="internal.html">Go to project internal pages</a> 
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+<div class="grid_1 push_2 alpha">
+<div class="partnerlink">
+<a class="imagelink" href="./project:cnrs.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/cnrs-logo.png"></a></a>
+<a class="partnerlink" href="./project:cnrs.html">CNRS</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:grnet.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/grnet-logo.png"></a><br>
+<a class="partnerlink" href="./project:grnet.html">GRNET</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:sixsq.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/sixsq-logo.png"></a><br>
+<a class="partnerlink" href="./project:sixsq.html">SixSq Sàrl</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:ucm.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/ucm-logo.png"></a><br>
+<a class="partnerlink" href="./project:ucm.html">UCM</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tid.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tid-logo.png"></a><br>
+<a class="partnerlink" href="./project:tid.html">TID</a>
+</div>
+</div>
+<div class="grid_1 push_2">
+<div class="partnerlink">
+<a class="imagelink" href="./project:tcd.html"><img src="../lib/tpl/stratuslab-theme/images/partnerlogos/tcd-logo.png"></a><br>
+<a class="partnerlink" href="./project:tcd.html">TCD</a>
+</div>
+</div>
+<div class="grid_1 push_4 omega">
+<img src="../lib/tpl/stratuslab-theme/images/FP7-cap-CMYK.png">
+</div>
+<div class="grid_1 push_4">
+<img src="../lib/tpl/stratuslab-theme/images/eu-flag-blue-yellow.png">
+</div>
+<!-- <div class="grid_2 push_3 omega">
+<img src="images/e-infrastructure-logo.png">
+</div> -->
+
+<div class="spacer">&nbsp;</div>
+<div class="grid_10 push_2">
+The StratusLab project is co-funded by the European Community's Seventh Framework Programme (Capacities) Grant Agreement INFSO-RI-261552.
+</div>
+<div class="clear">&nbsp;</div>
+<div class="spacer">&nbsp;</div>
+
+
+</div> <!-- end container_12 div -->
+
+	    </div>
+</body>
+</html>
