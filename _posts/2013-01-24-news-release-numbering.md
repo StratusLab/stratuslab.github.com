@@ -1,7 +1,7 @@
 ---
 layout: article
 title: New Release Policy and Numbering
-category: review
+category: news
 ---
 
 The StratusLab collaboration has decided to make 4 primary releases a
