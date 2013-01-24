@@ -148,7 +148,7 @@ The machine can then be started with the command:
 
     $ stratus-run-instance \
         --cloud-init \
-        'ssh,$HOME/.ssh/id_rsa.pub#x-shellscript,run-http.sh' \
+        ssh,$HOME/.ssh/id_rsa.pub'#none,run-http.sh' \
         IRei7LKvxoWVRsiiup2cz3-sSsk
 
 After this machine starts it should be possible to see the configured
