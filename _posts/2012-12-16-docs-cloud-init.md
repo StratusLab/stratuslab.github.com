@@ -9,9 +9,8 @@ cloud environment (the 'context') and to configure itself to run
 correctly there.  StratusLab now supports CloudInit contextualization
 in addition to the OpenNebula and HEPiX contextualization schemes.
 
-This article explains how an appliance using CloudInit can be created
-and how users can send contextualization information to the
-appliance. 
+This article explains how users can send contextualization information
+to the appliance and how an appliance using CloudInit can be created.
 
 
 CloudInit
@@ -41,8 +40,8 @@ CloudInit-Enabled Images
 All of the latest versions of the base virtual machine images
 maintained by StratusLab now support CloudInit.  Using one of those
 images is the easiest way to see how CloudInit works.  However, you
-can build your own image with CloudInit support; see the last section
-of this document for instructions.
+can build your own image with CloudInit support; see the appendix of
+this document for instructions.
 
 
 Web Server Example
@@ -81,19 +80,21 @@ mimetype,file pairs:
     ssh,$HOME/.ssh/id_rsa.pub
     x-shellscript,run-http.sh
 
-For ssh keys, use the pseudo-mime-type of 'ssh'.  A single file can be
+For ssh keys, use the pseudo-mimetype of 'ssh'.  A single file can be
 included literally (instead of being embedded in a multipart message)
-with a pseudo-mime-type of 'none'.
+with a pseudo-mimetype of 'none'.
 
 This information can be passed directly to `stratus-run-instance` with
 the `--cloud-init` option:
 
     $ stratus-run-instance \
          --cloud-init \
-         ssh,$HOME/.ssh/id_rsa.pub#x-shellscript,run-http.sh
+         'ssh,$HOME/.ssh/id_rsa.pub#x-shellscript,run-http.sh' \
+         ... other options ...
 
 Note that in this case, multiple pairs are separated by a hash sign.
-You can also create a `cloud-init.txt` file with the information:
+You can also create a `cloud-init.txt` file containing the context
+information:
 
     $ stratus-prepare-context \
          ssh,$HOME/.ssh/id_rsa.pub \
@@ -108,10 +109,9 @@ The first option is generally the most convenient option unless
 further (non-cloud-init) options need to be passed to the virtual
 machine. 
 
-In the context, multiple public ssh keys can be provided.  Multiple
-scripts or other types of contextualization files can be included as
-well.  See the [CloudInit documentation][ci-docs] for what is
-permitted for 'user data'.
+The context can contain multiple public ssh keys and multiple scripts
+or other files.  See the [CloudInit documentation][ci-docs] for what
+is permitted for 'user data'.
 
 **Warning**: No ssh keys are included by default.  You must specify
 explicitly any keys that you want to include. 
@@ -122,15 +122,16 @@ itself.  **Be particularly careful because multipart inputs do not
 work if the python version in the virtual machine is less than
 2.7.3.**
 
-This is the case with the CentOS image used here.  So we'll include
+This is the case with the CentOS image used here, so we'll include
 the script literally in the user data with context information:
 
     ssh,$HOME/.ssh/id_rsa.pub
     none,run-http.sh
 
-Note the use of the 'none' pseudo-mime-type.  If 'none' is used, only
+Note the use of the 'none' pseudo-mimetype.  If 'none' is used, only
 the last file marked as 'none' will be included in the user data; it
-will be included literally.
+will be included literally, that is without encapsulating it in a
+multipart form.
 
 If you use the `stratus-prepare-context` command, you can see what
 key-value pairs are passed to the virtual machine.  The
@@ -147,8 +148,8 @@ The machine can then be started with the command:
 
     $ stratus-run-instance \
         --cloud-init \
-        ssh,$HOME/.ssh/id_rsa.pub#x-shellscript,run-http.sh \
-        KaErHffeHiomQt-nDwawbigogWY
+        'ssh,$HOME/.ssh/id_rsa.pub#x-shellscript,run-http.sh' \
+        IRei7LKvxoWVRsiiup2cz3-sSsk
 
 After this machine starts it should be possible to see the configured
 file in the appliance's web server: 
