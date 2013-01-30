@@ -32,7 +32,7 @@ Mapping Cloud Server Semantics
 ------------------------------
 
 The Libcloud cloud server interface (protocol) is object based with
-Node being the primary object.  (See the `libcloud/compute/base.py`
+`Node` being the primary object.  (See the `libcloud/compute/base.py`
 class in the [codebase][lc-github].)  The node consists of:
 
 * ID
@@ -52,25 +52,25 @@ getter functions, the interface has `reboot` and `destroy` methods.
 StratusLab (at least at the moment) won't be able to support the
 `reboot` method.
 
-The NodeSize is just a tuple containing the id, name, RAM, disk,
+The `NodeSize` is just a tuple containing the id, name, RAM, disk,
 bandwidth, and price.  StratusLab can map the StratusLab type names to
 the id and name.  RAM to RAM and disk to swap space.  We don't
 currently have bandwidth and price, but perhaps we should consider
-adding these even if they are unused. 
+adding these even if they are unused.
 
-The NodeImage is a machine image and contains only an id and a name.
+The `NodeImage` is a machine image and contains only an id and a name.
 These can be taken from the Marketplace with the id mapped to the
 usual StratusLab image identifier.  The name can be the title, if
-provided, or the image description. 
+provided, or the image description.
 
-There is a concept of a NodeLocation in the API.  This corresponds to,
+There is a concept of a `NodeLocation` in the API.  This corresponds to,
 for example, the different geographic regions of Amazon.  This can
 easily correspond to the various cloud infrastructure sections that we
 allow in our standard configuration file.  This provides a name to
 indicate the various endpoints, credentials, etc. tied to a given
 cloud resource.
 
-There is also a StorageVolume in the API to describe volumes that can
+There is also a `StorageVolume` in the API to describe volumes that can
 be attached to a Node.  This corresponds well to the StratusLab
 storage abstraction, although there appear to be no APIs for creating
 or destroying a volume--only attach and detach. 
