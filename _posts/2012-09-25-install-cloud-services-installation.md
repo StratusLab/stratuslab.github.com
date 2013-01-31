@@ -43,7 +43,7 @@ StratusLab Cloud Front-End Deployment
 ###Deployment tool installation
 
 First step is to install the StratusLab Cloud deployment command line client 
-from StratusLab [reporsitory][yum-config]
+from StratusLab [repository][yum-config]
 
     yum install stratuslab-cli-sysadmin
 
