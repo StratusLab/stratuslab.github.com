@@ -1,7 +1,7 @@
 ---
 layout: article
 title: CloudInit Contextualization
-category: review
+category: documentation
 ---
 
 Contextualization allows a virtual machine instance to learn about its

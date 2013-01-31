@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Customized Images
-category: review
+category: documentation
 ---
 
 Being able to fully customize the execution environment is one of the
