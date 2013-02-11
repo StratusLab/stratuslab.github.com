@@ -18,8 +18,7 @@ embedded below.
           src="http://www.slideshare.net/slideshow/embed_code/16461324"
           frameborder="0" 
           width="427" height="356" 
-          allowfullscreen>
-  </iframe>
+          allowfullscreen="1"></iframe>
 </div>
 
 [fosdem]: https://fosdem.org/2013/
