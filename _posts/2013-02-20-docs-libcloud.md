@@ -113,7 +113,7 @@ In detail, the following functions have working implementations:
 The `list_volumes` function is specific to the StratusLab driver and
 is not part of the Libcloud standard abstraction.
 
-The`reboot_node` function will not be implemented as the required
+The `reboot_node` function will not be implemented as the required
 functionality is not provided by a StratusLab cloud.
 
 **Notes** for `deploy_node`:
