@@ -64,27 +64,25 @@ dependencies, you are ready to start using the driver.
 
 From the Python interactive shell do the following:
 
-```python
-from libcloud.compute.providers import set_driver
+    from libcloud.compute.providers import set_driver
 
-set_driver('STRATUSLAB',
-           'stratuslab.libcloud.compute_driver',
-           'StratusLabNodeDriver')
-```
+    set_driver('STRATUSLAB', 
+               'stratuslab.libcloud.compute_driver',
+               'StratusLabNodeDriver')
+
 This registers the driver with the Libcloud library.  This import must
 be done **before** asking Libcloud to use the driver!  Once this is
 done, then the driver can be used like any other Libcloud driver.
 
-```python
-# Obtain an instance of the StratusLab driver. 
-from libcloud.compute.types import Provider
-from libcloud.compute.providers import get_driver
-StratusLabDriver = get_driver('stratuslab')
-driver = StratusLabDriver('default')
+    # Obtain an instance of the StratusLab driver. 
+    from libcloud.compute.types import Provider
+    from libcloud.compute.providers import get_driver
+    StratusLabDriver = get_driver('stratuslab')
+    driver = StratusLabDriver('default')
+    
+    # Use the Libcloud methods to find, create and control nodes.
+    nodes = driver.list_nodes()
 
-# Use the Libcloud methods to find, create and control nodes.
-nodes = driver.list_nodes()
-```
 There are a couple examples in the test area of the GitHub repository
 for this driver [lc-sl-examples].  You can also find general
 information on the Apache Libcloud website.
@@ -112,13 +110,11 @@ In detail, the following functions have working implementations:
 * `attach_volume`: attach a volume to node
 * `detach_volume`: remove a volume from a node
 
-The following function is specific to the StratusLab driver and is not
-part of the Libcloud standard abstraction:
-* `list_volumes`: list the available volumes
+The `list_volumes` function is specific to the StratusLab driver and
+is not part of the Libcloud standard abstraction.
 
-This function will not be implemented as the required functionality is
-not provided by a StratusLab cloud:
-* `reboot_node`
+The`reboot_node` function will not be implemented as the required
+functionality is not provided by a StratusLab cloud.
 
 **Notes** for `deploy_node`:
 
