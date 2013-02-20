@@ -16,18 +16,14 @@ Installing the Driver
 The driver is intended to be installed with pip.  You should be able
 to simply do the following:
 
-```bash
-pip install stratuslab-libcloud-drivers
-```
+    pip install stratuslab-libcloud-drivers
 
 which will install the StratusLab Libcloud driver, Libcloud itself
 (0.12.1), and the StratusLab client.  If you want to use the
 `deploy_node()` function, you'll also need to install paramiko, a
 python SSH library, as well.
 
-```bash
-pip install paramiko
-```
+    pip install paramiko
 
 If pip is configured to do system-wide installations, then the
 PYTHONPATH and PATH should already be set correctly.  If it is setup
