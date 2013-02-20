@@ -15,16 +15,20 @@ Installing the Driver
 
 The driver is intended to be installed with pip.  You should be able
 to simply do the following:
+
 ```bash
 pip install stratuslab-libcloud-drivers
 ```
+
 which will install the StratusLab Libcloud driver, Libcloud itself
 (0.12.1), and the StratusLab client.  If you want to use the
 `deploy_node()` function, you'll also need to install paramiko, a
 python SSH library, as well.
+
 ```bash
 pip install paramiko
 ```
+
 If pip is configured to do system-wide installations, then the
 PYTHONPATH and PATH should already be set correctly.  If it is setup
 for user area installations, you will likely need to set these
@@ -32,8 +36,8 @@ variables by hand.
 
 You can download the package directly from [PyPi][pypi].  The name of
 the package is "stratuslab-libcloud-drivers".  You will also need to
-download and install all of the dependencies.  *Using pip is very
-strongly recommended.*
+download and install all of the dependencies.  **Using pip is very
+strongly recommended.**
 
 
 Configuring the StratusLab Client
@@ -59,6 +63,7 @@ Once you've downloaded, installed, and configured the necessary
 dependencies, you are ready to start using the driver.
 
 From the Python interactive shell do the following:
+
 ```python
 from libcloud.compute.providers import set_driver
 
@@ -69,6 +74,7 @@ set_driver('STRATUSLAB',
 This registers the driver with the Libcloud library.  This import must
 be done **before** asking Libcloud to use the driver!  Once this is
 done, then the driver can be used like any other Libcloud driver.
+
 ```python
 # Obtain an instance of the StratusLab driver. 
 from libcloud.compute.types import Provider
@@ -78,8 +84,6 @@ driver = StratusLabDriver('default')
 
 # Use the Libcloud methods to find, create and control nodes.
 nodes = driver.list_nodes()
-
-# Use other Libcloud methods...
 ```
 There are a couple examples in the test area of the GitHub repository
 for this driver [lc-sl-examples].  You can also find general
