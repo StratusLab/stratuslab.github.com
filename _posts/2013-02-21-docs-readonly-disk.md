@@ -105,14 +105,43 @@ Using the image itself should be straight-forward.  Use
 image.  An example is:
 
     $ stratus-run-instance \
-        --readonly-disk GPAUQFkojP5dMQJNdJ4qD_62mCo \
+        --readonly-disk=GPAUQFkojP5dMQJNdJ4qD_62mCo \
         GJ5vp8gIxhZ1w1MQF16R6MIcNoq
 
 This disk image is a standard image ("Flora and Fauna") used for tests
 of the system.  It contains a hierarchy of files named after animals
 and plants.
 
-TBC...
+Once the machine boots, you can use the command `blkid` to find the
+image.  For this instance, the output looks like the following:
+
+    $ blkid
+    /dev/sda1: UUID="2fb85561-3fc4-4258-b3cf-abd8ae53d18a" TYPE="ext4" 
+    /dev/sda5: UUID="ae3f7fb4-7d0e-4f6a-b91a-2f261be6a75a" TYPE="swap" 
+    /dev/sr0: LABEL="_STRATUSLAB" TYPE="iso9660" 
+    /dev/sdb: UUID="84e95f5f-dd31-4452-beca-2ab2cfd1bb87" TYPE="swap" 
+    /dev/sdc: LABEL="CDROM" TYPE="iso9660" 
+
+In this case, the disk we're looking for is `/dev/sdc`.  The other
+CDROM image with a label '_STRATUSLAB' is the contextualization
+information.
+
+Mount the data disk and look at the data:
+
+    $ mount /dev/sdc /mnt
+    mount: warning: /mnt seems to be mounted read-only.
+
+    $ ls -l /mnt
+    total 4
+    dr-xr-xr-x 1 root root 2048 Jan 26 20:01 animals
+    dr-xr-xr-x 1 root root 2048 Jan 26 20:01 plants
+
+    $ cat /mnt/animals/cat.txt 
+    cat
+
+If you create your disk with a label, then the device can be mounted
+without having to know the actual device ID.  This makes it easier for
+automated scripts to mount the disk.
 
 Conclusions
 -----------
@@ -124,4 +153,3 @@ images from the updates of the datasets.  Because this takes advantage
 of the extensive caching mechanisms of StratusLab, the transfer of
 such images and the creation of disks for each machine instance is
 completely transparent to the user. 
-
