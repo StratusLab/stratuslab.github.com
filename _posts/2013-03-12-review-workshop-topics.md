@@ -15,72 +15,72 @@ component.  Add your name next to the component.
 Collaboration
 -------------
 
-Effort from partners
-Weekly meetings
-Workshops
+* Effort from partners
+* Weekly meetings
+* Workshops
 
 Dissemination
 -------------
 
-Documents
-Videos
-News
-Twitter
-Website
+* Documents
+* Videos
+* News
+* Twitter
+* Website
 
 User/Admin Interaction
 ----------------------
 
-Efficient notification to all users, running users, particular user
-Support channel(s): mailing list, google group, ...
-Expanding user base and admin base? 
+* Efficient notification to all users, running users, particular user
+* Support channel(s): mailing list, google group, ...
+* Expanding user base and admin base? 
 
 Architecture
 ------------
 
-Distributed database centered architecture?
-Removal of OpenNebula? 
+* Distributed database centered architecture?
+* Removal of OpenNebula? 
 
-Standards: CIMI, OCCI, Libcloud, ...?
+* Standards: CIMI, OCCI, Libcloud, ...?
 
-Components to be removed?
-Missing components? 
+* Components to be removed?
+* Missing components? 
 
 Tooling & Testing
 -----------------
 
-Hudson, testbed, nexus, LDAP, ...
+* Hudson, testbed, nexus, LDAP, ...
 
-Testing: unit tests, use cases, ...
+* Testing: unit tests, use cases, ...
 
 Component Issues/Roadmap
 ------------------------
 
-cimi -- Cal
-stratuslab.github.com
-client
-libcloud-drivers -- Cal
-storage
-image-recipes
-marketplace
-metadata -- Cal
-one
-registration -- Cal
-benchmarks
-authn
-use-cases -- Cal
-monitoring
-rOCCI-server
+* cimi -- Cal
+* stratuslab.github.com
+* client
+* libcloud-drivers -- Cal
+* storage
+* image-recipes
+* marketplace
+* metadata -- Cal
+* one
+* registration -- Cal
+* benchmarks
+* authn
+* use-cases -- Cal
+* monitoring
+* rOCCI-server
 
 Missing Components
 ------------------
 
-Monitoring
-Accounting
-Effective resource mgt. tools
-Effective user notification tools
+* Monitoring
+* Accounting
+* Effective resource mgt. tools
+* Effective user notification tools
 
 Overall Roadmap
 ---------------
 
-Define functional roadmap for planned releases.
+* Define functional roadmap for planned releases.
