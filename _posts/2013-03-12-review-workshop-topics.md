@@ -62,7 +62,7 @@ Component Issues/Roadmap
 * libcloud-drivers -- Cal
 * storage
 * image-recipes
-* marketplace
+* marketplace -- Stuart
 * metadata -- Cal
 * one
 * registration -- Cal
