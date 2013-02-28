@@ -6,7 +6,7 @@ category: news
 ---
 
 StratusLab demonstrated some new features of its cloud distribution at
-Cloudscape[cloudscape] V held in Brussels, Belgium on the 27-28
+[Cloudscape][cloudscape] V held in Brussels, Belgium on the 27-28
 February.  The presentation highlighted a new way to easily install
 the StratusLab client, using CloudInit for contextualizing machine
 images, and using the Apache Libcloud API to access StratusLab
