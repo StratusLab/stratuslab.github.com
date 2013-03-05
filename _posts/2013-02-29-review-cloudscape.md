@@ -15,10 +15,12 @@ resources.
 The demonstration is available from YouTube.  Take a look and try out
 the new features!
 
+<div class="video-container">
   <iframe width="560" height="315"
           src="http://www.youtube.com/embed/76zeUZysLcc"
           frameborder="0"
-          allowfullscreen="1"></iframe>
+          allowfullscreen=""></iframe>
+</div>
 
 
 [cloudscape]: http://www.cloudscapeseries.eu/
