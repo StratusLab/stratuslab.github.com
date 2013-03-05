@@ -18,7 +18,7 @@ shortly.
   <iframe class="video"
           src="http://www.slideshare.net/slideshow/embed_code/16461324"
           frameborder="0" 
-          allowfullscreen=""></iframe>
+          allowfullscreen=""><!-- DO NOT REMOVE --></iframe>
 </div>
 
 [fosdem]: https://fosdem.org/2013/

@@ -19,7 +19,7 @@ the new features!
   <iframe class="video"
           src="http://www.youtube.com/embed/76zeUZysLcc"
           frameborder="0"
-          allowfullscreen=""></iframe>
+          allowfullscreen=""><!-- DO NOT REMOVE --></iframe>
 </div>
 
 
