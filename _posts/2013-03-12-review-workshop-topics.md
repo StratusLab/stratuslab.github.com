@@ -61,16 +61,16 @@ Component Issues/Roadmap
 * client
 * libcloud-drivers -- Cal
 * storage
-* image-recipes
+* image-recipes -- Mohammed
 * marketplace -- Stuart
 * metadata -- Cal
 * one
 * registration -- Cal
-* benchmarks
+* benchmarks -- Mohammed
 * authn
 * use-cases -- Cal
 * monitoring
-* rOCCI-server
+* rOCCI-server -- Mohammed
 
 Missing Components
 ------------------
