@@ -62,17 +62,6 @@ Component Issues/Roadmap
 * libcloud-drivers -- Cal
 * storage
 * image-recipes -- Mohammed
-* marketplace -- Stuart
-  * current functionality
-    * web functionality, search, etc.
-    * create list of changes
-  * missing functionality
-    * replication (urgent) (will depend on dist. DB architecture)
-    * public/private marketplace
-    * suggested new features
-  * others
-    * name change
-    * server relocation
 * metadata -- Cal
 * one
 * registration -- Cal
@@ -81,6 +70,24 @@ Component Issues/Roadmap
 * use-cases -- Cal
 * monitoring
 * rOCCI-server -- Mohammed
+
+
+Marketplace -- Stuart
+---------------------
+
+Current functionality
+* web functionality, search, etc.
+* create list of changes
+
+Missing functionality
+* replication (urgent) (will depend on dist. DB architecture)
+* public/private marketplace
+* suggested new features
+
+Others
+* name change
+* server relocation
+
 
 Missing Components
 ------------------
