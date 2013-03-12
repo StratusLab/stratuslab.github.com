@@ -63,6 +63,16 @@ Component Issues/Roadmap
 * storage
 * image-recipes
 * marketplace -- Stuart
+  * current functionality
+    * web functionality, search, etc.
+    * create list of changes
+  * missing functionality
+    * replication (urgent) (will depend on dist. DB architecture)
+    * public/private marketplace
+    * suggested new features
+  * others
+    * name change
+    * server relocation
 * metadata -- Cal
 * one
 * registration -- Cal
