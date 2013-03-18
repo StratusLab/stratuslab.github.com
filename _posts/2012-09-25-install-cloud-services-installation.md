@@ -26,6 +26,7 @@ Prerequisites
 + [EPEL][epel] 6 repository enabled on Front-End
 + Python **>= 2.6 and < 3.x** on Front-End and Node
 + password-less SSH for **root** from Front-End to Node 
++ password-less SSH for **root** from Front-End to Front-End 
 + a block device (can be a loop device) to host LVM for VM images backend
 + a network bridge **br0** configured on Node (for VM networks)
 + a default DHCP server must be configured to assign statically IP addresses 
@@ -113,6 +114,9 @@ If errors occur, you can increase the verbosity level by adding -vv.
 
 StratusLab Cloud Node Deployment
 -------------------------------------
+
+The deployment of the StratusLab Nodes is done from the Front-End, thus, all the 
+commands below should be run from the Front-End.
 
 To add a Node to the Cloud, specify the Linux distribution of the machine
 
