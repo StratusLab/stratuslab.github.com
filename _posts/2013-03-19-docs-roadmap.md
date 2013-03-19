@@ -118,7 +118,7 @@ classes will remain.
 Image Management
 ----------------
 
-### Multiple Marketplaces
+### Multiple Marketplaces (13.05)
 
 One fundamental change for image management is how the Marketplace
 instance is defined.  Currently, only one Marketplace can be used and
@@ -137,7 +137,7 @@ Marketplace used to upload new metadata entries.  All other commands
 will use the list of Marketplace servers provided by the cloud
 administrator.
 
-### Replication
+### Replication (13.08)
 
 The Marketplace will be updated to use a git repository for the
 primary storage of the image metadata entries.  This will allow
@@ -147,7 +147,7 @@ synchonized.
 This will work with the previous feature to avoid having the public
 Marketplace as a single point of failure.
 
-### Metadata Schema Updates
+### Metadata Schema Updates (13.05)
 
 The metadata management functions will support a new element in the
 image descriptions--dc:alternative.  This will provide an alternative
@@ -155,7 +155,7 @@ name for an image.  This will be used to provide a stable URL for a
 series of related images.  For example, the latest ubuntu image from
 StratusLab would have a stable URL like:
 
-    https://marketplace.stratuslab.eu/images@stratuslab.eu&tag=ubuntu
+    https://marketplace.stratuslab.eu/metadata/images@stratuslab.eu&tag=ubuntu
 
 As security patches and updates are applied, this URL will remain
 stable, although the underlying image identifiers will change.
@@ -166,7 +166,7 @@ image and the minimum resource requirements (e.g. minimum RAM).  This
 will allow the cloud software to more intelligently handle user
 requests.
 
-### Updated Images
+### Updated Images (13.05 and 13.08)
 
 With each release, the StratusLab base images will be updated to
 reflect patches available in the various operating system
