@@ -30,7 +30,7 @@ The StratusLab developers have decided to move towards an architecture
 centered on a distributed document database.  The following schematic
 diagram shows the new architecture:
 
-<img href="http://stratuslab.eu/img/high-level-architecture-2.png" />
+<img src="http://stratuslab.eu/img/high-level-architecture-2.png" />
 
 The main reason for this change is to improve the scalability of the
 StratusLab distribution.  Centering the architecture on a distributed
