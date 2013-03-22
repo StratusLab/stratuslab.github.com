@@ -6,17 +6,18 @@ category: review
 
 At their recent workshop, the StratusLab developers laid out the
 roadmap for the upcoming releases for May (13.05) and August (13.08).
-They've adopted a new architecture centered on [Couchbase][couchbase]
-as a distributed document database.  Users will see a more scalable
-and robust infrastructure; administrators will appreciate simplified
-deployment and management.
+They've adopted a new architecture that will allow more scalable and
+robust StratusLab clouds while simplifying the deployment and
+management.  
 
-The three high-level goals are:
+Despite some rather major changes, the command line interface will
+remain stable to avoid disruptions for users.  The four high-level
+goals for these releases are:
+
 * Move to database-centered architecture,
+* Use libvirt directly for VM management, removing OpenNebula,
 * Use CIMI as our native REST API, and
 * Provide a management dashboard.
-These will be implemented gradually over the next two releases to
-minimize disruption for the administrators and users.
 
 In addition to these overarching goals, the roadmap contains a number
 of smaller changes that will improve the functionality of services and
