@@ -12,7 +12,7 @@ administrators through the monitoring portal.
 
 The diagram below shows the general flow of the logging information.
 
-<img width="500px" src="http://stratuslab.eu/img/logging-design.png" />
+<img width="600px" src="http://stratuslab.eu/img/logging-design.png" />
 
 Essentially, a python logging handler will be created that will log
 the events into Couchbase.  This will require the modification of the

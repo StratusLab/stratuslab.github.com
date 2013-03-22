@@ -15,7 +15,7 @@ then be sent to users to advise them of their usage.
 The diagram below summarizes the flow for collecting the compute
 resource utilization.
 
-<img width="500px" src="http://stratuslab.eu/img/accounting-design.png" />
+<img width="600px" src="http://stratuslab.eu/img/accounting-design.png" />
 
 For each VM host, a cron job will collect the cumulative resource
 utilization for each machine and publish that information into the
