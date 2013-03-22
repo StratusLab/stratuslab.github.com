@@ -7,8 +7,8 @@ category: review
 At their recent workshop, the StratusLab developers laid out the
 roadmap for the upcoming releases for May (13.05) and August (13.08).
 They've adopted a new architecture that will allow more scalable and
-robust StratusLab clouds while simplifying the deployment and
-management.  
+robust StratusLab clouds, while simplifying their deployment and
+management.
 
 Despite some rather major changes, the command line interface will
 remain stable to avoid disruptions for users.  The four high-level
@@ -54,7 +54,8 @@ Client Commands and APIs
 The REST API for the StratusLab services will change drastically over
 the next couple of releases; however, users of the higher-level
 Libcloud API and command line interface should be protected from these
-changes. 
+changes.  These changes will take place incrementally over the 13.05
+and 13.08 releases.
 
 ### Command Line Interface
 
@@ -94,14 +95,14 @@ The planned changes for the resource services (compute, storage, and
 network) will make them more reliable and easier to manage.  These
 changes will generally not be directly visible by the users. 
 
-### Compute
+### Compute (13.08)
 
 OpenNebula will be removed from the StratusLab distribution.
 Currently we're essentially using OpenNebula as an interface to
 libvirt.  Removing OpenNebula and directly using libvirt will
 significantly reduce the complexity of StratusLab. 
 
-### Storage
+### Storage (13.05, 13.08)
 
 The way the storage (pdisk) service interacts with physical storage
 will be significantly reworked to make it more compatible with
@@ -109,7 +110,7 @@ high-performance storage appliances and with libvirt.  This again will
 significantly reduce the complexity of these services and improve
 reliability.
 
-### Network
+### Network (13.05)
 
 The 'private' network class will be removed.  This is little used and
 creates extra work for administrators.  The 'public' and 'local'
@@ -194,6 +195,9 @@ information into the database.  In the short term, these probes will
 concentrate on VM resource use, allowing an overview of resource use
 and eventually accounting.  Probes for VM logs will also be created so
 that both administrators and users can see the VM progress. 
+
+An initial dashboard will be present in the 13.05 release; a more
+complete service will appear in 13.08.
 
 
 Conclusions
