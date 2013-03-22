@@ -151,10 +151,11 @@ Marketplace as a single point of failure.
 ### Metadata Schema Updates (13.05)
 
 The metadata management functions will support a new element in the
-image descriptions--dc:alternative.  This will provide an alternative
-name for an image.  This will be used to provide a stable URL for a
-series of related images.  For example, the latest ubuntu image from
-StratusLab would have a stable URL like:
+image descriptions--alternative (in [Dublin Core terms][dcterms]
+namespace).  This will provide an alternative name for an image.  This
+will be used to provide a stable URL for a series of related images.
+For example, the latest ubuntu image from StratusLab would have a
+stable URL like:
 
     https://marketplace.stratuslab.eu/metadata/images@stratuslab.eu&tag=ubuntu
 
@@ -206,3 +207,4 @@ interface for the cloud services.
 
 [couchbase]: http://www.couchbase.com/
 [cimi]: http://dmtf.org/sites/default/files/standards/documents/DSP0263_1.0.1.pdf
+[dcterms]: http://dublincore.org/documents/dcmi-terms/
