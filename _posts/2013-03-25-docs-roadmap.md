@@ -152,7 +152,7 @@ Marketplace as a single point of failure.
 ### Metadata Schema Updates (13.05)
 
 The metadata management functions will support a new element in the
-image descriptions--alternative (in [Dublin Core terms][dcterms]
+image descriptions--**alternative** (in [Dublin Core terms][dcterms]
 namespace).  This will provide an alternative name for an image.  This
 will be used to provide a stable URL for a series of related images.
 For example, the latest ubuntu image from StratusLab would have a
