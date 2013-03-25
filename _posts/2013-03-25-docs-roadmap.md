@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Development Roadmap
-category: review
+category: documentation
 ---
 
 At their recent workshop, the StratusLab developers laid out the
