@@ -4,7 +4,7 @@ title: Cloud Installation Tutorial
 category: review
 ---
 
-This tutorial demonstrates how to install maually a StratusLab cloud
+This tutorial demonstrates how to install manually a StratusLab cloud
 infrastructure using the StratusLab system administrator command line
 utilities.  Two physical machines are needed to install a minimal
 StratusLab cloud.  Additional machines may be necessary if access to
