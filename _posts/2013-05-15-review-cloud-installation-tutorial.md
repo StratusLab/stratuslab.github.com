@@ -73,10 +73,8 @@ installed.  The other's require additional configuration.
 To configure the Front End and Node for the EPEL repository, do the
 following: 
 
-```bash
-wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
-yum install -y epel-release-6-8.noarch.rpm
-```
+    wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
+    yum install -y epel-release-6-8.noarch.rpm
 
 This will add the necessary files to the `/etc/yum.repos.d/`
 directory. 
@@ -84,22 +82,18 @@ directory.
 To configure the Front End and Node for the StratusLab repository, put
 the following into the file `/etc/yum.repos.d/stratuslab.repo`:
 
-```
-[StratusLab-Releases]
-name=StratusLab-Releases
-baseurl=http://yum.stratuslab.eu/releases/centos-6.2-v13.02/
-gpgcheck=0
-```
+    [StratusLab-Releases]
+    name=StratusLab-Releases
+    baseurl=http://yum.stratuslab.eu/releases/centos-6.2-v13.02/
+    gpgcheck=0
 
 replacing the URL with the version you want to install.
 
 Although not strictly necessary, it is advisable to clear all of the
 yum caches and upgrade the packages to the latest versions:
 
-```
-yum clean all
-yum upgrade -y
-```
+    yum clean all
+    yum upgrade -y
 
 This may take some time if you installed the base operating system
 from old media. 
@@ -111,9 +105,7 @@ this is enabled by default, so you must change the file
 `/etc/selinux/config`.  To disable SELinux, ensure that the file has
 the following line:
 
-```
-SELINUX=disabled
-```
+    SELINUX=disabled
 
 **You must reboot the machine for this to take effect.**  
 
@@ -125,7 +117,7 @@ the Node.  This is required for critical services to start.
 You can verify this on both the Front End and the Node with the
 command: 
 
-``` $ hostname -f frontend.example.org ```
+    $ hostname -f frontend.example.org
 
 Set the hostname if it is not correct. 
 
@@ -142,66 +134,58 @@ End and to the Front End itself.
 Check to see if there is already an SSH key pair in
 `/root/.ssh/id_rsa*`.  If not, then you need to create a new key pair
 **without a password**: 
-```
-$ ssh-keygen 
+    $ ssh-keygen 
 
-Generating public/private rsa key pair.
-Enter file in which to save the key (/root/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /root/.ssh/id_rsa.
-Your public key has been saved in /root/.ssh/id_rsa.pub.
-The key fingerprint is:
-46:64:0d:47:1b:a8:07:fd:c6:42:23:cf:2f:2d:f1:54
-root@frontend.example.org
-```
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/root/.ssh/id_rsa): 
+    Enter passphrase (empty for no passphrase): 
+    Enter same passphrase again: 
+    Your identification has been saved in /root/.ssh/id_rsa.
+    Your public key has been saved in /root/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    46:64:0d:47:1b:a8:07:fd:c6:42:23:cf:2f:2d:f1:54
+    root@frontend.example.org
 
 Now we need to ensure that you can log into the Front End from the
 Front End without needing a password.  Do the following:
 
-```
-$ ssh-copy-id frontend.example.org 
+    $ ssh-copy-id frontend.example.org 
 
-The authenticity of host 'frontend.example.org (0.0.0.0)' can't
-be established.
-RSA key fingerprint is
-07:6d:3b:d1:65:7f:5b:8b:e5:59:e4:fc:da:2f:3c:b8.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'frontend.example.org,0.0.0.0' (RSA)
-to the list of known hosts.
-root@frontend.example.org's password: 
-Now try logging into the machine, with "ssh 'frontend.example.org'",
-and check in:
+    The authenticity of host 'frontend.example.org (0.0.0.0)' can't
+    be established.
+    RSA key fingerprint is
+    07:6d:3b:d1:65:7f:5b:8b:e5:59:e4:fc:da:2f:3c:b8.
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added 'frontend.example.org,0.0.0.0' (RSA)
+    to the list of known hosts.
+    root@frontend.example.org's password: 
+    Now try logging into the machine, with "ssh 'frontend.example.org'",
+    and check in:
 
-  .ssh/authorized_keys
+      .ssh/authorized_keys
 
-to make sure we haven't added extra keys that you weren't expecting.
-```
+    to make sure we haven't added extra keys that you weren't expecting.
 
 And verify that the password-less access works as expected. 
 
-```
-$ ssh root@frontend.example.org 
+    $ ssh root@frontend.example.org 
 
-Last login: Wed May 15 11:26:07 2013 from frontend.example.org
+    Last login: Wed May 15 11:26:07 2013 from frontend.example.org
 
-$ exit
+    $ exit
 
-logout
-Connection to frontend.example.org closed.
-```
+    logout
+    Connection to frontend.example.org closed.
 
 Now the same must be done for the Node.  From the **Front End** do the
 following: 
 
-```
-$ ssh-copy-id node1.example.org  # copy SSH key
-...
-$ ssh root@node1.example.org  # verify login works
-...
-$ exit  # be sure to logout from node!
-...
-```
+    $ ssh-copy-id node1.example.org  # copy SSH key
+    ...
+    $ ssh root@node1.example.org  # verify login works
+    ...
+    $ exit  # be sure to logout from node!
+    ...
 
 Now SSH is properly configured so that the StratusLab scripts will be
 able to install software on both the Front End and the Node. 
@@ -215,10 +199,8 @@ later**.  The StratusLab command line tools **do not work with Python
 
 Verify that the correct version of Python is installed:
 
-```
-$ python --version
-Python 2.6.6
-```
+    $ python --version
+    Python 2.6.6
 
 ### DHCP Server
 
@@ -248,22 +230,18 @@ The first step is to install the StratusLab system administrator
 command line client from the StratusLab [repository][stratuslab-yum]
 **on the Front End**:
 
-```
-$ yum install -y stratuslab-cli-sysadmin
-```
+    $ yum install -y stratuslab-cli-sysadmin
 
 This will install the system administrator client and all of the
 necessary dependencies.  You can verify that it is correctly installed
 by doing the following:
 
-```
-$ stratus-config --help
+    $ stratus-config --help
 
-Usage: stratus-config [options] [key [value]]
-If the [value] is not provided, the command returns the current value
-of the key.
-...
-```
+    Usage: stratus-config [options] [key [value]]
+    If the [value] is not provided, the command returns the current value
+    of the key.
+    ...
 
 ### Configuration file customization
 
@@ -282,11 +260,9 @@ To list the content of the configuration, and show the differences
 between the `stratuslab.cfg` file and the reference configuration, you
 can use the `-k` or `-keys` option:
 
-```
-$ stratus-config -k
+    $ stratus-config -k
 
-... lots of parameter values! ...
-```
+    ... lots of parameter values! ...
 
 To change a value, specify the key and the new value. To view a single
 value, simply specify the key.  We will use this command to configure
@@ -296,17 +272,15 @@ the various StratusLab services below.
 
 The following parameters are required to be set.
 
-```
-# Linux machine distribution (normally centos by default)
-stratus-config frontend_system centos
+    # Linux machine distribution (normally centos by default)
+    stratus-config frontend_system centos
 
-# Front-End IP (change!)
-stratus-config frontend_ip 192.0.43.10
+    # Front-End IP (change!)
+    stratus-config frontend_ip 192.0.43.10
 
-# Public network for VMs (change!)
-stratus-config one_public_network_addr "192.0.111.110 192.0.111.111"
-stratus-config one_public_network_mac "00:11:22:33:44:55 00:11:22:33:44:56"
-```
+    # Public network for VMs (change!)
+    stratus-config one_public_network_addr "192.0.111.110 192.0.111.111"
+    stratus-config one_public_network_mac "00:11:22:33:44:55 00:11:22:33:44:56"
 
 In this example, the Front-End is configured on IP address
 192.0.43.10, and two IP/MAC address pairs are defined, which must
@@ -324,11 +298,9 @@ Similar parameters must also be set for the Persistent Disk service.
 For this tutorial, this service is installed on the Front End, so the
 same IP address should be used. 
 
-```
-# Persistent Disk
-stratus-config persistent_disk_system centos
-stratus-config persistent_disk_ip 192.0.43.10
-```
+    # Persistent Disk
+    stratus-config persistent_disk_system centos
+    stratus-config persistent_disk_ip 192.0.43.10
 
 The Persistent Disk service and the Nodes communicate using a share
 strategy defined by `persistent_disk_storage` and
@@ -338,19 +310,17 @@ strategy defined by `persistent_disk_storage` and
 One needs to specify what device will be used for the physical storage
 for the Persistent Disk service:
 
-```
-stratus-config persistent_disk_physical_devices /dev/vg.02
-stratus-config persistent_disk_merge_auth_with_proxy True 
-stratus-config persistent_disk_lvm_device /dev/vg.02
-stratus-config persistent_disk_backend_sections '
-[%(persistent_disk_ip)s]
-        type=LVM
-        volume_name = /dev/vg.02
-        lun_namespace = stratuslab
-        volume_snapshot_prefix = pdisk_clone
-        initiator_group =
-'
-```
+    stratus-config persistent_disk_physical_devices /dev/vg.02
+    stratus-config persistent_disk_merge_auth_with_proxy True 
+    stratus-config persistent_disk_lvm_device /dev/vg.02
+    stratus-config persistent_disk_backend_sections '
+    [%(persistent_disk_ip)s]
+            type=LVM
+            volume_name = /dev/vg.02
+            lun_namespace = stratuslab
+            volume_snapshot_prefix = pdisk_clone
+            initiator_group =
+    '
 
 If you've used another name for the LVM volume group, then change the
 above command.
@@ -360,22 +330,20 @@ above command.
 Allow the script to automatically configuration and start the DHCP
 server on the Front End.  Do the following:
 
-```
-stratus-config default_gateway fontend.example.org
+    stratus-config default_gateway fontend.example.org
 
-stratus-config dhcp True
-stratus-config dhcp_subnet 192.0.43.0
-stratus-config dhcp_netmask 255.255.255.0
-stratus-config dhcp_one_public_network True
+    stratus-config dhcp True
+    stratus-config dhcp_subnet 192.0.43.0
+    stratus-config dhcp_netmask 255.255.255.0
+    stratus-config dhcp_one_public_network True
 
-stratus-config dhcp_one_public_network True
-stratus-config dhcp_one_public_network_broadcast x.x.x.x
-stratus-config dhcp_one_public_network_domain_name x.x.x.x
-stratus-config dhcp_one_public_network_domain_name_servers x.x.x.x
-stratus-config dhcp_one_public_network_netmask x.x.x.x
-stratus-config dhcp_one_public_network_routers x.x.x.x
-stratus-config dhcp_one_public_network_subnet x.x.x.x
-```
+    stratus-config dhcp_one_public_network True
+    stratus-config dhcp_one_public_network_broadcast x.x.x.x
+    stratus-config dhcp_one_public_network_domain_name x.x.x.x
+    stratus-config dhcp_one_public_network_domain_name_servers x.x.x.x
+    stratus-config dhcp_one_public_network_netmask x.x.x.x
+    stratus-config dhcp_one_public_network_routers x.x.x.x
+    stratus-config dhcp_one_public_network_subnet x.x.x.x
 
 ### Finalize Front End Installation
 
@@ -383,9 +351,7 @@ Now that we have defined all of the configuration parameters, you can
 now do the full Front End installation by issuing the following
 command: 
 
-```
-stratus-install
-```
+    stratus-install
 
 If errors occur, you can increase the verbosity level by using the
 option `-v` or `-vv`.  The command is intelligent enough to be run
@@ -401,17 +367,13 @@ thus, all the commands below should be run from the Front End.
 To add a Node to the Cloud, specify the Linux distribution of the
 machine
 
-```
-stratus-config node_system centos
-stratus-config node_bridge_configure True
-stratus-config node_bridge_name br0
-```
+    stratus-config node_system centos
+    stratus-config node_bridge_configure True
+    stratus-config node_bridge_name br0
 
 then invoke installation by
 
-``` 
-stratus-install -n <NODE_IP>
-```
+    stratus-install -n <NODE_IP>
 
 If errors occur, you can increase the verbosity level by adding -vv.
 
@@ -421,98 +383,77 @@ StratusLab Client
 
 Now we will install the StratusLab client and test our installation. 
 
-```
-yum install -y stratuslab-cli-user  # probably already installed
-```
+    yum install -y stratuslab-cli-user  # probably already installed
 
 Create a StratusLab user. 
 
-```
-$ cd /etc/stratuslab/authn
-$ cat >> login-pswd.properties << EOF
-sltutor=sltutor,cloud-access
-EOF
+    $ cd /etc/stratuslab/authn
+    $ cat >> login-pswd.properties << EOF
+    sltutor=sltutor,cloud-access
+    EOF
 
 Create a normal user for testing. 
 
-```
-adduser sltutor
-```
+    adduser sltutor
 
 Log in as the user and create an ssh key
 
-```
-$ su - sltutor
-$ ssh-keygen 
-...
-$ mkdir .statuslab 
-$ cp /etc/stratuslab/stratuslab-user.cfg.ref
-.stratuslab/stratuslab-user.cfg 
-vi .stratuslab/stratuslab-user.cfg # endpoint, username, password
-```
+    $ su - sltutor
+    $ ssh-keygen 
+    ...
+    $ mkdir .statuslab 
+    $ cp /etc/stratuslab/stratuslab-user.cfg.ref
+    .stratuslab/stratuslab-user.cfg 
+    vi .stratuslab/stratuslab-user.cfg # endpoint, username, password
 
 Deploy a machine.
 
-```
-[sltutor@onehost-5 ~]$ stratus-run-instance
-BN1EEkPiBx87_uLj2-sdybSI-Xb 
+    $ stratus-run-instance BN1EEkPiBx87_uLj2-sdybSI-Xb 
 
- :::::::::::::::::::::::::
- :: Starting machine(s) ::
- :::::::::::::::::::::::::
- :: Starting 1 machine
- :: Machine 1 (vm ID: 1)
- Public ip: 134.158.75.42
- :: Done!
-[sltutor@onehost-5 ~]$ stratus-describe-instance 
-id  state     vcpu memory    cpu% host/ip                 name
-1   Pending   1    0         0    vm-42.lal.stratuslab.eu one-1
-[sltutor@onehost-5 ~]$ stratus-describe-instance 
-id  state     vcpu memory    cpu% host/ip                 name
-1   Prolog    1    0         0    vm-42.lal.stratuslab.eu one-1
-[sltutor@onehost-5 ~]$ stratus-describe-instance 
-id  state     vcpu memory    cpu% host/ip                 name
-1   Prolog    1    0         0    vm-42.lal.stratuslab.eu one-1
-[sltutor@onehost-5 ~]$ stratus-describe-instance 
-id  state     vcpu memory    cpu% host/ip                 name
-1   Running   1    0         0    vm-42.lal.stratuslab.eu one-1
-[sltutor@onehost-5 ~]$ ping vm-42.lal.stratuslab.eu 
-PING vm-42.lal.stratuslab.eu (134.158.75.42) 56(84) bytes of data.
-From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=2 Destination Host
- Unreachable
-From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=3 Destination Host
- Unreachable
-From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=4 Destination Host
- Unreachable
-From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=6 Destination Host
- Unreachable
-From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=7 Destination Host
- Unreachable
-From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=8 Destination Host
- Unreachable
-64 bytes from vm-42.lal.stratuslab.eu (134.158.75.42): icmp_seq=9
- ttl=64 time=1.44 ms
-64 bytes from vm-42.lal.stratuslab.eu (134.158.75.42): icmp_seq=10
- ttl=64 time=0.443 ms
-64 bytes from vm-42.lal.stratuslab.eu (134.158.75.42): icmp_seq=11
- ttl=64 time=0.244 ms
-^C
---- vm-42.lal.stratuslab.eu ping statistics ---
-11 packets transmitted, 3 received, +6 errors, 72% packet loss, time
- 10046ms
-rtt min/avg/max/mdev = 0.244/0.711/1.448/0.527 ms, pipe 3
-[sltutor@onehost-5 ~]$ ssh root@vm-42.lal.stratuslab.eu 
-The authenticity of host 'vm-42.lal.stratuslab.eu (134.158.75.42)'
- can't be established.
-RSA key fingerprint is
- 6a:bd:f7:2d:b6:82:39:61:e6:ca:3f:c7:61:9d:72:31.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'vm-42.lal.stratuslab.eu,134.158.75.42'
- (RSA) to the list of known hosts.
-# exit
-logout
-Connection to vm-42.lal.stratuslab.eu closed.
-```
+     :::::::::::::::::::::::::
+     :: Starting machine(s) ::
+     :::::::::::::::::::::::::
+     :: Starting 1 machine
+     :: Machine 1 (vm ID: 1)
+     Public ip: 134.158.75.42
+     :: Done!
+
+    $ stratus-describe-instance 
+    id  state     vcpu memory    cpu% host/ip                 name
+    1   Pending   1    0         0    vm-42.lal.stratuslab.eu one-1
+
+    $ stratus-describe-instance 
+    id  state     vcpu memory    cpu% host/ip                 name
+    1   Prolog    1    0         0    vm-42.lal.stratuslab.eu one-1
+
+    $ stratus-describe-instance 
+    id  state     vcpu memory    cpu% host/ip                 name
+    1   Running   1    0         0    vm-42.lal.stratuslab.eu one-1
+    
+    $ ping vm-42.lal.stratuslab.eu 
+    PING vm-42.lal.stratuslab.eu (134.158.75.42) 56(84) bytes of data.
+    From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=2 Destination Host
+     Unreachable
+    ...
+    From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=8 Destination Host
+     Unreachable
+    64 bytes from vm-42.lal.stratuslab.eu (134.158.75.42): icmp_seq=9
+     ttl=64 time=1.44 ms
+    ...
+
+    $ ssh root@vm-42.lal.stratuslab.eu 
+
+    The authenticity of host 'vm-42.lal.stratuslab.eu (134.158.75.42)'
+     can't be established.
+    RSA key fingerprint is
+     6a:bd:f7:2d:b6:82:39:61:e6:ca:3f:c7:61:9d:72:31.
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added 'vm-42.lal.stratuslab.eu,134.158.75.42'
+     (RSA) to the list of known hosts.
+
+    # exit
+    logout
+    Connection to vm-42.lal.stratuslab.eu closed.
 
 [epel]: http://fedoraproject.org/wiki/EPEL
 [stratuslab-yum]: http://yum.stratuslab.eu
