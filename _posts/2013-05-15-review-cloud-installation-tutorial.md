@@ -78,8 +78,8 @@ installed.  The others require additional configuration.
 To configure the Front End and Node for the EPEL repository, do the
 following: 
 
-    wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
-    yum install -y epel-release-6-8.noarch.rpm
+    $ wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
+    $ yum install -y epel-release-6-8.noarch.rpm
 
 This will add the necessary files to the `/etc/yum.repos.d/`
 directory.
@@ -97,8 +97,8 @@ replacing the URL with the version you want to install.
 Although not strictly necessary, it is advisable to clear all of the
 yum caches and upgrade the packages to the latest versions:
 
-    yum clean all
-    yum upgrade -y
+    $ yum clean all
+    $ yum upgrade -y
 
 This may take some time if you installed the base operating system
 from old media. 
@@ -122,7 +122,7 @@ the Node.  This is required for critical services to start.
 You can verify this on both the Front End and the Node with the
 command: 
 
-    $ hostname -f frontend.example.org
+    $ hostname -f
 
 Set the hostname if it is not correct. 
 
