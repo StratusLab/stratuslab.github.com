@@ -28,7 +28,7 @@ Username/Password File
 ----------------------
 
 To allow someone access with a username/password, edit the file 
-/etc/stratuslab/one-proxy/login-pswd.properties, adding entries like the following
+/etc/stratuslab/authn/login-pswd.properties, adding entries like the following
 
     me=mypswd,cloud-access
 
