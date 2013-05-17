@@ -204,15 +204,15 @@ To generate an SSH key pair on a linux or Unix system, follow the above instruct
 In your Windows machine, install Putty and PuttyGen from [page][putty-gen].
 
 To import your id_rsa file to Putty:
-1)Start PuttyGen, 
-2)Click "Load", and browse to your id_rsa file,
-3)Click "Save private key". Your private key will be saved in the format required by Putty.
+1. Start PuttyGen, 
+2. Click "Load", and browse to your id_rsa file,
+3. Click "Save private key". Your private key will be saved in the format required by Putty.
 
 To log in your virtual machine using Putty:
-1)Start Putty,
-2)In "session" category provide the Host Name or IP address
-3)In Connection/SSh/Auth category, in "Private key for authentication" field, browse to your private key.
-4)Open
+1. Start Putty,
+2. In "session" category provide the Host Name or IP address
+3. In Connection/SSh/Auth category, in "Private key for authentication" field, browse to your private key.
+4. Open
 
 
 More information on how to "Connecting to Linux/UNIX Instances from Windows Using PuTTY" can be found on this [page][amazon-ssh] 
