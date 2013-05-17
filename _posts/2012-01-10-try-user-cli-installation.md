@@ -197,11 +197,25 @@ provides the correct password for that key.
 
 ####Windows
 
-Please follow instruction on this [page][amazon-ssh] on how to
-generate and use user SSH keys on Windows with PuTTY to be able to
-connect to Linux/UNIX machines.  Be sure to keep your generated SSH
-key on a single line to avoid connection problems.
+* You need to generate an SSH key pair on a linux or Unix system.
+* Import the private key into Putty
 
+To generate an SSH key pair on a linux or Unix system, follow the above instructions described  in the Linux/UNIX part above.  
+In your Windows machine, install Putty and PuttyGen from [page][putty-gen].
+
+To import your id_rsa file to Putty:
+1)Start PuttyGen, 
+2)Click "Load", and browse to your id_rsa file,
+3)Click "Save private key". Your private key will be saved in the format required by Putty.
+
+To log in your virtual machine using Putty:
+1)Start Putty,
+2)In "session" category provide the Host Name or IP address
+3)In Connection/SSh/Auth category, in "Private key for authentication" field, browse to your private key.
+4)Open
+
+
+More information on how to "Connecting to Linux/UNIX Instances from Windows Using PuTTY" can be found on this [page][amazon-ssh] 
 
 [python]: http://python.org/
 [yum]: http://yum.baseurl.org/
@@ -212,3 +226,4 @@ key on a single line to avoid connection problems.
 [sl-ref-infra]: /try/2012/12/04/try-reference-cloud-infrastructures.html
 [launch-vm]: /try/2012/01/01/try-launch-vm.html
 [user-creds-docu]: /documentation/2012/10/05/docs-tutor-user-credentials.html
+[putty-gen]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
