@@ -62,7 +62,7 @@ Username/Password from LDAP
 
 To tie the authentication to your LDAP server, edit the section of the 
 /etc/stratuslab/authn/login.conf file containing the LDAP configuration. You 
-must currently provide a group called “cloud-access” containing users who can 
+must currently provide a group called "cloud-access" containing users who can 
 access your cloud installation.
 
 It is recommended that you leave the debug flag set until the connections 
