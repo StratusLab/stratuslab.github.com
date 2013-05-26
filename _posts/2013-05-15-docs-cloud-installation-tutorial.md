@@ -372,14 +372,13 @@ above command.
 
 ### DHCP Configuration
 
-Allow the script to automatically configuration and start the DHCP
-server on the Front End.  Do the following:
+Allow the script to automatically configure and start the DHCP server
+on the Front End.  Do the following:
 
     # Configure DHCP and enable the "public" network.
     $ stratus-config dhcp True
     $ stratus-config dhcp_subnet 192.0.43.0
     $ stratus-config dhcp_netmask 255.255.255.0
-    $ stratus-config dhcp_one_public_network True
 
     # Provide detailed network configuration for DHCP clients.
     $ stratus-config dhcp_one_public_network True
