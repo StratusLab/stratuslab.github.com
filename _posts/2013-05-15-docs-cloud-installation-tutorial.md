@@ -32,6 +32,7 @@ A quick overview of the procedure is:
    default [KVM][linux-kvm] is used for the hypervisor on the Node(s).
 4. Validate the installation by starting a virtual machine.
 
+![Minimal StratusLab Cloud][install-diagram]
 
 Prerequisites
 -------------
@@ -590,6 +591,7 @@ You can get help on the installation or use of StratusLab through the
 feedback on the same list. 
 
 
+[install-diagram]: http://stratuslab.eu/diagrams/install-diagram.png
 [centos]: http://www.centos.org
 [epel]: http://fedoraproject.org/wiki/EPEL
 [stratuslab-yum]: http://yum.stratuslab.eu
