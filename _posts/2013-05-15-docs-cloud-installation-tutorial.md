@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Cloud Installation Tutorial
-category: review
+category: documentation
 ---
 
 This tutorial demonstrates how to install manually a StratusLab cloud
