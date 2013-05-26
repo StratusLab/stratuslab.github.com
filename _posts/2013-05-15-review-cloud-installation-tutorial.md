@@ -6,28 +6,32 @@ category: review
 
 This tutorial demonstrates how to install manually a StratusLab cloud
 infrastructure using the StratusLab system administrator command line
-utilities.  Two physical machines are needed to install a minimal
-StratusLab cloud.  Additional machines may be necessary if access to
-the internet is not possible from the machines where the cloud
-software is installed.
+utilities.  A minimal StratusLab cloud consists of two physical
+machines, although additional machines may be necessary if the
+internet cannot be accessed. 
 
 Installation Overview
 ---------------------
 
-StratusLab provides a simple command line client to perform
-installation, configuration and startup of StratusLab Cloud services
-and components.
+The StratusLab distribution provides a simple command line client to
+install, configure and start the StratusLab Cloud services and
+components.
 
-Default deployment assumes two types of machines:
+The default deployment has two types of machines:
 
-1. **Front-End** - cloud management server 
-2. **Node** - host on which the virtual machines will be instantiated
+1. **Front-End** - machine for VM management and storage services
+2. **Node** - machine that hosts virtual machines
 
-By default the compute (OpenNebula) and disks management (Persistent
-Disk (PDisk)) services will be deployed on the Front-End. A set of
-packages will be installed on the Node(s) and then, the Node(s) will
-be configured and added to the manager of the compute resources on
-Front-End. By default [KVM][linux-kvm] is used the Node(s).
+A quick overview of the procedure is:
+
+1. Define all of the StratusLab service parameters.
+2. Install and configure the Front End, containing the VM management
+   service (OpenNebula) and the storage management (Persistent Disk)
+   service.
+3. Install and configure the Node(s) via SSH from the Front End.  By
+   default [KVM][linux-kvm] is used for the hypervisor on the Node(s).
+4. Validate the installation by starting a virtual machine.
+
 
 Prerequisites
 -------------
@@ -47,36 +51,48 @@ characteristics:
 on the "Node" machine.** Many vendors ship machines with these
 extensions disabled.
 
-Having machines with more CPUs and RAM will allow more virtual
-machines to be run.  Having more disk space for the front end will
-allow more storage to be provided to users through the storage
-service.
+In general cloud infrastructures prefer "fat" machines, that is
+machines that have a maximum number of CPUs, RAM, and disk space as
+possible.  This is because the maximum size of a single virtual
+machine is limited by the size of the largest physical machine.
 
 ### Operating System
 
 Install a minimal version of [CentOS 6][centos] on the two physical
 machines that will be used for the cloud infrastructure.
 
-**The machines must be configured to use LVM for the disk storage.**
-The Front End should be configured with two LVM groups: one for the
-base operating system (~20 GB) and one for the StratusLab storage
-service (remaining space).  The "Node" machine can be configured with
-a single LVM group.
+### Disk Configuration
 
-Below, we assume that the volume group names are vg.01 for the
-operating system and vg.02 for the StratusLab storage service.  You
+StratusLab allows for a variety of storage options behind the
+persistent disk service.  The tutorial uses the defaults using LVM and
+iSCSI.
+
+**The machines must be configured to use LVM for the disk storage.**
+
+The Front End must be configured with two LVM groups: one for the base
+operating system (~20 GB) and one for the StratusLab storage service
+(remaining space).
+
+The "Node" machine can be configured with a single LVM group.
+
+Below, we assume that the volume group names are "vg.01" for the
+operating system and "vg.02" for the StratusLab storage service.  You
 can use other names, but then change the commands below as necessary.
 
 ### Package Repositories
 
 The StratusLab installation takes packages from three yum
-repositories: the standard CentOS repository, the [EPEL 6][epel]
-repository, and the [StratusLab repository][stratuslab-yum].  The
-configuration for the CentOS repository is done when the system is
+repositories:
+
+1. The standard CentOS repository,
+2. The [EPEL 6][epel] repository, and 
+3. The [StratusLab repository][stratuslab-yum].
+
+The configuration for the CentOS repository is done when the system is
 installed.  The others require additional configuration.
 
-To configure the Front End and Node for the EPEL repository, do the
-following: 
+To configure **both** the Front End and Node for the EPEL repository,
+do the following:
 
     $ wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
     $ yum install -y epel-release-6-8.noarch.rpm
@@ -84,8 +100,9 @@ following:
 This will add the necessary files to the `/etc/yum.repos.d/`
 directory.
 
-To configure the Front End and Node for the StratusLab repository, put
-the following into the file `/etc/yum.repos.d/stratuslab.repo`:
+To configure **both** the Front End and Node for the StratusLab
+repository, put the following into the file
+`/etc/yum.repos.d/stratuslab.repo`:
 
     [StratusLab-Releases]
     name=StratusLab-Releases
@@ -105,10 +122,9 @@ from old media.
 
 ### Disable SELinux
 
-The SELinux system must be disabled on **all of the nodes**.  Normally
-this is enabled by default, so you must change the file
-`/etc/selinux/config`.  To disable SELinux, ensure that the file has
-the following line:
+The SELinux system must be disabled on **all of the machines**.
+Normally this is enabled by default.  To disable SELinux, ensure that
+the file `/etc/selinux/config` has the following line:
 
     SELINUX=disabled
 
@@ -127,14 +143,17 @@ command:
 Set the hostname if it is not correct. 
 
 Throughout this tutorial we use the names `frontend.example.org` and
-`node1.example.org` for the Front End and Node, respectively.  This
-should be changed to the proper names for your physical machines. 
+`node1.example.org` for the Front End and Node, respectively.  Change
+these to the proper names for your physical machines when running the
+commands.
 
 ### SSH Configuration
 
 The installation scripts will automate most of the work, but the
-scripts require password-less root access to the Node from the Front
-End and to the Front End itself. 
+scripts require **password-less root access**:
+
+* From the Front End to each Node and
+* From the Front End to the Front End itself
 
 Check to see if there is already an SSH key pair in
 `/root/.ssh/id_rsa*`.  If not, then you need to create a new key pair
@@ -152,8 +171,8 @@ Check to see if there is already an SSH key pair in
     46:64:0d:47:1b:a8:07:fd:c6:42:23:cf:2f:2d:f1:54
     root@frontend.example.org
 
-Now we need to ensure that you can log into the Front End from the
-Front End without needing a password.  Do the following:
+Now ensure that you can log into the Front End from the Front End
+without needing a password.  Do the following:
 
     $ ssh-copy-id frontend.example.org 
 
@@ -195,8 +214,8 @@ following:
     $ exit  # be sure to logout from node!
     ...
 
-Now SSH is properly configured so that the StratusLab scripts will be
-able to install software on both the Front End and the Node. 
+Now that SSH is properly configured, the StratusLab scripts will be
+able to install software on both the Front End and the Node.
 
 ### Python Version
 
@@ -215,27 +234,27 @@ Verify that the correct version of Python is installed:
 A DHCP server must be configured to assign static IP addresses
 corresponding to known MAC addresses for the virtual machines.  These
 IP addresses must be publicly visible if the cloud instances are to be
-accessible from the WAN.
-
-(Note: The network configuration of the physical machines can be done
-statically or via an external DHCP server.)
+accessible from the internet.
 
 If an external DHCP server is not available, the StratusLab
 installation command can be used to properly configure a DHCP server
-on the Front End for the virtual machines.  This is what we will do in
-this tutorial.
+on the Front End for the virtual machines.
+
+This uses a DHCP server on the Front End.
 
 ### Network Bridge
 
 A network bridge must be configured on the Node to allow virtual
 machines access to the internet.  You can do this manually if you
 want, but the StratusLab installation scripts are capable of
-configuring this automatically.  We will use the automatic
-configuration in this tutorial.
+configuring this automatically.
+
+This tutorial allows the installation scripts to configure the network
+bridge.
 
 
-StratusLab Cloud Front End Deployment
--------------------------------------
+Front End Deployment
+--------------------
 
 ### Deployment tool installation
 
@@ -271,15 +290,17 @@ the `stratus-config` command can be used.
 
 To list the content of the configuration, and show the differences
 between the `stratuslab.cfg` file and the reference configuration, you
-can use the `-k` or `-keys` option:
+can use the `-k` or `--keys` option:
 
     $ stratus-config -k
 
     ... lots of parameter values! ...
 
 To change a value, specify the key and the new value. To view a single
-value, simply specify the key.  We will use this command to configure
-the various StratusLab services below.
+value, simply specify the key.
+
+We will use this command to set the various configuration parameters
+below.
 
 ### VM Management Service
 
@@ -298,9 +319,8 @@ The following parameters are required to be set.
     # General network configuration parameter.
     $ stratus-config default_gateway frontend.example.org
 
-In this example, the Front-End is configured on IP address
-192.0.43.10, and two IP/MAC address pairs are defined, which must
-match your DHCP configuration if you're using an external server.
+In this example, the Front-End is configured on IP address 192.0.43.10
+and two IP/MAC address pairs are defined for virtual machines.
 
 **You must use the real values for the Front End IP addresses and for
 the range of addresses you will use for the virtual machines.**
@@ -308,9 +328,10 @@ the range of addresses you will use for the virtual machines.**
 More network parameters are described in the "one-network" section in
 the reference configuration file.
 
-### Disks Management Service
+### Storage Service
 
 Similar parameters must also be set for the Persistent Disk service.
+
 For this tutorial, this service is installed on the Front End, so the
 same IP address should be used. 
 
@@ -374,21 +395,23 @@ Now that we have defined all of the configuration parameters, you can
 now do the full Front End installation by issuing the following
 command: 
 
-    $ stratus-install -vv
+    $ stratus-install
 
 To get more details on what the command is (because of curiosity or
-errors), use the option `-v` or `-vv`.  The command is intelligent
-enough to be run multiple times if you run into errors.
+errors), use the option `-v` or `-vv`.
+
+If you run into errors, the `stratus-install` command can simply be
+rerun after adjusting the configuration parameters.
 
 
-StratusLab Cloud Node Deployment
---------------------------------
+Node Deployment
+---------------
 
 The deployment of the StratusLab Nodes is done from the Front End,
 thus, **all the commands below should be run from the Front End.**
 
-To add a Node to the Cloud, specify the Linux distribution of the
-machine
+To add a Node to the cloud, specify the Linux distribution of the
+machine and indicate that the bridge should be configured:
 
     # Set the OS type of the Node. (centos is the default)
     $ stratus-config node_system centos
@@ -404,14 +427,15 @@ then invoke installation by
 As before, you can increase the verbosity level by adding the option
 `-v` or `-vv`.
 
+
 User Configuration
 ------------------
 
 At this point, you have both the Front End and one Node installed.
 This is a functional installation, but you have not yet authorized any
-users for the cloud.  Here we will create a new StratusLab user.  Note
-that the StratusLab accounts are independent of the Unix account on
-the machine itself. 
+users for the cloud.  Here we will create a new StratusLab user
+account.  Note that StratusLab accounts are independent of the Unix
+accounts on the machine itself.
 
 Add the following line to the end of the file
 `/etc/stratuslab/authn/login-pswd.properties`.
@@ -421,7 +445,8 @@ Add the following line to the end of the file
 
 This creates a new StratusLab user 'sluser' with a password 'slpass'.
 The group 'cloud-access' is mandatory for the user to have access to
-the cloud services.
+the cloud services.  (Crypted or hashed password values are also
+allowed in the configuration.)
 
 The StratusLab distribution supports other authentication methods
 (LDAP, X509 certificates, X509 proxies, etc.), but a
@@ -442,6 +467,10 @@ machine.  Do the following as root:
 
 It is very likely that the user client commands are already
 installed. 
+
+(Note: For normal client installations, it is strongly recommended to
+use pip or easy_install with virtualenv.  See the usual [client
+installation instructions][sl-client-install].)
 
 Now create a normal Unix user for testing:
 
@@ -464,8 +493,7 @@ parameters.
     $ mkdir ~/.stratuslab 
     $ cd ~/.stratuslab
     $ cp /etc/stratuslab/stratuslab-user.cfg.ref ~/.stratuslab/stratuslab-user.cfg 
-    $ vi ~/.stratuslab/stratuslab-user.cfg # endpoint, username,
-    password
+    $ vi ~/.stratuslab/stratuslab-user.cfg # endpoint, username, password
 
 You will need to set the "endpoint", "username", and "password"
 parameters in this file.  For the "endpoint" use the hostname or IP
@@ -488,6 +516,8 @@ distribution that boots very quickly and is ideal for tests.
      Public ip: 134.158.75.42
      :: Done!
 
+Check the status of the machine as it starts:
+
     # Check its status.  Pending -> not yet assigned to a Node
     $ stratus-describe-instance 
     id  state     vcpu memory    cpu% host/ip                 name
@@ -498,11 +528,17 @@ distribution that boots very quickly and is ideal for tests.
     id  state     vcpu memory    cpu% host/ip                 name
     1   Prolog    1    0         0    vm-42.lal.stratuslab.eu one-1
 
-    # Check again. Running -> hypervisor has started machine, but
-    #                         it may not have fully booted into OS yet
+    # Check again. Running -> hypervisor has started machine
     $ stratus-describe-instance 
     id  state     vcpu memory    cpu% host/ip                 name
     1   Running   1    0         0    vm-42.lal.stratuslab.eu one-1
+
+When the machine reaches the 'running' status, the virtual machine is
+running in the hypervisor on the Node.  It will probably take some
+additional time for the operating system to boot.
+
+Verify that the machine has fully booted and is accessible from the
+network:
 
     # Ping the virtual machine to see if it is accessible.    
     $ ping vm-42.lal.stratuslab.eu 
@@ -533,14 +569,21 @@ distribution that boots very quickly and is ideal for tests.
     logout
     Connection to vm-42.lal.stratuslab.eu closed.
 
+Now the machine can be terminated:
+
+    $ stratus-kill-instance 1
+
+Going through the full lifecycle of a machine shows that all of the
+services are working.
+
 
 Conclusions
 -----------
 
 You've successfully installed a minimal StratusLab cloud.  You can
-checkout the documentation to see what other configuration parameters
-are available or follow the full user tutorial to discover more of the
-StratusLab services.
+checkout the [documentation][sl-docs] to see what other configuration
+parameters are available or try the user tutorials to discover
+more of the StratusLab services.
 
 You can get help on the installation or use of StratusLab through the
 [support mailing list][support].  You can also report bugs and provide
@@ -552,3 +595,5 @@ feedback on the same list.
 [stratuslab-yum]: http://yum.stratuslab.eu
 [linux-kvm]: http://www.linux-kvm.org/
 [support]: mailto:support@stratuslab.eu
+[sl-client-install]: http://stratuslab.eu/try/2012/01/10/try-user-cli-installation.html
+[sl-docs]: http://stratuslab.eu/documentation/
