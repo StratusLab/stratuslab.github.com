@@ -24,13 +24,14 @@ The default deployment has two types of machines:
 
 A quick overview of the procedure is:
 
-1. Define all of the StratusLab service parameters.
-2. Install and configure the Front End, containing the VM management
+1. Ensure all prerequisites are satisfied.
+2. Define all of the StratusLab service parameters.
+3. Install and configure the Front End, containing the VM management
    service (OpenNebula) and the storage management (Persistent Disk)
    service.
-3. Install and configure the Node(s) via SSH from the Front End.  By
+4. Install and configure the Node(s) via SSH from the Front End.  By
    default [KVM][linux-kvm] is used for the hypervisor on the Node(s).
-4. Validate the installation by starting a virtual machine.
+5. Validate the installation by starting a virtual machine.
 
 ![Minimal StratusLab Cloud][install-diagram]
 
@@ -61,6 +62,28 @@ machine is limited by the size of the largest physical machine.
 
 Install a minimal version of [CentOS 6][centos] on the two physical
 machines that will be used for the cloud infrastructure.
+
+### Disable SELinux
+
+The SELinux system must be disabled on **all of the machines**.
+Normally this is enabled by default.  To disable SELinux, ensure that
+the file `/etc/selinux/config` has the following line:
+
+    SELINUX=disabled
+
+**You must reboot the machine for this to take effect.**  
+
+### Python Version
+
+The default version of Python installed with CentOS should be correct.
+StratusLab requires a version of Python 2 with a version **2.6 or
+later**.  The StratusLab command line tools **do not work with Python
+3**.
+
+Verify that the correct version of Python is installed:
+
+    $ python --version
+    Python 2.6.6
 
 ### Disk Configuration
 
@@ -121,20 +144,11 @@ yum caches and upgrade the packages to the latest versions:
 This may take some time if you installed the base operating system
 from old media. 
 
-### Disable SELinux
-
-The SELinux system must be disabled on **all of the machines**.
-Normally this is enabled by default.  To disable SELinux, ensure that
-the file `/etc/selinux/config` has the following line:
-
-    SELINUX=disabled
-
-**You must reboot the machine for this to take effect.**  
-
-### Hostname Setup
+### DNS and Hostname
 
 Ensure that the **hostname** is properly setup on the Front End and
-the Node.  This is required for critical services to start. 
+the Node.  The DNS must provide both the forward and reverse naming of
+the nodes.  This is required for critical services to start.
 
 You can verify this on both the Front End and the Node with the
 command: 
@@ -143,10 +157,10 @@ command:
 
 Set the hostname if it is not correct. 
 
-Throughout this tutorial we use the names `frontend.example.org` and
-`node1.example.org` for the Front End and Node, respectively.  Change
-these to the proper names for your physical machines when running the
-commands.
+Throughout this tutorial we use the variables $FRONTEND_HOST
+($FRONTEND_IP) and $NODE_HOST ($NODE_IP) for the Front End and Node
+hostnames (IP addresses), respectively.  Change these to the proper
+names for your physical machines when running the commands.
 
 ### SSH Configuration
 
@@ -160,75 +174,53 @@ Check to see if there is already an SSH key pair in
 `/root/.ssh/id_rsa*`.  If not, then you need to create a new key pair
 **without a password**: 
 
-    $ ssh-keygen 
-
-    Generating public/private rsa key pair.
+    $ ssh-keygen -q 
     Enter file in which to save the key (/root/.ssh/id_rsa): 
+    /root/.ssh/id_rsa already exists.
+    Overwrite (y/n)? y
     Enter passphrase (empty for no passphrase): 
     Enter same passphrase again: 
-    Your identification has been saved in /root/.ssh/id_rsa.
-    Your public key has been saved in /root/.ssh/id_rsa.pub.
-    The key fingerprint is:
-    46:64:0d:47:1b:a8:07:fd:c6:42:23:cf:2f:2d:f1:54
-    root@frontend.example.org
 
 Now ensure that you can log into the Front End from the Front End
 without needing a password.  Do the following:
 
-    $ ssh-copy-id frontend.example.org 
-
-    The authenticity of host 'frontend.example.org (0.0.0.0)' can't
-    be established.
-    RSA key fingerprint is
-    07:6d:3b:d1:65:7f:5b:8b:e5:59:e4:fc:da:2f:3c:b8.
+    $ ssh-copy-id $FRONTEND_HOST
+    The authenticity of host 'onehost-5.lal.in2p3.fr (134.158.75.5)' can't be established.
+    RSA key fingerprint is e9:04:03:02:e5:2e:f9:a1:0e:ae:9f:9f:e4:3f:70:dd.
     Are you sure you want to continue connecting (yes/no)? yes
-
-    Warning: Permanently added 'frontend.example.org,0.0.0.0' (RSA)
-    to the list of known hosts.
-    root@frontend.example.org's password: 
-
-    Now try logging into the machine, with "ssh 'frontend.example.org'",
-    and check in:
+    Warning: Permanently added 'onehost-5.lal.in2p3.fr,134.158.75.5' (RSA) to the list of known hosts.
+    root@onehost-5.lal.in2p3.fr's password: 
+    Now try logging into the machine, with "ssh 'onehost-5.lal.in2p3.fr'", and check in:
 
       .ssh/authorized_keys
 
     to make sure we haven't added extra keys that you weren't expecting.
 
+Do the same thing for the node:
+
+    $ ssh-copy-id $NODE_HOST
+    ...
+
 And verify that the password-less access works as expected. 
 
-    $ ssh root@frontend.example.org 
+    $ ssh $FRONTEND_HOST 
 
-    Last login: Wed May 15 11:26:07 2013 from frontend.example.org
-
-    $ exit
-
+    Last login: Mon May 27 14:26:29 2013 from mac-91100.lal.in2p3.fr
+    # 
+    # exit
     logout
-    Connection to frontend.example.org closed.
+    Connection to onehost-5.lal.in2p3.fr closed.
 
-Now the same must be done for the Node.  From the **Front End** do the
-following: 
+    $ ssh $NODE_HOST
 
-    $ ssh-copy-id node1.example.org  # copy SSH key
-    ...
-    $ ssh root@node1.example.org  # verify login works
-    ...
-    $ exit  # be sure to logout from node!
-    ...
+    Last login: Mon May 27 14:26:43 2013 from mac-91100.lal.in2p3.fr
+    # 
+    # exit
+    logout
+    Connection to onehost-6.lal.in2p3.fr closed.
 
 Now that SSH is properly configured, the StratusLab scripts will be
 able to install software on both the Front End and the Node.
-
-### Python Version
-
-The default version of Python installed with CentOS should be correct.
-StratusLab requires a version of Python 2 with a version **2.6 or
-later**.  The StratusLab command line tools **do not work with Python
-3**.
-
-Verify that the correct version of Python is installed:
-
-    $ python --version
-    Python 2.6.6
 
 ### DHCP Server
 
@@ -305,29 +297,10 @@ below.
 
 ### VM Management Service
 
-The following parameters are required to be set.
+The parameters for the frontend and VM management:
 
-    # Linux machine distribution (normally centos by default)
     $ stratus-config frontend_system centos
-
-    # Front-End IP (change!)
-    $ stratus-config frontend_ip 192.0.43.10
-
-    # Public network for VMs (change!)
-    $ stratus-config one_public_network_addr "192.0.111.110 192.0.111.111"
-    $ stratus-config one_public_network_mac "00:11:22:33:44:55 00:11:22:33:44:56"
-
-    # General network configuration parameter.
-    $ stratus-config default_gateway frontend.example.org
-
-In this example, the Front-End is configured on IP address 192.0.43.10
-and two IP/MAC address pairs are defined for virtual machines.
-
-**You must use the real values for the Front End IP addresses and for
-the range of addresses you will use for the virtual machines.**
-
-More network parameters are described in the "one-network" section in
-the reference configuration file.
+    $ stratus-config frontend_ip $FRONTEND_IP
 
 ### Storage Service
 
@@ -336,11 +309,9 @@ Similar parameters must also be set for the Persistent Disk service.
 For this tutorial, this service is installed on the Front End, so the
 same IP address should be used. 
 
-    # Persistent Disk (normally centos by default)
-    stratus-config persistent_disk_system centos
-
-    # Storage service IP address (same as for VM mgt. here)
-    stratus-config persistent_disk_ip 192.0.43.10
+    $ stratus-config persistent_disk_system centos
+    $ stratus-config persistent_disk_ip $FRONTEND_IP
+    $ stratus-config persistent_disk_merge_auth_with_proxy True 
 
 The Persistent Disk service and the Nodes communicate using a strategy
 defined by the `persistent_disk_storage` and `persistent_disk_share`
@@ -350,11 +321,7 @@ be used for this tutorial.
 One needs to specify what device will be used for the physical storage
 for the Persistent Disk service:
 
-    # LVM device to use for storage (change if necessary)
     $ stratus-config persistent_disk_lvm_device /dev/vg.02
-
-    # Use same user configuration for VM mgt. and storage service
-    $ stratus-config persistent_disk_merge_auth_with_proxy True 
 
     # Provide detailed parameters for storage backend plugins.
     # (NOTE: The opening and closing single quotes!)
@@ -370,24 +337,47 @@ for the Persistent Disk service:
 If you've used another name for the LVM volume group, then change the
 above command.
 
+### Network configuration
+
+Use the frontend as the general gateway for the cloud:
+
+    $ stratus-config default_gateway $FRONTEND_IP
+
+Set the IP and mac addresses for virtual machines:
+
+    $ stratus-config one_public_network_addr \
+        134.158.xx.yy 134.158.xx.yy 134.158.xx.yy
+
+    $ stratus-config one_public_network_mac \
+        0a:0a:86:9e:49:2a 0a:0a:86:9e:49:2b 0a:0a:86:9e:49:2c
+
+In this example, the Front-End is configured on IP address
+$FRONTEND_IP and three IP/MAC address pairs are defined for virtual
+machines.
+
+**You must use the real values for the Front End IP addresses and for
+the range of addresses you will use for the virtual machines.**
+
+More network parameters are described in the "one-network" section in
+the reference configuration file.
+
 ### DHCP Configuration
 
 Allow the script to automatically configure and start the DHCP server
 on the Front End.  Do the following:
 
-    # Configure DHCP and enable the "public" network.
     $ stratus-config dhcp True
-    $ stratus-config dhcp_subnet 192.0.43.0
+    $ stratus-config dhcp_subnet 134.158.75.0
     $ stratus-config dhcp_netmask 255.255.255.0
+    $ stratus-config dhcp_lease_time 3600
 
-    # Provide detailed network configuration for DHCP clients.
     $ stratus-config dhcp_one_public_network True
-    $ stratus-config dhcp_one_public_network_broadcast x.x.x.x
-    $ stratus-config dhcp_one_public_network_domain_name x.x.x.x
-    $ stratus-config dhcp_one_public_network_domain_name_servers x.x.x.x
-    $ stratus-config dhcp_one_public_network_netmask x.x.x.x
-    $ stratus-config dhcp_one_public_network_routers x.x.x.x
-    $ stratus-config dhcp_one_public_network_subnet x.x.x.x
+    $ stratus-config dhcp_one_local_network_routers $FRONTEND_IP
+    $ stratus-config dhcp_one_local_network_domain_name lal.in2p3.fr
+    $ stratus-config dhcp_one_local_network_domain_name_servers \
+         134.158.91.80, 134.158.88.149
+
+Use **your** values for these parameters!
 
 ### Finalize Front End Installation
 
@@ -395,10 +385,10 @@ Now that we have defined all of the configuration parameters, you can
 now do the full Front End installation by issuing the following
 command: 
 
-    $ stratus-install
+    $ stratus-install -vv
 
 To get more details on what the command is (because of curiosity or
-errors), use the option `-v` or `-vv`.
+errors), use the option `-v`, `-vv`, or `-vvv`.
 
 If you run into errors, the `stratus-install` command can simply be
 rerun after adjusting the configuration parameters.
@@ -413,16 +403,19 @@ thus, **all the commands below should be run from the Front End.**
 To add a Node to the cloud, specify the Linux distribution of the
 machine and indicate that the bridge should be configured:
 
-    # Set the OS type of the Node. (centos is the default)
     $ stratus-config node_system centos
 
-    # Do an automatic configuration of the network bridge.
+Request the automatic configuration of the network bridge:
+
     $ stratus-config node_bridge_configure True
     $ stratus-config node_bridge_name br0
+    $ stratus-config node_network_interface eth0
 
-then invoke installation by
+Check carefully the name of the interface on the node!
 
-    stratus-install -n <NODE_IP>
+Invoke installation by
+
+    stratus-install -vv -n $NODE_IP
 
 As before, you can increase the verbosity level by adding the option
 `-v` or `-vv`.
@@ -484,7 +477,7 @@ Log in as the user and create an SSH key pair.  This is similar to the
 process used for the root account on the machine. 
 
     $ su - sluser
-    $ ssh-keygen 
+    $ ssh-keygen -q
     ...
 
 Now copy the reference configuration file into place and edit the
