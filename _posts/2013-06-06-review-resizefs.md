@@ -15,16 +15,16 @@ Suppose we want to resize Ubuntu-13.04-x86_64-base-1.0.img image. In this image,
 
 * First thing to do, create a sparse file with 10GB of space.
 
-    $ dd if=/dev/zero of=my_new_ubuntu_image_10GB.img bs=2048 count=10000000 
+	$ dd if=/dev/zero of=my_new_ubuntu_image_10GB.img bs=2048 count=10000000 
 
 * Copy Ubuntu-13.04-x86_64-base-1.0.img into my_new_ubuntu_image_10GB.img file. 
 
-    $ dd if=Ubuntu-13.04-x86_64-base-1.0.img of=my_new_ubuntu_image_10GB.img conv=notrunc bs=2048
+	$ dd if=Ubuntu-13.04-x86_64-base-1.0.img of=my_new_ubuntu_image_10GB.img conv=notrunc bs=2048
 
  notrunc conversion value is passed to dd command, so the output file (my_new_ubuntu_image_10GB.img) is not truncated.
 
 * kpartx discovers automatically the partitions within an image file, and make them available via /dev/mapper/loop0pX, where X is the number of the partition.
- 
+
     $ kpartx -av my_new_ubuntu_image_10GB.img 
       add map loop0p1 (253:5): 0 10481664 linear /dev/loop0 2048
 
