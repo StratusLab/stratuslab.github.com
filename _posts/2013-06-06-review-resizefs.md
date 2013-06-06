@@ -19,9 +19,9 @@ Mount the data disk and look at the data:
     mount: warning: /mnt seems to be mounted read-only.
 
 
-* First thing to do, create a sparse file with 10GB of space.
+First thing to do, create a sparse file with 10GB of space.
 
-	$ dd if=/dev/zero of=my_new_ubuntu_image_10GB.img bs=2048 count=10000000 
+    $ dd if=/dev/zero of=my_new_ubuntu_image_10GB.img bs=2048 count=10000000 
 
 * Copy Ubuntu-13.04-x86_64-base-1.0.img into my_new_ubuntu_image_10GB.img file. 
 
