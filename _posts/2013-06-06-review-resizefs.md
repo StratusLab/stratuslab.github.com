@@ -13,6 +13,12 @@ Making a partition grows and resizing file system inside a raw image, is possibl
 
 Suppose we want to resize Ubuntu-13.04-x86_64-base-1.0.img image. In this image, root disk has actually 5GB of space, and we want to resize it to 10 GB.
 
+Mount the data disk and look at the data:
+
+    $ mount /dev/sdc /mnt
+    mount: warning: /mnt seems to be mounted read-only.
+
+
 * First thing to do, create a sparse file with 10GB of space.
 
 	$ dd if=/dev/zero of=my_new_ubuntu_image_10GB.img bs=2048 count=10000000 
