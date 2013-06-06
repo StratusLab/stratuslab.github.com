@@ -25,7 +25,7 @@ Suppose we want to resize Ubuntu-13.04-x86_64-base-1.0.img image. In this image,
 
 * kpartx discovers automatically the partitions within an image file, and make them available via /dev/mapper/loop0pX, where X is the number of the partition.
  
-    $ kpartx -av my_new_ubuntu_image_10GB.img
+    $ kpartx -av my_new_ubuntu_image_10GB.img 
       add map loop0p1 (253:5): 0 10481664 linear /dev/loop0 2048
 
 In our case, because all the StratusLab images endorsed by images@stratuslab.eu are created with only one partition, this partition will be available via /dev/mapper/loop0p1.
@@ -42,9 +42,9 @@ e2fsck can check a Linux ext2/ext3/ext4 file system
 
 * Disconnect the mapper devices with kpartx -d command
 
-    $ kpartx -dv my_new_ubuntu_image_10GB.img
-      del devmap : loop0p1
-      loop deleted : /dev/loop0
+    $ kpartx -dv my_new_ubuntu_image_10GB.img 
+      del devmap : loop0p1 
+      loop deleted : /dev/loop0 
 
 The new ubuntu image my_new_ubuntu_image_10GB.img with 10GB space in root disk is available to use.
 
