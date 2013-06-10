@@ -70,4 +70,4 @@ The new ubuntu image my_new_ubuntu_image_10GB.img with 10GB space in root disk i
 NB: 
 
 * This procedure was tested with: openSUSE-12.3-x86_64-base-1.0.img, Ubuntu-13.04-x86_64-base-1.0.img, CentOS-6.4-x86_64-base-1.0.img, and SL-6.4-x86_64-base-1.0.img  images.
-* Creation of new partition and resizing file system steps, are no more needed in image with kernel 3.8.0 (E.g. Ubuntu-13.04-x86_64-base-1.0.img). 
+* Creation of new partition and resizing file system steps, are no more needed in image with kernel 3.8.0. Actually only Ubuntu 13.04 has this property.
