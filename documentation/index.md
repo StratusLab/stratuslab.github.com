@@ -13,8 +13,6 @@ The detailed User's, Administrator's, and Contributor's Guides are
 available for the supported releases are available from the provided
 links.
 
-## 13.05.0.RC1
-
 ### User's Guide
 
   * 13.05.0.RC1
