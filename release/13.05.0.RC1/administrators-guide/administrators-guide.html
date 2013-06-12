@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="StratusLab Collaboration">
+  <title>StratusLab Administrator's Guide</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<header>
+<h1 class="title">StratusLab Administrator's Guide</h1>
+<h2 class="author">StratusLab Collaboration</h2>
+<h3 class="date">Version 13.05.0.RC1</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#preface"><span class="toc-section-number">1</span> Preface</a><ul>
+<li><a href="#organization"><span class="toc-section-number">1.1</span> Organization</a></li>
+<li><a href="#typographic-conventions"><span class="toc-section-number">1.2</span> Typographic Conventions</a></li>
+</ul></li>
+<li><a href="#introduction"><span class="toc-section-number">2</span> Introduction</a></li>
+<li><a href="#installation"><span class="toc-section-number">3</span> Installation</a><ul>
+<li><a href="#installation-overview"><span class="toc-section-number">3.1</span> Installation Overview</a></li>
+<li><a href="#prerequisites"><span class="toc-section-number">3.2</span> Prerequisites</a><ul>
+<li><a href="#physical-machines"><span class="toc-section-number">3.2.1</span> Physical Machines</a></li>
+<li><a href="#operating-system"><span class="toc-section-number">3.2.2</span> Operating System</a></li>
+<li><a href="#disable-selinux"><span class="toc-section-number">3.2.3</span> Disable SELinux</a></li>
+<li><a href="#python-version"><span class="toc-section-number">3.2.4</span> Python Version</a></li>
+<li><a href="#disk-configuration"><span class="toc-section-number">3.2.5</span> Disk Configuration</a></li>
+<li><a href="#package-repositories"><span class="toc-section-number">3.2.6</span> Package Repositories</a></li>
+<li><a href="#dns-and-hostname"><span class="toc-section-number">3.2.7</span> DNS and Hostname</a></li>
+<li><a href="#ssh-configuration"><span class="toc-section-number">3.2.8</span> SSH Configuration</a></li>
+<li><a href="#dhcp-server"><span class="toc-section-number">3.2.9</span> DHCP Server</a></li>
+<li><a href="#network-bridge"><span class="toc-section-number">3.2.10</span> Network Bridge</a></li>
+</ul></li>
+<li><a href="#front-end-deployment"><span class="toc-section-number">3.3</span> Front End Deployment</a><ul>
+<li><a href="#deployment-tool-installation"><span class="toc-section-number">3.3.1</span> Deployment tool installation</a></li>
+<li><a href="#configuration-file-customization"><span class="toc-section-number">3.3.2</span> Configuration file customization</a></li>
+<li><a href="#vm-management-service"><span class="toc-section-number">3.3.3</span> VM Management Service</a></li>
+<li><a href="#storage-service"><span class="toc-section-number">3.3.4</span> Storage Service</a></li>
+<li><a href="#network-configuration"><span class="toc-section-number">3.3.5</span> Network configuration</a></li>
+<li><a href="#dhcp-configuration"><span class="toc-section-number">3.3.6</span> DHCP Configuration</a></li>
+<li><a href="#finalize-front-end-installation"><span class="toc-section-number">3.3.7</span> Finalize Front End Installation</a></li>
+</ul></li>
+<li><a href="#node-deployment"><span class="toc-section-number">3.4</span> Node Deployment</a></li>
+<li><a href="#user-configuration"><span class="toc-section-number">3.5</span> User Configuration</a></li>
+<li><a href="#stratuslab-client"><span class="toc-section-number">3.6</span> StratusLab Client</a></li>
+<li><a href="#conclusions"><span class="toc-section-number">3.7</span> Conclusions</a></li>
+</ul></li>
+<li><a href="#running-a-cloud"><span class="toc-section-number">4</span> Running a Cloud</a><ul>
+<li><a href="#service-logging-information"><span class="toc-section-number">4.1</span> Service Logging Information</a></li>
+<li><a href="#monitoring-activity"><span class="toc-section-number">4.2</span> Monitoring Activity</a></li>
+<li><a href="#security-concerns"><span class="toc-section-number">4.3</span> Security Concerns</a></li>
+</ul></li>
+<li><a href="#troubleshooting"><span class="toc-section-number">5</span> Troubleshooting</a></li>
+</ul>
+</nav>
+<h1 id="preface"><a href="#TOC"><span class="header-section-number">1</span> Preface</a></h1>
+<h2 id="organization"><a href="#TOC"><span class="header-section-number">1.1</span> Organization</a></h2>
+<h2 id="typographic-conventions"><a href="#TOC"><span class="header-section-number">1.2</span> Typographic Conventions</a></h2>
+<h1 id="introduction"><a href="#TOC"><span class="header-section-number">2</span> Introduction</a></h1>
+<p>Describe all of the services and how they fit together in detail. Provide a detailed view of a cloud deployment.</p>
+<p>How StratusLab fits into the various cloud service models. It is a IaaS!</p>
+<p>Different types of deployments: public, private, and community.</p>
+<h1 id="installation"><a href="#TOC"><span class="header-section-number">3</span> Installation</a></h1>
+<p>This tutorial demonstrates how to install manually a StratusLab cloud infrastructure using the StratusLab system administrator command line utilities. A minimal StratusLab cloud consists of two physical machines, although additional machines may be necessary if the internet cannot be accessed.</p>
+<h2 id="installation-overview"><a href="#TOC"><span class="header-section-number">3.1</span> Installation Overview</a></h2>
+<p>The StratusLab distribution provides a simple command line client to install, configure and start the StratusLab Cloud services and components.</p>
+<p>The default deployment has two types of machines:</p>
+<ol type="1">
+<li><strong>Front-End</strong> - machine for VM management and storage services</li>
+<li><strong>Node</strong> - machine that hosts virtual machines</li>
+</ol>
+<p>A quick overview of the procedure is:</p>
+<ol type="1">
+<li>Ensure all prerequisites are satisfied.</li>
+<li>Define all of the StratusLab service parameters.</li>
+<li>Install and configure the Front End, containing the VM management service (OpenNebula) and the storage management (Persistent Disk) service.</li>
+<li>Install and configure the Node(s) via SSH from the Front End. By default <a href="http://www.linux-kvm.org/">KVM</a> is used for the hypervisor on the Node(s).</li>
+<li>Validate the installation by starting a virtual machine.</li>
+</ol>
+<p>FIXME: [Minimal StratusLab Cloud][install-diagram]</p>
+<h2 id="prerequisites"><a href="#TOC"><span class="header-section-number">3.2</span> Prerequisites</a></h2>
+<h3 id="physical-machines"><a href="#TOC"><span class="header-section-number">3.2.1</span> Physical Machines</a></h3>
+<p>This tutorial demonstrates a minimal installation of a StratusLab cloud on two physical machines. The physical machines should be relatively modern machines with the following <strong>minimum</strong> characteristics:</p>
+<ul>
+<li>1 <strong>64-bit multicore</strong> CPU (&gt;= 4 cores) with <strong>VT-x extensions</strong></li>
+<li>4 GB of RAM</li>
+<li>200 GB local disk space</li>
+</ul>
+<p><strong>The hardware virtualization extensions must be enabled in the BIOS on the &quot;Node&quot; machine.</strong> Many vendors ship machines with these extensions disabled.</p>
+<p>In general cloud infrastructures prefer &quot;fat&quot; machines, that is machines that have a maximum number of CPUs, RAM, and disk space as possible. This is because the maximum size of a single virtual machine is limited by the size of the largest physical machine.</p>
+<h3 id="operating-system"><a href="#TOC"><span class="header-section-number">3.2.2</span> Operating System</a></h3>
+<p>Install a minimal version of <a href="http://www.centos.org">CentOS 6</a> on the two physical machines that will be used for the cloud infrastructure.</p>
+<h3 id="disable-selinux"><a href="#TOC"><span class="header-section-number">3.2.3</span> Disable SELinux</a></h3>
+<p>The SELinux system must be disabled on <strong>all of the machines</strong>. Normally this is enabled by default. To disable SELinux, ensure that the file <code>/etc/selinux/config</code> has the following line:</p>
+<pre><code>SELINUX=disabled</code></pre>
+<p><strong>You must reboot the machine for this to take effect.</strong></p>
+<h3 id="python-version"><a href="#TOC"><span class="header-section-number">3.2.4</span> Python Version</a></h3>
+<p>The default version of Python installed with CentOS should be correct. StratusLab requires a version of Python 2 with a version <strong>2.6 or later</strong>. The StratusLab command line tools <strong>do not work with Python 3</strong>.</p>
+<p>Verify that the correct version of Python is installed:</p>
+<pre><code>$ python --version
+Python 2.6.6</code></pre>
+<h3 id="disk-configuration"><a href="#TOC"><span class="header-section-number">3.2.5</span> Disk Configuration</a></h3>
+<p>StratusLab allows for a variety of storage options behind the persistent disk service. The tutorial uses the defaults using LVM and iSCSI.</p>
+<p><strong>The machines must be configured to use LVM for the disk storage.</strong></p>
+<p>The Front End must be configured with two LVM groups: one for the base operating system (~20 GB) and one for the StratusLab storage service (remaining space).</p>
+<p>The &quot;Node&quot; machine can be configured with a single LVM group.</p>
+<p>Below, we assume that the volume group names are &quot;vg.01&quot; for the operating system and &quot;vg.02&quot; for the StratusLab storage service. You can use other names, but then change the commands below as necessary.</p>
+<h3 id="package-repositories"><a href="#TOC"><span class="header-section-number">3.2.6</span> Package Repositories</a></h3>
+<p>The StratusLab installation takes packages from three yum repositories:</p>
+<ol type="1">
+<li>The standard CentOS repository,</li>
+<li>The <a href="http://fedoraproject.org/wiki/EPEL">EPEL 6</a> repository, and</li>
+<li>The <a href="http://yum.stratuslab.eu">StratusLab repository</a>.</li>
+</ol>
+<p>The configuration for the CentOS repository is done when the system is installed. The others require additional configuration.</p>
+<p>To configure <strong>both</strong> the Front End and Node for the EPEL repository, do the following:</p>
+<pre><code>$ wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
+$ yum install -y epel-release-6-8.noarch.rpm</code></pre>
+<p>This will add the necessary files to the <code>/etc/yum.repos.d/</code> directory.</p>
+<p>To configure <strong>both</strong> the Front End and Node for the StratusLab repository, put the following into the file <code>/etc/yum.repos.d/stratuslab.repo</code>:</p>
+<pre><code>[StratusLab-Releases]
+name=StratusLab-Releases
+baseurl=http://yum.stratuslab.eu/releases/centos-6.2-v13.02/
+gpgcheck=0</code></pre>
+<p>replacing the URL with the version you want to install.</p>
+<p>Although not strictly necessary, it is advisable to clear all of the yum caches and upgrade the packages to the latest versions:</p>
+<pre><code>$ yum clean all
+$ yum upgrade -y</code></pre>
+<p>This may take some time if you installed the base operating system from old media.</p>
+<h3 id="dns-and-hostname"><a href="#TOC"><span class="header-section-number">3.2.7</span> DNS and Hostname</a></h3>
+<p>Ensure that the <strong>hostname</strong> is properly setup on the Front End and the Node. The DNS must provide both the forward and reverse naming of the nodes. This is required for critical services to start.</p>
+<p>You can verify this on both the Front End and the Node with the command:</p>
+<pre><code>$ hostname -f</code></pre>
+<p>Set the hostname if it is not correct.</p>
+<p>Throughout this tutorial we use the variables <span class="math"><em>F</em><em>R</em><em>O</em><em>N</em><em>T</em><em>E</em><em>N</em><em>D</em><sub><em>H</em></sub><em>O</em><em>S</em><em>T</em>(</span>FRONTEND_IP) and <span class="math"><em>N</em><em>O</em><em>D</em><em>E</em><sub><em>H</em></sub><em>O</em><em>S</em><em>T</em>(</span>NODE_IP) for the Front End and Node hostnames (IP addresses), respectively. Change these to the proper names for your physical machines when running the commands.</p>
+<h3 id="ssh-configuration"><a href="#TOC"><span class="header-section-number">3.2.8</span> SSH Configuration</a></h3>
+<p>The installation scripts will automate most of the work, but the scripts require <strong>password-less root access</strong>:</p>
+<ul>
+<li>From the Front End to each Node and</li>
+<li>From the Front End to the Front End itself</li>
+</ul>
+<p>Check to see if there is already an SSH key pair in <code>/root/.ssh/id_rsa*</code>. If not, then you need to create a new key pair <strong>without a password</strong>:</p>
+<pre><code>$ ssh-keygen -q 
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+/root/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: </code></pre>
+<p>Now ensure that you can log into the Front End from the Front End without needing a password. Do the following:</p>
+<pre><code>$ ssh-copy-id $FRONTEND_HOST
+The authenticity of host &#39;onehost-5.lal.in2p3.fr (134.158.75.5)&#39; can&#39;t be established.
+RSA key fingerprint is e9:04:03:02:e5:2e:f9:a1:0e:ae:9f:9f:e4:3f:70:dd.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;onehost-5.lal.in2p3.fr,134.158.75.5&#39; (RSA) to the list of known hosts.
+root@onehost-5.lal.in2p3.fr&#39;s password: 
+Now try logging into the machine, with &quot;ssh &#39;onehost-5.lal.in2p3.fr&#39;&quot;, and check in:
+
+  .ssh/authorized_keys
+
+to make sure we haven&#39;t added extra keys that you weren&#39;t expecting.</code></pre>
+<p>Do the same thing for the node:</p>
+<pre><code>$ ssh-copy-id $NODE_HOST
+...</code></pre>
+<p>And verify that the password-less access works as expected.</p>
+<pre><code>$ ssh $FRONTEND_HOST 
+
+Last login: Mon May 27 14:26:29 2013 from mac-91100.lal.in2p3.fr
+# 
+# exit
+logout
+Connection to onehost-5.lal.in2p3.fr closed.
+
+$ ssh $NODE_HOST
+
+Last login: Mon May 27 14:26:43 2013 from mac-91100.lal.in2p3.fr
+# 
+# exit
+logout
+Connection to onehost-6.lal.in2p3.fr closed.</code></pre>
+<p>Now that SSH is properly configured, the StratusLab scripts will be able to install software on both the Front End and the Node.</p>
+<h3 id="dhcp-server"><a href="#TOC"><span class="header-section-number">3.2.9</span> DHCP Server</a></h3>
+<p>A DHCP server must be configured to assign static IP addresses corresponding to known MAC addresses for the virtual machines. These IP addresses must be publicly visible if the cloud instances are to be accessible from the internet.</p>
+<p>If an external DHCP server is not available, the StratusLab installation command can be used to properly configure a DHCP server on the Front End for the virtual machines.</p>
+<p>This uses a DHCP server on the Front End.</p>
+<h3 id="network-bridge"><a href="#TOC"><span class="header-section-number">3.2.10</span> Network Bridge</a></h3>
+<p>A network bridge must be configured on the Node to allow virtual machines access to the internet. You can do this manually if you want, but the StratusLab installation scripts are capable of configuring this automatically.</p>
+<p>This tutorial allows the installation scripts to configure the network bridge.</p>
+<h2 id="front-end-deployment"><a href="#TOC"><span class="header-section-number">3.3</span> Front End Deployment</a></h2>
+<h3 id="deployment-tool-installation"><a href="#TOC"><span class="header-section-number">3.3.1</span> Deployment tool installation</a></h3>
+<p>The first step is to install the StratusLab system administrator command line client from the <a href="http://yum.stratuslab.eu">StratusLab repository</a> <strong>on the Front End</strong>:</p>
+<pre><code>$ yum install -y stratuslab-cli-sysadmin</code></pre>
+<p>This will install the system administrator client and all of the necessary dependencies. You can verify that it is correctly installed by doing the following:</p>
+<pre><code>$ stratus-config --help
+
+Usage: stratus-config [options] [key [value]]
+If the [value] is not provided, the command returns the current value
+of the key.
+...</code></pre>
+<h3 id="configuration-file-customization"><a href="#TOC"><span class="header-section-number">3.3.2</span> Configuration file customization</a></h3>
+<p>The entire StratusLab Cloud is configured from a single configuration file <code>/etc/stratuslab/stratuslab.cfg</code>. This file contains many options, but only a few are required.</p>
+<p>StratusLab ships with a default configuration file in the standard location and a reference configuration file located in <code>/etc/stratuslab/stratuslab.cfg.ref</code>.</p>
+<p>To simplify viewing the configuration parameters and changing them, the <code>stratus-config</code> command can be used.</p>
+<p>To list the content of the configuration, and show the differences between the <code>stratuslab.cfg</code> file and the reference configuration, you can use the <code>-k</code> or <code>--keys</code> option:</p>
+<pre><code>$ stratus-config -k
+
+... lots of parameter values! ...</code></pre>
+<p>To change a value, specify the key and the new value. To view a single value, simply specify the key.</p>
+<p>We will use this command to set the various configuration parameters below.</p>
+<h3 id="vm-management-service"><a href="#TOC"><span class="header-section-number">3.3.3</span> VM Management Service</a></h3>
+<p>The parameters for the frontend and VM management:</p>
+<pre><code>$ stratus-config frontend_system centos
+$ stratus-config frontend_ip $FRONTEND_IP</code></pre>
+<h3 id="storage-service"><a href="#TOC"><span class="header-section-number">3.3.4</span> Storage Service</a></h3>
+<p>Similar parameters must also be set for the Persistent Disk service.</p>
+<p>For this tutorial, this service is installed on the Front End, so the same IP address should be used.</p>
+<pre><code>$ stratus-config persistent_disk_system centos
+$ stratus-config persistent_disk_ip $FRONTEND_IP
+$ stratus-config persistent_disk_merge_auth_with_proxy True </code></pre>
+<p>The Persistent Disk service and the Nodes communicate using a strategy defined by the <code>persistent_disk_storage</code> and <code>persistent_disk_share</code> parameters. The default values (&quot;lvm&quot; and &quot;iscsi&quot;, respectively) will be used for this tutorial.</p>
+<p>One needs to specify what device will be used for the physical storage for the Persistent Disk service:</p>
+<pre><code>$ stratus-config persistent_disk_lvm_device /dev/vg.02
+
+# Provide detailed parameters for storage backend plugins.
+# (NOTE: The opening and closing single quotes!)
+$ stratus-config persistent_disk_backend_sections &#39;
+[%(persistent_disk_ip)s]
+        type=LVM
+        volume_name = /dev/vg.02
+        lun_namespace = stratuslab
+        volume_snapshot_prefix = pdisk_clone
+        initiator_group =
+&#39;</code></pre>
+<p>If you've used another name for the LVM volume group, then change the above command.</p>
+<h3 id="network-configuration"><a href="#TOC"><span class="header-section-number">3.3.5</span> Network configuration</a></h3>
+<p>Use the frontend as the general gateway for the cloud:</p>
+<pre><code>$ stratus-config default_gateway $FRONTEND_IP</code></pre>
+<p>Set the IP and mac addresses for virtual machines:</p>
+<pre><code>$ stratus-config one_public_network_addr \
+    134.158.xx.yy 134.158.xx.yy 134.158.xx.yy
+
+$ stratus-config one_public_network_mac \
+    0a:0a:86:9e:49:2a 0a:0a:86:9e:49:2b 0a:0a:86:9e:49:2c</code></pre>
+<p>In this example, the Front-End is configured on IP address $FRONTEND_IP and three IP/MAC address pairs are defined for virtual machines.</p>
+<p><strong>You must use the real values for the Front End IP addresses and for the range of addresses you will use for the virtual machines.</strong></p>
+<p>More network parameters are described in the &quot;one-network&quot; section in the reference configuration file.</p>
+<h3 id="dhcp-configuration"><a href="#TOC"><span class="header-section-number">3.3.6</span> DHCP Configuration</a></h3>
+<p>Allow the script to automatically configure and start the DHCP server on the Front End. Do the following:</p>
+<pre><code>$ stratus-config dhcp True
+$ stratus-config dhcp_subnet 134.158.75.0
+$ stratus-config dhcp_netmask 255.255.255.0
+$ stratus-config dhcp_lease_time 3600
+
+$ stratus-config dhcp_one_public_network True
+$ stratus-config dhcp_one_local_network_routers $FRONTEND_IP
+$ stratus-config dhcp_one_local_network_domain_name lal.in2p3.fr
+$ stratus-config dhcp_one_local_network_domain_name_servers \
+     134.158.91.80, 134.158.88.149</code></pre>
+<p>Use <strong>your</strong> values for these parameters!</p>
+<h3 id="finalize-front-end-installation"><a href="#TOC"><span class="header-section-number">3.3.7</span> Finalize Front End Installation</a></h3>
+<p>Now that we have defined all of the configuration parameters, you can now do the full Front End installation by issuing the following command:</p>
+<pre><code>$ stratus-install -vv</code></pre>
+<p>To get more details on what the command is (because of curiosity or errors), use the option <code>-v</code>, <code>-vv</code>, or <code>-vvv</code>.</p>
+<p>If you run into errors, the <code>stratus-install</code> command can simply be rerun after adjusting the configuration parameters.</p>
+<h2 id="node-deployment"><a href="#TOC"><span class="header-section-number">3.4</span> Node Deployment</a></h2>
+<p>The deployment of the StratusLab Nodes is done from the Front End, thus, <strong>all the commands below should be run from the Front End.</strong></p>
+<p>To add a Node to the cloud, specify the Linux distribution of the machine and indicate that the bridge should be configured:</p>
+<pre><code>$ stratus-config node_system centos</code></pre>
+<p>Request the automatic configuration of the network bridge:</p>
+<pre><code>$ stratus-config node_bridge_configure True
+$ stratus-config node_bridge_name br0
+$ stratus-config node_network_interface eth0</code></pre>
+<p>Check carefully the name of the interface on the node!</p>
+<p>Invoke installation by</p>
+<pre><code>stratus-install -vv -n $NODE_IP</code></pre>
+<p>As before, you can increase the verbosity level by adding the option <code>-v</code> or <code>-vv</code>.</p>
+<h2 id="user-configuration"><a href="#TOC"><span class="header-section-number">3.5</span> User Configuration</a></h2>
+<p>At this point, you have both the Front End and one Node installed. This is a functional installation, but you have not yet authorized any users for the cloud. Here we will create a new StratusLab user account. Note that StratusLab accounts are independent of the Unix accounts on the machine itself.</p>
+<p>Add the following line to the end of the file <code>/etc/stratuslab/authn/login-pswd.properties</code>.</p>
+<pre><code>$ cat &gt;&gt; /etc/stratuslab/authn/login-pswd.properties
+sluser=slpass,cloud-access</code></pre>
+<p>This creates a new StratusLab user 'sluser' with a password 'slpass'. The group 'cloud-access' is mandatory for the user to have access to the cloud services. (Crypted or hashed password values are also allowed in the configuration.)</p>
+<p>The StratusLab distribution supports other authentication methods (LDAP, X509 certificates, X509 proxies, etc.), but a username/password pair is the simplest for this tutorial.</p>
+<h2 id="stratuslab-client"><a href="#TOC"><span class="header-section-number">3.6</span> StratusLab Client</a></h2>
+<p>Now we will test that the cloud functions correctly by starting a new virtual machine instance and logging into it. We'll test the cloud service from a normal Unix user account on the Front End.</p>
+<p>First, ensure that the StratusLab user client is installed on the machine. Do the following as root:</p>
+<pre><code>$ yum install -y stratuslab-cli-user</code></pre>
+<p>It is very likely that the user client commands are already installed.</p>
+<p>(Note: For normal client installations, it is strongly recommended to use pip or easy_install with virtualenv. See the usual <a href="http://stratuslab.eu/try/2012/01/10/try-user-cli-installation.html">client installation instructions</a>.)</p>
+<p>Now create a normal Unix user for testing:</p>
+<pre><code>$ adduser sluser</code></pre>
+<p>Now log in as the user and setup the account for using StratusLab. An SSH key pair is required to log into your virtual machines and the client requires that a complete client configuration file.</p>
+<p>Log in as the user and create an SSH key pair. This is similar to the process used for the root account on the machine.</p>
+<pre><code>$ su - sluser
+$ ssh-keygen -q
+...</code></pre>
+<p>Now copy the reference configuration file into place and edit the parameters.</p>
+<pre><code>$ mkdir ~/.stratuslab 
+$ cd ~/.stratuslab
+$ cp /etc/stratuslab/stratuslab-user.cfg.ref ~/.stratuslab/stratuslab-user.cfg 
+$ vi ~/.stratuslab/stratuslab-user.cfg # endpoint, username, password</code></pre>
+<p>You will need to set the &quot;endpoint&quot;, &quot;username&quot;, and &quot;password&quot; parameters in this file. For the &quot;endpoint&quot; use the hostname or IP address of your Front End. For the &quot;username&quot; and &quot;password&quot; use &quot;sluser&quot; and &quot;slpass&quot;, respectively.</p>
+<p>Everything should be setup now. So try deploying a virtual machine. You can look in the Marketplace to find an interesting machine to deploy. We'll use a ttylinux image here. This is a micro distribution that boots very quickly and is ideal for tests.</p>
+<pre><code># Deploy a ttylinux virtual machine. 
+$ stratus-run-instance BN1EEkPiBx87_uLj2-sdybSI-Xb 
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 1)
+ Public ip: 134.158.75.42
+ :: Done!</code></pre>
+<p>Check the status of the machine as it starts:</p>
+<pre><code># Check its status.  Pending -&gt; not yet assigned to a Node
+$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+1   Pending   1    0         0    vm-42.lal.stratuslab.eu one-1
+
+# Check again.  Prolog -&gt; resources for VM are being initialized 
+$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+1   Prolog    1    0         0    vm-42.lal.stratuslab.eu one-1
+
+# Check again. Running -&gt; hypervisor has started machine
+$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+1   Running   1    0         0    vm-42.lal.stratuslab.eu one-1</code></pre>
+<p>When the machine reaches the 'running' status, the virtual machine is running in the hypervisor on the Node. It will probably take some additional time for the operating system to boot.</p>
+<p>Verify that the machine has fully booted and is accessible from the network:</p>
+<pre><code># Ping the virtual machine to see if it is accessible.    
+$ ping vm-42.lal.stratuslab.eu 
+PING vm-42.lal.stratuslab.eu (134.158.75.42) 56(84) bytes of data.
+From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=2 Destination Host
+ Unreachable
+...
+From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=8 Destination Host
+ Unreachable
+64 bytes from vm-42.lal.stratuslab.eu (134.158.75.42): icmp_seq=9
+ ttl=64 time=1.44 ms
+...
+
+# Now login to the machine as root.
+$ ssh root@vm-42.lal.stratuslab.eu 
+
+The authenticity of host &#39;vm-42.lal.stratuslab.eu (134.158.75.42)&#39;
+ can&#39;t be established.
+RSA key fingerprint is
+ 6a:bd:f7:2d:b6:82:39:61:e6:ca:3f:c7:61:9d:72:31.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;vm-42.lal.stratuslab.eu,134.158.75.42&#39;
+ (RSA) to the list of known hosts.
+
+
+#       # &lt;- we&#39;re logged into the ttylinux virtual machine
+# exit  # just logout of the session
+logout
+Connection to vm-42.lal.stratuslab.eu closed.</code></pre>
+<p>Now the machine can be terminated:</p>
+<pre><code>$ stratus-kill-instance 1</code></pre>
+<p>Going through the full lifecycle of a machine shows that all of the services are working.</p>
+<h2 id="conclusions"><a href="#TOC"><span class="header-section-number">3.7</span> Conclusions</a></h2>
+<p>You've successfully installed a minimal StratusLab cloud. You can checkout the <a href="http://stratuslab.eu/documentation/">documentation</a> to see what other configuration parameters are available or try the user tutorials to discover more of the StratusLab services.</p>
+<p>You can get help on the installation or use of StratusLab through the <script type="text/javascript">
+<!--
+h='&#x73;&#116;&#114;&#x61;&#116;&#x75;&#x73;&#108;&#x61;&#98;&#46;&#x65;&#x75;';a='&#64;';n='&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'support mailing list'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#32;&#x6d;&#x61;&#x69;&#108;&#x69;&#110;&#x67;&#32;&#108;&#x69;&#x73;&#116;&#32;&#40;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#32;&#x61;&#116;&#32;&#x73;&#116;&#114;&#x61;&#116;&#x75;&#x73;&#108;&#x61;&#98;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#x75;&#x29;</noscript>. You can also report bugs and provide feedback on the same list.</p>
+<h1 id="running-a-cloud"><a href="#TOC"><span class="header-section-number">4</span> Running a Cloud</a></h1>
+<p>Information on running the cloud as a service.</p>
+<h2 id="service-logging-information"><a href="#TOC"><span class="header-section-number">4.1</span> Service Logging Information</a></h2>
+<p>Where are the service logs?</p>
+<h2 id="monitoring-activity"><a href="#TOC"><span class="header-section-number">4.2</span> Monitoring Activity</a></h2>
+<p>Where to find monitoring information.</p>
+<h2 id="security-concerns"><a href="#TOC"><span class="header-section-number">4.3</span> Security Concerns</a></h2>
+<p>Various topics.</p>
+<h1 id="troubleshooting"><a href="#TOC"><span class="header-section-number">5</span> Troubleshooting</a></h1>
+<p>Information about common problems.</p>
+</body>
+</html>
