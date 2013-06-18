@@ -32,7 +32,7 @@ links.
   * 13.05.0
     ([html](release/13.05.0/contributors-guide/contributors-guide.html),
     [pdf](release/13.05.0/contributors-guide/contributors-guide.pdf),
-    [epub](release/13.05.0/contributors-contributors-guide.epub))
+    [epub](release/13.05.0/contributors-guide/contributors-guide.epub))
 
 ## Articles and Tutorials
 
