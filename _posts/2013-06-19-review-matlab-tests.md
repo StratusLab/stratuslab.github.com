@@ -23,24 +23,24 @@ interface.
 
 Remaining short term questions are:
 
-  * Does the installation and use of the StratusLab client pose a
-    problem for students?
-  * Does installation of any of the necessary components (SSH client,
-    X11 server, etc.) post a problem for the students? 
-  * Is a remote connection to the machine running MATLAB acceptable in
-    terms of accessibility and bandwidth?
-  * Is the graphical interface sufficiently responsive over RENATER
-    and home network connections to be useful?
+* Does the installation and use of the StratusLab client pose a
+  problem for students?
+* Does installation of any of the necessary components (SSH client,
+  X11 server, etc.) post a problem for the students? 
+* Is a remote connection to the machine running MATLAB acceptable in
+  terms of accessibility and bandwidth?
+* Is the graphical interface sufficiently responsive over RENATER
+  and home network connections to be useful?
 
 Presuming that none of these questions turns up blocking problems,
 longer term issues/tasks include:
 
-  * Limiting access to the MATLAB images to students, teachers, etc.
-  * Managing floating licenses via the cloud software.
-  * Purchase of licenses for running a number of MATLAB instances
-    simultaneously. 
-  * StratusLab improvements to facilitate this activity (e.g. web
-    interface to avoid installation of command line client). 
+* Limiting access to the MATLAB images to students, teachers, etc.
+* Managing floating licenses via the cloud software.
+* Purchase of licenses for running a number of MATLAB instances
+  simultaneously. 
+* StratusLab improvements to facilitate this activity (e.g. web
+  interface to avoid installation of command line client). 
 
 The remaining parts of this document provide minimal instructions for
 trying out the MATLAB instance.  Feel free to contact Cal
@@ -52,13 +52,13 @@ questions or problems.
 The steps to run the MATLAB virtual machine, assuming that nothing is
 yet installed on your laptop are:
 
-  * Register for a StratusLab account
-  * Install prerequisites on your machine
-  * Install the StratusLab client
-  * Configure the StratusLab client
-  * Run the MATLAB virtual machine
-  * Start MATLAB within the virtual machine
-  * Terminate the virtual machine
+* Register for a StratusLab account
+* Install prerequisites on your machine
+* Install the StratusLab client
+* Configure the StratusLab client
+* Run the MATLAB virtual machine
+* Start MATLAB within the virtual machine
+* Terminate the virtual machine
 
 ## Register
 
@@ -73,11 +73,11 @@ account.
 The prerequisites for running the StratusLab command line client and
 MATLAB: 
 
-  * Python 2 (2.6+)
-  * Pip and virtualenv
-  * SSH client (OpenSSH or PuTTY)
-  * Java 1.6+ (optional)
-  * X11 server
+* Python 2 (2.6+)
+* Pip and virtualenv
+* SSH client (OpenSSH or PuTTY)
+* Java 1.6+ (optional)
+* X11 server
 
 For this exercise, the StratusLab commands that require Java are not
 required, so Java is optional.  Virtualenv is also optional, but
@@ -246,20 +246,20 @@ on your machine.
 
 Use the executable PuTTYGen.  In the interface do the following:
 
-  * Click "generate".
-  * Provide key passphrase if you want
-  * Click "save public key" to save as file (e.g. in the .ssh folder)
-  * Click "save private key" to save as file (e.g. in the .ssh folder)
-  * Copy the text in the "Public key for pasting into OpenSSH..." box
-    to the clipboard
-  * Save this text in the file $HOME/.ssh/id_rsa.pub as a **plain text
-    file** 
+* Click "generate".
+* Provide key passphrase if you want
+* Click "save public key" to save as file (e.g. in the .ssh folder)
+* Click "save private key" to save as file (e.g. in the .ssh folder)
+* Copy the text in the "Public key for pasting into OpenSSH..." box
+  to the clipboard
+* Save this text in the file $HOME/.ssh/id_rsa.pub as a **plain text
+  file** 
 
 When connecting using PuTTY to the VMs, you must check the following:
 
-  * Connection/SSH/Auth panel: click "Allow agent forwarding" and
-    select the private key file you saved above
-  * Connection/SSH/X11 panel: click "Enable X11 forwarding"
+* Connection/SSH/Auth panel: click "Allow agent forwarding" and
+  select the private key file you saved above
+* Connection/SSH/X11 panel: click "Enable X11 forwarding"
 
 Provide the hostname for the connection and be sure to login with the
 username "root".
