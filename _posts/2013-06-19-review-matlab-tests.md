@@ -160,6 +160,15 @@ of the machine.  Find the status of the machine with:
 
     $ stratus-describe-instance
 
+The output will be something like:
+
+    id   state     vcpu memory    cpu% host/ip                  name
+    4746 Running   2    6291456   3    vm-188.lal.stratuslab.eu ci-centos-1
+    4747 Running   2    6291456   0    vm-189.lal.stratuslab.eu ci-centos-2
+    4748 Running   2    6291456   2    vm-190.lal.stratuslab.eu ci-suse1
+
+The hostname of the machine is given in the column "host/ip". 
+
 You'll need to wait until the machine is in a 'Running' state before
 connecting to it.  You can also get the information for only that
 machine with:
@@ -174,10 +183,13 @@ Once it is in a running state and the OS has booted (usually less than
 
     $ ssh -Y root@vm-XXX.lal.stratuslab.eu 
 
-where you can find the VM name from the above commands.  The `-Y`
-option enables X11 forwarding.  For Windows, you need to ensure that
-your SSH key is used to connect to the machine as "root" and that the
-X11 forwarding is enabled.  
+You must change the `vm-XXX.lal.stratuslab.eu` with the hostname
+returned from the `stratus-describe-instance` command in the "host/ip"
+column.
+
+The `-Y` option enables X11 forwarding.  For Windows, you need to
+ensure that your SSH key is used to connect to the machine as "root"
+and that the X11 forwarding is enabled.
 
 Once on the machine, start MATLAB with the command:
 
@@ -198,8 +210,14 @@ This will immediately terminate the machine.
 
 ## Windows Notes
 
-These notes were taken while using a Windows 8 machine.  The details
-may need to be changed if you're using a different version of Windows. 
+These notes were taken while using a Windows 8 machine with the
+PowerShell.  The details may need to be changed if you're using a
+different version of Windows.
+
+### PowerShell
+
+You can launch the PowerShell directly from the graphical interface or
+by running the command "powershell" from the older "cmd" interface.
 
 ### Python
 
@@ -240,11 +258,18 @@ java.
 ### PuTTY
 
 Install PuTTY as the SSH client.  The installer should work without
-problem.  To use PuTTY with the cloud machines, you must generate a
-certificate.  The most recent version of PuTTY allows you to do this
-on your machine.
+problem.
 
-Use the executable PuTTYGen.  In the interface do the following:
+You'll need to create the subdirectory `$HOME/.ssh`.  The easiest way
+to do this is from the command line.  Just do the following:
+
+   $ cd $HOME
+   $ mkdir .ssh
+
+To use PuTTY with the cloud machines, you must generate a certificate.
+The most recent version of PuTTY allows you to do this on your
+machine.  Use the executable PuTTYGen.  In the interface do the
+following:
 
 * Click "generate".
 * Provide key passphrase if you want
