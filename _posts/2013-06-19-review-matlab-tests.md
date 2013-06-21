@@ -263,8 +263,8 @@ problem.
 You'll need to create the subdirectory `$HOME/.ssh`.  The easiest way
 to do this is from the command line.  Just do the following:
 
-   $ cd $HOME
-   $ mkdir .ssh
+    $ cd $HOME
+    $ mkdir .ssh
 
 To use PuTTY with the cloud machines, you must generate a certificate.
 The most recent version of PuTTY allows you to do this on your
