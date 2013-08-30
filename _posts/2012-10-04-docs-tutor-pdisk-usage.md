@@ -193,9 +193,6 @@ Before hot-plugin a disk, make sure acpiphp is loaded. In your VM execute
 
     modprobe acpiphp
 
-NB: On some recent Linux kernel, acpiphp is already built into rather than a module, 
-and in this case no need to modprobe it.
- 
 To attach two volumes to the VM ID 24 with the UUIDs 
 1e8e9104-681c-4269-8aae-e513c6723ac6 and  
 5822c376-9ce1-434e-95d1-cdaa240cd47c
