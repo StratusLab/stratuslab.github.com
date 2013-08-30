@@ -13,32 +13,20 @@ The detailed User's, Administrator's, and Contributor's Guides are
 available for the supported releases are available from the provided
 links.
 
-User's Guide | [13.05.0](release/13.05.0/users-guide/users-guide.html) | [pdf](release/13.05.0/users-guide/users-guide.pdf) | [epub](release/13.05.0/users-guide/users-guide.epub) 
-Administrator's Guide | [13.05.0](release/13.05.0/administrators-guide/administrators-guide.html) | [pdf](release/13.05.0/users-guide/users-guide.pdf) | [epub](release/13.05.0/users-guide/users-guide.epub)
-
-
-
-
-### User's Guide
-
-  * 13.05.0
-    ([html](release/13.05.0/users-guide/users-guide.html),
+  * **User's Guide** 13.05.0 ([html](release/13.05.0/users-guide/users-guide.html),
     [pdf](release/13.05.0/users-guide/users-guide.pdf),
-    [epub](release/13.05.0/users-guide/users-guide.epub))
-
-### Administrator's Guide
-
-  * 13.05.0
+    [epub](release/13.05.0/users-guide/users-guide.epub) 
+  * **User's Tutorial** 13.05.0 ([html](release/13.05.0/users-tutorial/users-tutorial.html),
+    [pdf](release/13.05.0/users-tutorial/users-tutorial.pdf),
+    [epub](release/13.05.0/users-tutorial/users-tutorial.epub) 
+  * **Administrator's Guide** 13.05.0
     ([html](release/13.05.0/administrators-guide/administrators-guide.html),
     [pdf](release/13.05.0/administrators-guide/administrators-guide.pdf),
     [epub](release/13.05.0/administrators-guide/administrators-guide.epub))
-
-### Contributor's Guide
-
-  * 13.05.0
+  * **Contributor's Guide** 13.05.0
     ([html](release/13.05.0/contributors-guide/contributors-guide.html),
     [pdf](release/13.05.0/contributors-guide/contributors-guide.pdf),
     [epub](release/13.05.0/contributors-guide/contributors-guide.epub))
 
-## Articles and Tutorials
+## Articles
 
