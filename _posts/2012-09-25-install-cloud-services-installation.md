@@ -131,10 +131,3 @@ If errors occur, you can increase the verbosity level by adding -vv.
 [yum-config]: http://yum.stratuslab.eu/
 [linux-kvm]: http://www.linux-kvm.org/
 [epel]: http://fedoraproject.org/wiki/EPEL
-
-<!---
-Describe in the extended version of the documentation:
-
-+ **sendmail** service installed and started on Front-End. This is to enable sending
-notification emails to image authors when new images are created using the *--save* switch of *stratus-run-instance* 
---->
