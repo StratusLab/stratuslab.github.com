@@ -23,6 +23,6 @@ available from [Slideshare][slideshare].
 </div>
 
 
-[school]: https://fosdem.org/2013/
+[school]: http://events.telecom-sudparis.eu/ccsc/
 [tutorial]: http://stratuslab.eu/release/13.05.0/users-tutorial/users-tutorial.html
 [slideshare]: http://www.slideshare.net/stratuslab/20130827-v2stratuslab
