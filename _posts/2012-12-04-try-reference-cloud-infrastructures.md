@@ -129,9 +129,17 @@ via a RAID6 system.
 What is the firewall policy?
 ----------------------------
 
-No firewall restrictions are applied externally to the VMs. All ports
-are open for end-user applications at GRNET.  Commonly-used ports are
-open at LAL for the virtual machines.
+No firewall restrictions are applied externally to the VMs at GRNET.
+All ports are open for end-user applications.
+
+At LAL, only commonly-used ports are open for the virtual machines.
+The open ports are: 
+
+**22, 80, 389, 443, 636, 2135, 2170, 2171, 2172, 2811, 3147, 5001, 5010,
+5015, 8080, 8081, 8095, 8188, 8443, 8444, 9002, 10339, 10636, 15000,
+15001, 15002, 15003, 15004, 20000-25000**.
+
+Additional ports can be opened on request, if necessary.
 
 Users are responsible to configure their own port restrictions inside
 the VM images and for the overall security of the image in general.
