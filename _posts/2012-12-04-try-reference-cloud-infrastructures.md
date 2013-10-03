@@ -122,9 +122,13 @@ All VMs instantiated are assigned a public IPv4 and IPv6 address by default.
 
 ###LAL
 
-The cloud at LAL consists of 10 DELL servers each with 24 CPU cores
-and 32 GB of RAM.  There is a total of 20 TB of disk space available
-via a RAID6 system.
+The cloud at LAL consists of 15 servers with one of two
+configurations: 24 CPU cores with 24 GB of RAM or 32 CPU cores with 64
+GB of RAM.  There is a total of 20 TB of disk space available via a
+RAID6 system.
+
+There is a page that provides the [current resource
+utilization][lal-resources] for the LAL cloud.
 
 What is the firewall policy?
 ----------------------------
@@ -185,3 +189,4 @@ services are currently provided on best effort basis.
 [documentation]: /documentation/
 [manual-install]: /install/2012/09/25/install-cloud-services-installation.html
 [quattor]: http://quattor.org/
+[lal-resources]: http://cloud.lal.stratuslab.eu/load/load.txt
