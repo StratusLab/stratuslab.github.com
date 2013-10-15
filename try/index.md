@@ -14,11 +14,11 @@ Try the software!
 1. [Register](https://register.stratuslab.eu:8444/) for the [reference
       infrastructures](/try/2012/12/04/try-reference-cloud-infrastructures.html),
 
-2. [Install](try/2012/01/10/try-user-cli-installation.html)
-      the command line client, 
+2. [Install](http://stratuslab.eu/release/13.05.0/users-guide/users-guide.html#command-line-client)
+      the command line client,
 
-3. [Launch](/try/2012/01/01/try-launch-vm.html) a Virtual Machine on
-      the cloud.
+3. [Launch](http://stratuslab.eu/release/13.05.0/users-tutorial/users-tutorial.html)
+      a Virtual Machine on the cloud by following the tutorial.
 
 You can also browse the source code in our [GitHub
 repositories](https://github.com/StratusLab).
