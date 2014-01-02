@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="StratusLab Collaboration">
+  <title>StratusLab Contributor's Guide</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<header>
+<h1 class="title">StratusLab Contributor's Guide</h1>
+<h2 class="author">StratusLab Collaboration</h2>
+<h3 class="date">Version 13.12.0</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#preface"><span class="toc-section-number">1</span> Preface</a><ul>
+<li><a href="#target-audience"><span class="toc-section-number">1.1</span> Target Audience</a></li>
+<li><a href="#typographic-conventions"><span class="toc-section-number">1.2</span> Typographic Conventions</a></li>
+</ul></li>
+<li><a href="#stratuslab-collaboration"><span class="toc-section-number">2</span> StratusLab Collaboration</a><ul>
+<li><a href="#history"><span class="toc-section-number">2.1</span> History</a></li>
+<li><a href="#joining-the-collaboration"><span class="toc-section-number">2.2</span> Joining the Collaboration</a></li>
+<li><a href="#communication"><span class="toc-section-number">2.3</span> Communication</a></li>
+</ul></li>
+<li><a href="#code-management"><span class="toc-section-number">3</span> Code Management</a><ul>
+<li><a href="#licenses"><span class="toc-section-number">3.1</span> Licenses</a></li>
+<li><a href="#preferred-languages"><span class="toc-section-number">3.2</span> Preferred Languages</a></li>
+<li><a href="#repositories"><span class="toc-section-number">3.3</span> Repositories</a></li>
+<li><a href="#build-system"><span class="toc-section-number">3.4</span> Build System</a></li>
+<li><a href="#code-quality"><span class="toc-section-number">3.5</span> Code Quality</a><ul>
+<li><a href="#issues"><span class="toc-section-number">3.5.1</span> Issues</a></li>
+<li><a href="#code-formatting"><span class="toc-section-number">3.5.2</span> Code Formatting</a></li>
+<li><a href="#static-analysis"><span class="toc-section-number">3.5.3</span> Static Analysis</a></li>
+<li><a href="#unit-testing"><span class="toc-section-number">3.5.4</span> Unit Testing</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#documentation"><span class="toc-section-number">4</span> Documentation</a><ul>
+<li><a href="#repository-documentation"><span class="toc-section-number">4.1</span> Repository Documentation</a></li>
+<li><a href="#guides"><span class="toc-section-number">4.2</span> Guides</a></li>
+</ul></li>
+<li><a href="#continuous-integration"><span class="toc-section-number">5</span> Continuous Integration</a><ul>
+<li><a href="#supported-platforms"><span class="toc-section-number">5.1</span> Supported Platforms</a></li>
+<li><a href="#package-repository"><span class="toc-section-number">5.2</span> Package Repository</a></li>
+</ul></li>
+<li><a href="#releases"><span class="toc-section-number">6</span> Releases</a><ul>
+<li><a href="#frequency"><span class="toc-section-number">6.1</span> Frequency</a></li>
+<li><a href="#milestones"><span class="toc-section-number">6.2</span> Milestones</a></li>
+<li><a href="#tagging-and-packaging"><span class="toc-section-number">6.3</span> Tagging and Packaging</a></li>
+<li><a href="#publishing"><span class="toc-section-number">6.4</span> Publishing</a></li>
+<li><a href="#announcements"><span class="toc-section-number">6.5</span> Announcements</a></li>
+</ul></li>
+<li><a href="#service-configuration"><span class="toc-section-number">7</span> Service Configuration</a></li>
+<li><a href="#couchbase-connection-parameters"><span class="toc-section-number">8</span> Couchbase Connection Parameters</a></li>
+<li><a href="#service-instance-configuration"><span class="toc-section-number">9</span> Service Instance Configuration</a></li>
+</ul>
+</nav>
+<h1 id="preface"><a href="#TOC"><span class="header-section-number">1</span> Preface</a></h1>
+<h2 id="target-audience"><a href="#TOC"><span class="header-section-number">1.1</span> Target Audience</a></h2>
+<p>This guide provides information for people who contribute to the development and documentation of the StratusLab cloud distribution. It describes how to become a member of the StratusLab development community and provides guidelines on contributions.</p>
+<p>Those wanting to use a StratusLab cloud infrastructure should consult the StratusLab User's Guide.</p>
+<p>System administrators wanting to install a StratusLab cloud on their own resources should start with the StratusLab Administrator's Guide.</p>
+<h2 id="typographic-conventions"><a href="#TOC"><span class="header-section-number">1.2</span> Typographic Conventions</a></h2>
+<p>This guide uses several typographic conventions to improve the readability.</p>
+<table>
+<caption>Typographic Conventions</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">links</td>
+<td style="text-align: left;"><a href="http://example.org/">some link</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filenames</td>
+<td style="text-align: left;"><code>$HOME/.stratuslab/stratuslab-user.cfg</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">commands</td>
+<td style="text-align: left;"><code>stratus-run-instance</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">options</td>
+<td style="text-align: left;"><code>--version</code></td>
+</tr>
+</tbody>
+</table>
+<p>Extended examples of commands and their outputs are displayed in the monospace Courier font. Within these sections, command lines are prefixed with a '$ ' prompt. Lines without this prompt are output from the previous command. For example,</p>
+<pre><code>$ stratus-run-instance -q BN1EEkPiBx87_uLj2-sdybSI-Xb
+5507, 134.158.75.75</code></pre>
+<p>the <code>stratus-run-instance</code> is the command line which returns the virtual machine identifier and IP address.</p>
+<h1 id="stratuslab-collaboration"><a href="#TOC"><span class="header-section-number">2</span> StratusLab Collaboration</a></h1>
+<p>The StratusLab Collaboration aims to provide a complete, open-source cloud distribution that allows resource centers to deploy their own public or private &quot;Infrastructure as a Service&quot; (IaaS) cloud infrastructure.</p>
+<p>The collaboration's motto is &quot;Darn Simple Cloud&quot;. We aim to provide a cloud solution that is both simple to install and simple to use. Where possible, we build on existing software and technologies to minimize and to simplify our own code base.</p>
+<p>At the same time, we strongly believe in providing high quality, well tested code; we use agile software development processes and tools to achieve this.</p>
+<h2 id="history"><a href="#TOC"><span class="header-section-number">2.1</span> History</a></h2>
+<p>StratusLab started as an informal, academic collaboration between several partners involved in the EGEE series of grid projects in 2008. The initial aim of this collaboration was to investigate if the new cloud technologies (primarily Amazon Web Services) could be used as a platform for running grid services. The collaboration concluded that is was indeed possible and further, was convinced that cloud technologies would be an important platform for scientific computing.</p>
+<p>The collaboration subsequently grew into a more formal collaboration that proposed a European-level project to build an open-source cloud distribution suitable for running grid services. This proposal was accepted and StratusLab, as a project co-funded by the European Commission, ran from June 2010 to May 2012. During this period, the foundations of the current StratusLab cloud distribution were built.</p>
+<p>The StratusLab collaboration continues to maintain and to develop further this cloud distribution as an open collaboration of institutes and individuals. The four principal institutes currently participating are CNRS (France), SixSq (Switzerland), GRNET (Greece), and Trinity College Dublin (Ireland).</p>
+<h2 id="joining-the-collaboration"><a href="#TOC"><span class="header-section-number">2.2</span> Joining the Collaboration</a></h2>
+<p>The collaboration welcomes new collaborators, both institutions and individuals. All it takes is a willingness to participate constructively in the collaboration and to provide contributions consistent with the licenses used by the collaboration. Contact us at <script type="text/javascript">
+<!--
+h='&#x73;&#116;&#114;&#x61;&#116;&#x75;&#x73;&#108;&#x61;&#98;&#46;&#x65;&#x75;';a='&#64;';n='&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;&#32;&#x61;&#116;&#32;&#x73;&#116;&#114;&#x61;&#116;&#x75;&#x73;&#108;&#x61;&#98;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#x75;</noscript> to become a member.</p>
+<h2 id="communication"><a href="#TOC"><span class="header-section-number">2.3</span> Communication</a></h2>
+<p>The collaboration coordinates its activities primarily through a common mailing list: stratuslab-devel@googlegroups.com. Developers are expected to solicit feedback and to announce significant changes on that list. There is also a weekly teleconference on Thursdays at 11:30 (Paris) to allow more interactive discussion of progress and problems.</p>
+<h1 id="code-management"><a href="#TOC"><span class="header-section-number">3</span> Code Management</a></h1>
+<p>As a software development collaboration, the management of the common code base is of primary concern. This chapter describes the best practices for the collaboration.</p>
+<h2 id="licenses"><a href="#TOC"><span class="header-section-number">3.1</span> Licenses</a></h2>
+<p>Apache 2 is the primary code license of the collaboration. Although, exceptions can be made for specific cases (e.g. plugins to libraries under a different license), all core software must be under the Apache 2 license to ensure that it can be legally integrated into a common distribution and to ensure the widest possible reuse of the software.</p>
+<p>High-level documentation (e.g. User's Guide) is released under the Creative Commons Attribution license to ensure its widest possible distribution. Documentation integrated with the code (e.g. README) are released under the same license as the code itself.</p>
+<p>All non-trivial source code files, must have a comment block at the beginning of the file declaring the license for the code. This block must also contain the copyright statement for the file. The copyright is held by the original author (or author's institute) and must also appear in this initial comment block.</p>
+<h2 id="preferred-languages"><a href="#TOC"><span class="header-section-number">3.2</span> Preferred Languages</a></h2>
+<p>To maximize the number of people who can contribute to the maintenance and development of the StratusLab software, the collaboration attempts to minimize the number of development languages used within the project.</p>
+<p>On the server side, the collaboration prefers the use of Clojure (on the JVM) and Java. Historically, all of the services developed by the project have been written in Java; more recently this has been shifting towards Clojure.</p>
+<p>On the client side, Python is the preferred language. The StratusLab client is nearly entirely written in Python and many of the utility scripts (e.g. binding to Libvirt) are migrating from shell to Python.</p>
+<p>Exceptions are made for specific cases. For example, server startup scripts are written in bourne shell. If in doubt, ask for feedback via the developers' mailing list.</p>
+<h2 id="repositories"><a href="#TOC"><span class="header-section-number">3.3</span> Repositories</a></h2>
+<p>All of the code for the collaboration resides in <a href="http://github.com">GitHub</a> under the &quot;StratusLab&quot; organization. Generally, each major service resides in its own repository.</p>
+<p><em>All developers have write access to all repositories.</em> This allows everyone to contribute to any of the services and to correct bugs as they are found. Nonetheless, major changes in a repository should be discussed on the developers' mailing list and with the primary developer of the service.</p>
+<h2 id="build-system"><a href="#TOC"><span class="header-section-number">3.4</span> Build System</a></h2>
+<p>The collaboration has chosen to use Maven as its build system. Consequently, all of the code is build using the standard Maven workflows. The collaboration maintains a common top-level <code>pom.xml</code> file to manage plug-ins and dependencies. New dependencies should be discussed on the developers' mailing list and then added to the top-level pom.</p>
+<h2 id="code-quality"><a href="#TOC"><span class="header-section-number">3.5</span> Code Quality</a></h2>
+<h3 id="issues"><a href="#TOC"><span class="header-section-number">3.5.1</span> Issues</a></h3>
+<p>Significant changes to the code and specific bug fixes should be tracked via GitHub issues. These issues should also be tied to milestones so that release announcements can be prepared. Reference the Issue ID number in the commit message, so that GitHub will automatically cross-reference the commit to the issue.</p>
+<h3 id="code-formatting"><a href="#TOC"><span class="header-section-number">3.5.2</span> Code Formatting</a></h3>
+<p>Developers should generally follow the well-known style guides for their code. Specifically, follow the <a href="http://www.oracle.com/technetwork/java/codeconv-138413.html">Oracle style guide</a> for java and the <a href="http://www.python.org/dev/peps/pep-0008/">PEP8 style guide</a> for Python.</p>
+<p>IDEs such as Eclipse and PyCharm make formatting the code to these specifications easier. StratusLab has a PyCharm licence for its developers; ask for the license key.</p>
+<h3 id="static-analysis"><a href="#TOC"><span class="header-section-number">3.5.3</span> Static Analysis</a></h3>
+<p>Where possible, static analysis of the code should be integrated with the build process.</p>
+<p>For Java, FindBugs is an excellent tool for finding common errors through the static analysis of the generated bytecode. All Java-based project, must run FindBugs as part of the build process. Any &quot;critical&quot; problems identified by FindBugs must be corrected before committing the code.</p>
+<p>For other languages, you may wish to integrate similar tools in the build process. For these other languages, we do not have specific recommendations.</p>
+<h3 id="unit-testing"><a href="#TOC"><span class="header-section-number">3.5.4</span> Unit Testing</a></h3>
+<p>All of the StratusLab code should use unit testing to ensure that the code behaves as expected. These unit tests are especially critical when refactoring code (something that happens fairly frequently!).</p>
+<p>The code should use the appropriate xUnit framework for the programming language being used. Ideally, the unit test reports should be formatted in the JUnit XML format to allow better reporting from the continuous integration tools.</p>
+<h1 id="documentation"><a href="#TOC"><span class="header-section-number">4</span> Documentation</a></h1>
+<h2 id="repository-documentation"><a href="#TOC"><span class="header-section-number">4.1</span> Repository Documentation</a></h2>
+<p>Each code repository must have a README (in markdown format). It must contain the following:</p>
+<ul>
+<li>A description describing the purpose of the code</li>
+<li>A statement about the license</li>
+<li>Any acknowledgements (e.g. for the European Commission)</li>
+</ul>
+<p>It can also describe:</p>
+<ul>
+<li>Manual installation instructions for the service</li>
+<li>Firewall and port requirements</li>
+<li>Dependencies</li>
+</ul>
+<p>or any other relevant information.</p>
+<h2 id="guides"><a href="#TOC"><span class="header-section-number">4.2</span> Guides</a></h2>
+<p>The collaboration maintains three guides: one for users, one for administrators, and one for contributors. These should be reviewed and updated when significant changes are made to the code. These <em>must</em> be reviewed before each release.</p>
+<h1 id="continuous-integration"><a href="#TOC"><span class="header-section-number">5</span> Continuous Integration</a></h1>
+<p>The collaboration uses Hudson (probably Jenkins in the future) for continuous integration. Each time a change is committed to a StratusLab repository, the Hudson server launches a job to rebuild the software, executing the defined unit tests and repackaging the software.</p>
+<p>Assuming that the unit tests pass, jobs to reinstall a test cloud and to verify the high-level functionality are also run.</p>
+<p>The <a href="https://hudson.stratuslab.eu/">Hudson server</a> provides a list of all of the defined jobs and a dashboard of the latest status.</p>
+<h2 id="supported-platforms"><a href="#TOC"><span class="header-section-number">5.1</span> Supported Platforms</a></h2>
+<p>The project currently supports CentOS and OpenSuSE. All of the builds are automatically run on both platforms when changes are committed.</p>
+<p>The cloud installation and functionality tests are currently only run on CentOS.</p>
+<h2 id="package-repository"><a href="#TOC"><span class="header-section-number">5.2</span> Package Repository</a></h2>
+<p>The artifacts (packages) from all of the builds are uploaded to a Maven repository. The project runs a <a href="http://repo.stratuslab.eu:8081/">Nexus server</a> for this.</p>
+<h1 id="releases"><a href="#TOC"><span class="header-section-number">6</span> Releases</a></h1>
+<h2 id="frequency"><a href="#TOC"><span class="header-section-number">6.1</span> Frequency</a></h2>
+<p>The project follows a timed-release policy where a new release is prepared every quarter. The release numbering follows the Ubuntu-style format (e.g. 13.05.0 for the May 2013 release). Patch releases may also be prepared for individual components between the quarterly releases as necessary.</p>
+<h2 id="milestones"><a href="#TOC"><span class="header-section-number">6.2</span> Milestones</a></h2>
+<p>GitHub issues should be tied to a milestone. Where the milestones are named after the releases (e.g. 13.05 for the May 2013 release). This allows the changelog for the release to be prepared easily.</p>
+<h2 id="tagging-and-packaging"><a href="#TOC"><span class="header-section-number">6.3</span> Tagging and Packaging</a></h2>
+<p>All of the tagging and packaging of the releases are handled through manually-triggered jobs in Hudson. The &quot;tagging&quot; jobs should be executed first, with the &quot;release&quot; jobs executed afterwards for both CentOS and OpenSuSE.</p>
+<p>Note that these must be done in the correct order to ensure that the proper dependencies are picked up. The proper dependencies will need to be updated by hand in the pom files.</p>
+<h2 id="publishing"><a href="#TOC"><span class="header-section-number">6.4</span> Publishing</a></h2>
+<p>The releases are made available through yum repositories. Again, Hudson is used to create the content of these repositories. They must be copied by hand to the StratusLab yum repository machine.</p>
+<p>There are also a couple of python modules (stratuslab-client and stratuslab-libcloud-drivers) that must be pushed into PyPi. Once these are tagged, they should be built by hand and then pushed into PyPi.</p>
+<h2 id="announcements"><a href="#TOC"><span class="header-section-number">6.5</span> Announcements</a></h2>
+<p>A release announcement and changelog must be prepared for each release. It should be published on the website and then tweeted.</p>
+<h1 id="service-configuration"><a href="#TOC"><span class="header-section-number">7</span> Service Configuration</a></h1>
+<p>All StratusLab services must follow a common configuration scheme where the core of the configuration is stored in the Couchbase database. Only the Couchbase configuration parameters are read from a file on the local filesystem.</p>
+<p>This scheme allows the overall system to scale with multiple service instances while maintaining consistent configurations between them.</p>
+<h1 id="couchbase-connection-parameters"><a href="#TOC"><span class="header-section-number">8</span> Couchbase Connection Parameters</a></h1>
+<p>The Couchbase connection parameters must reside in a file on the physical machine to bootstrap the configuration mechanism. This file <code>/etc/stratuslab/couchbase.cfg</code> is in the standard &quot;ini&quot; format:</p>
+<pre><code>[DEFAULT]
+hosts=host1,host2,host3
+bucket=bucket1
+password=bucket1_password
+
+[service]
+hosts=host4
+bucket=other_bucket
+password=other_password
+cfg_docid=docid</code></pre>
+<p>Each section corresponds to the parameters for a particular service. The name of the section is defined by the service. If parameters are not defined in a specific section, then the ones in the <code>DEFAULT</code> section will be used. Services may have a default value for the <code>cfg_docid</code> value.</p>
+<h1 id="service-instance-configuration"><a href="#TOC"><span class="header-section-number">9</span> Service Instance Configuration</a></h1>
+<p>After reading the Couchbase connection parameters, the service should read its configuration from a document in Couchbase. The document identifier containing the configuration is defined by the service, but may be overridden by the <code>cfg_docid</code> parameter in the local configuration.</p>
+<p>To use Couchbase efficiently, these configuration files should be in JSON format. This allows them to be pulled into native data structures easily for our preferred implementation languages.</p>
+</body>
+</html>

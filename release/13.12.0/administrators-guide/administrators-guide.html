@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="StratusLab Collaboration">
+  <title>StratusLab Administrator's Guide</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<header>
+<h1 class="title">StratusLab Administrator's Guide</h1>
+<h2 class="author">StratusLab Collaboration</h2>
+<h3 class="date">Version 13.12.0</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#preface"><span class="toc-section-number">1</span> Preface</a><ul>
+<li><a href="#target-audience"><span class="toc-section-number">1.1</span> Target Audience</a></li>
+<li><a href="#typographic-conventions"><span class="toc-section-number">1.2</span> Typographic Conventions</a></li>
+</ul></li>
+<li><a href="#introduction"><span class="toc-section-number">2</span> Introduction</a><ul>
+<li><a href="#organization"><span class="toc-section-number">2.1</span> Organization</a></li>
+<li><a href="#terminology"><span class="toc-section-number">2.2</span> Terminology</a></li>
+</ul></li>
+<li><a href="#installation"><span class="toc-section-number">3</span> Installation</a><ul>
+<li><a href="#installation-overview"><span class="toc-section-number">3.1</span> Installation Overview</a></li>
+<li><a href="#prerequisites"><span class="toc-section-number">3.2</span> Prerequisites</a><ul>
+<li><a href="#physical-machines"><span class="toc-section-number">3.2.1</span> Physical Machines</a></li>
+<li><a href="#operating-system"><span class="toc-section-number">3.2.2</span> Operating System</a></li>
+<li><a href="#disable-selinux"><span class="toc-section-number">3.2.3</span> Disable SELinux</a></li>
+<li><a href="#python-version"><span class="toc-section-number">3.2.4</span> Python Version</a></li>
+<li><a href="#disk-configuration"><span class="toc-section-number">3.2.5</span> Disk Configuration</a></li>
+<li><a href="#package-repositories"><span class="toc-section-number">3.2.6</span> Package Repositories</a></li>
+<li><a href="#dns-and-hostname"><span class="toc-section-number">3.2.7</span> DNS and Hostname</a></li>
+<li><a href="#ssh-configuration"><span class="toc-section-number">3.2.8</span> SSH Configuration</a></li>
+<li><a href="#dhcp-server"><span class="toc-section-number">3.2.9</span> DHCP Server</a></li>
+<li><a href="#network-bridge"><span class="toc-section-number">3.2.10</span> Network Bridge</a></li>
+</ul></li>
+<li><a href="#front-end-deployment"><span class="toc-section-number">3.3</span> Front End Deployment</a><ul>
+<li><a href="#deployment-tool-installation"><span class="toc-section-number">3.3.1</span> Deployment tool installation</a></li>
+<li><a href="#configuration-file-customization"><span class="toc-section-number">3.3.2</span> Configuration file customization</a></li>
+<li><a href="#vm-management-service"><span class="toc-section-number">3.3.3</span> VM Management Service</a></li>
+<li><a href="#storage-service"><span class="toc-section-number">3.3.4</span> Storage Service</a></li>
+<li><a href="#network-configuration"><span class="toc-section-number">3.3.5</span> Network configuration</a></li>
+<li><a href="#dhcp-configuration"><span class="toc-section-number">3.3.6</span> DHCP Configuration</a></li>
+<li><a href="#finalize-front-end-installation"><span class="toc-section-number">3.3.7</span> Finalize Front End Installation</a></li>
+</ul></li>
+<li><a href="#node-deployment"><span class="toc-section-number">3.4</span> Node Deployment</a></li>
+<li><a href="#user-configuration"><span class="toc-section-number">3.5</span> User Configuration</a></li>
+<li><a href="#stratuslab-client"><span class="toc-section-number">3.6</span> StratusLab Client</a></li>
+<li><a href="#conclusions"><span class="toc-section-number">3.7</span> Conclusions</a></li>
+</ul></li>
+<li><a href="#network-configuration-1"><span class="toc-section-number">4</span> Network Configuration</a><ul>
+<li><a href="#network-services"><span class="toc-section-number">4.1</span> Network Services</a><ul>
+<li><a href="#dhcp"><span class="toc-section-number">4.1.1</span> DHCP</a></li>
+<li><a href="#dns"><span class="toc-section-number">4.1.2</span> DNS</a></li>
+<li><a href="#ip-addresses"><span class="toc-section-number">4.1.3</span> IP Addresses</a></li>
+</ul></li>
+<li><a href="#vlans"><span class="toc-section-number">4.2</span> VLANs</a></li>
+<li><a href="#services-and-ports"><span class="toc-section-number">4.3</span> Services and Ports</a></li>
+</ul></li>
+<li><a href="#authentication-and-authorization"><span class="toc-section-number">5</span> Authentication and Authorization</a><ul>
+<li><a href="#authentication-methods"><span class="toc-section-number">5.1</span> Authentication Methods</a><ul>
+<li><a href="#username-and-password"><span class="toc-section-number">5.1.1</span> Username and Password</a></li>
+<li><a href="#x509-credentials"><span class="toc-section-number">5.1.2</span> X509 Credentials</a></li>
+</ul></li>
+<li><a href="#authorization"><span class="toc-section-number">5.2</span> Authorization</a></li>
+<li><a href="#registration-service"><span class="toc-section-number">5.3</span> Registration Service</a></li>
+</ul></li>
+<li><a href="#running-a-cloud"><span class="toc-section-number">6</span> Running a Cloud</a><ul>
+<li><a href="#service-logging-information"><span class="toc-section-number">6.1</span> Service Logging Information</a></li>
+<li><a href="#monitoring-activity"><span class="toc-section-number">6.2</span> Monitoring Activity</a></li>
+<li><a href="#security-concerns"><span class="toc-section-number">6.3</span> Security Concerns</a></li>
+</ul></li>
+<li><a href="#troubleshooting"><span class="toc-section-number">7</span> Troubleshooting</a></li>
+<li><a href="#architecture"><span class="toc-section-number">8</span> Architecture</a><ul>
+<li><a href="#stratuslab-components"><span class="toc-section-number">8.1</span> StratusLab Components</a></li>
+<li><a href="#service-configuration"><span class="toc-section-number">8.2</span> Service Configuration</a></li>
+</ul></li>
+<li><a href="#planning-the-deployment"><span class="toc-section-number">9</span> Planning the Deployment</a><ul>
+<li><a href="#your-cloud-users"><span class="toc-section-number">9.1</span> Your Cloud Users</a></li>
+<li><a href="#network-configuration-2"><span class="toc-section-number">9.2</span> Network Configuration</a></li>
+<li><a href="#mapping-services-to-machines"><span class="toc-section-number">9.3</span> Mapping Services to Machines</a></li>
+<li><a href="#minimal-deployment"><span class="toc-section-number">9.4</span> Minimal Deployment</a></li>
+</ul></li>
+<li><a href="#prerequisites-1"><span class="toc-section-number">10</span> Prerequisites</a><ul>
+<li><a href="#physical-machines-1"><span class="toc-section-number">10.1</span> Physical Machines</a></li>
+<li><a href="#operating-system-1"><span class="toc-section-number">10.2</span> Operating System</a></li>
+<li><a href="#disable-selinux-1"><span class="toc-section-number">10.3</span> Disable SELinux</a></li>
+<li><a href="#python-version-1"><span class="toc-section-number">10.4</span> Python Version</a></li>
+<li><a href="#disk-configuration-1"><span class="toc-section-number">10.5</span> Disk Configuration</a></li>
+<li><a href="#package-repositories-1"><span class="toc-section-number">10.6</span> Package Repositories</a></li>
+<li><a href="#dns-and-hostname-1"><span class="toc-section-number">10.7</span> DNS and Hostname</a></li>
+<li><a href="#ssh-configuration-1"><span class="toc-section-number">10.8</span> SSH Configuration</a></li>
+<li><a href="#dhcp-server-1"><span class="toc-section-number">10.9</span> DHCP Server</a></li>
+<li><a href="#network-bridge-1"><span class="toc-section-number">10.10</span> Network Bridge</a></li>
+</ul></li>
+<li><a href="#couchbase"><span class="toc-section-number">11</span> Couchbase</a><ul>
+<li><a href="#service-overview"><span class="toc-section-number">11.1</span> Service Overview</a></li>
+<li><a href="#installation-and-configuration"><span class="toc-section-number">11.2</span> Installation and Configuration</a></li>
+</ul></li>
+<li><a href="#cimi"><span class="toc-section-number">12</span> CIMI</a><ul>
+<li><a href="#service-overview-1"><span class="toc-section-number">12.1</span> Service Overview</a></li>
+<li><a href="#installation-1"><span class="toc-section-number">12.2</span> Installation</a></li>
+<li><a href="#configuration"><span class="toc-section-number">12.3</span> Configuration</a><ul>
+<li><a href="#service-certificate"><span class="toc-section-number">12.3.1</span> Service Certificate</a></li>
+<li><a href="#trusted-certificate-authorities"><span class="toc-section-number">12.3.2</span> Trusted Certificate Authorities</a></li>
+<li><a href="#administrator-account"><span class="toc-section-number">12.3.3</span> Administrator Account</a></li>
+</ul></li>
+<li><a href="#testing-the-cimi-service"><span class="toc-section-number">12.4</span> Testing the CIMI Service</a></li>
+<li><a href="#verify-administrator-account"><span class="toc-section-number">12.5</span> Verify Administrator Account</a></li>
+<li><a href="#service-messages"><span class="toc-section-number">12.6</span> Service Messages</a></li>
+</ul></li>
+<li><a href="#authentication"><span class="toc-section-number">13</span> Authentication</a><ul>
+<li><a href="#overview"><span class="toc-section-number">13.1</span> Overview</a></li>
+<li><a href="#couchbase-user-entries"><span class="toc-section-number">13.2</span> Couchbase User Entries</a><ul>
+<li><a href="#using-passwords"><span class="toc-section-number">13.2.1</span> Using Passwords</a></li>
+<li><a href="#using-certificates"><span class="toc-section-number">13.2.2</span> Using Certificates</a></li>
+</ul></li>
+<li><a href="#ldap-user-database"><span class="toc-section-number">13.3</span> LDAP User Database</a><ul>
+<li><a href="#using-passwords-1"><span class="toc-section-number">13.3.1</span> Using Passwords</a></li>
+<li><a href="#using-certificates-1"><span class="toc-section-number">13.3.2</span> Using Certificates</a></li>
+</ul></li>
+<li><a href="#voms-proxy-authentication"><span class="toc-section-number">13.4</span> VOMS Proxy Authentication</a></li>
+<li><a href="#future-authentication-methods"><span class="toc-section-number">13.5</span> Future Authentication Methods</a></li>
+</ul></li>
+<li><a href="#using-ceph"><span class="toc-section-number">14</span> Using Ceph</a><ul>
+<li><a href="#requirements"><span class="toc-section-number">14.1</span> Requirements</a></li>
+<li><a href="#modifications"><span class="toc-section-number">14.2</span> Modifications</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="preface"><a href="#TOC"><span class="header-section-number">1</span> Preface</a></h1>
+<h2 id="target-audience"><a href="#TOC"><span class="header-section-number">1.1</span> Target Audience</a></h2>
+<p>This guide provides information for system administrators wanting to install and maintain a StratusLab cloud.</p>
+<p>Those interested in using the resources in a StratusLab cloud should instead consult the StratusLab User's Guide.</p>
+<p>Those wishing to contribute to the StratusLab software or documentation should consult the StratusLab Contributor's Guide.</p>
+<h2 id="typographic-conventions"><a href="#TOC"><span class="header-section-number">1.2</span> Typographic Conventions</a></h2>
+<p>This guide uses several typographic conventions to improve the readability.</p>
+<table>
+<caption>Typographic Conventions</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">links</td>
+<td style="text-align: left;"><a href="http://example.org/">some link</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filenames</td>
+<td style="text-align: left;"><code>$HOME/.stratuslab/stratuslab-user.cfg</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">commands</td>
+<td style="text-align: left;"><code>stratus-run-instance</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">options</td>
+<td style="text-align: left;"><code>--version</code></td>
+</tr>
+</tbody>
+</table>
+<p>Extended examples of commands and their outputs are displayed in the monospace Courier font. Within these sections, command lines are prefixed with a '$ ' prompt. Lines without this prompt are output from the previous command. For example,</p>
+<pre><code>$ stratus-run-instance -q BN1EEkPiBx87_uLj2-sdybSI-Xb
+5507, 134.158.75.75</code></pre>
+<p>the <code>stratus-run-instance</code> is the command line which returns the virtual machine identifier and IP address.</p>
+<h1 id="introduction"><a href="#TOC"><span class="header-section-number">2</span> Introduction</a></h1>
+<p>Describe all of the services and how they fit together in detail. Provide a detailed view of a cloud deployment.</p>
+<p>How StratusLab fits into the various cloud service models. It is a IaaS!</p>
+<p>Different types of deployments: public, private, and community.</p>
+<h2 id="organization"><a href="#TOC"><span class="header-section-number">2.1</span> Organization</a></h2>
+<p>The guide starts with this introduction and then is followed by an installation tutorial showing all of the steps to install a minimal, two-machine StratusLab cloud infrastructure. The subsequent chapter provide more detail on various aspects of the software.</p>
+<h2 id="terminology"><a href="#TOC"><span class="header-section-number">2.2</span> Terminology</a></h2>
+<p>The older terminology, still used in most parts of this (and other) documents is the following:</p>
+<ul>
+<li>Frontend: A physical machine that runs the services for virtual machine management and storage services. This is the machine which is contacted by the cloud users for managing their cloud resources.</li>
+<li>Node: A physical machine that hosts virtual machines.</li>
+</ul>
+<p>The newer terminology that has been adopted is:</p>
+<ul>
+<li><p>Cloud Entry Point: One or more physical machines that run the CIMI service. Users use this management interface to acquire, control, and release all of their cloud resources.</p></li>
+<li><p>VM Host: One or more physical machines that host virtual machines.</p></li>
+<li><p>Storage Controller: One or more physical machines that act as a gateway to a storage services.</p></li>
+<li><p>Couchbase Node: A physical machine that hosts a Couchbase instance running as part of a Couchbase cluster. This may be combined with either the Cloud Entry Points or the VM Hosts to minimize the number of physical machines used for the supporting services of the cloud.</p></li>
+</ul>
+<p>The software and documentation is being gradually updated to consistently use this newer terminology.</p>
+<h1 id="installation"><a href="#TOC"><span class="header-section-number">3</span> Installation</a></h1>
+<p>This tutorial demonstrates how to install manually a StratusLab cloud infrastructure using the StratusLab system administrator command line utilities. A minimal StratusLab cloud consists of two physical machines, although additional machines may be necessary if the internet cannot be accessed.</p>
+<h2 id="installation-overview"><a href="#TOC"><span class="header-section-number">3.1</span> Installation Overview</a></h2>
+<p>The StratusLab distribution provides a simple command line client to install, configure and start the StratusLab Cloud services and components.</p>
+<p>The default deployment has two types of machines:</p>
+<ol type="1">
+<li><strong>Front-End</strong> - machine for VM management and storage services</li>
+<li><strong>Node</strong> - machine that hosts virtual machines</li>
+</ol>
+<p>A quick overview of the procedure is:</p>
+<ol type="1">
+<li>Ensure all prerequisites are satisfied.</li>
+<li>Define all of the StratusLab service parameters.</li>
+<li>Install and configure the Front End, containing the VM management service (OpenNebula) and the storage management (Persistent Disk) service.</li>
+<li>Install and configure the Node(s) via SSH from the Front End. By default <a href="http://www.linux-kvm.org/">KVM</a> is used for the hypervisor on the Node(s).</li>
+<li>Validate the installation by starting a virtual machine.</li>
+</ol>
+<figure>
+<img src="images/install-diagram.png" alt="Minimal StratusLab Cloud"><figcaption>Minimal StratusLab Cloud</figcaption>
+</figure>
+<h2 id="prerequisites"><a href="#TOC"><span class="header-section-number">3.2</span> Prerequisites</a></h2>
+<h3 id="physical-machines"><a href="#TOC"><span class="header-section-number">3.2.1</span> Physical Machines</a></h3>
+<p>This tutorial demonstrates a minimal installation of a StratusLab cloud on two physical machines. The physical machines should be relatively modern machines with the following <strong>minimum</strong> characteristics:</p>
+<ul>
+<li>1 <strong>64-bit multicore</strong> CPU (&gt;= 4 cores) with <strong>VT-x extensions</strong></li>
+<li>4 GB of RAM</li>
+<li>200 GB local disk space</li>
+</ul>
+<p><strong>The hardware virtualization extensions must be enabled in the BIOS on the &quot;Node&quot; machine.</strong> Many vendors ship machines with these extensions disabled.</p>
+<p>In general cloud infrastructures prefer &quot;fat&quot; machines, that is machines that have a maximum number of CPUs, RAM, and disk space as possible. This is because the maximum size of a single virtual machine is limited by the size of the largest physical machine.</p>
+<h3 id="operating-system"><a href="#TOC"><span class="header-section-number">3.2.2</span> Operating System</a></h3>
+<p>Install a minimal version of <a href="http://www.centos.org">CentOS 6</a> on the two physical machines that will be used for the cloud infrastructure.</p>
+<h3 id="disable-selinux"><a href="#TOC"><span class="header-section-number">3.2.3</span> Disable SELinux</a></h3>
+<p>The SELinux system must be disabled on <strong>all of the machines</strong>. Normally this is enabled by default. To disable SELinux, ensure that the file <code>/etc/selinux/config</code> has the following line:</p>
+<pre><code>SELINUX=disabled</code></pre>
+<p><strong>You must reboot the machine for this to take effect.</strong></p>
+<h3 id="python-version"><a href="#TOC"><span class="header-section-number">3.2.4</span> Python Version</a></h3>
+<p>The default version of Python installed with CentOS should be correct. StratusLab requires a version of Python 2 with a version <strong>2.6 or later</strong>. The StratusLab command line tools <strong>do not work with Python 3</strong>.</p>
+<p>Verify that the correct version of Python is installed:</p>
+<pre><code>$ python --version
+Python 2.6.6</code></pre>
+<h3 id="disk-configuration"><a href="#TOC"><span class="header-section-number">3.2.5</span> Disk Configuration</a></h3>
+<p>StratusLab allows for a variety of storage options behind the persistent disk service. The tutorial uses the defaults using LVM and iSCSI.</p>
+<p><strong>The machines must be configured to use LVM for the disk storage.</strong></p>
+<p>The Front End must be configured with two LVM groups: one for the base operating system (~20 GB) and one for the StratusLab storage service (remaining space).</p>
+<p>The &quot;Node&quot; machine can be configured with a single LVM group.</p>
+<p>Below, we assume that the volume group names are &quot;vg.01&quot; for the operating system and &quot;vg.02&quot; for the StratusLab storage service. You can use other names, but then change the commands below as necessary.</p>
+<h3 id="package-repositories"><a href="#TOC"><span class="header-section-number">3.2.6</span> Package Repositories</a></h3>
+<p>The StratusLab installation takes packages from four yum repositories:</p>
+<ol type="1">
+<li>The standard CentOS repository,</li>
+<li>The <a href="http://fedoraproject.org/wiki/EPEL">EPEL 6</a> repository,</li>
+<li>The <a href="http://yum.stratuslab.eu">StratusLab repository</a>, and</li>
+<li>The <a href="http://repository.egi.eu/sw/production/cas/1/current/">IGTF Root Certificates</a>.</li>
+</ol>
+<p>The configuration for the CentOS repository is done when the system is installed. The others require additional configuration.</p>
+<p>To configure <strong>both</strong> the Front End and Node for the EPEL repository, do the following:</p>
+<pre><code>$ wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
+$ yum install -y epel-release-6-8.noarch.rpm</code></pre>
+<p>This will add the necessary files to the <code>/etc/yum.repos.d/</code> directory.</p>
+<p>To configure <strong>both</strong> the Front End and Node for the StratusLab repository, put the following into the file <code>/etc/yum.repos.d/stratuslab.repo</code>:</p>
+<pre><code>[StratusLab-Releases]
+name=StratusLab-Releases
+baseurl=http://yum.stratuslab.eu/releases/centos-6.2-v13.02/
+gpgcheck=0</code></pre>
+<p>replacing the URL with the version you want to install.</p>
+<p>Although not strictly necessary, it is advisable to clear all of the yum caches and upgrade the packages to the latest versions:</p>
+<pre><code>$ yum clean all
+$ yum upgrade -y</code></pre>
+<p>This may take some time if you installed the base operating system from old media.</p>
+<h3 id="dns-and-hostname"><a href="#TOC"><span class="header-section-number">3.2.7</span> DNS and Hostname</a></h3>
+<p>Ensure that the <strong>hostname</strong> is properly setup on the Front End and the Node. The DNS must provide both the forward and reverse naming of the nodes. This is required for critical services to start.</p>
+<p>You can verify this on both the Front End and the Node with the command:</p>
+<pre><code>$ hostname -f</code></pre>
+<p>Set the hostname if it is not correct.</p>
+<p>Throughout this tutorial we use the variables $FRONTEND_HOST ($FRONTEND_IP) and $NODE_HOST ($NODE_IP) for the Front End and Node hostnames (IP addresses), respectively. Change these to the proper names for your physical machines when running the commands.</p>
+<h3 id="ssh-configuration"><a href="#TOC"><span class="header-section-number">3.2.8</span> SSH Configuration</a></h3>
+<p>The installation scripts will automate most of the work, but the scripts require <strong>password-less root access</strong>:</p>
+<ul>
+<li>From the Front End to each Node and</li>
+<li>From the Front End to the Front End itself</li>
+</ul>
+<p>Check to see if there is already an SSH key pair in <code>/root/.ssh/id_rsa*</code>. If not, then you need to create a new key pair <strong>without a password</strong>:</p>
+<pre><code>$ ssh-keygen -q 
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+/root/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: </code></pre>
+<p>Now ensure that you can log into the Front End from the Front End without needing a password. Do the following:</p>
+<pre><code>$ ssh-copy-id $FRONTEND_HOST
+The authenticity of host &#39;onehost-5.lal.in2p3.fr (134.158.75.5)&#39; can&#39;t be established.
+RSA key fingerprint is e9:04:03:02:e5:2e:f9:a1:0e:ae:9f:9f:e4:3f:70:dd.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;onehost-5.lal.in2p3.fr,134.158.75.5&#39; (RSA) to the list of known hosts.
+root@onehost-5.lal.in2p3.fr&#39;s password: 
+Now try logging into the machine, with &quot;ssh &#39;onehost-5.lal.in2p3.fr&#39;&quot;, and check in:
+
+  .ssh/authorized_keys
+
+to make sure we haven&#39;t added extra keys that you weren&#39;t expecting.</code></pre>
+<p>Do the same thing for the node:</p>
+<pre><code>$ ssh-copy-id $NODE_HOST
+...</code></pre>
+<p>And verify that the password-less access works as expected.</p>
+<pre><code>$ ssh $FRONTEND_HOST 
+
+Last login: Mon May 27 14:26:29 2013 from mac-91100.lal.in2p3.fr
+# 
+# exit
+logout
+Connection to onehost-5.lal.in2p3.fr closed.
+
+$ ssh $NODE_HOST
+
+Last login: Mon May 27 14:26:43 2013 from mac-91100.lal.in2p3.fr
+# 
+# exit
+logout
+Connection to onehost-6.lal.in2p3.fr closed.</code></pre>
+<p>Now that SSH is properly configured, the StratusLab scripts will be able to install software on both the Front End and the Node.</p>
+<h3 id="dhcp-server"><a href="#TOC"><span class="header-section-number">3.2.9</span> DHCP Server</a></h3>
+<p>A DHCP server must be configured to assign static IP addresses corresponding to known MAC addresses for the virtual machines. These IP addresses must be publicly visible if the cloud instances are to be accessible from the internet.</p>
+<p>If an external DHCP server is not available, the StratusLab installation command can be used to properly configure a DHCP server on the Front End for the virtual machines.</p>
+<p>This uses a DHCP server on the Front End.</p>
+<h3 id="network-bridge"><a href="#TOC"><span class="header-section-number">3.2.10</span> Network Bridge</a></h3>
+<p>A network bridge must be configured on the Node to allow virtual machines access to the internet. You can do this manually if you want, but the StratusLab installation scripts are capable of configuring this automatically.</p>
+<p>This tutorial allows the installation scripts to configure the network bridge.</p>
+<h2 id="front-end-deployment"><a href="#TOC"><span class="header-section-number">3.3</span> Front End Deployment</a></h2>
+<h3 id="deployment-tool-installation"><a href="#TOC"><span class="header-section-number">3.3.1</span> Deployment tool installation</a></h3>
+<p>The first step is to install the StratusLab system administrator command line client from the <a href="http://yum.stratuslab.eu">StratusLab repository</a> <strong>on the Front End</strong>:</p>
+<pre><code>$ yum install -y stratuslab-cli-sysadmin</code></pre>
+<p>This will install the system administrator client and all of the necessary dependencies. You can verify that it is correctly installed by doing the following:</p>
+<pre><code>$ stratus-config --help
+
+Usage: stratus-config [options] [key [value]]
+If the [value] is not provided, the command returns the current value
+of the key.
+...</code></pre>
+<h3 id="configuration-file-customization"><a href="#TOC"><span class="header-section-number">3.3.2</span> Configuration file customization</a></h3>
+<p>The entire StratusLab Cloud is configured from a single configuration file <code>/etc/stratuslab/stratuslab.cfg</code>. This file contains many options, but only a few are required.</p>
+<p>StratusLab ships with a default configuration file in the standard location and a reference configuration file located in <code>/etc/stratuslab/stratuslab.cfg.ref</code>.</p>
+<p>To simplify viewing the configuration parameters and changing them, the <code>stratus-config</code> command can be used.</p>
+<p>To list the content of the configuration, and show the differences between the <code>stratuslab.cfg</code> file and the reference configuration, you can use the <code>-k</code> or <code>--keys</code> option:</p>
+<pre><code>$ stratus-config -k
+
+... lots of parameter values! ...</code></pre>
+<p>To change a value, specify the key and the new value. To view a single value, simply specify the key.</p>
+<p>We will use this command to set the various configuration parameters below.</p>
+<h3 id="vm-management-service"><a href="#TOC"><span class="header-section-number">3.3.3</span> VM Management Service</a></h3>
+<p>The parameters for the frontend and VM management:</p>
+<pre><code>$ stratus-config frontend_system centos
+$ stratus-config frontend_ip $FRONTEND_IP</code></pre>
+<h3 id="storage-service"><a href="#TOC"><span class="header-section-number">3.3.4</span> Storage Service</a></h3>
+<p>Similar parameters must also be set for the Persistent Disk service.</p>
+<p>For this tutorial, this service is installed on the Front End, so the same IP address should be used.</p>
+<pre><code>$ stratus-config persistent_disk_system centos
+$ stratus-config persistent_disk_ip $FRONTEND_IP
+$ stratus-config persistent_disk_merge_auth_with_proxy True </code></pre>
+<p>The Persistent Disk service and the Nodes communicate using a strategy defined by the <code>persistent_disk_storage</code> and <code>persistent_disk_share</code> parameters. The default values (&quot;lvm&quot; and &quot;iscsi&quot;, respectively) will be used for this tutorial.</p>
+<p>One needs to specify what device will be used for the physical storage for the Persistent Disk service:</p>
+<pre><code>$ stratus-config persistent_disk_lvm_device /dev/vg.02
+
+# Provide detailed parameters for storage backend plugins.
+# (NOTE: The opening and closing single quotes!)
+$ stratus-config persistent_disk_backend_sections &#39;
+[%(persistent_disk_ip)s]
+        type=LVM
+        volume_name = /dev/vg.02
+        lun_namespace = stratuslab
+        volume_snapshot_prefix = pdisk_clone
+        initiator_group =
+&#39;</code></pre>
+<p>If you've used another name for the LVM volume group, then change the above command.</p>
+<h3 id="network-configuration"><a href="#TOC"><span class="header-section-number">3.3.5</span> Network configuration</a></h3>
+<p>Use the frontend as the general gateway for the cloud:</p>
+<pre><code>$ stratus-config default_gateway $FRONTEND_IP</code></pre>
+<p>Set the IP and mac addresses for virtual machines:</p>
+<pre><code>$ stratus-config one_public_network_addr \
+    134.158.xx.yy 134.158.xx.yy 134.158.xx.yy
+
+$ stratus-config one_public_network_mac \
+    0a:0a:86:9e:49:2a 0a:0a:86:9e:49:2b 0a:0a:86:9e:49:2c</code></pre>
+<p>In this example, the Front-End is configured on IP address $FRONTEND_IP and three IP/MAC address pairs are defined for virtual machines.</p>
+<p><strong>You must use the real values for the Front End IP addresses and for the range of addresses you will use for the virtual machines.</strong></p>
+<p>More network parameters are described in the &quot;one-network&quot; section in the reference configuration file.</p>
+<h3 id="dhcp-configuration"><a href="#TOC"><span class="header-section-number">3.3.6</span> DHCP Configuration</a></h3>
+<p>Allow the script to automatically configure and start the DHCP server on the Front End. Do the following:</p>
+<pre><code>$ stratus-config dhcp True
+$ stratus-config dhcp_subnet 134.158.75.0
+$ stratus-config dhcp_netmask 255.255.255.0
+$ stratus-config dhcp_lease_time 3600
+
+$ stratus-config dhcp_one_public_network True
+$ stratus-config dhcp_one_local_network_routers $FRONTEND_IP
+$ stratus-config dhcp_one_local_network_domain_name lal.in2p3.fr
+$ stratus-config dhcp_one_local_network_domain_name_servers \
+     134.158.91.80, 134.158.88.149</code></pre>
+<p>Use <strong>your</strong> values for these parameters!</p>
+<h3 id="finalize-front-end-installation"><a href="#TOC"><span class="header-section-number">3.3.7</span> Finalize Front End Installation</a></h3>
+<p>Now that we have defined all of the configuration parameters, you can now do the full Front End installation by issuing the following command:</p>
+<pre><code>$ stratus-install -vv</code></pre>
+<p>To get more details on what the command is (because of curiosity or errors), use the option <code>-v</code>, <code>-vv</code>, or <code>-vvv</code>.</p>
+<p>If you run into errors, the <code>stratus-install</code> command can simply be rerun after adjusting the configuration parameters.</p>
+<h2 id="node-deployment"><a href="#TOC"><span class="header-section-number">3.4</span> Node Deployment</a></h2>
+<p>The deployment of the StratusLab Nodes is done from the Front End, thus, <strong>all the commands below should be run from the Front End.</strong></p>
+<p>To add a Node to the cloud, specify the Linux distribution of the machine and indicate that the bridge should be configured:</p>
+<pre><code>$ stratus-config node_system centos</code></pre>
+<p>Request the automatic configuration of the network bridge:</p>
+<pre><code>$ stratus-config node_bridge_configure True
+$ stratus-config node_bridge_name br0
+$ stratus-config node_network_interface eth0</code></pre>
+<p>Check carefully the name of the interface on the node!</p>
+<p>Invoke installation by</p>
+<pre><code>stratus-install -vv -n $NODE_IP</code></pre>
+<p>As before, you can increase the verbosity level by adding the option <code>-v</code> or <code>-vv</code>.</p>
+<h2 id="user-configuration"><a href="#TOC"><span class="header-section-number">3.5</span> User Configuration</a></h2>
+<p>At this point, you have both the Front End and one Node installed. This is a functional installation, but you have not yet authorized any users for the cloud. Here we will create a new StratusLab user account. Note that StratusLab accounts are independent of the Unix accounts on the machine itself.</p>
+<p>Add the following line to the end of the file <code>/etc/stratuslab/authn/login-pswd.properties</code>.</p>
+<pre><code>$ cat &gt;&gt; /etc/stratuslab/authn/login-pswd.properties
+sluser=slpass,cloud-access</code></pre>
+<p>This creates a new StratusLab user 'sluser' with a password 'slpass'. The group 'cloud-access' is mandatory for the user to have access to the cloud services. (Crypted or hashed password values are also allowed in the configuration.)</p>
+<p>The StratusLab distribution supports other authentication methods (LDAP, X509 certificates, X509 proxies, etc.), but a username/password pair is the simplest for this tutorial.</p>
+<h2 id="stratuslab-client"><a href="#TOC"><span class="header-section-number">3.6</span> StratusLab Client</a></h2>
+<p>Now we will test that the cloud functions correctly by starting a new virtual machine instance and logging into it. We'll test the cloud service from a normal Unix user account on the Front End.</p>
+<p>First, ensure that the StratusLab user client is installed on the machine. Do the following as root:</p>
+<pre><code>$ yum install -y stratuslab-cli-user</code></pre>
+<p>It is very likely that the user client commands are already installed.</p>
+<p>(Note: For normal client installations, it is strongly recommended to use pip or easy_install with virtualenv. See the usual <a href="http://stratuslab.eu/try/2012/01/10/try-user-cli-installation.html">client installation instructions</a>.)</p>
+<p>Now create a normal Unix user for testing:</p>
+<pre><code>$ adduser sluser</code></pre>
+<p>Now log in as the user and setup the account for using StratusLab. An SSH key pair is required to log into your virtual machines and the client requires that a complete client configuration file.</p>
+<p>Log in as the user and create an SSH key pair. This is similar to the process used for the root account on the machine.</p>
+<pre><code>$ su - sluser
+$ ssh-keygen -q
+...</code></pre>
+<p>Now copy the reference configuration file into place and edit the parameters.</p>
+<pre><code>$ mkdir ~/.stratuslab 
+$ cd ~/.stratuslab
+$ cp /etc/stratuslab/stratuslab-user.cfg.ref ~/.stratuslab/stratuslab-user.cfg 
+$ vi ~/.stratuslab/stratuslab-user.cfg # endpoint, username, password</code></pre>
+<p>You will need to set the &quot;endpoint&quot;, &quot;username&quot;, and &quot;password&quot; parameters in this file. For the &quot;endpoint&quot; use the hostname or IP address of your Front End. For the &quot;username&quot; and &quot;password&quot; use &quot;sluser&quot; and &quot;slpass&quot;, respectively.</p>
+<p>Everything should be setup now. So try deploying a virtual machine. You can look in the Marketplace to find an interesting machine to deploy. We'll use a ttylinux image here. This is a micro distribution that boots very quickly and is ideal for tests.</p>
+<pre><code># Deploy a ttylinux virtual machine. 
+$ stratus-run-instance BN1EEkPiBx87_uLj2-sdybSI-Xb 
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 1)
+ Public ip: 134.158.75.42
+ :: Done!</code></pre>
+<p>Check the status of the machine as it starts:</p>
+<pre><code># Check its status.  Pending -&gt; not yet assigned to a Node
+$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+1   Pending   1    0         0    vm-42.lal.stratuslab.eu one-1
+
+# Check again.  Prolog -&gt; resources for VM are being initialized 
+$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+1   Prolog    1    0         0    vm-42.lal.stratuslab.eu one-1
+
+# Check again. Running -&gt; hypervisor has started machine
+$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+1   Running   1    0         0    vm-42.lal.stratuslab.eu one-1</code></pre>
+<p>When the machine reaches the 'running' status, the virtual machine is running in the hypervisor on the Node. It will probably take some additional time for the operating system to boot.</p>
+<p>Verify that the machine has fully booted and is accessible from the network:</p>
+<pre><code># Ping the virtual machine to see if it is accessible.    
+$ ping vm-42.lal.stratuslab.eu 
+PING vm-42.lal.stratuslab.eu (134.158.75.42) 56(84) bytes of data.
+From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=2 Destination Host
+ Unreachable
+...
+From onehost-5.lal.in2p3.fr (134.158.75.5) icmp_seq=8 Destination Host
+ Unreachable
+64 bytes from vm-42.lal.stratuslab.eu (134.158.75.42): icmp_seq=9
+ ttl=64 time=1.44 ms
+...
+
+# Now login to the machine as root.
+$ ssh root@vm-42.lal.stratuslab.eu 
+
+The authenticity of host &#39;vm-42.lal.stratuslab.eu (134.158.75.42)&#39;
+ can&#39;t be established.
+RSA key fingerprint is
+ 6a:bd:f7:2d:b6:82:39:61:e6:ca:3f:c7:61:9d:72:31.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;vm-42.lal.stratuslab.eu,134.158.75.42&#39;
+ (RSA) to the list of known hosts.
+
+
+#       # &lt;- we&#39;re logged into the ttylinux virtual machine
+# exit  # just logout of the session
+logout
+Connection to vm-42.lal.stratuslab.eu closed.</code></pre>
+<p>Now the machine can be terminated:</p>
+<pre><code>$ stratus-kill-instance 1</code></pre>
+<p>Going through the full lifecycle of a machine shows that all of the services are working.</p>
+<h2 id="conclusions"><a href="#TOC"><span class="header-section-number">3.7</span> Conclusions</a></h2>
+<p>You've successfully installed a minimal StratusLab cloud. You can checkout the <a href="http://stratuslab.eu/documentation/">documentation</a> to see what other configuration parameters are available or try the user tutorials to discover more of the StratusLab services.</p>
+<p>You can get help on the installation or use of StratusLab through the <script type="text/javascript">
+<!--
+h='&#x73;&#116;&#114;&#x61;&#116;&#x75;&#x73;&#108;&#x61;&#98;&#46;&#x65;&#x75;';a='&#64;';n='&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'support mailing list'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#32;&#x6d;&#x61;&#x69;&#108;&#x69;&#110;&#x67;&#32;&#108;&#x69;&#x73;&#116;&#32;&#40;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#32;&#x61;&#116;&#32;&#x73;&#116;&#114;&#x61;&#116;&#x75;&#x73;&#108;&#x61;&#98;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#x75;&#x29;</noscript>. You can also report bugs and provide feedback on the same list.</p>
+<h1 id="network-configuration-1"><a href="#TOC"><span class="header-section-number">4</span> Network Configuration</a></h1>
+<h2 id="network-services"><a href="#TOC"><span class="header-section-number">4.1</span> Network Services</a></h2>
+<h3 id="dhcp"><a href="#TOC"><span class="header-section-number">4.1.1</span> DHCP</a></h3>
+<h3 id="dns"><a href="#TOC"><span class="header-section-number">4.1.2</span> DNS</a></h3>
+<h3 id="ip-addresses"><a href="#TOC"><span class="header-section-number">4.1.3</span> IP Addresses</a></h3>
+<h2 id="vlans"><a href="#TOC"><span class="header-section-number">4.2</span> VLANs</a></h2>
+<p>Describe the different VLANs for the cloud infrastructure.</p>
+<h2 id="services-and-ports"><a href="#TOC"><span class="header-section-number">4.3</span> Services and Ports</a></h2>
+<p>List all of the services and the ports that they use. Describe to what extent those ports need to be open.</p>
+<h1 id="authentication-and-authorization"><a href="#TOC"><span class="header-section-number">5</span> Authentication and Authorization</a></h1>
+<h2 id="authentication-methods"><a href="#TOC"><span class="header-section-number">5.1</span> Authentication Methods</a></h2>
+<p>StratusLab supports a wide range of different authentication methods and account storage options, allowing it to fit into a wide range of sites with pre-existing authentication systems.</p>
+<p>All of the configuration files for authentication are located in the directory <code>/etc/stratuslab/authn</code>. The main configuration file controlling the active authentication methods and their parameters is <code>login.conf</code>. Properties files with username/password or certificate information are also located in this directory.</p>
+<h3 id="username-and-password"><a href="#TOC"><span class="header-section-number">5.1.1</span> Username and Password</a></h3>
+<p>Users can be identified through username/password pairs. Accounts associated with these credentials can be stored in:</p>
+<ul>
+<li>A java properties file or</li>
+<li>An LDAP server</li>
+</ul>
+<p>If you use an LDAP server, the StratusLab Registration service can be used to allow users to register for an account.</p>
+<h3 id="x509-credentials"><a href="#TOC"><span class="header-section-number">5.1.2</span> X509 Credentials</a></h3>
+<p>Users can also be identified via client X509 credentials. Raw X509 certificates, RFC3820 certificate proxies, or VOMS proxies can all be used to connect to and to authenticate with the StratusLab services.</p>
+<p>As above, these credentials can be authorized in:</p>
+<ul>
+<li>A java properties file or</li>
+<li>An LDAP server</li>
+</ul>
+<p>The registration service can also manage the required X509 Distinguished Names (DNs) if using an LDAP server.</p>
+<h2 id="authorization"><a href="#TOC"><span class="header-section-number">5.2</span> Authorization</a></h2>
+<p>Apart from the super user, users can only see and control resources that they create themselves.</p>
+<h2 id="registration-service"><a href="#TOC"><span class="header-section-number">5.3</span> Registration Service</a></h2>
+<p>StratusLab provides an optional service, the &quot;Registration Service&quot;, that allows users to register for an account on your cloud infrastructure. Through a web-accessible interface, users can register for an account and update the information associated their accounts.</p>
+<p>The registration workflow proceeds through the following stages:</p>
+<ol type="1">
+<li>User submits form with required information,</li>
+<li>Service sends email validation message to user,</li>
+<li>User confirms email address by visiting confirmation link,</li>
+<li>Service sends account validation request to administrator,</li>
+<li>Administrator accepts or rejects account request, and</li>
+<li>An email is sent to the user with the decision.</li>
+</ol>
+<p>When users update their email addresses, the new email address is also validated through an email and confirmation link.</p>
+<p>The user information is stored in a separate LDAP server. The registration service must have full access to that server, so that it can manage the user entries.</p>
+<p>To use the accounts managed by the Registration Service on your cloud infrastructure, you must configure the authentication service to use the LDAP server as a source of information. Users who supply a certificate DN, can also authenticate with the cloud using their certificate.</p>
+<h1 id="running-a-cloud"><a href="#TOC"><span class="header-section-number">6</span> Running a Cloud</a></h1>
+<p>Information on running the cloud as a service.</p>
+<h2 id="service-logging-information"><a href="#TOC"><span class="header-section-number">6.1</span> Service Logging Information</a></h2>
+<p>Where are the service logs?</p>
+<h2 id="monitoring-activity"><a href="#TOC"><span class="header-section-number">6.2</span> Monitoring Activity</a></h2>
+<p>Where to find monitoring information.</p>
+<h2 id="security-concerns"><a href="#TOC"><span class="header-section-number">6.3</span> Security Concerns</a></h2>
+<p>Various topics.</p>
+<h1 id="troubleshooting"><a href="#TOC"><span class="header-section-number">7</span> Troubleshooting</a></h1>
+<p>Information about common problems.</p>
+<h1 id="architecture"><a href="#TOC"><span class="header-section-number">8</span> Architecture</a></h1>
+<p>The architecture of the StratusLab software has evolved to make the overall system more scalable and more robust. At the center of the system is a distributed database that removes single points-of-failure in the system and permits redundant deployments of StratusLab service components for better reliability.</p>
+<p>StratusLab also now exposes the <a href="http://dmtf.org/sites/default/files/standards/documents/DSP0263_1.0.1.pdf">CIMI interface</a>--a standard from <a href="http://dmtf.org">DMTF</a> that provides a coherent, unified API for all of the StratusLab cloud resources and that follows the usual REST patterns. It simplifies programmatic access to the cloud and provides a good foundation for browser-based access.</p>
+<h2 id="stratuslab-components"><a href="#TOC"><span class="header-section-number">8.1</span> StratusLab Components</a></h2>
+<p>The diagram shows a high-level view of the various components in the StratusLab architecture. The distributed database is at the core of the system. On the user-facing side are machines that provide the CIMI interface to the system. On the service side are a set of controllers for different types of resources (storage, VMs, etc.). Behind the controllers are the physical resources used by the cloud.</p>
+<figure>
+<img src="images/stratuslab-architecture.png" alt="StratusLab Architecture"><figcaption>StratusLab Architecture</figcaption>
+</figure>
+<p>The distributed database contains the complete state of the cloud. Consequently, the CIMI interfaces and the various controllers can be completely stateless, allowing redundant instances to be deployed as necessary.</p>
+<p>As all of the communication between controllers takes place through the database, specialized controllers can be added to the cloud infrastructure easily, such as:</p>
+<ul>
+<li>Different type of storage (backed up, shared, fast, etc.)</li>
+<li>Support for Linux containers as well as virtual machines</li>
+<li>Dynamic network configurations</li>
+</ul>
+<p>The controllers react to jobs and resources in the database, and update those entries when completing tasks or making adjustments to resources.</p>
+<h2 id="service-configuration"><a href="#TOC"><span class="header-section-number">8.2</span> Service Configuration</a></h2>
+<p>Generally, the configuration of the StratusLab cloud services also resides within the database. This allows deployment of redundant services while maintaining a consistent configuration of those services across machines.</p>
+<p>The configuration information within the database is split into a series of JSON-formatted documents. Each document has an document identifier of the form <code>ServiceConfiguration/service-instance</code>, where the &quot;service&quot; corresponds to the name of the service and the &quot;-instance&quot; is optional and used only if the configuration of an instance differs from the general service configuration.</p>
+<p>Most configuration exists within the database, but there are two notable exceptions: third-party services and the Couchbase access parameters.</p>
+<p>To minimize the StratusLab development effort, third-party services used by StratusLab are not modified to use the database. Consequently, these continue to use configuration files on the local file system. One example are the certificate authorities used for PKI authentication in the European Grid Infrastructure. When deploying multiple service instances, these files must be coordinated between physical machines.</p>
+<p>The StratusLab services must discover the contact parameters for the Couchbase database. This information resides in a file on each node (<code>/etc/stratuslab/couchbase.cfg</code>). If this file doesn't exist, then services will use the default bucket and assume that the local machine is a member of the Couchbase cluster.</p>
+<p>The standard &quot;ini&quot; format is used for the file:</p>
+<pre><code>[DEFAULT]
+host=localhost
+bucket=default
+username=default
+password=
+
+[service]
+config=ServiceConfiguration/service-instanceX</code></pre>
+<p>This example shows the default values. You can define a different bucket and location for the database. However, the same database must be shared by all of the StratusLab cloud services. <strong>If changes are made to this file, then the StratusLab service must be restarted.</strong></p>
+<p>The example also shows the possibility of providing instance-specific configuration documents for services. Generally, these should not be needed but are available for allow for specialized service configurations.</p>
+<p>Despite the exceptions, having the majority of configuration information in the database will make configuring and maintaining the services simpler for system administrators. Generally, it is just a matter of updating a document in the database to change the behavior of the cloud infrastructure.</p>
+<h1 id="planning-the-deployment"><a href="#TOC"><span class="header-section-number">9</span> Planning the Deployment</a></h1>
+<p>The components of the StratusLab distribution are quite modular and allow for a variety of different deployment layouts. This chapter provides some advice when considering the deployment of StratusLab in your data center.</p>
+<p>The chapter concludes with a description of the minimal deployment of StratusLab on two machines. This deployment serves as a good testbed for understanding the installation process and how the cloud services work.</p>
+<h2 id="your-cloud-users"><a href="#TOC"><span class="header-section-number">9.1</span> Your Cloud Users</a></h2>
+<p>When considering your deployment, you must consider who are your intended users. The level of trust you have in those users will impact further decisions on the network configuration, service layout, and authentication methods.</p>
+<p>For clouds at the &quot;Infrastructure as a Service&quot; level, like StratusLab, there are generally three types of cloud deployments: private, community, and public.</p>
+<p>Private cloud deployments target a limited set of known and trusted users. An example is using a cloud deployment to provide a flexible infrastructure for an institute's services. These types of clouds are often run by and used by the same system administrators. Because of the high-level of trust in the users, less needs to be done to isolate cloud services from the cloud's virtual machines.</p>
+<p>On the other end of the spectrum are public cloud infrastructures. These target external and possibly unknown users outside of the institute's administrative domain. These generally require a higher level of isolation of service and more fine-grained network segmentation.</p>
+<p>Between the two are &quot;community&quot; clouds. These function like public clouds but have a more limited set of users. A cloud infrastructure destined for scientists at a number of collaborating institutes is a good example of a community cloud infrastructure.</p>
+<h2 id="network-configuration-2"><a href="#TOC"><span class="header-section-number">9.2</span> Network Configuration</a></h2>
+<p>StratusLab puts very few constraints on the network configuration supporting the cloud infrastructure. At its simplest, it can work on a single network tying together all cloud services and resources. It can also be made to work on complicated network configurations with multiple VLANs, protocols, etc.</p>
+<p>The only network constraints for StratusLab are:</p>
+<ul>
+<li>Range of addresses to allocate to virtual machines,</li>
+<li>DCHP server configured to serve those addresses, and</li>
+<li>DNS configured with reverse-DNS lookups for those addresses.</li>
+</ul>
+<p>The range of addresses must be IPv4 addresses, but each address can also have an IPv6 address associated with it.</p>
+<p>There are three different types of network traffic on a StratusLab cloud infrastructure:</p>
+<ul>
+<li>Control messages between the cloud services (and through the Couchbase database),</li>
+<li>Network access to virtual machines in the cloud, and</li>
+<li>Traffic between nodes hosting virtual machines and physical resources (e.g. storage).</li>
+</ul>
+<p>The level of isolation between these different types of traffic depends on your type of cloud deployment and your desire for a secure infrastructure.</p>
+<p>For a private cloud infrastructure, mixing these three types of traffic on the same network doesn't pose any particular problem and is the easiest to configure.</p>
+<p>However, for a public cloud infrastructure it is a good idea to separate the three types of traffic on separate VLANs. Even better, physical segregation of the virtual machine traffic from the other traffic prevents any possible compromise of the cloud services from the running virtual machines. This is obviously more complicated to configure. You must weight the additional complexity against the potential threats from your users.</p>
+<h2 id="mapping-services-to-machines"><a href="#TOC"><span class="header-section-number">9.3</span> Mapping Services to Machines</a></h2>
+<p>There are three classes of services that need to be mapped to physical machines: Couchbase instances, CIMI interfaces, and resource controllers.</p>
+<p>The usual mapping for Couchbase instances and CIMI interfaces is to deploy these on the same physical machine. For scalability and redundancy, two or more such physical machines are deployed.</p>
+<p>Resource controllers are generally deployed on the same physical nodes that provide the underlying resources. For example, the VM controller is deployed directly on the machine(s) running the hypervisors. This arrangement minimizes the number of physical machines that need to be deployed.</p>
+<p>You can alter the mapping as necessary to adapt the needs of your data center. For example, you may have resources (like a storage appliance) that require having the controller hosted on a different machine than the resource it is controlling.</p>
+<h2 id="minimal-deployment"><a href="#TOC"><span class="header-section-number">9.4</span> Minimal Deployment</a></h2>
+<p>The examples in this guide use a minimal deployment of two physical machines. One machine (the &quot;cloud entry point&quot;) contains the Couchbase database and the CIMI interface. The other contains all of the resources controllers and resources used for the cloud. A single network for all traffic types is assumed for simplicity in this minimal deployment. The following diagram summarizes this deployment.</p>
+<figure>
+<img src="images/minimal-deployment.png" alt="Minimal StratusLab Deployment"><figcaption>Minimal StratusLab Deployment</figcaption>
+</figure>
+<h1 id="prerequisites-1"><a href="#TOC"><span class="header-section-number">10</span> Prerequisites</a></h1>
+<h2 id="physical-machines-1"><a href="#TOC"><span class="header-section-number">10.1</span> Physical Machines</a></h2>
+<p>This tutorial demonstrates a minimal installation of a StratusLab cloud on two physical machines. The physical machines should be relatively modern machines with the following <strong>minimum</strong> characteristics:</p>
+<ul>
+<li>1 <strong>64-bit multicore</strong> CPU (&gt;= 4 cores) with <strong>VT-x extensions</strong></li>
+<li>4 GB of RAM</li>
+<li>200 GB local disk space</li>
+</ul>
+<p><strong>The hardware virtualization extensions must be enabled in the BIOS on the &quot;Node&quot; machine.</strong> Many vendors ship machines with these extensions disabled.</p>
+<p>In general cloud infrastructures prefer &quot;fat&quot; machines, that is machines that have a maximum number of CPUs, RAM, and disk space as possible. This is because the maximum size of a single virtual machine is limited by the size of the largest physical machine.</p>
+<h2 id="operating-system-1"><a href="#TOC"><span class="header-section-number">10.2</span> Operating System</a></h2>
+<p>Install a minimal version of <a href="http://www.centos.org">CentOS 6</a> on the two physical machines that will be used for the cloud infrastructure.</p>
+<h2 id="disable-selinux-1"><a href="#TOC"><span class="header-section-number">10.3</span> Disable SELinux</a></h2>
+<p>The SELinux system must be disabled on <strong>all of the machines</strong>. Normally this is enabled by default. To disable SELinux, ensure that the file <code>/etc/selinux/config</code> has the following line:</p>
+<pre><code>SELINUX=disabled</code></pre>
+<p><strong>You must reboot the machine for this to take effect.</strong></p>
+<h2 id="python-version-1"><a href="#TOC"><span class="header-section-number">10.4</span> Python Version</a></h2>
+<p>The default version of Python installed with CentOS should be correct. StratusLab requires a version of Python 2 with a version <strong>2.6 or later</strong>. The StratusLab command line tools <strong>do not work with Python 3</strong>.</p>
+<p>Verify that the correct version of Python is installed:</p>
+<pre><code>$ python --version
+Python 2.6.6</code></pre>
+<h2 id="disk-configuration-1"><a href="#TOC"><span class="header-section-number">10.5</span> Disk Configuration</a></h2>
+<p>StratusLab allows for a variety of storage options behind the persistent disk service. The tutorial uses the defaults using LVM and iSCSI.</p>
+<p><strong>The machines must be configured to use LVM for the disk storage.</strong></p>
+<p>The Front End must be configured with two LVM groups: one for the base operating system (~20 GB) and one for the StratusLab storage service (remaining space).</p>
+<p>The &quot;Node&quot; machine can be configured with a single LVM group.</p>
+<p>Below, we assume that the volume group names are &quot;vg.01&quot; for the operating system and &quot;vg.02&quot; for the StratusLab storage service. You can use other names, but then change the commands below as necessary.</p>
+<h2 id="package-repositories-1"><a href="#TOC"><span class="header-section-number">10.6</span> Package Repositories</a></h2>
+<p>The StratusLab installation takes packages from four yum repositories:</p>
+<ol type="1">
+<li>The standard CentOS repository,</li>
+<li>The <a href="http://fedoraproject.org/wiki/EPEL">EPEL 6</a> repository,</li>
+<li>The <a href="http://yum.stratuslab.eu">StratusLab repository</a>, and</li>
+<li>The <a href="http://repository.egi.eu/sw/production/cas/1/current/">IGTF Root Certificates</a>.</li>
+</ol>
+<p>The configuration for the CentOS repository is done when the system is installed. The others require additional configuration.</p>
+<p>To configure <strong>both</strong> the Front End and Node for the EPEL repository, do the following:</p>
+<pre><code>$ wget -nd http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm 
+$ yum install -y epel-release-6-8.noarch.rpm</code></pre>
+<p>This will add the necessary files to the <code>/etc/yum.repos.d/</code> directory.</p>
+<p>To configure <strong>both</strong> the Front End and Node for the StratusLab repository, put the following into the file <code>/etc/yum.repos.d/stratuslab.repo</code>:</p>
+<pre><code>[StratusLab-Releases]
+name=StratusLab-Releases
+baseurl=http://yum.stratuslab.eu/releases/centos-6.2-v13.02/
+gpgcheck=0</code></pre>
+<p>replacing the URL with the version you want to install.</p>
+<p>Although not strictly necessary, it is advisable to clear all of the yum caches and upgrade the packages to the latest versions:</p>
+<pre><code>$ yum clean all
+$ yum upgrade -y</code></pre>
+<p>This may take some time if you installed the base operating system from old media.</p>
+<h2 id="dns-and-hostname-1"><a href="#TOC"><span class="header-section-number">10.7</span> DNS and Hostname</a></h2>
+<p>Ensure that the <strong>hostname</strong> is properly setup on the Front End and the Node. The DNS must provide both the forward and reverse naming of the nodes. This is required for critical services to start.</p>
+<p>You can verify this on both the Front End and the Node with the command:</p>
+<pre><code>$ hostname -f</code></pre>
+<p>Set the hostname if it is not correct.</p>
+<p>Throughout this tutorial we use the variables $FRONTEND_HOST ($FRONTEND_IP) and $NODE_HOST ($NODE_IP) for the Front End and Node hostnames (IP addresses), respectively. Change these to the proper names for your physical machines when running the commands.</p>
+<h2 id="ssh-configuration-1"><a href="#TOC"><span class="header-section-number">10.8</span> SSH Configuration</a></h2>
+<p>The installation scripts will automate most of the work, but the scripts require <strong>password-less root access</strong>:</p>
+<ul>
+<li>From the Front End to each Node and</li>
+<li>From the Front End to the Front End itself</li>
+</ul>
+<p>Check to see if there is already an SSH key pair in <code>/root/.ssh/id_rsa*</code>. If not, then you need to create a new key pair <strong>without a password</strong>:</p>
+<pre><code>$ ssh-keygen -q 
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+/root/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: </code></pre>
+<p>Now ensure that you can log into the Front End from the Front End without needing a password. Do the following:</p>
+<pre><code>$ ssh-copy-id $FRONTEND_HOST
+The authenticity of host &#39;onehost-5.lal.in2p3.fr (134.158.75.5)&#39; can&#39;t be established.
+RSA key fingerprint is e9:04:03:02:e5:2e:f9:a1:0e:ae:9f:9f:e4:3f:70:dd.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;onehost-5.lal.in2p3.fr,134.158.75.5&#39; (RSA) to the list of known hosts.
+root@onehost-5.lal.in2p3.fr&#39;s password: 
+Now try logging into the machine, with &quot;ssh &#39;onehost-5.lal.in2p3.fr&#39;&quot;, and check in:
+
+  .ssh/authorized_keys
+
+to make sure we haven&#39;t added extra keys that you weren&#39;t expecting.</code></pre>
+<p>Do the same thing for the node:</p>
+<pre><code>$ ssh-copy-id $NODE_HOST
+...</code></pre>
+<p>And verify that the password-less access works as expected.</p>
+<pre><code>$ ssh $FRONTEND_HOST 
+
+Last login: Mon May 27 14:26:29 2013 from mac-91100.lal.in2p3.fr
+# 
+# exit
+logout
+Connection to onehost-5.lal.in2p3.fr closed.
+
+$ ssh $NODE_HOST
+
+Last login: Mon May 27 14:26:43 2013 from mac-91100.lal.in2p3.fr
+# 
+# exit
+logout
+Connection to onehost-6.lal.in2p3.fr closed.</code></pre>
+<p>Now that SSH is properly configured, the StratusLab scripts will be able to install software on both the Front End and the Node.</p>
+<h2 id="dhcp-server-1"><a href="#TOC"><span class="header-section-number">10.9</span> DHCP Server</a></h2>
+<p>A DHCP server must be configured to assign static IP addresses corresponding to known MAC addresses for the virtual machines. These IP addresses must be publicly visible if the cloud instances are to be accessible from the internet.</p>
+<p>If an external DHCP server is not available, the StratusLab installation command can be used to properly configure a DHCP server on the Front End for the virtual machines.</p>
+<p>This uses a DHCP server on the Front End.</p>
+<h2 id="network-bridge-1"><a href="#TOC"><span class="header-section-number">10.10</span> Network Bridge</a></h2>
+<p>A network bridge must be configured on the Node to allow virtual machines access to the internet. You can do this manually if you want, but the StratusLab installation scripts are capable of configuring this automatically.</p>
+<p>This tutorial allows the installation scripts to configure the network bridge.</p>
+<h1 id="couchbase"><a href="#TOC"><span class="header-section-number">11</span> Couchbase</a></h1>
+<p>The StratusLab architecture uses a distributed database at the core to hold the full state of the cloud. This simplifies all of the other components of the system by allowing them to stateless and by acting as a means for coordinating the components of the system.</p>
+<p>StratusLab uses <a href="http://couchbase.com">Couchbase</a> for this distributed database. It was chosen because of its ability to store and to index JSON-formatted documents efficiency, matching well the needs of managing cloud resources through the CIMI data model. It is easy to deploy for small database, while retaining the ability to scale to very large systems.</p>
+<p>Because all other StratusLab components rely on having access to the Couchbase database, it is the first component that must be installed.</p>
+<h2 id="service-overview"><a href="#TOC"><span class="header-section-number">11.1</span> Service Overview</a></h2>
+<p>Couchbase is available as a standard RPM package from the Couchbase website. The company distributes two versions of the database from their website: a &quot;community&quot; version and an &quot;enterprise&quot; version.</p>
+<p>The community version is open source and released under the Apache 2 license (the same as for StratusLab). StratusLab uses this version for all of its own deployments and tests. For convenience, the RPM package for Couchbase is included in the StratusLab yum repository.</p>
+<p>The enterprise version requires the purchase of a commercial license for anything other than small test deployments. However the commercial support for deployment problems and software bugs may be interesting for those deploying mission-critical cloud infrastructures. StratusLab should work with the enterprise version, but does not require it.</p>
+<table>
+<caption>Couchbase Server Characteristics</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">init.d script</td>
+<td style="text-align: left;">couchbase-server</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language</td>
+<td style="text-align: left;">erlang</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">APIs</td>
+<td style="text-align: left;">Java, Python, and C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log file(s)</td>
+<td style="text-align: left;">/opt/couchbase/var/lib/couchbase/logs/*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">initial password</td>
+<td style="text-align: left;">/opt/couchbase/cluster-password.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8091</td>
+<td style="text-align: left;">web administration port</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8092</td>
+<td style="text-align: left;">Couchbase API port</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11209*, 11210</td>
+<td style="text-align: left;">internal cluster ports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4369*</td>
+<td style="text-align: left;">Erlang Port Mapper</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">21100-21199*</td>
+<td style="text-align: left;">Node data exchange</td>
+</tr>
+</tbody>
+</table>
+<p>All of the listed ports must be open to communication between the nodes participating in the Couchbase cluster. All ports except those with an asterisk must be open to cloud services accessing the database.</p>
+<p>Couchbase is written in Erlang, but StratusLab uses the Java and Python APIs to access the database. The Python API depends on the C API, so it must also be installed.</p>
+<h2 id="installation-and-configuration"><a href="#TOC"><span class="header-section-number">11.2</span> Installation and Configuration</a></h2>
+<p>The usual service mapping puts the Couchbase instances on the &quot;cloud entry point&quot; nodes, along with the CIMI interface. The instances on these nodes form the Couchbase cluster for the full StratusLab cloud. The minimal deployment has only one &quot;cloud entry point&quot; node and hence only one Couchbase instance.</p>
+<p>Production StratusLab deployments should have more than one Couchbase instance in the Couchbase cluster for reliability and redundancy. Although the default location for these instances is on the &quot;cloud entry point&quot; nodes, you can deploy them on dedicated nodes or other cloud services nodes, if needed.</p>
+<p>The installation of Couchbase consists of installing the RPM package and then initializing a Couchbase cluster. The StratusLab installation commands automate the process.</p>
+<p>Log into the node that will function as the &quot;cloud entry point&quot; node for your cloud infrastructure as &quot;root&quot;. Verify that all of the prerequisites detailed in the previous chapter are satisfied.</p>
+<p>Install the StratusLab system administrator command line interface (CLI). This installs the commands that simplify and automate the installation of all of the StratusLab components. Assuming that you have already configured the machine for using the StratusLab yum repository (see &quot;Prerequisites&quot;), this should be as simple as:</p>
+<pre><code>$ yum install -y stratuslab-cli-sysadmin</code></pre>
+<p>Once this completes, you should have a set of StratusLab commands in your path. All of the StratusLab commands start with the prefix <code>stratus-</code>. You may want to look at the help for the <code>stratus-install</code> command:</p>
+<pre><code>$ stratus-install --help
+
+Usage: stratus-install [options]
+
+Install selected services of the StratusLab cloud distribution.
+...</code></pre>
+<p>This is the command that we will use to automate the installation of the cloud services.</p>
+<p>We will now use this command to install and initialize the Couchbase database on the machine. Do the following:</p>
+<pre><code>$ stratus-install --couchbase
+
+...
+Starting couchbase-server       [OK]</code></pre>
+<p>You can get more detailed output if you add the <code>-vvv</code> option. This command installs the necessary packages and then setup the database. The last line should indicate that Couchbase has been started; if successful you will see an &quot;OK&quot; indication.</p>
+<p>The installation creates an administrator account for the database called 'admin'. The randomly generated password for this account is available in <code>/opt/couchbase/cluster-password.txt</code>.</p>
+<p>If you wish, you can use the Couchbase web interface to view the current status of the cluster. This interface is available on port 8091, but by default, is only accessible locally on the machine. To view it remotely you will need to tunnel to the machine:</p>
+<pre><code>$ ssh -L2000:cep.example.org:8091 -N root@cep.example.org</code></pre>
+<p>in a separate terminal window. You can then connect to the interface on the &quot;http://localhost:2000/&quot; URL. You will have to use the &quot;admin&quot; account with the generated password to log in.</p>
+<p>If everything has been installed correctly, you should see a display similar to the screenshot below.</p>
+<figure>
+<img src="images/screenshot-couchbase-mgt-console.png" alt="Couchbase Management Console"><figcaption>Couchbase Management Console</figcaption>
+</figure>
+<h1 id="cimi"><a href="#TOC"><span class="header-section-number">12</span> CIMI</a></h1>
+<p>StratusLab uses <a href="http://dmtf.org/sites/default/files/standards/documents/DSP0263_1.0.1.pdf">CIMI</a> as its native user interface. CIMI is a standard from <a href="http://dmtf.org">DMTF</a> that provides a coherent, unified, RESTful API. The API covers all of the StratusLab cloud resources, including:</p>
+<ul>
+<li>Virtual machines</li>
+<li>Volumes for data storage</li>
+<li>Machine images or appliances</li>
+</ul>
+<p>In addition, StratusLab has extended the interface to provide information to cloud users in &quot;ServiceMessage&quot; resources; it has also been extended to handle resources used to configure the cloud services and authentication mechanisms.</p>
+<p>As the CIMI specification follows the usual REST patterns, the standard CRUD (create, read, update, and delete) are represented by:</p>
+<ul>
+<li>Create: HTTP POST to a resource collection URL,</li>
+<li>Read: HTTP GET to a resource URL,</li>
+<li>Update: HTTP PUT to a resource URL, and</li>
+<li>Delete: HTTP DELETE to a resource URL.</li>
+</ul>
+<p>All of the resources are represented as JSON documents and contain metadata to allow users to understand what operations they can perform on the resource.</p>
+<h2 id="service-overview-1"><a href="#TOC"><span class="header-section-number">12.1</span> Service Overview</a></h2>
+<p>The CIMI service is the only StratusLab service accessible by users on a cloud infrastructure. All interactions between the user and the underlying resources occur through this service. This service also handles all of the user authentication for the cloud, passing verified authentication information to the underlying services.</p>
+<p>The characteristics of the service are summarized in the following table. The service is the primary service on the &quot;cloud entry point&quot; node(s). It runs within a dedicated Jetty web service container.</p>
+<p>The service is written in clojure and uses the Ring and Compojure frameworks for implementing the web service and the Friend framework for authentication.</p>
+<table>
+<caption>CIMI Server Characteristics</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">init.d script</td>
+<td style="text-align: left;">cimi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language</td>
+<td style="text-align: left;">clojure (lisp on the Java VM)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">APIs</td>
+<td style="text-align: left;">REST, python, and libcloud</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log file(s)</td>
+<td style="text-align: left;">/opt/stratuslab/cimi/logs/*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">initial password</td>
+<td style="text-align: left;">see <code>cimi.log</code> log file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">port for API and web interface (HTTPS)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">redirects to secured port (443)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation-1"><a href="#TOC"><span class="header-section-number">12.2</span> Installation</a></h2>
+<p>As for all of the StratusLab services, the installation consists of the installation of an RPM package followed by configuration of the service. This process is automated via the <code>stratus-install</code> command.</p>
+<p>Logged in as &quot;root&quot; on the &quot;cloud entry point&quot; machine, execute the following command to install the CIMI service:</p>
+<pre><code>$ stratus-install --cimi </code></pre>
+<p>This should complete without error and start the cimi service. You can check that it is running with the command:</p>
+<pre><code>$ service cimi status
+
+START_INI      =  /opt/stratuslab/cimi/start.ini
+JETTY_HOME     =  /opt/stratuslab/cimi
+...
+
+Jetty running pid=2099</code></pre>
+<p>This gives a lot of information about the service configuration and ends with giving the PID of the running service. If this is not running, then no PID will be given.</p>
+<h2 id="configuration"><a href="#TOC"><span class="header-section-number">12.3</span> Configuration</a></h2>
+<h3 id="service-certificate"><a href="#TOC"><span class="header-section-number">12.3.1</span> Service Certificate</a></h3>
+<p>The first time the service starts, it will generate a self-signed certificate for the service. This certificate will not normally be accepted by clients (web browsers or command line interfaces) without a security warning. While this is fine for testing, a production service should use a certificate signed by an accepted certificate authority.</p>
+<p>To install a certificate, create a java keystore that contains your certificate and key using the java <code>keytool</code> utility. Use &quot;jettycred&quot; as the password for the keystore. Put this keystore onto the machine in the file <code>/etc/stratuslab/cimi/etc/jetty.jks</code>. Restart the service to make the service use the new certificate.</p>
+<p>You can actually put the keystore anywhere on the machine and use any password that you would like. However, if you use non-standard values, then you will need to update the file <code>/opt/stratuslab/cimi/start.d/50-ssl.ini</code>. This file will be overwritten on updates, so you will need to modify this file after each upgrade.</p>
+<h3 id="trusted-certificate-authorities"><a href="#TOC"><span class="header-section-number">12.3.2</span> Trusted Certificate Authorities</a></h3>
+<p>By default, the installation procedure will install the set of Certificate Authorities trusted by the European Grid Infrastructure (EGI) as well as the Virtual Organizations (VOs) that use that infrastructure. The files for these CAs and VOs are installed in the <code>/etc/grid-security/</code> directory. If these CAs are acceptable, then all of the necessary configuration has been done for you.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Before the service will accept connections with grid certificates, the <strong>certificate revocation lists (CRLs) must be generated</strong>. Do this by hand, by executing the command in the <code>/etc/cron.d/fetch-crl-cron</code> file. This will generally take a few minutes to complete. Until the CRLs are generated, connections using a client certificate will fail.</p>
+</blockquote>
+<p>If you do not want to trust these CAs and want to use the default set of commercial CAs trusted by the java distribution, then you must modify one of the start up files for the CIMI server. Edit the file <code>/opt/stratuslab/cimi/start.d/50-ssl.ini</code>:</p>
+<pre><code>#===========================================================
+# SSL Context 
+# Create the keystore and trust store for use by
+# HTTPS and SPDY
+#-----------------------------------------------------------
+jetty.keystore=etc/jetty.jks
+jetty.keystore.password=jettycred
+jetty.keymanager.password=jettycred
+jetty.truststore=etc/jetty.jks
+jetty.truststore.password=jettycred
+jetty.secure.port=443
+etc/jetty-grid-ssl.xml</code></pre>
+<p>Change the last line to &quot;etc/jetty-ssl.xml&quot; and restart the server. Note that this configuration change will need to be reapplied for each service upgrade.</p>
+<h3 id="administrator-account"><a href="#TOC"><span class="header-section-number">12.3.3</span> Administrator Account</a></h3>
+<p>The details for configuring the authentication for the service are explained in the next chapter. For now, it is enough to know that an administrator account is created the first time the service starts. The username is &quot;admin&quot;; the randomly-generated password is available in the service log <code>/etc/stratuslab/cimi/logs/cimi.log</code>.</p>
+<h2 id="testing-the-cimi-service"><a href="#TOC"><span class="header-section-number">12.4</span> Testing the CIMI Service</a></h2>
+<p>The &quot;CloudEntryPoint&quot; resource as well as a few others are visible to anyone, even those without an account on the cloud. We can verify that the service is working correctly by retrieving the CloudEntryPoint.</p>
+<p>To do this via the command line, just use <code>curl</code> on the base URL of the service.</p>
+<pre><code>$ curl -s --insecure https://cimi.example.org/ \
+    python -mjson.tool
+
+{
+    ...
+
+    &quot;baseURI&quot;: &quot;https://onevm-142.lal.in2p3.fr:443/&quot;,
+    &quot;created&quot;: &quot;2013-11-12T16:10:47.990Z&quot;,
+    &quot;id&quot;: &quot;CloudEntryPoint&quot;,
+    &quot;jobs&quot;: {
+        &quot;href&quot;: &quot;Job&quot;
+    },
+    &quot;machineConfigs&quot;: {
+        &quot;href&quot;: &quot;MachineConfiguration&quot;
+    },
+    &quot;resourceURI&quot;: &quot;http://schemas.dmtf.org/cimi/1/CloudEntryPoint&quot;,
+
+    ...
+}</code></pre>
+<p>This resource (in JSON format) contains the list of all of the cloud resource collecitons supported by this cloud infrastructure, along with relative URLs (in the &quot;href&quot; field) for those resource collections. It also contains metadata concerning the cloud infrastructure itself.</p>
+<blockquote>
+<p><strong>NOTE</strong>: The first access to the server takes some time to respond because the server is dynamically compiling the source clojure files and initializing the database. Subsequent accesses to the service should be much faster.</p>
+</blockquote>
+<p>There is also a rudimentary web browser interface provided by the service. Point a browser at the URL http://cimi.example.org/webui, replacing the hostname with your own. You should see an HTML representation of the CloudEntryPoint as in the following screenshot.</p>
+<figure>
+<img src="images/screenshot-cimi-webui-cep.png" alt="CloudEntryPoint Viewed in CIMI Web Browser Interface"><figcaption>CloudEntryPoint Viewed in CIMI Web Browser Interface</figcaption>
+</figure>
+<h2 id="verify-administrator-account"><a href="#TOC"><span class="header-section-number">12.5</span> Verify Administrator Account</a></h2>
+<p>You will be using the administrator account to update the service configuration. To verify that it works, first recover the administrator's account password from the service log. You should find a message in the log like the following:</p>
+<pre><code>... User/admin entry created; initial password is 6GfRtIeWVygK</code></pre>
+<p>The username of this initial account is always &quot;admin&quot;; the &quot;6G...&quot; value is the generated password. Use the value given in your log file.</p>
+<p>To login as the administrator from the web interface, click on the &quot;login&quot; link in the upper right corner, fill in the username and password on the form, and then click the &quot;login&quot; button. If the login was successful, then you should be redirected back to the CloudEntryPoint, but you will see your login information on the right side of the header.</p>
+<figure>
+<img src="images/screenshot-cimi-webui-logged-in.png" alt="Logged in User Information"><figcaption>Logged in User Information</figcaption>
+</figure>
+<blockquote>
+<p><strong>NOTE</strong>: You can always see your full authentication information by visiting the URL https://cimi.example.org/authn. The most important fields are the &quot;identity&quot; field (giving your username) and the &quot;roles&quot; field (giving your authorizations).</p>
+</blockquote>
+<figure>
+<img src="images/screenshot-cimi-webui-authn.png" alt="Full Authentication Information"><figcaption>Full Authentication Information</figcaption>
+</figure>
+<p>If you can see pages similar to the screenshots, the administrator of the CIMI is correctly configured. However, you will likely want to <strong>change the password of the administrator account</strong>. Now that you are logged into the server, you can do this.</p>
+<p>Return to the CloudEntryPoint using the web browser interface (i.e. the URL ending with &quot;webui&quot;). From there, click on &quot;User&quot;. This brings up the list of user records; only the &quot;admin&quot; account should be listed. Then click on &quot;admin&quot; to view the user record. You should see a page listing characteristics of the &quot;admin&quot; account, notably there will be a field &quot;password&quot; containing the bcrypt hash of the current administrator password.</p>
+<p>You should see three buttons on the right of the page: &quot;view json&quot;, &quot;edit&quot;, and &quot;delete&quot;. You will want to click on the &quot;edit&quot; button which will bring up a JSON editor with the current contents of the &quot;admin&quot; user.</p>
+<p>However, before doing this, you want to generate the bcrypt hash for a new (memorable) password. This can be done with python using the following command:</p>
+<pre><code>$ python -c &quot;
+&gt; import bcrypt
+&gt; h=bcrypt.hashpw(&#39;hello&#39;, bcrypt.gensalt())
+&gt; print h
+&gt; &quot;
+$2a$12$zvS7axGrws6/YH2AuIyXpufc174KV5bjBTp.vo400sGZsehP7CpFS</code></pre>
+<p>You may have to install the package &quot;py-bcrypt&quot; on CentOS for this to work. It returns the hash of your password. Change the 'hello' in the example to the password you want to use.</p>
+<p>Now that you have a new password, click on the &quot;edit&quot; button, change the value of the password field to the hash value you've generated and click on the &quot;save&quot; button. You should be redirected back to the same page, but the password field will have been updated.</p>
+<p>You can now logout via the &quot;logout&quot; link and log back into the service (with your new password!) using the same procedure as before.</p>
+<h2 id="service-messages"><a href="#TOC"><span class="header-section-number">12.6</span> Service Messages</a></h2>
+<p>As a further example of how to use the web interface (which you will use to handle service configuration), you can create &quot;ServiceMessage&quot; resources on the server.</p>
+<p>The ServiceMessage resources are visible to anyone but can only be created by the administrator. These messages are intended to provide general service information to users, like the MOTD (message of the day) text on many operating systems.</p>
+<p>From the CloudEntryPoint, click on the &quot;ServiceMessage&quot; link. This should bring up an empty list of ServiceMessage resources. Click on the &quot;add&quot; button, which will bring up the same JSON editor you saw previously.</p>
+<p>Add something like the following to the editor panel:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;StratusLab is Alive!&quot;,
+ &quot;description&quot;: &quot;Deploying StratusLab clouds is fun.&quot;
+}</code></pre>
+<p>and then click on the &quot;save&quot; button. You should then see a summary panel of the message along with metadata that was added to the entry. You can view JSON for the entry with the &quot;view json&quot; button, update it with the &quot;edit&quot; button, or delete it with the &quot;delete&quot; button.</p>
+<p>If you go back to the ServiceMessageCollection, you will see the entry in the list.</p>
+<p>For ServiceMessage resources the &quot;name&quot; field is treated like a title and the &quot;description&quot; gives the full message.</p>
+<h1 id="authentication"><a href="#TOC"><span class="header-section-number">13</span> Authentication</a></h1>
+<p>As mentioned in the previous chapter, the CIMI server also handles all of the user authentication for the cloud. The server supports the use of internal or external databases of users.</p>
+<p>The internal database, with user records stored in Couchbase, is convenient because all information is contained within the cloud infrastructure and user records can be managed in the same way as other configuration files.</p>
+<p>Using an external database, such as LDAP, allows the user information to be exported to other system or allows better integration of the cloud with other services in the data center. In the case of VOMS proxies, this also delegates some authority to third parties to manage the users associated with a particular Virtual Organization.</p>
+<h2 id="overview"><a href="#TOC"><span class="header-section-number">13.1</span> Overview</a></h2>
+<p>There are two aspects to the authentication configuration for a StratusLab cloud: defining the methods to be used and managing the users.</p>
+<p>To define the authentication mechanisms for the cloud infrastructure, you must create the document &quot;ServiceConfiguration/authn&quot; in the Couchbase database. You can use the same web interface shown earlier to browse to the &quot;ServiceConfiguration&quot; collection and then to add the new document.</p>
+<p>The document must follow the defined schema:</p>
+<pre><code>{
+  &quot;service&quot;: &quot;authn&quot;,
+  &quot;localdb&quot;:
+    {
+      &quot;password-enabled&quot;: true,
+      &quot;cert-enabled&quot;: false
+    },
+  &quot;ldap&quot;: 
+    { 
+      &quot;password-enabled&quot;: false,
+      &quot;cert-enabled&quot;: false,
+      ...
+    },
+  &quot;voms&quot;: 
+    {
+      &quot;enabled&quot;: false
+    }
+}</code></pre>
+<p>where the &quot;service&quot; and &quot;localdb&quot; fields are required (and the value for the &quot;service&quot; field must be &quot;authn&quot;!). The fields &quot;ldap&quot; and &quot;voms&quot; are optional. The details of the &quot;ldap&quot; map are given below.</p>
+<p>If the configuration document does not exist, then the default is to only use the local user database with password credentials. It is recommended to always keep this method active along with at least one administrative account defined in the database.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Enabling or disabling authentication methods requires that the CIMI service be restarted.</p>
+</blockquote>
+<p>Adding or removing users from the system, requires changes to the local or external user databases. The details on this are given in the following sections.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Adding, removing, or modifying users does <strong>not</strong> require restarting the CIMI service. These changes will be taken into account immediately for all future authentication actions.</p>
+</blockquote>
+<p>You can also define &quot;roles&quot; for the users to either indicate group membership or rights to perform particular actions. There are three special roles &quot;::ADMIN&quot;, &quot;::USER&quot;, and &quot;::ANON&quot;. The first confers administrative rights to the user; users with this role will have complete control over the cloud configuration. The &quot;::USER&quot; role is given to anyone who has been authenticated. The &quot;::ANON&quot; role is used for users that have not been authenticated.</p>
+<h2 id="couchbase-user-entries"><a href="#TOC"><span class="header-section-number">13.2</span> Couchbase User Entries</a></h2>
+<p>You can manage users directly in the Couchbase database via the CIMI interface. There is a &quot;User&quot; collection and you can add, modify, and remove entries from the system with the same web browser interface you've used for the other resources.</p>
+<p>The schema for user records is:</p>
+<pre><code>{
+  &quot;last-name&quot;: &quot;required&quot;,
+  &quot;first-name&quot;: &quot;required&quot;, 
+  &quot;username&quot;: &quot;required, must be unique&quot;,
+  &quot;password&quot;: &quot;optional, value is bcrypt hash&quot;,
+  &quot;enabled&quot;: true,
+  &quot;roles&quot;: [ &quot;list&quot;, &quot;of&quot;, &quot;roles&quot; ],
+  &quot;altnames&quot;: {
+    &quot;x500dn&quot;: &quot;DN of user in RFC2253 format&quot;
+  }
+}</code></pre>
+<p>If the &quot;enabled&quot; field is not supplied, the default value is &quot;false&quot;. The &quot;password&quot; is used only for password authentication; similarly, the &quot;x500dn&quot; field is only used for certificate authentication.</p>
+<p>The schema is a &quot;loose&quot; one, meaning that other fields may be added if you want to track additional information. One example would be an &quot;email&quot; field.</p>
+<h3 id="using-passwords"><a href="#TOC"><span class="header-section-number">13.2.1</span> Using Passwords</a></h3>
+<p>To use password authentication, the &quot;localdb/password-enabled&quot; flag must be true in the &quot;ServiceConfiguration/authn&quot; document. The user record for the given username must exist, must be enabled, and must have a password set.</p>
+<p>The value of the password field is the bcrypt hash of the clear text password. See the preceeding text for generating the bcrypt hash.</p>
+<h3 id="using-certificates"><a href="#TOC"><span class="header-section-number">13.2.2</span> Using Certificates</a></h3>
+<p>To use certificate authentication, the &quot;localdb/cert-enabled&quot; flag must be true. The field &quot;x500dn&quot; must exist and have the RFC2253-formatted DN of the user's certificate. The user can use the raw certificate or a proxy generated from that certificate. The user will be identified with the value of the &quot;username&quot; field in the user record.</p>
+<p>For certificate authentication to work, the SSL configuration for the Jetty server must be done. By default, the configuration for trusting the EGI Certificate Authorities is done by the <code>stratus-install</code> command. If you want to trust different Certificate Authorities, you must adjust the SSL configuration. See the previous chapter for what needs to be done.</p>
+<h2 id="ldap-user-database"><a href="#TOC"><span class="header-section-number">13.3</span> LDAP User Database</a></h2>
+<p>To authenticate users against an LDAP database, you must have deployed and populated an LDAP server. The authentication configuration for using LDAP is quite flexible, so nearly any standard layout for the information should work.</p>
+<p>The &quot;ldap&quot; field in the &quot;ServiceConfiguration/authn&quot; document must follow the schema:</p>
+<pre><code>&quot;ldap&quot;: {
+  &quot;password-enabled&quot;: true,
+  &quot;cert-enabled&quot;: false,
+
+  &quot;connection&quot;: {
+    &quot;host&quot;: {
+      &quot;address&quot;: &quot;localhost&quot;,
+      &quot;port&quot;: 389
+    },
+    &quot;ssl?&quot;: false
+  },
+
+  &quot;user-object-class&quot;: &quot;inetOrgPerson&quot;,
+  &quot;user-base-dn&quot;: &quot;ou=users,o=cloud&quot;
+  &quot;user-id-attr&quot;: &quot;uid&quot;,
+
+  &quot;role-object-class&quot;: &quot;groupOfUniqueNames&quot;,
+  &quot;role-base-dn&quot;: &quot;ou=groups,o=cloud&quot;,
+  &quot;role-member-attr&quot;: &quot;uniqueMember&quot;,
+  &quot;role-name-attr&quot;: &quot;cn&quot;,
+
+  &quot;skip-bind?&quot;: false,
+}</code></pre>
+<p>All of the fields are required. The &quot;connection&quot; values provide the location of the server. The &quot;user-&quot; fields indicate what objects in the LDAP database are user records and the &quot;role-&quot; fields indicate the groups that are mapped to roles.</p>
+<h3 id="using-passwords-1"><a href="#TOC"><span class="header-section-number">13.3.1</span> Using Passwords</a></h3>
+<p>The &quot;skip-bind?&quot; field indicates whether to try to bind to the database with the given user password to authenticate the user. Normally, for password authentication this should be false and the LDAP server should be setup to allow only the user to view her user record.</p>
+<h3 id="using-certificates-1"><a href="#TOC"><span class="header-section-number">13.3.2</span> Using Certificates</a></h3>
+<p>This is not supported in the current version, but is planned for a future version.</p>
+<h2 id="voms-proxy-authentication"><a href="#TOC"><span class="header-section-number">13.4</span> VOMS Proxy Authentication</a></h2>
+<p>VOMS proxies are a mechanism by which users can delegate some rights to a third party such as a service. These proxies also convey certain rights associated with a user who belongs to a Virtual Organization. The Virtual Organization itself manages its membership, defines the rights, and allocates those rights to members.</p>
+<p>By default, the SSL configuration of the server will be setup to allow validation of VOMS proxies according to the policies of the European Grid Infrastructure. You must use this configuration (or a similar one if you are an expert) to use VOMS proxy authentication.</p>
+<p>To enable this, set the &quot;voms/enabled&quot; flag to true in the authentication configuration. You must then add a pseudo-user entry in the local database for each Virtual Organization you want to support.</p>
+<p>An example pseudo-user entry for the &quot;vo.lal.in2p3.fr&quot; Virtual Organization is:</p>
+<pre><code>{
+  &quot;last-name&quot;: &quot;Virtual Organization&quot;,
+  &quot;first-name&quot;: &quot;LAL&quot;, 
+  &quot;username&quot;: &quot;vo:vo.lal.in2p3.fr&quot;,
+  &quot;enabled&quot;: true
+}</code></pre>
+<p>It is important that the username contain the &quot;vo:&quot; prefix to the name of the Virtual Organization that is being authorized. The entry should <em>not</em> have a password associated with it.</p>
+<p>The &quot;username&quot; associated with users identified via VOMS proxies is the DN of their certificate. The FQANs (fully-qualified attribute names) of the VOMS certificate are mapped to roles in the StratusLab authentication.</p>
+<h2 id="future-authentication-methods"><a href="#TOC"><span class="header-section-number">13.5</span> Future Authentication Methods</a></h2>
+<p>The authentication framework used by StratusLab is extensible allowing different mechanisms to be incorporated fairly easily. Candidates for additional mechansims to support in the future include OAUTH2 and Shibboleth. Feedback on the desire for these (or other) mechanisms is welcome.</p>
+<h1 id="using-ceph"><a href="#TOC"><span class="header-section-number">14</span> Using Ceph</a></h1>
+<p><a href="http://ceph.com">Ceph</a> is a set of storage technologies that allow object, block, and file storage that is reliable and scalable while maintaining high-performance.</p>
+<p>The block storage component of Ceph can be used as a storage backend to the persistent disk service.</p>
+<h2 id="requirements"><a href="#TOC"><span class="header-section-number">14.1</span> Requirements</a></h2>
+<ul>
+<li>A working Ceph cluster</li>
+<li>A Ceph pool for pdisk</li>
+<li>A a manager identity for this pool</li>
+</ul>
+<p>To create the pool: ceph osd pool create ${poolname} 128 128</p>
+<p>To create the manager identity for the pool:</p>
+<pre><code>ceph auth get-or-create client.${identity} \
+  mon &#39;allow r&#39; osd \
+  &#39;allow class-read object_prefix rbd_children, allow rwx pool=${poolname}&#39;</code></pre>
+<h2 id="modifications"><a href="#TOC"><span class="header-section-number">14.2</span> Modifications</a></h2>
+<p>Some modifications are needed for the persistent disk server and the VM hosts.</p>
+<ul>
+<li>Linux kernel 3.x</li>
+<li>Ceph package</li>
+<li>Ceph configuration in <code>/etc/ceph/ceph.conf</code></li>
+<li>Manager keyring in <code>/etc/ceph/ceph.client.${identity}.keyring</code></li>
+<li>Parameters in <code>pdisk-backend.cfg</code> and <code>pdisk-host.conf</code></li>
+</ul>
+<p>For testing, you can use a package provided by <a href="http://elrepo.org/tiki/tiki-index.php">ELrepo repository</a> which provides a 3.x kernel for CentOS v6.4.</p>
+<p>Currently, using a proxy server is not very useful for this backend because the persistent disk server needs a 3.x kernel and the Ceph package to attach pdisks to itself when importing a remote appliance (cf. DiskUtils.copyUrlToVolume).</p>
+<p>There is not automatic configuration via the StratusLab installer yet. This is being worked on.</p>
+<p>The <code>oneadmin</code> user must also be able to execute Ceph commands as root. Update the <code>/etc/sudoers</code> file appropriately:</p>
+<pre><code># /etc/sudoers
+oneadmin ALL= NOPASSWD: /usr/bin/rbd</code></pre>
+</body>
+</html>
