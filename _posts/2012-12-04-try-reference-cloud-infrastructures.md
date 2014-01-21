@@ -5,19 +5,13 @@ category: try
 ---
 
 A StratusLab reference infrastructure is available and offers access
-to external third parties in order to test and evaluate our cloud
-solution.  This infrastructure is built with the latest stable
-releases of the StratusLab distribution and provides two types of
-cloud services:
+for testing and evaluating our cloud solution.  This infrastructure is
+built with the latest stable releases of the StratusLab distribution.
 
-The physical cloud-computing infrastructure is located in two sites
-
-* Athens, Greece - operated by [GRNET][grnet] (cloud.grnet.stratuslab.eu)
-* Paris, France - operated by [LAL][lal] (cloud.lal.stratuslab.eu)
-
+The physical cloud-computing infrastructure is located in Orsay,
+France and is operated by [LAL][lal] (cloud.lal.stratuslab.eu).
 The project's [Marketplace][marketplace], containing existing virtual
-machine images metadata, is hosted by [Trinity College Dublin (TCD),
-Ireland][tcd].
+machine images metadata, is also hosted by LAL.
 
 Registration
 ------------
@@ -48,13 +42,13 @@ You will need to [install the StratusLab client tools][client-install]
 that allow you to access remotely the cloud and to control the
 lifecycle of your Virtual Machine instances. They also allow you to
 create entries for the Marketplace, generate your own VM appliances
-based on pre-existing images which then can be reference from the
+based on pre-existing images which then can be referenced from the
 Marketplace and instantiated in the cloud.
 
 The endpoints for invoking the cloud services are 
 
-* cloud.grnet.stratuslab.eu (compute/storage)
-* cloud.lal.stratuslab.eu (compute), pdisk.lal.stratuslab.eu (storage)
+* cloud.lal.stratuslab.eu (compute)
+* pdisk.lal.stratuslab.eu (storage)
 
 To configure the above endpoints in the client tools see the [user
 client installation instructions][client-install].
@@ -72,17 +66,17 @@ StratusLab, out-of-the-box, is certified for the KVM hypervisor.
 What services are offered?
 --------------------------
 
-With StratusLab v2 you can instantiate and manage the lifecycle of
+With StratusLab you can instantiate and manage the lifecycle of
 virtual machines, including volumes and basic network configuration
 (e.g. public, private).
 
 The [Marketplace][marketplace] is publicly accessible and offers base
-OS images for various Linux distributions including:
+OS images for a variety of Linux distributions including:
 
 * ttylinux
 * CentOS
-* Fedora
 * Ubuntu
+* OpenSuSE
 
 External users also have the ability to upload their own base images
 and appliances to the repository. For instructions on how to prepare
@@ -92,35 +86,20 @@ the [documentation][documentation].
 Users may instantiate VMs with the following predefined hardware
 profiles (default: m1.small):
 
-      Type              CPU        RAM       SWAP
-      c1.medium       1 CPU     256 MB    1024 MB
-      c1.xlarge       4 CPU    2048 MB    2048 MB
-      m1.large        2 CPU     512 MB    1024 MB
-    * m1.small        1 CPU     128 MB    1024 MB
-      m1.xlarge       2 CPU    1024 MB    1024 MB
-      t1.micro        1 CPU     128 MB     512 MB
+     Type             CPU       RAM      SWAP
+      c1.medium       2 CPU    1536 MB    1536 MB
+      c1.xlarge       4 CPU    6144 MB    6144 MB
+      m1.large        2 CPU    6144 MB    6144 MB
+      m1.medium       1 CPU    3072 MB    3072 MB
+    * m1.small        1 CPU    1536 MB    1536 MB
+      m1.xlarge       4 CPU    8192 MB    8192 MB
+      t1.micro        1 CPU     512 MB     512 MB
 
 It is also possible to compose custom VM CPU/RAM/SWAP configurations.
 
 
 On what physical infrastructure are the reference cloud services running?
 -------------------------------------------------------------------------
-
-###GRNet
-
-The cloud service is running on 16 dual quad core Intel Xeon E5520
-nodes, with HyperThreading enabled. One additional node is used as the
-service frontend.  In total, we provide 256 logical cores that can be
-used from by VM instances.  Each node is configured with 48 GByte main
-memory. The base OS we use is Linux CentOS 6.3.
-
-Storage is provided by a centralized storage server which currently
-serves a total of 3 TByte of storage shared among all the nodes with
-NFSv3.
-
-All VMs instantiated are assigned a public IPv4 and IPv6 address by default.
-
-###LAL
 
 The cloud at LAL consists of 15 servers with one of two
 configurations: 24 CPU cores with 24 GB of RAM or 32 CPU cores with 64
@@ -132,9 +111,6 @@ utilization][lal-resources] for the LAL cloud.
 
 What is the firewall policy?
 ----------------------------
-
-No firewall restrictions are applied externally to the VMs at GRNET.
-All ports are open for end-user applications.
 
 At LAL, only commonly-used ports are open for the virtual machines.
 The open ports are: 
@@ -148,6 +124,7 @@ Additional ports can be opened on request, if necessary.
 Users are responsible to configure their own port restrictions inside
 the VM images and for the overall security of the image in general.
 
+
 What Quality of Service is provided?
 ------------------------------------
 
@@ -156,6 +133,7 @@ guarantees about the availability and stability of the service. We are
 making the best effort to provide a stable cloud infrastructure but at
 the moment we cannot guarantee that a VM instance might not crash or
 temporarily be unavailable due to a software or network problem.
+
 
 How can I deploy my own cloud service?
 --------------------------------------
@@ -168,6 +146,7 @@ two modes of installation
 * [Manual Installation][manual-install], or
 * [Quattor][quattor].
 
+
 How can I get more information and support?
 -------------------------------------------
 
@@ -177,7 +156,7 @@ problems or requesting any special arrangements for the cloud service
 setup. Notice that as with the infrastructure itself the support
 services are currently provided on best effort basis.
 
-[grnet]: http://www.grnet.gr
+
 [lal]: http://www.lal.in2p3.fr
 [marketplace]: https://marketplace.stratuslab.eu
 [tcd]: http://www.tcd.ie
