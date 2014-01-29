@@ -107,7 +107,9 @@ GB of RAM.  There is a total of 20 TB of disk space available via a
 RAID6 system.
 
 There is a page that provides the [current resource
-utilization][lal-resources] for the LAL cloud.
+utilization][lal-resources] for the LAL cloud.  There is also page
+that shows [plots of the CPU, memory, and network
+utilization][lal-ganglia] on the physical resources.
 
 What is the firewall policy?
 ----------------------------
@@ -169,3 +171,5 @@ services are currently provided on best effort basis.
 [manual-install]: /install/2012/09/25/install-cloud-services-installation.html
 [quattor]: http://quattor.org/
 [lal-resources]: http://cloud.lal.stratuslab.eu/load/load.txt
+[lal-ganglia]: http://cloud.lal.stratuslab.eu/ganglia
+
