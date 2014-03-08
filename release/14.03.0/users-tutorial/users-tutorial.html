@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="StratusLab Collaboration">
+  <title>StratusLab User's Tutorial</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<header>
+<h1 class="title">StratusLab User's Tutorial</h1>
+<h2 class="author">StratusLab Collaboration</h2>
+<h3 class="date">Version 14.03.0</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#introduction-to-stratuslab"><span class="toc-section-number">1</span> Introduction to StratusLab</a><ul>
+<li><a href="#services"><span class="toc-section-number">1.1</span> Services</a></li>
+<li><a href="#tools"><span class="toc-section-number">1.2</span> Tools</a></li>
+<li><a href="#roadmap"><span class="toc-section-number">1.3</span> Roadmap</a></li>
+</ul></li>
+<li><a href="#tutorial-overview"><span class="toc-section-number">2</span> Tutorial Overview</a><ul>
+<li><a href="#conventions"><span class="toc-section-number">2.1</span> Conventions</a></li>
+<li><a href="#service-parameters"><span class="toc-section-number">2.2</span> Service Parameters</a></li>
+</ul></li>
+<li><a href="#prerequisites"><span class="toc-section-number">3</span> Prerequisites</a><ul>
+<li><a href="#registration"><span class="toc-section-number">3.1</span> Registration</a></li>
+<li><a href="#client-prerequisites"><span class="toc-section-number">3.2</span> Client Prerequisites</a></li>
+<li><a href="#network"><span class="toc-section-number">3.3</span> Network</a></li>
+</ul></li>
+<li><a href="#command-line-client"><span class="toc-section-number">4</span> Command Line Client</a><ul>
+<li><a href="#client-installation"><span class="toc-section-number">4.1</span> Client Installation</a></li>
+<li><a href="#client-configuration"><span class="toc-section-number">4.2</span> Client Configuration</a></li>
+</ul></li>
+<li><a href="#virtual-machine-lifecycle"><span class="toc-section-number">5</span> Virtual Machine Lifecycle</a><ul>
+<li><a href="#lifecycle-states"><span class="toc-section-number">5.1</span> Lifecycle States</a></li>
+<li><a href="#deploy"><span class="toc-section-number">5.2</span> Deploy</a></li>
+<li><a href="#describe"><span class="toc-section-number">5.3</span> Describe</a></li>
+<li><a href="#connect"><span class="toc-section-number">5.4</span> Connect</a></li>
+<li><a href="#terminate"><span class="toc-section-number">5.5</span> Terminate</a></li>
+</ul></li>
+<li><a href="#virtual-machine-resources"><span class="toc-section-number">6</span> Virtual Machine Resources</a><ul>
+<li><a href="#predefined-machine-types"><span class="toc-section-number">6.1</span> Predefined Machine Types</a></li>
+<li><a href="#deploy-vm-with-machine-type"><span class="toc-section-number">6.2</span> Deploy VM with Machine Type</a></li>
+<li><a href="#deploy-vm-with-customized-resources"><span class="toc-section-number">6.3</span> Deploy VM with Customized Resources</a></li>
+</ul></li>
+<li><a href="#marketplace"><span class="toc-section-number">7</span> Marketplace</a><ul>
+<li><a href="#appliance-registry"><span class="toc-section-number">7.1</span> Appliance Registry</a></li>
+<li><a href="#base-appliances"><span class="toc-section-number">7.2</span> Base Appliances</a></li>
+<li><a href="#customized-appliances"><span class="toc-section-number">7.3</span> Customized Appliances</a></li>
+</ul></li>
+<li><a href="#storage"><span class="toc-section-number">8</span> Storage</a><ul>
+<li><a href="#volatile-storage"><span class="toc-section-number">8.1</span> Volatile Storage</a><ul>
+<li><a href="#requesting-a-volatile-disk"><span class="toc-section-number">8.1.1</span> Requesting a Volatile Disk</a></li>
+<li><a href="#use-of-volatile-disk"><span class="toc-section-number">8.1.2</span> Use of volatile disk</a></li>
+<li><a href="#data-on-a-volatile-disk"><span class="toc-section-number">8.1.3</span> Data on a Volatile Disk</a></li>
+</ul></li>
+<li><a href="#static-disk"><span class="toc-section-number">8.2</span> Static Disk</a><ul>
+<li><a href="#run-vm-with-static-read-only-disk"><span class="toc-section-number">8.2.1</span> Run VM with Static (Read-Only) Disk</a></li>
+<li><a href="#creating-a-static-disk"><span class="toc-section-number">8.2.2</span> Creating a Static Disk</a></li>
+</ul></li>
+<li><a href="#persistent-volumes"><span class="toc-section-number">8.3</span> Persistent Volumes</a><ul>
+<li><a href="#create-persistent-disk"><span class="toc-section-number">8.3.1</span> Create persistent disk</a></li>
+<li><a href="#list-persistent-disks"><span class="toc-section-number">8.3.2</span> List Persistent Disks</a></li>
+<li><a href="#persistent-disk-workflow"><span class="toc-section-number">8.3.3</span> Persistent Disk Workflow</a><ul>
+<li><a href="#launch-vm-with-a-persistent-disk-attached"><span class="toc-section-number">8.3.3.1</span> Launch VM with a persistent disk attached</a></li>
+<li><a href="#format-attached-disk"><span class="toc-section-number">8.3.3.2</span> Format Attached Disk</a></li>
+<li><a href="#use-the-disk"><span class="toc-section-number">8.3.3.3</span> Use the Disk</a></li>
+<li><a href="#reuse-the-disk"><span class="toc-section-number">8.3.3.4</span> Reuse the Disk</a></li>
+<li><a href="#hot-plug-persistent-disks"><span class="toc-section-number">8.3.3.5</span> Hot-plug Persistent Disks</a></li>
+</ul></li>
+<li><a href="#delete-persistent-disks"><span class="toc-section-number">8.3.4</span> Delete Persistent Disks</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#customized-images"><span class="toc-section-number">9</span> Customized Images</a><ul>
+<li><a href="#contextualization"><span class="toc-section-number">9.1</span> Contextualization</a></li>
+<li><a href="#create-image"><span class="toc-section-number">9.2</span> Create Image</a></li>
+<li><a href="#image-metadata"><span class="toc-section-number">9.3</span> Image Metadata</a></li>
+</ul></li>
+<li><a href="#next-steps"><span class="toc-section-number">10</span> Next Steps</a></li>
+</ul>
+</nav>
+<h1 id="introduction-to-stratuslab"><a href="#TOC"><span class="header-section-number">1</span> Introduction to StratusLab</a></h1>
+<p><a href="http://stratuslab.eu/">StratusLab</a>, an international collaboration, provides a complete, open source cloud distribution, allowing the installation of public or private &quot;Infrastructure as a Service&quot; cloud infrastructures. It aims to be both simple to use and simple to install.</p>
+<p>Cloud infrastructures provide many benefits to end-users (U), developers (D), administrators (A), and resource providers (R).</p>
+<table>
+<caption>Cloud Benefits</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">To provide a customized execution environment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">To make available pre-installed and pre-configured applications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">To provision new resources (CPU, storage, etc.) rapidly</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">To allow complete control of those resources</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">Easy access to the services through simple APIs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">The elasticity of the cloud to respond to peaks in demand</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">More flexible management of machines and services</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Separation of hardware, service, platform and user services</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Better utilization of shared computing resources</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Possibility of federating resources with other clouds</td>
+</tr>
+</tbody>
+</table>
+<h2 id="services"><a href="#TOC"><span class="header-section-number">1.1</span> Services</a></h2>
+<p>StratusLab provides the compute, storage, and network resources expected from Infrastructure as a Service (IaaS) cloud providers. It also provides management tools that allow trusted sharing of virtual machine appliances, VM images with preinstalled and preconfigured applications and services.</p>
+<p>The <strong>compute services</strong> focus on fast provisioning of Virtual Machines (VMs) and low latency start-up. They also support a variety of contextualization mechanisms (HEPiX, OpenNebula, and CloudInit) to allow users to create and to use parameterized appliances. <a href="http://opennebula.org/">OpenNebula</a> is currently at the core of the VM management for StratusLab.</p>
+<p>The <strong>storage service</strong> provides persistent data volumes. These volumes can be created and destroyed independently of any particular virtual machine. They can be attached or detached either when a virtual machine starts or dynamically after the machine is already running. Volatile and read-only storage are also provided.</p>
+<p><strong>Network connectivity</strong> is crucial for any remote resource. Users can select whether their machine needs a public or private IP address and they can use the standard firewall services within the VM to further protect the machine if necessary. StratusLab make use of standard networking services (DHCP, DNS, etc.) that are likely already in place at a site.</p>
+<p>The Marketplace is the core of the <strong>appliance handling mechanisms</strong>. It serves as a registry where image creators can publicize their images and where users can find appropriate ones. Site administrators can use the registry information to define and to enforce a policy that selects which appliances can be run on a their cloud infrastructure.</p>
+<h2 id="tools"><a href="#TOC"><span class="header-section-number">1.2</span> Tools</a></h2>
+<p>The distribution also contains tools to make accessing and using StratusLab services easier. The client command line interface (CLI) allows users to access all of the StratusLab resources. It is written in portable Python and runs on all Linux distributions, Mac OS X, and Windows.</p>
+<p>StratusLab also provides several APIs for programmatic access to the services. There is a set of native Python libraries (used also by the CLI) that can be used to talk to the raw XML-RPC and REST service interfaces. A higher-level and more stable interface is provided by the <a href="http://libcloud.apache.org/">Libcloud</a> plugin for StratusLab.</p>
+<h2 id="roadmap"><a href="#TOC"><span class="header-section-number">1.3</span> Roadmap</a></h2>
+<p>The StratusLab cloud distribution is in active development with new releases approximately every three months. The major improvements expected over the next few releases include:</p>
+<ul>
+<li><strong>Interfaces</strong>: CIMI REST interface as a standard for all of the StratusLab services and afterwards a complete, web-accessible interface.</li>
+<li><strong>Simplicity, Scalability &amp; Robustness</strong>: Direct use of libvirt as the VM manager and use of Couchbase as an information bus between elements in the new, simplified architecture.</li>
+<li><strong>Better Administrator Tools</strong>: Improved overview and monitoring of cloud activity, fine-grained accounting, and VM migration control.</li>
+</ul>
+<p>These changes will benefit both the cloud administrators and cloud users.</p>
+<h1 id="tutorial-overview"><a href="#TOC"><span class="header-section-number">2</span> Tutorial Overview</a></h1>
+<p>This tutorial explains the major features of the StratusLab cloud distribution. It shows how to start, access, and control virtual machines and how to use various types of storage resources with those virtual machines.</p>
+<p>More advanced topics, such as creating customized images, are touched upon, but the reader should consult the <a href="http://stratuslab.eu/documentation/">User's Guide</a> for more details on how to use those features.</p>
+<h2 id="conventions"><a href="#TOC"><span class="header-section-number">2.1</span> Conventions</a></h2>
+<p>The exercises of this tutorial can be done from any Linux, Mac OS X, or Windows machine. The examples show the commands for the Linux and Mac OS X operating systems; the commands must be adapted appropriately for use on Windows.</p>
+<p>Colored text boxes in Courier font show interactions with a command line shell.</p>
+<pre><code>$ command
+results from the command
+...
+possibly abbreviated</code></pre>
+<p>The command is preceeded by a dollar sign and possibly continued onto multiple lines with trailing backslashes. Lines without the dollar sign are the results of running the given command. Abbreviated output is indicated by an ellipsis.</p>
+<h2 id="service-parameters"><a href="#TOC"><span class="header-section-number">2.2</span> Service Parameters</a></h2>
+<p>This tutorial presumes that the StratusLab Reference Cloud at LAL is being used. The relevant parameters for this cloud (and needed for the client configuration) are given in the following table.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>marketplace_endpoint</code></td>
+<td style="text-align: left;">https://marketplace.stratuslab.eu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>endpoint</code></td>
+<td style="text-align: left;">cloud.lal.stratuslab.eu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>pdisk_endpoint</code></td>
+<td style="text-align: left;">pdisk.lal.stratuslab.eu</td>
+</tr>
+</tbody>
+</table>
+<p>You will also need to provide values for the parameters <code>username</code> and <code>password</code>. These correspond to your account on the StratusLab cloud.</p>
+<h1 id="prerequisites"><a href="#TOC"><span class="header-section-number">3</span> Prerequisites</a></h1>
+<p>Before trying to follow this tutorial you must have:</p>
+<ol type="1">
+<li>An account on a StratusLab cloud infrastructure</li>
+<li>The StratusLab command line client installed on your laptop or workstation.</li>
+</ol>
+<p>Additionally, the network you are using must also allow access to the ports used by the StratusLab services.</p>
+<h2 id="registration"><a href="#TOC"><span class="header-section-number">3.1</span> Registration</a></h2>
+<p>If you are using the StratusLab Reference Cloud infrastructure, then you can follow the procedure below. If not, you must contact the cloud administrator for your cloud to obtain an account.</p>
+<p>To register on the StratusLab Reference infrastructure, go to the <a href="https://register.stratuslab.eu:8444">registration page</a>. Click on the &quot;register&quot; link and you should see a page like the one in the screenshot.</p>
+<figure>
+<img src="images/registration-screenshot.png" alt="Marketplace Screenshot"><figcaption>Marketplace Screenshot</figcaption>
+</figure>
+<p>For user authentication, either a username/password pair or an <a href="http://www.igtf.net/">IGTF</a> accredited digital certificate can be used. For the purposes of this tutorial the username/password is easier. Ignore the optional X500 field that is needed only when using a digital certificate.</p>
+<p>Fill in the form, agree to the terms and conditions, and then click the &quot;create&quot; button. Although not mandatory, it is useful to provide a short message describing your use of the cloud, the scientific/engineering domain of your application, and your institute (if any).</p>
+<p>You will receive an email when your account has been approved by the administrator.</p>
+<h2 id="client-prerequisites"><a href="#TOC"><span class="header-section-number">3.2</span> Client Prerequisites</a></h2>
+<p>Before starting, you must verify that the prerequisites for the StratusLab command line are satisfied:</p>
+<ul>
+<li><strong>Python 2</strong> (2.6+), <strong>virtualenv</strong> and <strong>pip</strong> are installed.</li>
+<li><strong>Java 1.6</strong> or later is installed.</li>
+<li>An <strong>SSH client</strong> is installed with an <strong>SSH key pair</strong>.</li>
+</ul>
+<p>More information on checking and installing these dependencies can be found in the complete <a href="http://stratuslab.eu/release/13.05.0/users-guide/users-guide.html">User's Guide</a>.</p>
+<h2 id="network"><a href="#TOC"><span class="header-section-number">3.3</span> Network</a></h2>
+<p>The network that you are using must allow you to contact the StratusLab services. This requires that the ports in the following table are open for outbound access.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Port</th>
+<th style="text-align: left;">Service</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">80</td>
+<td style="text-align: left;">http (web)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">443</td>
+<td style="text-align: left;">https (secure web)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2634</td>
+<td style="text-align: left;">OpenNebula Proxy</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8444</td>
+<td style="text-align: left;">Registration Service</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8445</td>
+<td style="text-align: left;">Storage Service</td>
+</tr>
+</tbody>
+</table>
+<h1 id="command-line-client"><a href="#TOC"><span class="header-section-number">4</span> Command Line Client</a></h1>
+<p>The tutorial will use both a web browser and the StratusLab command line client to access the cloud resources. The following describes how to install and configure the command line client.</p>
+<p>See the full <a href="http://stratuslab.eu/release/13.05.0/users-guide/users-guide.html">User's Guide</a> if more details are needed or you run into problems.</p>
+<h2 id="client-installation"><a href="#TOC"><span class="header-section-number">4.1</span> Client Installation</a></h2>
+<p>First create a virtual environment to hold the StratusLab client and its dependencies.</p>
+<pre><code>$ virtualenv $HOME/env/SL
+New python executable in /home/sluser/env/SL/bin/python
+Installing setuptools............done.
+Installing pip...............done.</code></pre>
+<p>You may want to choose a different name or location for your virtual environment.</p>
+<p>Now you will need to activate that environment.</p>
+<pre><code>$ source $HOME/env/SL/bin/activate 
+(SL)$ </code></pre>
+<p>The prompt should change to include the name of the virtual environment.</p>
+<p>Now use pip to install the StratusLab client:</p>
+<pre><code>(SL)$ pip install stratuslab-client 
+Downloading/unpacking stratuslab-client
+  Downloading stratuslab-client-13.05.0.RC1.tar.gz (1.2MB): 1.2MB downloaded
+...
+Successfully installed stratuslab-client dirq ...
+Cleaning up...</code></pre>
+<p>You can verify that the client is installed and accessible with by searching for one of the StratusLab commands:</p>
+<pre><code>(SL)$ which stratus-copy-config 
+~/env/SL/bin/stratus-copy-config</code></pre>
+<p>All of the StratusLab commands begin with <code>stratus-</code>. On systems that support it, you can use tab completion to see all of the available commands.</p>
+<h2 id="client-configuration"><a href="#TOC"><span class="header-section-number">4.2</span> Client Configuration</a></h2>
+<p>Now that the StratusLab client is installed, it needs to be configured. You will need to have your credentials and the cloud service endpoints available.</p>
+<p>Copy the reference configuration file into place and verify it is present:</p>
+<pre><code>(SL)$ stratus-copy-config 
+
+(SL)$ ls $HOME/.stratuslab/
+stratuslab-user.cfg</code></pre>
+<p>This configuration file contains descriptions of all of the parameters that can be set. There are only three or four that must be set.</p>
+<p>Set the service endpoints for the cloud entry point and the storage (pdisk):</p>
+<pre><code>endpoint = cloud.lal.stratuslab.eu
+pdisk_endpoint = pdisk.lal.stratuslab.eu</code></pre>
+<p>substituting the values for your cloud infrastructure. (These are the values for the StratusLab reference cloud infrastructure at LAL.) Also set the values for your username and password:</p>
+<pre><code>username = your.username
+password = your.password</code></pre>
+<p>again substituting your values for these parameters.</p>
+<p>You can now see if you have any running machines on the cloud to test if the client is correctly installed:</p>
+<pre><code>(SL)$ stratus-describe-instance 
+id  state     vcpu memory    cpu% host/ip                 name
+(SL)$ </code></pre>
+<p>This should return an empty list of machines. If it returns any errors, then you'll need to correct whatever went wrong in the installation. See the more detailed documentation.</p>
+<h1 id="virtual-machine-lifecycle"><a href="#TOC"><span class="header-section-number">5</span> Virtual Machine Lifecycle</a></h1>
+<p>This chapter descibes how to launch, to describe, to access, and to terminate a Virtual Machine on a StratusLab cloud.</p>
+<h2 id="lifecycle-states"><a href="#TOC"><span class="header-section-number">5.1</span> Lifecycle States</a></h2>
+<p>The following table summarizes the simplified Virtual Machine lifecycle and associated commands.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">State</th>
+<th style="text-align: left;">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Deploy</td>
+<td style="text-align: left;"><code>stratus-run-instance Marketplace_ID</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Describe</td>
+<td style="text-align: left;"><code>stratus-describe-instance VM_ID</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Connect</td>
+<td style="text-align: left;"><code>ssh root@134.158.75.xxx</code> <em>or</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>stratus-connect-instance VM_ID</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Terminate</td>
+<td style="text-align: left;"><code>stratus-kill-instance VM_ID</code></td>
+</tr>
+</tbody>
+</table>
+<p>The detailed lifecycle of a machine is more complicated. The diagram shows the full lifecycle and describes what is happening behind the scenes in each of these cases.</p>
+<figure>
+<img src="images/vm-timeline.png" alt="Virtual machine timeline and states."><figcaption>Virtual machine timeline and states.</figcaption>
+</figure>
+<p>The rest of this chapter shows how to run a VM through these states. We will use a simple <strong>ttylinux</strong> appliance. This is a minimal Linux operating system used normally for embedded systems. It is small and boots quickly, making it a good choice for demonstrations like this.</p>
+<p>The Marketplace identifier for the ttylinux machine is:</p>
+<pre><code>BtSKdXa2SvHlSVTvgFgivIYDq--</code></pre>
+<p>You will need this when launching the ttylinux VM. We will explain where this identifier comes from in the Marketplace chapter.</p>
+<p>We will need this often in the tutorial. To avoid typing it all of the time, let's set up a variable:</p>
+<pre><code>$ export TTYLINUX=&quot;BtSKdXa2SvHlSVTvgFgivIYDq--&quot;</code></pre>
+<p>Any place you see $TTYLINUX in the commands, it refers to this machine identifier.</p>
+<h2 id="deploy"><a href="#TOC"><span class="header-section-number">5.2</span> Deploy</a></h2>
+<p>Launch an instance of the ttylinux appliance with the <code>stratus-run-instance</code> command:</p>
+<pre><code>$ stratus-run-instance $TTYLINUX
+
+  :::::::::::::::::::::::::
+  :: Starting machine(s) ::
+  :::::::::::::::::::::::::
+  :: Starting 1 machine
+  :: Machine 1 (vm ID: 5508)
+         Public ip: 134.158.75.75
+  :: Done!</code></pre>
+<p>Response should give the VM ID and Public IP address of the VM.</p>
+<p>All of the StratusLab commands support the <code>--help</code> option, which will give detailed information about the command and its options.</p>
+<h2 id="describe"><a href="#TOC"><span class="header-section-number">5.3</span> Describe</a></h2>
+<p>List all active machines:</p>
+<pre><code>$ stratus-describe-instance
+id   state     vcpu memory    cpu% host/ip                  name
+5507 Running   1    0         0    vm-201.lal.stratuslab.eu one-5507
+5508 Pending   1    0         0    vm-202.lal.stratuslab.eu one-5508</code></pre>
+<p>State of a single machine:</p>
+<pre><code>$ stratus-describe-instance 5508
+id   state     vcpu memory    cpu% host/ip                  name
+5508 Prolog    1    0         0    vm-202.lal.stratuslab.eu one-5507</code></pre>
+<h2 id="connect"><a href="#TOC"><span class="header-section-number">5.4</span> Connect</a></h2>
+<p>VM states change as the cloud intializes the virtual machines. The following table describes the common states.</p>
+<table>
+<caption>Common VM States</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">State</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Prolog</td>
+<td style="text-align: left;">cloud initialization of VM (e.g. copy and cache image)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Boot</td>
+<td style="text-align: left;">starting virtual machine from the image</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Running</td>
+<td style="text-align: left;">machine is active, booting the operating system</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Failed</td>
+<td style="text-align: left;">problem with starting/running the machine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">machine is stopped, but still has resources allocated!</td>
+</tr>
+</tbody>
+</table>
+<p>Check the VM is running:</p>
+<pre><code>$ stratus-describe-instance 5508
+id   state     vcpu memory    cpu% host/ip                 name
+5508 Running   1    131072    4    vm-202.lal.stratuslab.eu one-5508</code></pre>
+<p>Ping the VM to see when it is accessible:</p>
+<pre><code> $ ping vm-202.lal.stratuslab.eu
+ PING vm-202.lal.stratuslab.eu (134.158.75.202): 56 data bytes
+ Request timeout for icmp_seq 0
+ 64 bytes from 134.158.75.202: icmp_seq=1 ttl=63 time=0.876 ms
+ 64 bytes from 134.158.75.202: icmp_seq=2 ttl=63 time=0.761 ms
+ ...</code></pre>
+<p>Connect to the VM as root:</p>
+<pre><code>$ ssh root@vm-202.lal.stratuslab.eu
+# uname -a
+Linux ttylinux_host 3.7.1 #1 SMP PREEMPT Mon May 27 13:16:10 MST 2013 x86_64 GNU/Linux
+# logout
+Connection to vm-202.lal.stratuslab.eu closed.
+$</code></pre>
+<p>You can also use the <code>stratus-connect-instance</code> command.</p>
+<pre><code>$ stratus-connect-instance 5508
+# uname -a
+Linux ttylinux_host 3.7.1 #1 SMP PREEMPT Mon May 27 13:16:10 MST 2013 x86_64 GNU/Linux
+# logout
+Connection to vm-202.lal.stratuslab.eu closed.
+$</code></pre>
+<p>It just wraps the usual <code>ssh</code> command and saves you from having to look up the hostname.</p>
+<h2 id="terminate"><a href="#TOC"><span class="header-section-number">5.5</span> Terminate</a></h2>
+<p>To safely stop all services and halt a virtual machine, use the standard <code>shutdown</code> or <code>halt</code> commands from within the virtual machine.</p>
+<pre><code># shutdown -h
+#
+Connection to vm-202.lal.stratuslab.eu closed by remote host.
+Connection to vm-202.lal.stratuslab.eu closed.</code></pre>
+<p>The machine will stop and the state will eventually become &quot;unknown&quot;.</p>
+<pre><code>$ stratus-describe-instance 5508
+id   state     vcpu memory    cpu% host/ip                  name
+5508 Unknown   1    131072    0    vm-202.lal.stratuslab.eu one-5508</code></pre>
+<p>This mechanism ensures that all services are shutdown cleanly and that data volumes are unmounted.</p>
+<p>You can then release the machine's resource with the <code>stratus-kill-instance</code> command.</p>
+<pre><code>$ stratus-kill-instance 5508
+$
+$ stratus-describe-instance 5508
+id   state     vcpu memory    cpu% host/ip                  name
+5508 Done      1    131072    0    vm-202.lal.stratuslab.eu one-5508</code></pre>
+<p>Note that the VM resources are <strong>not released</strong> until the <code>stratus-kill-instance</code> command is run. In particular, data volumes will remain allocated to this VM until this command is run.</p>
+<p>The <code>stratus-kill-instance</code> command can also be used for a running machine. In this case, it will <strong>forcibly stop and remove the machine</strong>; this can be useful if you cannot access the VM for some reason. Be careful when doing this, especially if persistent data volumes are attached to the virtual machine.</p>
+<h1 id="virtual-machine-resources"><a href="#TOC"><span class="header-section-number">6</span> Virtual Machine Resources</a></h1>
+<p>You can control the number of CPUs, amount of RAM and size of the swap space allocated to a virtual machine.</p>
+<h2 id="predefined-machine-types"><a href="#TOC"><span class="header-section-number">6.1</span> Predefined Machine Types</a></h2>
+<p>StratusLab provides a number of predefined machine configurations. You can obtain a list of these with the command:</p>
+<pre><code>$ stratus-run-instance --list-type
+  Type              CPU        RAM       SWAP
+  c1.medium       1 CPU     256 MB    1024 MB
+  c1.xlarge       4 CPU    2048 MB    2048 MB
+  m1.large        2 CPU     512 MB    1024 MB
+* m1.small        1 CPU     128 MB    1024 MB
+  m1.xlarge       2 CPU    1024 MB    1024 MB
+  t1.micro        1 CPU     128 MB     512 MB</code></pre>
+<p>You can select the configuration you want by using the <code>--type</code> option of <code>stratus-run-instance</code> and providing the name of the type. The default is the type marked with an asterisk (&quot;m1.small&quot;).</p>
+<p>If the predefined types do not match your needs, you can also individually specify the CPU, RAM, and swap space with the <code>--cpu</code>, <code>--ram</code>, and <code>--swap</code> options. These will override the corresponding values in the implicitly or explicitly selected type.</p>
+<p>Note that the maximum values are determined by the largest physical machine in the cloud infrastructure. The cloud administrator of your infrastructure can provide these limits.</p>
+<p>For the StratusLab infrastructure at LAL, you can also view the state of the physical machines and see the available resources. Use a web browser or <code>curl</code> to see the contents of the status page:</p>
+<pre><code>$ curl http://cloud.lal.stratuslab.eu/load/load.txt
+2013-08-28T09:40:01+0000
+   ID   RVM   TCPU   ACPU   TMEM   FMEM   AMEM   STAT
+  29      2   2400   2100  35.3G  28.4G  32.8G     on
+  30      0      0    100     0K     0K     0K    err
+  31      2   2400   2100  35.3G  31.8G  29.2G     on
+  32      2   2400   2200  35.3G  32.2G  32.3G     on
+  33      2   2400   2100  35.3G    31G  29.8G     on
+  34      2   2400   2000  35.3G  34.6G  33.3G     on
+  35      3   2400   2000  35.3G  33.8G  31.3G     on
+  36      3   2400   2000  35.3G  32.7G  32.7G     on
+  37      3   2400   1500  35.3G  23.5G  17.8G     on
+  38      0      0    100     0K     0K     0K    err
+  39      3   3200   2000  62.9G  23.4G  23.9G     on
+  40      3   3200   2700  62.9G  56.6G  54.4G     on
+  41      3   3200   2700  62.9G  61.1G  60.7G     on
+  42      4   3200    200  62.9G  56.2G 968.4M     on
+  43      4   3200      0  62.9G  50.3G   2.1G     on
+  44      2   3200      0  62.9G  45.6G  17.8G     on
+  45      2   3200      0  62.9G  16.9G  17.8G     on</code></pre>
+<p>The interesting values are probably the TCPU and ACPU (total and available CPUs x 100) and TMEM and AMEM (total and available RAM).</p>
+<h2 id="deploy-vm-with-machine-type"><a href="#TOC"><span class="header-section-number">6.2</span> Deploy VM with Machine Type</a></h2>
+<p>Deploy a VM of type &quot;m1.xlarge&quot;</p>
+<pre><code>$ stratus-run-instance \
+    --quiet --type=m1.xlarge $TTYLINUX
+5509, 134.158.75.203</code></pre>
+<p>Looking at the status of the machine:</p>
+<pre><code>$ stratus-describe-instance 5509
+id   state     vcpu memory    cpu% host/ip                  name
+5509 Running   4    8388608   5    vm-203.lal.stratuslab.eu one-5509</code></pre>
+<p>will give you the allocated CPUs (vcpu) and memory. The swap space can be seen from within the machine. <strong>These values are provided by a monitoring process on the physical machines and may take a couple of minutes to be updated.</strong></p>
+<p>Note that ttylinux resides entirely in memory and doesn't use swap space!</p>
+<h2 id="deploy-vm-with-customized-resources"><a href="#TOC"><span class="header-section-number">6.3</span> Deploy VM with Customized Resources</a></h2>
+<p>Try deploying a machine with customized resources. You can use one or more of the options <code>--type</code>, <code>--cpu</code>, <code>--ram</code>, and <code>--swap</code>:</p>
+<pre><code>$ stratus-run-instance \
+    --quiet --cpu=3 --ram=6000 --swap=2000 $TTYLINUX
+5510, 134.158.75.204</code></pre>
+<p>Again use the status of the VM to see what resources were allocated:</p>
+<pre><code>$ stratus-describe-instance 5510
+id   state     vcpu memory    cpu% host/ip                  name
+5510 Running   3    6144000   5    vm-204.lal.stratuslab.eu one-5510</code></pre>
+<p>Note that the memory value for the status is given in KiB.</p>
+<h1 id="marketplace"><a href="#TOC"><span class="header-section-number">7</span> Marketplace</a></h1>
+<p>Building new virtual machine appliances can be a tedious and time-consuming task. Your first instinct should be to first look in the Marketplace to see if someone else has done the work for you!</p>
+<h2 id="appliance-registry"><a href="#TOC"><span class="header-section-number">7.1</span> Appliance Registry</a></h2>
+<p>The StratusLab Marketplace provides a registry for available, public virtual machine appliances. These are created by the people within the community as well as by StratusLab developers to help people get started using the cloud quickly.</p>
+<p>Use a browser to view the Marketplace at:</p>
+<pre><code>https://marketplace.stratuslab.eu</code></pre>
+<p>This contains all of the public images that are currently available.</p>
+<p>Each appliance entry contains the basic information along with a link to see more detailed information. <strong>The machine identifier is the most important piece of information.</strong> Just providing it to the <code>stratus-run-instance</code> command is enough to launch an instance of that appliance.</p>
+<h2 id="base-appliances"><a href="#TOC"><span class="header-section-number">7.2</span> Base Appliances</a></h2>
+<p>The StratusLab developers provide &quot;base&quot; appliances for ttylinux, CentOS (a RedHat Enterprise Linux derivative), Ubuntu, Debian, and OpenSuSE. These are minimal, but functional, installations of these operating systems. They can be used directly or customized to create personalized machines. These can be found by typing &quot;images@stratuslab.eu&quot; for the endorser in the &quot;Filter&quot; boxes on the right side of the Marketplace page. (See the screenshot.)</p>
+<figure>
+<img src="images/baseimages-screenshot.png" alt="StratusLab Base Appliances"><figcaption>StratusLab Base Appliances</figcaption>
+</figure>
+<p>You can also use the filters, for example on the operating system, to further refine the list.</p>
+<h2 id="customized-appliances"><a href="#TOC"><span class="header-section-number">7.3</span> Customized Appliances</a></h2>
+<p>Although not covered in this tutorial, you can also create and register your own appliances to share with others. For example, the European project IGE has prepared appliances for testing Globus services and for running their tutorials with the services. IBCP in Lyon has created appliances with numerous bioinformatics applications already installed.</p>
+<p>Search the Marketplace to find all of the appliances endorsed by StratusLab. Also search for other appliances that might be interesting to you.</p>
+<h1 id="storage"><a href="#TOC"><span class="header-section-number">8</span> Storage</a></h1>
+<p>StratusLab provides three different types of storage: volatile, static, and persistent volumes.</p>
+<h2 id="volatile-storage"><a href="#TOC"><span class="header-section-number">8.1</span> Volatile Storage</a></h2>
+<p>Volatile storage consists of a volume that is allocated when a virtual machine starts and that is destroyed automatically when the VM terminates. Because of the volatile nature of these volumes, they are ideal for <strong>temporary</strong> storage.</p>
+<h3 id="requesting-a-volatile-disk"><a href="#TOC"><span class="header-section-number">8.1.1</span> Requesting a Volatile Disk</a></h3>
+<p>Users can request a volatile disk when starting a virtual machine with the <code>--volatile-disk</code> option to <code>stratus-run-instance</code>, giving the required size of the disk in Gigabytes.</p>
+<pre><code>$ stratus-run-instance \
+    --volatile-disk SIZE_GB $TTYLINUX</code></pre>
+<p>The created storage is a raw, unformatted volume. To find the disk, you can use the command <code>fdisk -l</code>.</p>
+<h3 id="use-of-volatile-disk"><a href="#TOC"><span class="header-section-number">8.1.2</span> Use of volatile disk</a></h3>
+<p>These volatile disks are raw devices, so the user is responsible for partitioning and/or formatting the volumes before using them. They also must be subsequently mounted on the VM's file system.</p>
+<p>Connect to your VM. Format, mount, and use your disk:</p>
+<ol type="1">
+<li>Disks are not formatted! Use: <code>mkfs.ext4 /dev/xxx</code></li>
+<li>Mount disk: <code>mount /dev/xxx /mnt/volatile</code></li>
+<li>Use normally: <code>touch /mnt/volatile/mydata</code></li>
+</ol>
+<p>If you're planning on rebooting the machine, you may want to add the volume to the <code>/etc/fstab</code> file so that it is mounted automatically.</p>
+<h3 id="data-on-a-volatile-disk"><a href="#TOC"><span class="header-section-number">8.1.3</span> Data on a Volatile Disk</a></h3>
+<p>Volatile disks are appropriate <strong>only for temporary data storage</strong>. The data on these volumes will be destroyed when the virtual machine is terminated. For VM reboots however, the disk and data will survive.</p>
+<p>Verify this for yourself:</p>
+<ol type="1">
+<li>Reboot your VM, and verify that your disk still exists, also verify your data on the disk.</li>
+<li>Terminate your VM. This will also destroy your disk.</li>
+</ol>
+<p>Finally, note that this storage is allocated on the physical machine where the VM is running, so requesting a very large volatile disk may reduce the number of physical machines which can host the virtual machine.</p>
+<h2 id="static-disk"><a href="#TOC"><span class="header-section-number">8.2</span> Static Disk</a></h2>
+<p>Many scientific and engineering applications require access to fixed (or slowly changing) data sets. These data sets include versioned copies of databases (e.g. protein databases) or calibration information. These are often inputs to calculations that analyze larger, more varied data sets.</p>
+<p>Read-only (static) disks allow users to create a fixed disk image containing the data. It is then registered in the Marketplace and can subsequently be attached to multiple machine instances. This mechanism takes advantage of the caching and snapshotting infrastructure used for machine images. Making the initial copy of the data image and subsequent snapshotting for individual machine instances completely transparent to the user.</p>
+<p>In this tutorial we will be using &quot;Flora and Fauna&quot; read-only disk from the Marketplace. The identifier is:</p>
+<pre><code>GPAUQFkojP5dMQJNdJ4qD_62mCo</code></pre>
+<p>This disk contains a hierarchy of files named after plants and animals.</p>
+<h3 id="run-vm-with-static-read-only-disk"><a href="#TOC"><span class="header-section-number">8.2.1</span> Run VM with Static (Read-Only) Disk</a></h3>
+<p>Using the image itself should be straight-forward. Use <code>stratus-run-instance</code> as you normally would but add the <code>--readonly-disk</code> option with the Marketplace identifier of the data image. An example is:</p>
+<pre><code>$ stratus-run-instance \
+    --readonly-disk=GPAUQFkojP5dMQJNdJ4qD_62mCo \
+    $TTYLINUX</code></pre>
+<p>This disk image is a standard image (&quot;Flora and Fauna&quot;) used for tests of the system. It contains a hierarchy of files named after animals and plants. For the appliance, you can use any linux appliance.</p>
+<p>Disks appear exactly as in reference image, formatting included. You can use the command <code>blkid</code> to find the image. For this instance, the output looks like the following:</p>
+<pre><code>$ blkid
+/dev/sda1: UUID=&quot;2fb85561-3fc4-4258-b3cf-abd8ae53d18a&quot; TYPE=&quot;ext4&quot;
+/dev/sda5: UUID=&quot;ae3f7fb4-7d0e-4f6a-b91a-2f261be6a75a&quot; TYPE=&quot;swap&quot;
+/dev/sr0: LABEL=&quot;_STRATUSLAB&quot; TYPE=&quot;iso9660&quot;
+/dev/sdb: UUID=&quot;84e95f5f-dd31-4452-beca-2ab2cfd1bb87&quot; TYPE=&quot;swap&quot;
+/dev/sdc: LABEL=&quot;CDROM&quot; TYPE=&quot;iso9660&quot;</code></pre>
+<p>In this case, the disk we're looking for is <code>/dev/sdc</code>. The other CDROM image with a label '_STRATUSLAB' is the contextualization information.</p>
+<p>Mount the disk and ensure that the filesystem is visible:</p>
+<pre><code>$ mount /dev/sdc /mnt
+mount: warning: /mnt seems to be mounted read-only.
+
+$ ls -l /mnt
+total 4
+dr-xr-xr-x 1 root root 2048 Jan 26 20:01 animals
+dr-xr-xr-x 1 root root 2048 Jan 26 20:01 plants</code></pre>
+<p>You can then access the data on the disk as you normally would:</p>
+<pre><code>$ cat /mnt/animals/dog.txt
+dog</code></pre>
+<p>A real disk would likely contain more interesting data!</p>
+<p>As the name implies, data is fixed on static (read-only) disks! The disk and its cannot be modified. Updating the data requires creating a new disk image and registering the new one in the Marketplace.</p>
+<h3 id="creating-a-static-disk"><a href="#TOC"><span class="header-section-number">8.2.2</span> Creating a Static Disk</a></h3>
+<p>This tutorial does not cover the creation of static disks. However, the basic recipe is:</p>
+<ol type="1">
+<li>Create a CDROM image containing the desired file, preferably with a descriptive label.</li>
+<li>Make the image accessible via a web server.</li>
+<li>Register the image in the Marketplace.</li>
+<li>Reference the CDROM image when starting the machine.</li>
+</ol>
+<p>The details can be found in the User's Guide.</p>
+<h2 id="persistent-volumes"><a href="#TOC"><span class="header-section-number">8.3</span> Persistent Volumes</a></h2>
+<p>Persistent Disk Service is the StratusLab service that physically stores machine and disk images as volumes for the cloud infrastructure. It gives users the ability to store data independently of any particular VM. It also facilitates quick startup of VMs and hot-plugging of disk volumes as block devices to the VMs.</p>
+<h3 id="create-persistent-disk"><a href="#TOC"><span class="header-section-number">8.3.1</span> Create persistent disk</a></h3>
+<p>Before creating persistent volumes (or disks)<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>, you should make sure that your configuration file is properly setup. For the StratusLab cloud at LAL, you must define both the <code>endpoint</code> and <code>pdisk_endpoint</code> parameters. For other sites, you may only need to define the <code>endpoint</code> parameter.</p>
+<p>Let's create a persistent disk of 5 GB and named &quot;myprivate-disk&quot;.</p>
+<pre><code>$ stratus-create-volume --size=5 --tag=myprivate-disk
+DISK 24f77fbd-1f26-46a5-9726-5659279843e7</code></pre>
+<p>The command returned the UUID of the created persistent disk. For convenience in the commands below, we'll define a variable:</p>
+<pre><code>$ export UUID=24f77fbd-1f26-46a5-9726-5659279843e7</code></pre>
+<p>Substitute this value where indicated below.</p>
+<p>Newly created disk is private (only accessible to the user) and of type &quot;read-write data image&quot;. You can update the properties of the disk via the <code>stratus-update-volume</code> command:</p>
+<pre><code>stratus-update-volume --tag=my-updated-disk $UUID</code></pre>
+<p>Use the help option (<code>--help</code>) to see all of the properties that can be updated.</p>
+<p>You can create a public persistent disk by passing the <code>--public</code> option to <code>stratus-create-volume</code>. However, this is a <strong>deprecated feature</strong>.</p>
+<h3 id="list-persistent-disks"><a href="#TOC"><span class="header-section-number">8.3.2</span> List Persistent Disks</a></h3>
+<p><code>stratus-describe-volumes</code> allows you to query the list of all your persistent volumes, and also all the public persistent disks created by other users.</p>
+<pre><code>$ stratus-describe-volumes
+:: DISK a4324f26-39e0-4965-8c8f-3287cd0936e5
+        created: 2011/07/20 16:37:10
+        visibility: public
+        tag: mypublic-disk
+        owner: testor2
+        size: 5
+        users: 0
+:: DISK 24f77fbd-1f26-46a5-9726-5659279843e7
+        created: 2011/07/20 16:10:37
+        visibility: private
+        tag: myprivate-disk
+        owner: testor1
+        size: 5
+        users: 0
+:: DISK d955fda6-bf9c-4aa8-abc4-5bbcdb83021b
+        created: 2011/07/20 16:26:31
+        visibility: public
+        tag: mypublic-disk
+        owner: testor1
+        size: 5
+        users: 0</code></pre>
+<p>The above command lists 'testor1' persistent volumes, and also the public 'testor2' ones.</p>
+<p>Internally, the StratusLab services use the persistent disk service to cache snapshots of VM appliances. If you are running machines, you will also see those snapshots listed.</p>
+<h3 id="persistent-disk-workflow"><a href="#TOC"><span class="header-section-number">8.3.3</span> Persistent Disk Workflow</a></h3>
+<p>The typical workflow for using a persistent disk is the following:</p>
+<ul>
+<li>Launch a virtual machine instance referencing a persistent disk</li>
+<li>Format the disk in the running VM</li>
+<li>Write data to the disk</li>
+<li>Dismount the disk or halt the machine instance</li>
+<li>Disk with persistent data is available for use by another VM</li>
+<li>Launch another VM referencing the modified persistent disk</li>
+</ul>
+<p>Note that the persistent disk should only be formatted the first time it is used. Formatting the disk will erase any previous data!</p>
+<p>To demonstrate this workflow, we will use the same ttylinux appliance identifier that we used before.</p>
+<h4 id="launch-vm-with-a-persistent-disk-attached"><a href="#TOC"><span class="header-section-number">8.3.3.1</span> Launch VM with a persistent disk attached</a></h4>
+<p>The <code>--persistent-disk=UUID</code> option when used with <code>stratus-run-instance</code>, tells StratusLab to attach the referenced persistent disk(UUID) to the VM when starting the machine.</p>
+<p>Instantiate the ttylinux appliance with reference to your private persistent disk.</p>
+<pre><code>$ stratus-run-instance --persistent-disk=$UUID $TTYLINUX
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 3)
+        Public ip: 134.158.75.35</code></pre>
+<p>Log into your VM using ssh, depending on the linux kernel and distribution version of your VM, your persistent disk will be referenced as <code>/dev/hdc</code> or <code>/dev/sdc</code>. In ttylinux, it will be <code>/dev/hdc</code>.</p>
+<p>Log into the machine and make sure that your disk was attached to your VM:</p>
+<pre><code>$ ssh root@134.158.75.35
+# fdisk -l
+.........
+Disk /dev/hdc: 5368 MB, 5368709120 bytes
+255 heads, 63 sectors/track, 652 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+.........</code></pre>
+<p>You should see a disk with the same size as the one you created.</p>
+<h4 id="format-attached-disk"><a href="#TOC"><span class="header-section-number">8.3.3.2</span> Format Attached Disk</a></h4>
+<p>When created, the persistent volumes are unformatted. To use it, you will need to format it. Use the 'ext3' or 'ext4' formatting.</p>
+<pre><code># mkfs.ext4 /dev/hdc</code></pre>
+<p>You can also optionally partition the disk, which gives you the possiblity to provide a label for the partition.</p>
+<h4 id="use-the-disk"><a href="#TOC"><span class="header-section-number">8.3.3.3</span> Use the Disk</a></h4>
+<p>To use the disk, just mount it and use it normally. When finished you can unmount the device.</p>
+<pre><code># mount /dev/hdc /mnt
+# echo &quot;Testing Persistent Disk&quot; &gt; /mnt/test_pdisk
+# umount /mnt</code></pre>
+<p>Once the persistent disk is unmounted and the machine has been terminated, your persistent disk is ready to be used by another VM.</p>
+<h4 id="reuse-the-disk"><a href="#TOC"><span class="header-section-number">8.3.3.4</span> Reuse the Disk</a></h4>
+<p>Instantiate new ttylinux VM with the same reference to your private persistent disk.</p>
+<pre><code>$ stratus-run-instance --persistent-disk=$UUID $TTYLINUX
+
+ :::::::::::::::::::::::::
+ :: Starting machine(s) ::
+ :::::::::::::::::::::::::
+ :: Starting 1 machine
+ :: Machine 1 (vm ID: 4)
+        Public ip: 134.158.75.36</code></pre>
+<p>Log into your VM using ssh, verify existence of your persistent disk:</p>
+<pre><code>$ ssh root@134.158.75.35
+# fdisk -l
+...........
+Disk /dev/hdc: 5368 MB, 5368709120 bytes
+255 heads, 63 sectors/track, 652 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+...........</code></pre>
+<p>Mount your persistent disk and verify that the file that was previously saved on the other VM is still there:</p>
+<pre><code># mount /dev/hdc /mnt
+# ls /mnt
+lost+found  test_pdisk
+# cat /mnt/test_pdisk
+Testing Persistent Disk</code></pre>
+<p>These disks provide a mechanism to save data with a lifetime longer than a single VM. Keep in mind however, that like physical disks, <strong>a persistent disk can only be used by one machine at a time</strong>.</p>
+<h4 id="hot-plug-persistent-disks"><a href="#TOC"><span class="header-section-number">8.3.3.5</span> Hot-plug Persistent Disks</a></h4>
+<p>StratusLab storage also provides hot-plug feature for persistent disks. With <code>stratus-attach-volume</code> you can attach a volume to a running machine and with <code>stratus-detach-volume</code> you can release it.</p>
+<p>To use the hot-plug feature, the running instance needs to have acpiphp kernel module loaded. <strong>The ttylinux appliance does not have this feature.</strong> All of the other StratusLab base appliance (Ubuntu, CentOS, Fedora, etc.) do support this feature.</p>
+<p>Before dynamically attaching a disk, make sure the acpiphp module is loaded. In your VM execute:</p>
+<pre><code>modprobe acpiphp</code></pre>
+<p>For all of the StratusLab appliances, this is done automatically. Other appliances might need to have this done manually.</p>
+<p>To attach two volumes to the VM ID 24 with the given UUIDs, use the command:</p>
+<pre><code>$ stratus-attach-volume --instance=5737 $UUID
+ATTACHED 24f77fbd-1f26-46a5-9726-5659279843e7 in VM 5737 on /dev/vda</code></pre>
+<p>Note that the <code>-i</code> or <code>--instance</code> option is required and specifies to which machine instance the disks should be attached.</p>
+<p>From within the VM, use the <code>fdisk -l</code> or <code>blkid</code> command as above to see the newly attached disks. The devices listed in the command response are <strong>best guesses</strong>. It is always a good idea to confirm the location of the disks.</p>
+<p>Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to unmount file systems, may corrupt the file system and lead to data loss.</p>
+<pre><code>umount /dev/vda</code></pre>
+<p>When you finish using your disks, you can detach them from the running VM:</p>
+<pre><code>(SL)~&gt; stratus-detach-volume --instance=5737 $UUID
+DETACHED 24f77fbd-1f26-46a5-9726-5659279843e7 from VM 5737 on /dev/vda</code></pre>
+<p>Trying to detach disks that were mounted with the <code>stratus-run-instance</code> command or disks that are no longer attached will result in an error.</p>
+<p>Disks mounted at instance start-up will only be released after the <code>stratus-kill-instance</code> command has been executed.</p>
+<h3 id="delete-persistent-disks"><a href="#TOC"><span class="header-section-number">8.3.4</span> Delete Persistent Disks</a></h3>
+<p>To delete a persistent disk use the <code>stratus-delete-volume</code> command, note that you can delete only your disks.</p>
+<p>To delete the disk we created above:</p>
+<pre><code>$ stratus-delete-volume $UUID
+DELETED 24f77fbd-1f26-46a5-9726-5659279843e7</code></pre>
+<p>Check that the disk is no longer there</p>
+<pre><code>$ stratus-describe-volumes
+:: DISK a4324f26-39e0-4965-8c8f-3287cd0936e5
+        created: 2011/07/20 16:37:10
+        visibility: public
+        tag: mypublic-disk
+        owner: testor2
+        users: 0
+        size: 5
+:: DISK d955fda6-bf9c-4aa8-abc4-5bbcdb83021b
+        created: 2011/07/20 16:26:31
+        visibility: public
+        tag: mypublic-disk
+        owner: testor1
+        users: 1
+        size: 5</code></pre>
+<p>Trying to delete the disk of another user ('mypublic-disk' of 'testor2') will result in an error:</p>
+<pre><code>$ stratus-delete-volume a4324f26-39e0-4965-8c8f-3287cd0936e5
+  [ERROR] Service error: Not enough rights to delete disk</code></pre>
+<p>Note that there is no confirmation required when deleting disks. Be sure you have the correct disk UUID before executing the command!</p>
+<h1 id="customized-images"><a href="#TOC"><span class="header-section-number">9</span> Customized Images</a></h1>
+<p>One of the strongest reasons to use a cloud is the capability of providing a completely customized computational environment. The relieves users from the often painful installation and configuration of applications.</p>
+<p>This short tutorial does not have the time to cover the topic of customized images in detail, but you should be aware of the following information when you reach the point where you want to use or to create a customized image.</p>
+<h2 id="contextualization"><a href="#TOC"><span class="header-section-number">9.1</span> Contextualization</a></h2>
+<p>Contextualization allows a virtual machine instance to learn about its cloud environment (the 'context') and to configure itself to run correctly there. StratusLab now supports CloudInit contextualization in addition to the OpenNebula and HEPiX contextualization schemes.</p>
+<p>Image creators can use the contextualization mechanism to create &quot;parameterized&quot; images, allowing users to pass additional information when starting the instance to alter the behavior of the image. This could be used, for instance, to configure an application or to send the location of another service.</p>
+<p>Find the contextualization information sent to the machine. Start a machine (if you don't have one running already) and search for a disk with a label &quot;_STRATUSLAB&quot;.</p>
+<pre><code># blkid
+/dev/hda1: UUID=&quot;7d2364af-abc2-4a55-8937-f4ebd56b29b3&quot; TYPE=&quot;ext2&quot;
+/dev/hdb: UUID=&quot;b60b1e5a-8a47-411f-a29c-36920f0c476c&quot; TYPE=&quot;swap&quot;
+/dev/hdd: UUID=&quot;2013-08-28-11-52-24-00&quot; LABEL=&quot;_STRATUSLAB&quot; TYPE=&quot;iso9660&quot;
+#</code></pre>
+<p>If this disk isn't mounted, then mount it. Look to see what files are on the disk:</p>
+<pre><code># ls /mnt/stratuslab/
+context.sh  epilog.sh   init.sh     prolog.sh</code></pre>
+<p>The <code>context.sh</code> file will contain information passed to the machine, in particular the public ssh key of the user. The other scripts use this information to configure the machine for the given cloud environment.</p>
+<h2 id="create-image"><a href="#TOC"><span class="header-section-number">9.2</span> Create Image</a></h2>
+<p>Creating a new image can be difficult and time-consuming. StratusLab facilitates this process by providing the <code>stratus-create-image</code> command. This takes the identifier of a base image, a list of additional packages, and a configuration script as input. It then automates the full creation process by launching an instance of the base image, installing the packages, and running the script. The result is saved and the information sent to the user. This is the easiest way to create a new image.</p>
+<p>You can also create an image from scratch or convert an VirtualBox image. These require you to completely understand the contextualization process and to include the contextualization mechanisms in the image.</p>
+<p>More information on all of these processes can be found in the <a href="http://stratuslab.eu/release/13.05.0/users-guide/users-guide.html">Users Guide</a>.</p>
+<p>For now, take a look at the options available for the command by using the <code>--help</code> option.</p>
+<h2 id="image-metadata"><a href="#TOC"><span class="header-section-number">9.3</span> Image Metadata</a></h2>
+<p>After creating an image, it must be registered in the Marketplace before it can be used. Again StratusLab provides a number of commands to aid this process. The <code>stratus-build-metadata</code> command will provide a skeletal metadata description of an image with all of the necessary checksums and identifiers included. You then only need to complete the other fields with your favorite text editor. <strong>You must provide the location URL from where the image contents can be obtained.</strong></p>
+<p>After the metadata is complete, you must sign it with the <code>stratus-sign-metadata</code> command. (You'll need a personal certificate to do this, either a self-signed one or one from a provider.) Once signed, it can be uploaded to the Marketplace via the browser or the <code>stratus-upload-metadata</code> command.</p>
+<p>You can see what this XML file looks like by downloading one from the Marketplace. Choose an appliance, click on the &quot;More...&quot; link and then on the &quot;XML&quot; button at the bottom of the page. The metadata contains the size of the appliance, a number of checksums, and other descriptive information. An important element is the signature, that allows the validity of the information to be checked.</p>
+<h1 id="next-steps"><a href="#TOC"><span class="header-section-number">10</span> Next Steps</a></h1>
+<p>This tutorial has demonstrated the core features of the StratusLab cloud distribution. Already with the features presented here, you can go a long way in using the cloud for running your applications and analyses.</p>
+<p>There are, however, a number of more advanced topics that will allow you to more efficiently use the infrastructure. Check out the complete User's Guide to get an overview of all of the features and to understand the core features in more detail.</p>
+<p>If you don't find the information you need on the website or in the documentation, don't hesitate to contact the developers via the support@stratuslab.eu mailing list.</p>
+<section class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>&quot;disk&quot; and &quot;volume&quot; are used interchangeably.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
+</body>
+</html>
