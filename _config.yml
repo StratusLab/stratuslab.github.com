@@ -1,2 +1,3 @@
+markdown: kramdown
 paginate: 10000
 baseurl: http://stratuslab.eu/
