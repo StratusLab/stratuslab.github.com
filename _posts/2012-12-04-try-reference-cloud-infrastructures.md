@@ -162,7 +162,7 @@ services are currently provided on best effort basis.
 [lal]: http://www.lal.in2p3.fr
 [marketplace]: https://marketplace.stratuslab.eu
 [tcd]: http://www.tcd.ie
-[ref-infra-reg]: https://register.stratuslab.eu:8444/
+[ref-infra-reg]: https://register.stratuslab.eu/register
 [igtf]: http://www.igtf.net/
 [client-install]: /try/2012/01/10/try-user-cli-installation.html
 [get-started]: http://stratuslab.eu/doku.php/release:users
