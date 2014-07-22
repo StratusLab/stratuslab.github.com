@@ -38,20 +38,21 @@ details for accessing the cloud service.
 What I need to access the StratusLab reference cloud?
 -----------------------------------------------------
 
-You will need to [install the StratusLab client tools][client-install]
-that allow you to access remotely the cloud and to control the
-lifecycle of your Virtual Machine instances. They also allow you to
-create entries for the Marketplace, generate your own VM appliances
-based on pre-existing images which then can be referenced from the
-Marketplace and instantiated in the cloud.
+You will need to install the StratusLab client tools that allow you to
+access remotely the cloud and to control the lifecycle of your Virtual
+Machine instances. They also allow you to create entries for the
+Marketplace, generate your own VM appliances based on pre-existing
+images which then can be referenced from the Marketplace and
+instantiated in the cloud.
 
-The endpoints for invoking the cloud services are 
+See the [user tutorial][user-tutorial] or the [user guide][user-guide]
+to learn how to install and configure the client.  Use the following: 
 
-* cloud.lal.stratuslab.eu (compute)
-* pdisk.lal.stratuslab.eu (storage)
+    endpoint=https://cloud.lal.stratuslab.eu/one-proxy/xmlrpc
+    pdisk_endpoint=https://pdisk.lal.stratuslab.eu/pdisk
+    marketplace_endpoint=https://marketplace.stratuslab.eu/marketplace
 
-To configure the above endpoints in the client tools see the [user
-client installation instructions][client-install].
+for the service endpoints for the reference cloud infrastructure.
 
 Which virtualization technologies do you use?
 ---------------------------------------------
@@ -73,10 +74,9 @@ virtual machines, including volumes and basic network configuration
 The [Marketplace][marketplace] is publicly accessible and offers base
 OS images for a variety of Linux distributions including:
 
-* ttylinux
 * CentOS
 * Ubuntu
-* OpenSuSE
+* ScientificLinux
 
 External users also have the ability to upload their own base images
 and appliances to the repository. For instructions on how to prepare
@@ -164,7 +164,8 @@ services are currently provided on best effort basis.
 [tcd]: http://www.tcd.ie
 [ref-infra-reg]: https://register.stratuslab.eu/register
 [igtf]: http://www.igtf.net/
-[client-install]: /try/2012/01/10/try-user-cli-installation.html
+[user-tutorial]: http://stratuslab.readthedocs.org/en/latest/user-tutorial/index.html
+[user-guide]: http://stratuslab.readthedocs.org/en/latest/user-guide/index.html
 [get-started]: http://stratuslab.eu/doku.php/release:users
 [one]: http://www.opennebula.org 
 [documentation]: /documentation/
