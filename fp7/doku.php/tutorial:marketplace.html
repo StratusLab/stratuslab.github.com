@@ -168,7 +168,6 @@ Use the following command:
   --os=ttylinux \
   --os-version=10.0 \
   --os-arch=i486 \
-  --version=1.0 \
   dummy.img </pre>
 
 <p>
@@ -252,6 +251,10 @@ In particular, you will probably want to add one or more location elements conta
 <div class="level2">
 
 <p>
+This will also add your endorser informations to the signed metadata file.
+</p>
+
+<p>
 
 Try to validate the unsigned file.
 
@@ -308,7 +311,7 @@ Now you will want to upload the metadata description.  Only valid, signed descri
 
 </p>
 <pre class="code">$ stratus-upload-metadata \
-    --marketplace-endpoint=http://marketplace.stratuslab.eu
+    --marketplace-endpoint=http://marketplace.stratuslab.eu \
     ttylinux-10.0-i486-base-1.0.xml.sign.xml
  http://marketplace.stratuslab.eu/metadata/MMZu9WvwKIro-rtBQfDk4PsKO7_/email address/2011-06-29T10:14:41Z</pre>
 
